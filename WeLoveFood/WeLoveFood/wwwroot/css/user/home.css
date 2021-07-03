@@ -41,29 +41,33 @@ a:active {
     font-weight: 600;
 }
 
-.link-button {
+.link-button-container {
+    display: inline-block;
     padding: 10px;
+}
+
+.link-button {
     font-family: cursive;
     font-size: 17px;
     position: relative;
     font-size: 1.2rem;
 }
 
-.link-button span {
+.link-button span:hover {
     cursor: pointer;
 }
 
-    .link-button span:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 0.1em;
-        background-color: #398809;
-        opacity: 0;
-        transition: opacity 300ms, transform 300ms;
-    }
+.link-button span:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: #398809;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
 
 .link-button span:hover:after,
 .link-button span:focus:after {

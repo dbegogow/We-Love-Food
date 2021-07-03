@@ -11,8 +11,12 @@
         <nav class="nav-container">
             <a asp-controller="Home" asp-action="Index" class="header-title">We Love Food</a>
             <div>
-                <a asp-controller="Home" asp-action="Login" class="link-button"><span>Вход</span></a>
-                <a asp-controller="Home" asp-action="Register" class="link-button"><span>Регистрация</span></a>
+                <div class="link-button-container">
+                    <a asp-controller="Home" asp-action="Login" class="link-button"><span>Вход</span></a>
+                </div>
+                <div class="link-button-container">
+                    <a asp-controller="Home" asp-action="Register" class="link-button"><span>Регистрация</span></a>
+                </div>
             </div>
         </nav>
     </header>

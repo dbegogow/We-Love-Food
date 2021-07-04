@@ -1,0 +1,26 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+
+.home-title-container {
+    margin-top: 9vh;
+    margin-bottom: 5vh;
+    text-align: center;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.3rem;
+    color: #2F6F08;
+}
+
+.home-title-container h1 {
+    margin-bottom: 0;
+}
+
+.home-title-container h2 {
+    margin-top: 7px;
+}
+
+.home-city-cards-container {
+    margin: 0 10vw;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 30px;
+}

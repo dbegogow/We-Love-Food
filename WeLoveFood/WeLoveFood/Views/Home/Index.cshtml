@@ -1,9 +1,26 @@
 ﻿@section IndexStyles {
+    <link href="~/css/home/index.css" rel="stylesheet" />
     <link href="~/css/home/slider.css" rel="stylesheet" />
+    <link href="~/css/home/cityCard.css" rel="stylesheet" />
 }
 
 <partial name="_SliderPartial.cshtml" />
 
+<div class="home-title-container">
+    <h1>We Love Food</h1>
+    <h2>Избери своя град и поръчай от най-добрите ресторанти</h2>
+</div>
+
+<div class="home-city-cards-container">
+    <partial name="_CityCardPartial" />
+    <partial name="_CityCardPartial" />
+    <partial name="_CityCardPartial" />
+    <partial name="_CityCardPartial" />
+    <partial name="_CityCardPartial" />
+    <partial name="_CityCardPartial" />
+    <partial name="_CityCardPartial" />
+</div>
+
 @section IndexScript {
-    <script type="text/javascript" src="~/js/index.js"></script>
+    <script type="text/javascript" src="~/js/home/index.js"></script>
 }

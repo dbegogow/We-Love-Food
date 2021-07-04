@@ -12,10 +12,11 @@ body {
 }
 
 .header-container {
-    background: antiquewhite;
+    background: #FAEBD7;
     height: 60px;
     position: fixed;
-    width: 100%
+    width: 100%;
+    z-index: 1;
 }
 
 .nav-container {
@@ -41,23 +42,23 @@ a:active {
     font-weight: 600;
 }
 
-.link-button-container {
+.header-link-btn-container {
     display: inline-block;
     padding: 10px;
 }
 
-.link-button {
+.header-link-btn {
     font-family: cursive;
     font-size: 17px;
     position: relative;
     font-size: 1.2rem;
 }
 
-.link-button span:hover {
+.header-link-btn:hover {
     cursor: pointer;
 }
 
-.link-button span:after {
+.header-link-btn span:after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -69,8 +70,8 @@ a:active {
     transition: opacity 300ms, transform 300ms;
 }
 
-.link-button span:hover:after,
-.link-button span:focus:after {
+.header-link-btn span:hover:after,
+.header-link-btn span:focus:after {
     opacity: 1;
     transform: translate3d(0, 0.2em, 0);
 }

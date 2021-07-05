@@ -1,8 +1,27 @@
 ﻿.auth-form-container {
+    height: calc(100vh - 50px);
+}
+
+.auth-form-container .form-container {
     position: relative;
     top: 18vh;
-    border: 1px solid #BEBEBE;
     height: 60vh;
     width: 60vw;
     margin: 0 auto;
+    border: 1px solid #C3C3C3;
+    border-radius: 12px;
+    box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
+
+.auth-form-container .login-image {
+    position: absolute;
+    bottom: 5vh;
+    width: 33vw;
+    height: 42vh;
+    z-index: -1;
+}
+

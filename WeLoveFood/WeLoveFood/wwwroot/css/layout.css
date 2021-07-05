@@ -81,10 +81,12 @@ a:active {
 }
 
 .footer-container {
+    position: relative;
+    bottom: 0;
     border-top: 1px solid #919191;
     border-left: 1px solid #919191;
     border-right: 1px solid #919191;
-    height: 4vh;
+    height: 50px;
     margin: 0 3vw;
 }
 

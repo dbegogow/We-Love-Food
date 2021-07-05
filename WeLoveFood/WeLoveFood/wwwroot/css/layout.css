@@ -80,6 +80,22 @@ a:active {
     transform: translate3d(0, 0.2em, 0);
 }
 
+.footer-container {
+    border-top: 1px solid #919191;
+    border-left: 1px solid #919191;
+    border-right: 1px solid #919191;
+    height: 4vh;
+    margin: 0 3vw;
+}
+
+.footer-container span {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-left: 20px;
+    color: #7BA339;
+}
+
 @media (max-width: 550px) {
     .header-container {
         height: 65px;

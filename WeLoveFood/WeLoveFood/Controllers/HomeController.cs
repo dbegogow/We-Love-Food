@@ -23,6 +23,9 @@ namespace WeLoveFood.Controllers
             return View();
         }
 
+        public IActionResult Login()
+            => View();
+
         public IActionResult Privacy()
         {
             return View();

@@ -8,6 +8,7 @@
     <link href="~/css/layout.css" rel="stylesheet" />
 
     @await RenderSectionAsync("IndexStyles", required: false)
+    @await RenderSectionAsync("LoginStyles", required: false)
 </head>
 <body>
     <header class="header-container">
@@ -23,11 +24,16 @@
             </div>
         </nav>
     </header>
+
     <div>
         <main>
             @RenderBody()
         </main>
     </div>
+
+    <footer class="footer-container">
+        <span>We Love Foot</span>
+    </footer>
 
     @await RenderSectionAsync("IndexScript", required: false)
 </body>

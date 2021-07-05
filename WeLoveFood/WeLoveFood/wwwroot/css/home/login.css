@@ -1,0 +1,8 @@
+﻿.auth-form-container {
+    position: relative;
+    top: 18vh;
+    border: 1px solid #BEBEBE;
+    height: 60vh;
+    width: 60vw;
+    margin: 0 auto;
+}

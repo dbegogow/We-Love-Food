@@ -15,10 +15,83 @@
     -moz-box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    background: #FFF;
+}
+
+.auth-form-container .form-container .form {
+    height: 100%;
+    padding: 5vh 8vh;
+}
+
+.auth-form-container .form-container h2 {
+    text-align: center;
+    font-family: cursive;
+    color: #23A829;
+    margin-bottom: 0;
+}
+
+.auth-form-container .form-container form div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+}
+
+.auth-form-container .form-container form input {
+    width: 100%;
+    margin-left: 7px;
+    outline: none;
+    border: 2px solid #777777;
+    border-radius: 18px;
+    padding: 10px;
+    background: #F7F7F7;
+}
+
+.auth-form-container .form-container form i {
+    position: relative;
+    top: 10px;
+}
+
+.auth-form-container .form-container form button {
+    display: block;
+    margin: 20px auto;
+    padding: 8px 6vw;
+    border-radius: 15px;
+    border: none;
+    background: #A9EE67;
+    color: #FFF;
+    font-family: cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.auth-form-container .form-container form button:hover {
+    cursor: pointer;
+    transform: scale(1.07);
+}
+
+.auth-form-container .form-container .form div {
+    font-size: 1.07rem;
+}
+
+.auth-form-container .form-container .form div p {
+    margin-bottom: 5px;
+}
+
+.auth-form-container .form-container .form div a {
+    color: #286928;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.auth-form-container .form-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .auth-form-container .login-image {
     position: absolute;
+    left: -1vw;
     bottom: 5vh;
     width: 33vw;
     height: 42vh;

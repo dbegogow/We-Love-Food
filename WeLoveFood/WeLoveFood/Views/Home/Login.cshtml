@@ -1,18 +1,32 @@
 ﻿@section LoginStyles {
     <link href="~/css/home/login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 }
 
 <div class="auth-form-container">
     <div class="form-container">
         <div>
             <div class="form">
-                Form
+                <h2>Влизане</h2>
+                <form>
+                    <div>
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" />
+                    </div>
+                    <div>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <button type="submit">Влез</button>
+                </form>
+                <div>
+                    <p>Все още няма акаунт?</p>
+                    <a asp-controller="Home" asp-action="Register">Регистрирай се сега</a>
+                </div>
             </div>
         </div>
         <div>
-            <div class="content">
-                Content
-            </div>
+            <img src="~/img/login-form-meal.jpg" alt="Login Form Meal" />
         </div>
     </div>
 

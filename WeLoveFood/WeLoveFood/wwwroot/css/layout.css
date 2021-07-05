@@ -86,15 +86,18 @@ a:active {
     border-top: 1px solid #919191;
     border-left: 1px solid #919191;
     border-right: 1px solid #919191;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     height: 50px;
     margin: 0 3vw;
+    padding-top: 6px;
+    padding-left: 20px;
 }
 
 .footer-container span {
     font-family: 'Indie Flower', cursive;
     font-size: 1.6rem;
     font-weight: 600;
-    margin-left: 20px;
     color: #7BA339;
 }
 

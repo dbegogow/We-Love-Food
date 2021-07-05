@@ -1,4 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 .home-title-container {
     margin-top: 9vh;
@@ -23,4 +24,12 @@
     justify-items: center;
     grid-template-columns: repeat(4, 1fr);
     row-gap: 30px;
+}
+
+.application-info {
+    margin: 8vh 6vw 5vh 6vw;
+    padding: 5px;
+    font-family: 'Noto Sans JP', sans-serif;
+    border: 2px solid #919191;
+    border-radius: 12px;
 }

@@ -98,3 +98,11 @@
     z-index: -1;
 }
 
+.auth-form-container .register-image {
+    position: absolute;
+    left: -1vw;
+    bottom: 5vh;
+    width: 27vw;
+    height: 42vh;
+    z-index: -1;
+}

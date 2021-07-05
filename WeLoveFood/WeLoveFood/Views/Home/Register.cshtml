@@ -7,7 +7,7 @@
     <div class="form-container">
         <div>
             <div class="form">
-                <h2>Влизане</h2>
+                <h2>Регистриране</h2>
                 <form>
                     <div>
                         <i class="fas fa-user"></i>
@@ -17,18 +17,22 @@
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password" />
                     </div>
+                    <div>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Confirm Password" />
+                    </div>
                     <button type="submit">Влез</button>
                 </form>
                 <div>
-                    <p>Все още няма акаунт?</p>
-                    <a asp-controller="Home" asp-action="Register">Регистрирай се сега</a>
+                    <p>Вече имаш акаунт?</p>
+                    <a asp-controller="Home" asp-action="Register">Влез в своя акаунт</a>
                 </div>
             </div>
         </div>
         <div>
-            <img src="~/img/login-form-meal.jpg" alt="Login Form Meal" />
+            <img src="~/img/register-form-meal.jpeg" alt="Login Form Meal" />
         </div>
     </div>
 
-    <img class="login-image" src="~/img/login-form.png" alt="Login Form Image" />
+    <img class="register-image" src="~/img/register-form.png" alt="Login Form Image" />
 </div>

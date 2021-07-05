@@ -45,3 +45,21 @@
     background: #BDE94E;
 
 }
+
+@media (min-height: 1250px) {
+    .slider-container {
+        top: 4vh;
+    }
+}
+
+@media (max-width: 1024px) {
+    .slider-container {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 450px) {
+    .slider-container {
+        height: 40vh;
+    }
+}

@@ -79,3 +79,28 @@ a:active {
     opacity: 1;
     transform: translate3d(0, 0.2em, 0);
 }
+
+@media (max-width: 550px) {
+    .header-container {
+        height: 65px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 5vw;
+    }
+
+    .header-link-btn-container {
+        padding: 0 5px 0 0;
+    }
+
+    .header-title {
+        font-size: 1.4rem;
+    }
+
+    .header-link-btn {
+        font-size: 1rem;
+    }
+}

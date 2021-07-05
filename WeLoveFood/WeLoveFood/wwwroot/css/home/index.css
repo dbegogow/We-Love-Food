@@ -33,3 +33,36 @@
     border: 2px solid #919191;
     border-radius: 12px;
 }
+
+@media (max-width: 1024px) {
+    .application-info {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 850px) {
+    .home-title-container {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .home-city-cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 450px) {
+    .home-title-container {
+        padding: 0 10px;
+        font-size: 0.6rem;
+    }
+
+    .home-city-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .application-info {
+        font-size: 0.7rem;
+    }
+}

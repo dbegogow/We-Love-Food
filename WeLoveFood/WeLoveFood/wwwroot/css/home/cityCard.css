@@ -28,3 +28,41 @@
     left: 10px;
     font-size: 1.3rem;
 }
+
+@media (max-width: 1200px) {
+    .city-card {
+        width: 14vw;
+        height: 25vh;
+    }
+}
+
+@media (max-width: 1150px) {
+    .city-card {
+        width: 13vw;
+        height: 23vh;
+    }
+}
+
+@media (max-width: 950px) {
+    .city-card {
+        height: 20vh;
+    }
+}
+
+@media (max-width: 850px) {
+    .city-card {
+        width: 14vw;
+    }
+}
+
+@media (max-width: 720px) {
+    .city-card {
+        width: 19vw;
+    }
+}
+
+@media (max-width: 450px) {
+    .city-card {
+        width: 32vw;
+    }
+}

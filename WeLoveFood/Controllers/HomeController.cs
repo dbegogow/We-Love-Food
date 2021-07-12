@@ -29,10 +29,8 @@ namespace WeLoveFood.Controllers
         public IActionResult Register()
             => View();
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        public IActionResult Logout()
+            => Redirect("/");
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

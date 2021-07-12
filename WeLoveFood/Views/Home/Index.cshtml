@@ -1,4 +1,6 @@
-﻿@section IndexStyles {
+﻿@model IEnumerable<CityViewModel>
+
+@section IndexStyles {
     <link href="~/css/home/index.css" rel="stylesheet" />
     <link href="~/css/home/slider.css" rel="stylesheet" />
     <link href="~/css/home/cityCard.css" rel="stylesheet" />
@@ -12,13 +14,10 @@
 </div>
 
 <div class="home-city-cards-container">
-    <partial name="_CityCardPartial" />
-    <partial name="_CityCardPartial" />
-    <partial name="_CityCardPartial" />
-    <partial name="_CityCardPartial" />
-    <partial name="_CityCardPartial" />
-    <partial name="_CityCardPartial" />
-    <partial name="_CityCardPartial" />
+    @foreach (var city in Model)
+    {
+        <partial name="_CityCardPartial" for="@city" />
+    }
 </div>
 
 <div class="application-info">

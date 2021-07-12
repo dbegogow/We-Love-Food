@@ -1,5 +1,3 @@
-using System;
-
 namespace WeLoveFood.Models
 {
     public class ErrorViewModel

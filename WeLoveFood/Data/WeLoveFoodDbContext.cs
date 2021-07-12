@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WeLoveFood.Data.Models;
 
 namespace WeLoveFood.Data
 {
@@ -9,5 +10,7 @@ namespace WeLoveFood.Data
             : base(options)
         {
         }
+
+        public DbSet<City> Cities { get; init; }
     }
 }

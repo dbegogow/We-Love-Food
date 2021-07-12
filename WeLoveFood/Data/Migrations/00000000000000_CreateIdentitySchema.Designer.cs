@@ -9,7 +9,7 @@ using WeLoveFood.Data;
 
 namespace WeLoveFood.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(WeLoveFoodDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {

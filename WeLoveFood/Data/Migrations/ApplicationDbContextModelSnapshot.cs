@@ -8,7 +8,7 @@ using WeLoveFood.Data;
 
 namespace WeLoveFood.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(WeLoveFoodDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

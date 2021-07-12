@@ -5,17 +5,18 @@
     margin-top: 9vh;
     margin-bottom: 5vh;
     text-align: center;
-    font-family: 'Inconsolata', monospace;
     font-size: 1.3rem;
     color: #2F6F08;
 }
 
 .home-title-container h1 {
+    font-family: 'Indie Flower', cursive;
     margin-bottom: 0;
 }
 
 .home-title-container h2 {
     margin-top: 7px;
+    font-family: 'Inconsolata', monospace;
 }
 
 .home-city-cards-container {

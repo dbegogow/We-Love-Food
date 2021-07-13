@@ -10,5 +10,7 @@
     row-gap: 40px;
 }
 
-.restaurants-page-container h2 {
+.restaurants-page-container h1 {
+    font-family: 'Open Sans', sans-serif;
+    color: #2F6F08;
 }

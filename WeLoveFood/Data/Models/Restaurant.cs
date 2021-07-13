@@ -1,22 +1,23 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 using static WeLoveFood.Data.DataConstants;
 
 namespace WeLoveFood.Data.Models
 {
-    public class City
+    public class Restaurant
     {
         [Required]
         public int Id { get; init; }
 
         [Required]
-        [MaxLength(CityNameMaxLength)]
+        [MaxLength(RestaurantNameMaxLength)]
         public string Name { get; set; }
 
         [Required]
         public string ImgUrl { get; set; }
 
-        public IEnumerable<Restaurant> Restaurants { get; set; } = new HashSet<Restaurant>();
+        public int CityId { get; set; }
+
+        public City City { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace WeLoveFood.Services.Cities
                 .Cities
                 .Select(c => new CityViewModel
                 {
+                    Id = c.Id,
                     Name = c.Name,
                     ImgUrl = c.ImgUrl
                 })

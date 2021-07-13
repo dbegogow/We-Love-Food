@@ -1,6 +1,6 @@
 ﻿@model CityViewModel
 
-<a asp-controller="Restaurants" asp-action="All" class="city-card">
+<a asp-controller="Restaurants" asp-action="All" asp-route-id="@Model.Id" class="city-card">
     <img src="@Model.ImgUrl" alt="City Image" />
     <h4 class="city-card-title">@Model.Name</h4>
 </a>

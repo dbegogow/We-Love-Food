@@ -87,6 +87,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .auth-form-container .login-image {
@@ -105,4 +107,40 @@
     width: 27vw;
     height: 42vh;
     z-index: -1;
+}
+
+@media (max-width: 1024px) {
+    .auth-form-container .form-container {
+        top: 13vh;
+        height: 75vh;
+        width: 80vw;
+        grid-template-columns: repeat(1, 1fr);
+        font-size: 0.9rem;
+    }
+
+    .auth-form-container .form-container .form div {
+        font-size: 0.9rem;
+    }
+
+    .auth-form-container .form-container form button {
+        font-size: 1rem;
+    }
+
+    .auth-form-container .login-image {
+        display: none;
+    }
+
+    .auth-form-container .register-image {
+        display: none;
+    }
+
+    .auth-form-container .form-container .image-container {
+        overflow: hidden;
+    }
+
+    .auth-form-container .form-container .image-container img {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
 }

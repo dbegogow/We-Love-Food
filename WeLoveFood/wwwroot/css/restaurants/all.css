@@ -1,0 +1,14 @@
+﻿.restaurants-page-container {
+    padding: 11vh 7vw 7vh 7vw;
+}
+
+.restaurants-container {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 40px;
+}
+
+.restaurants-page-container h2 {
+}

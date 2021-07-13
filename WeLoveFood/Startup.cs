@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WeLoveFood.Services.Cities;
 
 namespace WeLoveFood
 {
@@ -35,6 +36,9 @@ namespace WeLoveFood
 
             services
                 .AddControllersWithViews();
+
+            services
+                .AddTransient<ICitiesService, CitiesService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

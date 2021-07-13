@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using WeLoveFood.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using WeLoveFood.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WeLoveFood.Data
 {

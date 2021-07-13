@@ -1,29 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using WeLoveFood.Models;
 using System.Diagnostics;
-using System.Linq;
-using WeLoveFood.Data;
-using WeLoveFood.Models;
-using WeLoveFood.Models.Cities;
+using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Services.Cities;
 
 namespace WeLoveFood.Controllers
 {
     public class HomeController : Controller
     {
-        private WeLoveFoodDbContext data;
+        private readonly ICitiesService _citiesService;
 
-        public HomeController(WeLoveFoodDbContext data)
-            => this.data = data;
+        public HomeController(ICitiesService citiesService)
+            => _citiesService = citiesService;
 
         public IActionResult Index()
         {
-            var cities = this.data
-                .Cities
-                .Select(c => new CityViewModel
-                {
-                    Name = c.Name,
-                    ImgUrl = c.ImgUrl
-                })
-                .ToList();
+            var cities = this._citiesService
+                .GetAllCities();
 
             return View(cities);
         }

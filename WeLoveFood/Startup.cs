@@ -1,12 +1,12 @@
 using WeLoveFood.Data;
+using WeLoveFood.Infrastructure;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using WeLoveFood.Infrastructure;
 
 namespace WeLoveFood
 {

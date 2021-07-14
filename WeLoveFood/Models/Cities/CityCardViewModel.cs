@@ -1,6 +1,6 @@
 ﻿namespace WeLoveFood.Models.Cities
 {
-    public class CityViewModel
+    public class CityCardViewModel
     {
         public int Id { get; init; }
 

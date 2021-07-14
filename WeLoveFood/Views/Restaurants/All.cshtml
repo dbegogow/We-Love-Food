@@ -1,4 +1,6 @@
-﻿@{
+﻿@model AllCityRestaurantsViewModel
+
+@{
     ViewData["Title"] = "Всички ресторанти - ";
 }
 
@@ -8,72 +10,12 @@
 }
 
 <div class="restaurants-page-container">
-    <h1>Доставка на храна от най-добрите ресоранти в София</h1>
+    <h1>Доставка на храна от най-добрите ресоранти в @Model.CityName</h1>
 
     <div class="restaurants-container">
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
-        <partial name="_RestaurantCardPartial" />
+        @foreach (var restaurant in Model.RestaurantCardViewModels)
+        {
+            <partial name="_RestaurantCardPartial" for="@restaurant" />
+        }
     </div>
 </div>

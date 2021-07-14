@@ -12,5 +12,7 @@ namespace WeLoveFood.Data
         }
 
         public DbSet<City> Cities { get; init; }
+
+        public DbSet<Restaurant> Restaurants { get; init; }
     }
 }

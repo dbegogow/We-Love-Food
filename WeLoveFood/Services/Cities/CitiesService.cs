@@ -12,15 +12,22 @@ namespace WeLoveFood.Services.Cities
         public CitiesService(WeLoveFoodDbContext data)
             => this._data = data;
 
-        public IEnumerable<CityViewModel> GetAllCities()
+        public IEnumerable<CityCardViewModel> GetAllCityCards()
             => this._data
                 .Cities
-                .Select(c => new CityViewModel
+                .Select(c => new CityCardViewModel
                 {
                     Id = c.Id,
                     Name = c.Name,
                     ImgUrl = c.ImgUrl
                 })
                 .ToList();
+
+        public string GetCityName(int id)
+            => this._data
+                .Cities
+                .Where(c => c.Id == id)
+                .Select(c => c.Name)
+                .FirstOrDefault();
     }
 }

@@ -15,7 +15,7 @@ namespace WeLoveFood.Controllers
         public IActionResult Index()
         {
             var cities = this._citiesService
-                .GetAllCityCards();
+                .GetAllCityCardsOrderByRestaurantsCount();
 
             return View(cities);
         }

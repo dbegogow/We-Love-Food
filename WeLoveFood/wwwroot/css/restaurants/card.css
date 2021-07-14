@@ -9,6 +9,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.restaurant-card-container:hover {
+    transform: scale(1.03);
+}
+
 .restaurant-card-container:before {
     content: "";
     position: absolute;
@@ -21,7 +25,7 @@
     background-position: 50% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
     background-repeat: no-repeat, no-repeat;
     transition: transform 0.3s ease-in-out, background-position 0.3s ease-in-out, background-size 0.3s ease-in-out;
-    transform: scaleX(0) rotate(0deg);
+    transform: scaleX(0) rotate(5deg);
     transition-delay: 0.6s, 0.3s, 0s;
 }
 

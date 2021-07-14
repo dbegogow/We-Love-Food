@@ -14,3 +14,29 @@
     font-family: 'Open Sans', sans-serif;
     color: #2F6F08;
 }
+
+@media (max-width: 1200px) {
+    .restaurants-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .restaurants-page-container h1 {
+        font-size: 1.7rem; 
+    }
+}
+
+@media (max-width: 860px) {
+    .restaurants-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .restaurants-page-container h1 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .restaurants-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

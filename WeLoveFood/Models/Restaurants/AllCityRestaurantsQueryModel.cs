@@ -5,7 +5,7 @@ namespace WeLoveFood.Models.Restaurants
 {
     public class AllCityRestaurantsQueryModel
     {
-        [Display(Name = "Search by restaurant name")]
+        [Display(Name = "Търси ресторант")]
         public string SearchTerm { get; init; }
 
         public string CityName { get; init; }

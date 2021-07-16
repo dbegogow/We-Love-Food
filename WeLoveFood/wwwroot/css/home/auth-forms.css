@@ -67,6 +67,7 @@
 .auth-form-container .form-container form button:hover {
     cursor: pointer;
     transform: scale(1.07);
+    transition: 0.8s ease;
 }
 
 .auth-form-container .form-container .form div {

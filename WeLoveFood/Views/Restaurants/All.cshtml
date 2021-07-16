@@ -13,10 +13,10 @@
     <h1>Доставка на храна от най-добрите ресоранти в @Model.CityName</h1>
 
     <form method="get">
-        <label asp-for="SearchTerm"></label>
-        <input asp-for="SearchTerm" placeholder="Restaurant name">
+        <label asp-for="SearchTerm" class="search-label"></label>
+        <input asp-for="SearchTerm" class="search-input" placeholder="Enzo's Boutique Restaurant">
 
-        <input type="submit" value="Seacrh" />
+        <input type="submit" class="submit-btn" value="Търси" />
     </form>
 
     <div class="restaurants-container">

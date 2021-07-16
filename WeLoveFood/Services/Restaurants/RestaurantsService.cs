@@ -18,24 +18,33 @@ namespace WeLoveFood.Services.Restaurants
             this._citiesService = citiesService;
         }
 
-        public AllCityRestaurantsViewModel GetCityRestaurantCards(int cityId)
+        public AllCityRestaurantsQueryModel GetCityRestaurantCards(int cityId, AllCityRestaurantsQueryModel query)
         {
-            var restaurantCards = this._data
-                .Restaurants
-                .Where(r => r.CityId == cityId)
+            var restaurantsQuery = this._data
+                .Restaurants.AsQueryable();
+
+            restaurantsQuery = restaurantsQuery
+                .Where(r => r.CityId == cityId);
+
+            if (!string.IsNullOrWhiteSpace(query.SearchTerm))
+            {
+                restaurantsQuery = restaurantsQuery
+                    .Where(r => r.Name.ToLower().Contains(query.SearchTerm.ToLower()));
+            }
+
+            var restaurantsCards = restaurantsQuery
                 .Select(r => new RestaurantCardViewModel
                 {
                     Name = r.Name,
                     ImgUrl = r.ImgUrl
-                })
-                .ToList();
+                });
 
             var cityName = this._citiesService
                 .GetCityName(cityId);
 
-            return new AllCityRestaurantsViewModel
+            return new AllCityRestaurantsQueryModel
             {
-                RestaurantCardViewModels = restaurantCards,
+                RestaurantCardViewModels = restaurantsCards,
                 CityName = cityName
             };
         }

@@ -58,3 +58,7 @@
     margin: 0;
     opacity: 0.5;
 }
+
+.hidden {
+    display: none;
+}

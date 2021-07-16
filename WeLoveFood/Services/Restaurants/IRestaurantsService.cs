@@ -4,6 +4,6 @@ namespace WeLoveFood.Services.Restaurants
 {
     public interface IRestaurantsService
     {
-        AllCityRestaurantsViewModel GetCityRestaurantCards(int cityId);
+        AllCityRestaurantsQueryModel GetCityRestaurantCards(int cityId, AllCityRestaurantsQueryModel query);
     }
 }

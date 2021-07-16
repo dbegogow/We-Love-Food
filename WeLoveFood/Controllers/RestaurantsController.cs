@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
 
 namespace WeLoveFood.Controllers
@@ -10,12 +11,12 @@ namespace WeLoveFood.Controllers
         public RestaurantsController(IRestaurantsService restaurantsService)
             => this._restaurantsService = restaurantsService;
 
-        public IActionResult All(int id)
+        public IActionResult All(int id, [FromQuery] AllCityRestaurantsQueryModel query)
         {
-            var cityRestaurants = this._restaurantsService
-                .GetCityRestaurantCards(id);
+            var restaurantsCards = this._restaurantsService
+                .GetCityRestaurantCards(id, query);
 
-            return View(cityRestaurants);
+            return View(restaurantsCards);
         }
     }
 }

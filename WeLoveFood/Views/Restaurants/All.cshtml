@@ -1,4 +1,4 @@
-﻿@model AllCityRestaurantsViewModel
+﻿@model AllCityRestaurantsQueryModel
 
 @{
     ViewData["Title"] = "Всички ресторанти - ";
@@ -11,6 +11,13 @@
 
 <div class="restaurants-page-container">
     <h1>Доставка на храна от най-добрите ресоранти в @Model.CityName</h1>
+
+    <form method="get">
+        <label asp-for="SearchTerm"></label>
+        <input asp-for="SearchTerm" placeholder="Restaurant name">
+
+        <input type="submit" value="Seacrh" />
+    </form>
 
     <div class="restaurants-container">
         @foreach (var restaurant in Model.RestaurantCardViewModels)

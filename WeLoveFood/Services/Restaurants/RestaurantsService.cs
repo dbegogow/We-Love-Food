@@ -33,19 +33,27 @@ namespace WeLoveFood.Services.Restaurants
             }
 
             var restaurantsCards = restaurantsQuery
+                .OrderBy(c => c.Id)
+                .Skip((query.CurrentPage - 1) * AllCityRestaurantsQueryModel.RestaurantsPerPage)
+                .Take(AllCityRestaurantsQueryModel.RestaurantsPerPage)
                 .Select(r => new RestaurantCardViewModel
                 {
                     Name = r.Name,
                     ImgUrl = r.ImgUrl
-                });
+                })
+                .ToList();
 
             var cityName = this._citiesService
                 .GetCityName(cityId);
 
+            var totalRestaurants = restaurantsQuery.Count();
+
             return new AllCityRestaurantsQueryModel
             {
-                RestaurantCardViewModels = restaurantsCards,
-                CityName = cityName
+                CurrentPage = query.CurrentPage,
+                TotalRestaurants = totalRestaurants,
+                CityName = cityName,
+                RestaurantCardViewModels = restaurantsCards
             };
         }
     }

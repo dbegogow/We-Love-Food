@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Models.Restaurants;
@@ -39,7 +40,9 @@ namespace WeLoveFood.Services.Restaurants
                 .Select(r => new RestaurantCardViewModel
                 {
                     Name = r.Name,
-                    ImgUrl = r.ImgUrl
+                    ImgUrl = r.ImgUrl,
+                    OpeningTime = r.OpeningTime,
+                    ClosingTime = r.ClosingTime
                 })
                 .ToList();
 
@@ -55,6 +58,13 @@ namespace WeLoveFood.Services.Restaurants
                 CityName = cityName,
                 RestaurantCardViewModels = restaurantsCards
             };
+        }
+
+        private static bool IsOpen(TimeSpan opening, TimeSpan closing)
+        {
+            var now = DateTime.Now.TimeOfDay;
+
+            return now > opening && now < closing;
         }
     }
 }

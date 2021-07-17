@@ -62,3 +62,13 @@
 .hidden {
     display: none;
 }
+
+.restaurant-card-container .closing {
+    position: absolute;
+    color: #FFF;
+    background: #DD7B06;
+    top: 20px;
+    opacity: 1;
+    padding-right: 10px;
+    padding-left: 6px;
+}

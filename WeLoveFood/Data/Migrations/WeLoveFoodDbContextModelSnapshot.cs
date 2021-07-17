@@ -9,7 +9,7 @@ using WeLoveFood.Data;
 namespace WeLoveFood.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    partial class WeLoveFoodDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -250,6 +250,12 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
+                    b.Property<TimeSpan>("ClosingTime")
+                        .HasColumnType("time");
+
+                    b.Property<decimal?>("DeliveryFee")
+                        .HasColumnType("decimal(10,2)");
+
                     b.Property<string>("ImgUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -258,6 +264,9 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
+
+                    b.Property<TimeSpan>("OpeningTime")
+                        .HasColumnType("time");
 
                     b.HasKey("Id");
 

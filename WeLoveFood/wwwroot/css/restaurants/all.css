@@ -50,14 +50,14 @@
 
 .restaurants-page-container .submit-btn:hover {
     cursor: pointer;
-    background: #B9F732;
+    background: #2F6F08;
     color: #FFF;
     transition: 0.4s ease;
 }
 
 .pagination-container {
     text-align: center;
-    margin: 40px 0;
+    margin-top: 40px;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .page-numbers:hover, .page-numbers.current {
-    background-color: #86c023;
+    background-color: #4EA008;
     color: #fff;
     cursor: pointer;
 }

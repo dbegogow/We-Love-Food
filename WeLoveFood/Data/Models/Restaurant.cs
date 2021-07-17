@@ -1,20 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-using static WeLoveFood.Data.DataConstants;
+using static WeLoveFood.Data.DataConstants.Restaurant;
 
 namespace WeLoveFood.Data.Models
 {
     public class Restaurant
     {
-        [Required]
         public int Id { get; init; }
 
         [Required]
-        [MaxLength(RestaurantNameMaxLength)]
+        [MaxLength(NameMaxLength)]
         public string Name { get; set; }
 
         [Required]
         public string ImgUrl { get; set; }
+
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal? DeliveryFee { get; set; }
+
+        public TimeSpan OpeningTime { get; set; }
+
+        public TimeSpan ClosingTime { get; set; }
 
         public int CityId { get; set; }
 

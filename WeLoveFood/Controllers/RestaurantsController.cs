@@ -18,5 +18,10 @@ namespace WeLoveFood.Controllers
 
             return View(restaurantsCards);
         }
+
+        public IActionResult Restaurant(int id)
+        {
+            return View();
+        }
     }
 }

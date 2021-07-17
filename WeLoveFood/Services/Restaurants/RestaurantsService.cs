@@ -39,6 +39,7 @@ namespace WeLoveFood.Services.Restaurants
                 .Take(AllCityRestaurantsQueryModel.RestaurantsPerPage)
                 .Select(r => new RestaurantCardViewModel
                 {
+                    Id = r.Id,
                     Name = r.Name,
                     ImgUrl = r.ImgUrl,
                     OpeningTime = r.OpeningTime,

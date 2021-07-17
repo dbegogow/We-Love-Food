@@ -1,0 +1,98 @@
+﻿.restaurant-image-container {
+    width: 100%;
+    height: 50vh;
+}
+
+.restaurant-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.restaurant-container {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.restaurant-container h1 {
+    margin: 3vh 0 0 7vw;
+    color: #336409;
+    font-size: 2.3rem;
+}
+
+.restaurant-container .opening-time {
+    margin-left: 7vw;
+    font-size: 1.05rem;
+}
+
+.restaurant-container .opening-time .time {
+    color: #8B8B8B;
+}
+
+.restaurant-container .opening-time .closing-message {
+    margin-left: 20px;
+    background: #DD7B06;
+    color: #FFF;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+
+.restaurant-container .menu {
+    width: 100%;
+    margin-top: 6vh;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 16px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.restaurant-container .menu ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-left: calc(7vw - 10px);
+}
+
+.restaurant-container .menu ul li {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #525252;
+}
+
+.restaurant-container .menu ul li:hover {
+    cursor: pointer;
+    font-weight: 600;
+    transform: scale(1.02);
+}
+
+.restaurant-container .menu a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: #52a81c;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+
+.restaurant-container .menu a:hover:after,
+.restaurant-container .menu a:focus:after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+}
+
+.restaurant-container .menu li a:after {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center;
+}
+
+.restaurant-container .menu li a:hover:after,
+.restaurant-container .menu li a:focus:after {
+    transform: scale(1);
+}

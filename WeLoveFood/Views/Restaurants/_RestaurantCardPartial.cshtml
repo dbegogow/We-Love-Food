@@ -6,7 +6,7 @@
     var isOpen = now > Model.OpeningTime && now < Model.ClosingTime;
 }
 
-<a class="restaurant-card-container" asp-controller="Restaurants" asp-action="All">
+<a class="restaurant-card-container" asp-controller="Restaurants" asp-action="Restaurant" asp-route-id="@Model.Id">
     <div class="image-container">
         <img src="@Model.ImgUrl" alt="Restaurant Image">
     </div>

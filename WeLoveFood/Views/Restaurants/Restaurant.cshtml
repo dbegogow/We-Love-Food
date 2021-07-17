@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Ресторант";
+}
+
+@section RestaurantStyles {
+    <link href="~/css/restaurants/restaurant.css" rel="stylesheet" />
+}
+
+<div class="restaurant-image-container">
+    <img src="https://images.deliveryhero.io/image/fd-bg/LH/v9fw-hero.jpg?width=1600&height=400&quality=45" alt="Restaurant Image" />
+</div>
+
+<div class="restaurant-container">
+    <h1>Бирария Прага 18</h1>
+
+    <p class="opening-time">Работно време <span class="time">11:00 ч. - 22:30 ч.</span> <span class="closing-message">Затворено в момента</span></p>
+
+    <div class="menu">
+        <ul>
+            <li><a asp-controller="Restaurants" asp-action="Restaurant">Салати</a></li>
+            <li><a asp-controller="Restaurants" asp-action="Restaurant">Супи</a></li>
+            <li><a asp-controller="Restaurants" asp-action="Restaurant">Топли мезета</a></li>
+            <li><a asp-controller="Restaurants" asp-action="Restaurant">Картофи</a></li>
+            <li><a asp-controller="Restaurants" asp-action="Restaurant">Сачове</a></li>
+            <li><a asp-controller="Restaurants" asp-action="Restaurant">Скара</a></li>
+            <li><a asp-controller="Restaurants" asp-action="Restaurant">Десерти</a></li>
+        </ul>
+    </div>
+
+    <div class="menu-section">
+        <h3>Салати</h3>
+
+        <div class="meals">
+            <div class="meal">
+                <h4>Салата Капризе (280гр)</h4>
+                <p>
+                    домати, моцарела, босилек, зехтин екстра върджън и сос песто
+                </p>
+                <p>13.08 лв</p>
+            </div>
+            <div class="meal-image-container">
+                <img src="https://d3fch0cwivr6nf.cloudfront.net/system/uploads/medium/data/14432/salata-kapreze.jpg" alt="Meal" />
+            </div>
+        </div>
+    </div>
+</div>

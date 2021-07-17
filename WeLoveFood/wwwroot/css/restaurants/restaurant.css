@@ -96,3 +96,60 @@
 .restaurant-container .menu li a:focus:after {
     transform: scale(1);
 }
+
+.restaurant-container .menu-section {
+    margin: 6vh 7vw 4vh 7vw;
+}
+
+.restaurant-container .menu-section h2 {
+    font-size: 1.9rem;
+}
+
+.restaurant-container .menu-section .meals-container {
+    
+}
+
+.restaurant-container .menu-section .meals-container .meal {
+    box-shadow: 0px 0px 20px 0px rgba(229,229,229,1);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(229,229,229,1);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(229,229,229,1);
+    width: 35vw;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.restaurant-container .menu-section .meals-container .meal-info {
+    width: 65%;
+}
+
+.restaurant-container .menu-section .meals-container .meal-info h3 {
+    margin: 0;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+.restaurant-container .menu-section .meals-container .meal .description {
+    margin: 10px 0 0 0;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.restaurant-container .menu-section .meals-container .meal .price {
+    margin: 10px 0 0 0;
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+.restaurant-container .menu-section .meals-container .meal .image-container {
+    width: 35%;
+    object-fit: cover;
+    padding: 3px;
+}
+
+.restaurant-container .menu-section .meals-container .meal .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}

@@ -23,13 +23,16 @@
 .restaurant-container .opening-time {
     margin-left: 7vw;
     font-size: 1.05rem;
+    display: inline-block;
 }
 
 .restaurant-container .opening-time .time {
     color: #8B8B8B;
 }
 
-.restaurant-container .opening-time .closing-message {
+.restaurant-container .closing-message {
+    margin-left: 7vw;
+    font-size: 1.05rem;
     margin-left: 20px;
     background: #DD7B06;
     color: #FFF;
@@ -157,4 +160,34 @@
     height: 100%;
     object-fit: cover;
     border-radius: 25px;
+}
+
+@media (max-width: 1000px) {
+    .restaurant-container .menu-section .meals-container .meal {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .restaurant-container h1 {
+        font-size: 1.7rem;
+    }
+
+    .restaurant-container .opening-time {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .restaurant-container .opening-time {
+        display: block;
+    }
+
+    .restaurant-container .closing-message {
+        margin-left: 7vw;
+    }
+
+    .restaurant-container .menu-section .meals-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

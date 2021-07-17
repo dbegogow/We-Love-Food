@@ -106,7 +106,11 @@
 }
 
 .restaurant-container .menu-section .meals-container {
-    
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 40px;
 }
 
 .restaurant-container .menu-section .meals-container .meal {
@@ -117,6 +121,7 @@
     padding: 5px;
     display: flex;
     flex-direction: row;
+    justify-self: start;
 }
 
 .restaurant-container .menu-section .meals-container .meal-info {

@@ -127,6 +127,15 @@
     justify-self: start;
 }
 
+.restaurant-container .menu-section .meals-container .meal:hover {
+    cursor: pointer;
+}
+
+.restaurant-container .menu-section .meals-container .meal.select {
+    border: 2px solid #52a81c;
+    border-radius: 12px;
+}
+
 .restaurant-container .menu-section .meals-container .meal-info {
     width: 65%;
 }

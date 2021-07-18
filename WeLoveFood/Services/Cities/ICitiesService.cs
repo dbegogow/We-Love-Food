@@ -5,7 +5,7 @@ namespace WeLoveFood.Services.Cities
 {
     public interface ICitiesService
     {
-        IEnumerable<CityCardViewModel> GetAllCityCardsOrderByRestaurantsCount();
+        IEnumerable<CityCardViewModel> GetAllCitiesCardsOrderByRestaurantsCount();
 
         string GetCityName(int id);
     }

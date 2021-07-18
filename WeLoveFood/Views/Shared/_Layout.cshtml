@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]Поръчай храна онлайн</title>
-    <link href="~/css/layout.css" rel="stylesheet" />
+    <link href="~/css/shared/layout.css" rel="stylesheet" />
 
     @await RenderSectionAsync("IndexStyles", required: false)
     @await RenderSectionAsync("LoginStyles", required: false)
@@ -17,15 +17,21 @@
         <nav class="nav-container">
             <a asp-controller="Home" asp-action="Index" class="header-title">We Love Food</a>
             <div>
-                <div class="header-link-btn-container">
-                    <a asp-controller="Home" asp-action="Login" class="header-link-btn"><span>Вход</span></a>
-                </div>
-                <div class="header-link-btn-container">
-                    <a asp-controller="Home" asp-action="Register" class="header-link-btn"><span>Регистрация</span></a>
-                </div>
-                <div class="header-link-btn-container">
-                    <a asp-controller="Home" asp-action="Logout" class="header-link-btn"><span>Излизане</span></a>
-                </div>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <div class="header-link-btn-container">
+                        <a asp-controller="Auth" asp-action="Login" class="header-link-btn"><span>Вход</span></a>
+                    </div>
+                    <div class="header-link-btn-container">
+                        <a asp-controller="Auth" asp-action="Register" class="header-link-btn"><span>Регистрация</span></a>
+                    </div>
+                }
+                else
+                {
+                    <div class="header-link-btn-container">
+                        <a asp-controller="Auth" asp-action="Logout" class="header-link-btn"><span>Излизане</span></a>
+                    </div>
+                }
             </div>
         </nav>
     </header>
@@ -41,5 +47,6 @@
     </footer>
 
     @await RenderSectionAsync("IndexScript", required: false)
+    @await RenderSectionAsync("RestaurantScript", required: false)
 </body>
 </html>

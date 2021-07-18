@@ -14,20 +14,11 @@ namespace WeLoveFood.Controllers
 
         public IActionResult Index()
         {
-            var cities = this._citiesService
-                .GetAllCityCardsOrderByRestaurantsCount();
+            var citiesCards = this._citiesService
+                .GetAllCitiesCardsOrderByRestaurantsCount();
 
-            return View(cities);
+            return View(citiesCards);
         }
-
-        public IActionResult Login()
-            => View();
-
-        public IActionResult Register()
-            => View();
-
-        public IActionResult Logout()
-            => Redirect("/");
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

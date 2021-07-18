@@ -12,7 +12,7 @@ namespace WeLoveFood.Services.Cities
         public CitiesService(WeLoveFoodDbContext data)
             => this._data = data;
 
-        public IEnumerable<CityCardViewModel> GetAllCityCardsOrderByRestaurantsCount()
+        public IEnumerable<CityCardViewModel> GetAllCitiesCardsOrderByRestaurantsCount()
             => this._data
                 .Cities
                 .OrderByDescending(c => c.Restaurants.Count())

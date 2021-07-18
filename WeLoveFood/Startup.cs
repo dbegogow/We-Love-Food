@@ -6,9 +6,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WeLoveFood.Services.Restaurants;
 
 namespace WeLoveFood
 {

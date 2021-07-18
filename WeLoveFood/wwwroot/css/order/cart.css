@@ -1,0 +1,66 @@
+﻿.cart-page-container {
+    width: 100%;
+    padding: 15vh 10vw 5vh 10vw;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.cart-page-container .cart-container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #C3C3C3;
+    border-radius: 12px;
+    box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 38px 0px rgba(0,0,0,0.75);
+}
+
+.cart-page-container .cart-container .meals {
+    background: lightgoldenrodyellow;
+    width: 65%;
+    padding: 3vh 5vw;
+}
+
+.cart-page-container .cart-container .meals .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #AAAAAA;
+}
+
+.cart-page-container .cart-container .meals .header h2 {
+    margin-top: 20px;
+}
+
+.cart-page-container .cart-container .meals .header p {
+    margin-top: 24px;
+    font-size: 1.4rem;
+}
+
+.cart-page-container .cart-container .meals .cards {
+    background: lightcyan;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.cart-page-container .cart-container .cards thead tr {
+
+}
+
+.cart-page-container .cart-container .cards tbody tr .meal-container {
+    padding: 10px;
+}
+
+.cart-page-container .cart-container .cards tbody tr .meal-container .image {
+    width: 40%;
+}
+
+.cart-page-container .cart-container .cards tbody tr .meal-container .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-page-container .cart-container .order {
+    background: lightblue;
+    width: 35%;
+}

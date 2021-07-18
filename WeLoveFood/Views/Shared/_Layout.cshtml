@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]Поръчай храна онлайн</title>
     <link href="~/css/shared/layout.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
+    @await RenderSectionAsync("CartStyles", required: false)
     @await RenderSectionAsync("IndexStyles", required: false)
     @await RenderSectionAsync("LoginStyles", required: false)
     @await RenderSectionAsync("RestaurantStyles", required: false)
@@ -32,6 +34,9 @@
                         <a asp-controller="Auth" asp-action="Logout" class="header-link-btn"><span>Излизане</span></a>
                     </div>
                 }
+                <div class="header-link-btn-container">
+                    <a asp-controller="Order" asp-action="Cart" class="header-link-btn"><span><i class="fas fa-shopping-bag"></i></span></a>
+                </div>
             </div>
         </nav>
     </header>

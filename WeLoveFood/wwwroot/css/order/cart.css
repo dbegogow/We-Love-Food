@@ -155,3 +155,49 @@
     transform: scale(1.07);
     transition: 0.8s ease;
 }
+
+@media (max-width: 1124px) {
+    .cart-page-container .cart-container {
+        flex-direction: column;
+    }
+
+    .cart-page-container .cart-container .meals,
+    .cart-page-container .cart-container .order{
+        width: 100%;
+    }
+}
+
+@media (max-width: 680px) {
+    .cart-page-container .cart-container .meals .cards {
+        font-size: 0.9rem;
+    }
+
+    .cart-page-container .cart-container .meals .cards .meal h4 {
+        position: relative;
+        top: 7px;
+    }
+
+    .cart-page-container .cart-container .meals .cards .meal .image-container {
+        display: none;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .cart-page-container .cart-container .meals .cards {
+        font-size: 0.8rem;
+    }
+
+    .cart-page-container .cart-container .meals .cards .quantity .out {
+        font-size: 2rem;
+    }
+
+    .cart-page-container .cart-container .meals .cards .quantity .add {
+        font-size: 1.3rem;
+    }
+
+    .cart-page-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

@@ -11,6 +11,7 @@
     @await RenderSectionAsync("CartStyles", required: false)
     @await RenderSectionAsync("IndexStyles", required: false)
     @await RenderSectionAsync("LoginStyles", required: false)
+    @await RenderSectionAsync("OrdersStyles", required: false)
     @await RenderSectionAsync("RestaurantStyles", required: false)
     @await RenderSectionAsync("AllRestaurantsStyles", required: false)
 </head>
@@ -30,6 +31,9 @@
                 }
                 else
                 {
+                    <div class="header-link-btn-container">
+                        <a asp-controller="Auth" asp-action="Logout" class="header-link-btn"><span>Профил</span></a>
+                    </div>
                     <div class="header-link-btn-container">
                         <a asp-controller="Auth" asp-action="Logout" class="header-link-btn"><span>Излизане</span></a>
                     </div>

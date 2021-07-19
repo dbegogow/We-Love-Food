@@ -83,6 +83,10 @@ a:active {
     transform: translate3d(0, 0.2em, 0);
 }
 
+.header-link-btn i.fas.fa-shopping-bag {
+    color: #037604;
+}
+
 .footer-container {
     position: absolute;
     bottom: 0;

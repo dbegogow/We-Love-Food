@@ -1,2 +1,28 @@
-﻿body {
+﻿.user-profile-page-container .section-container .personal-data {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.07rem;
+}
+
+.user-profile-page-container .section-container .personal-data .data {
+    margin-left: 6vw;
+    color: #595959;
+}
+
+.user-profile-page-container .section-container .personal-data-container .change {
+    padding: 10px 30px 40px 30px;
+}
+
+.user-profile-page-container .section-container .personal-data-container .change a {
+    padding: 11px 30px;
+    background: #398809;
+    color: #FFF;
+    font-size: 1.08rem;
+    border-radius: 10px;
+}
+
+.user-profile-page-container .section-container .personal-data-container .change a:hover {
+    cursor: pointer;
+    opacity: 0.9;
 }

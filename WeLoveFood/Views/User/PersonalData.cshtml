@@ -16,7 +16,7 @@
         <div class="section-container">
             <div class="personal-data-container">
                 <div class="personal-data">
-                    <div>
+                    <div class="field">
                         <p>Име</p>
                         <p>Фамилия</p>
                         <p>Email</p>
@@ -24,18 +24,25 @@
                         <p>Адрес</p>
                     </div>
                     <div class="data">
-                        <p>Джулио</p>
-                        <p>Бегогов</p>
-                        <p>dzhulio_begogov@@abv.bg</p>
-                        <p>0884184241</p>
-                        <p>ул. Алеко Константинов '9'</p>
+                        <input class="disable" type="text" value="Джулио" />
+                        <input class="disable" type="text" value="Бегогов" />
+                        <input class="disable" type="email" value="dzhulio_begogov@@abv.bg" />
+                        <input class="disable" type="text" value="0884184241" />
+                        <input class="disable" type="text" value="ул. Алеко Константинов '9'" />
                     </div>
                 </div>
-                
-                <div class="change">
-                    <a><i class="far fa-edit"></i> Промени</a>
+
+                <div class="change-container">
+                    <span class="btn" id="change-btn"><i class="far fa-edit"></i> Промени</span>
+                </div>
+                <div class="change-container hidden">
+                    <a class="btn" id="save-btn"><i class="far fa-check-square"></i> Запиши</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@section PersonalDataScript {
+    <script type="text/javascript" src="~/js/user/personalData.js"></script>
+}

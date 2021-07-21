@@ -5,24 +5,51 @@
     font-size: 1.07rem;
 }
 
-.user-profile-page-container .section-container .personal-data .data {
-    margin-left: 6vw;
-    color: #595959;
+.user-profile-page-container .section-container .personal-data .field p {
+    margin: 25.7px 0;
+    font-size: 1.1rem;
 }
 
-.user-profile-page-container .section-container .personal-data-container .change {
+.user-profile-page-container .section-container .personal-data .data {
+    margin-left: 6vw;
+}
+
+.user-profile-page-container .section-container .personal-data .data input {
+    margin: 20px 0;
+    display: block;
+    color: #595959;
+    padding: 5px 5px;
+    border-radius: 7px;
+    width: 20vw;
+    font-size: 1rem;
+    border: 1px solid #C8C8C8;
+    outline: none;
+    transition: 1s ease;
+}
+
+.user-profile-page-container .section-container .personal-data .data input.disable {
+    border: 1px solid transparent;
+    pointer-events: none;
+}
+
+.user-profile-page-container .section-container .personal-data-container .change-container {
     padding: 10px 30px 40px 30px;
 }
 
-.user-profile-page-container .section-container .personal-data-container .change a {
+.user-profile-page-container .section-container .personal-data-container .change-container .btn {
     padding: 11px 30px;
     background: #398809;
     color: #FFF;
     font-size: 1.08rem;
     border-radius: 10px;
+    border: none;
 }
 
-.user-profile-page-container .section-container .personal-data-container .change a:hover {
+.user-profile-page-container .section-container .personal-data-container .change-container .btn {
     cursor: pointer;
     opacity: 0.9;
+}
+
+.user-profile-page-container .section-container .personal-data-container .change-container.hidden {
+    display: none;
 }

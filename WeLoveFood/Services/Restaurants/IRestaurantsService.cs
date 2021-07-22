@@ -1,13 +1,9 @@
-﻿using WeLoveFood.Services.Models.Restaurants;
+﻿using WeLoveFood.Models.Restaurants;
 
 namespace WeLoveFood.Services.Restaurants
 {
     public interface IRestaurantsService
     {
-        AllCityRestaurantsCardsQueryServiceModel AllCityRestaurantsCards(
-            int cityId,
-            string searchTerm,
-            int currentPage,
-            int carsPerPage);
+        AllCityRestaurantsQueryModel GetCityRestaurantCards(int cityId, AllCityRestaurantsQueryModel query);
     }
 }

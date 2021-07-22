@@ -1,4 +1,4 @@
-﻿@model AllCityRestaurantsCardsQueryModel
+﻿@model AllCityRestaurantsQueryModel
 
 @{
     ViewData["Title"] = "Всички ресторанти - ";
@@ -17,7 +17,7 @@
         previousPage = 1;
     }
 
-    var maxPage = Math.Ceiling((double)Model.TotalRestaurants / AllCityRestaurantsCardsQueryModel.RestaurantsPerPage);
+    var maxPage = Math.Ceiling((double)Model.TotalRestaurants / AllCityRestaurantsQueryModel.RestaurantsPerPage);
 }
 
 <div class="restaurants-page-container">
@@ -31,7 +31,7 @@
     </form>
 
     <div class="restaurants-container">
-        @foreach (var restaurant in Model.RestaurantsCards)
+        @foreach (var restaurant in Model.RestaurantCardViewModels)
         {
             <partial name="_RestaurantCardPartial" for="@restaurant" />
         }

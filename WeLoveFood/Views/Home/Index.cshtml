@@ -13,12 +13,7 @@
     <h2>Избери своя град и поръчай от най-добрите ресторанти!</h2>
 </div>
 
-<div class="home-city-cards-container">
-    @foreach (var city in Model)
-    {
-        <partial name="~/Views/Cities/_CityCardPartial.cshtml" for="@city" />
-    }
-</div>
+<vc:cities-cards></vc:cities-cards>
 
 <div class="all-cities-btn">
     <a asp-controller="Cities" asp-action="All">Всички градове <i class="fas fa-chevron-right"></i> <i class="fas fa-chevron-right"></i> </a>

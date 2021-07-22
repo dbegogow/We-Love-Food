@@ -1,0 +1,8 @@
+﻿@model IEnumerable<CityCardServiceModel>
+
+<div class="home-city-cards-container">
+    @foreach (var city in Model)
+    {
+        <partial name="~/Views/Cities/_CityCardPartial.cshtml" for="@city" />
+    }
+</div>

@@ -12,10 +12,11 @@ namespace WeLoveFood.Services.Cities
         public CitiesService(WeLoveFoodDbContext data)
             => this._data = data;
 
-        public IEnumerable<CityCardServiceModel> GetAllCitiesCardsOrderByRestaurantsCount()
+        public IEnumerable<CityCardServiceModel> GetCitiesCardsOrderByRestaurantsCount(int? citiesCount)
             => this._data
                 .Cities
                 .OrderByDescending(c => c.Restaurants.Count())
+                .Take(citiesCount ?? this._data.Cities.Count())
                 .Select(c => new CityCardServiceModel
                 {
                     Id = c.Id,

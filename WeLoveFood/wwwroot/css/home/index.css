@@ -79,9 +79,10 @@
     }
 }
 
-@media (max-width: 720px) {
+@media (min-width: 451px) and (max-width: 720px)  {
     .home-city-cards-container {
-        grid-template-columns: repeat(3, 1fr);
+        column-gap: 10px;
+        margin: 0 auto;
     }
 }
 

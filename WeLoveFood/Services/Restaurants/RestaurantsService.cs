@@ -1,24 +1,21 @@
 ﻿using System.Linq;
 using WeLoveFood.Data;
-using WeLoveFood.Services.Cities;
-using WeLoveFood.Models.Restaurants;
+using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Services.Restaurants
 {
     public class RestaurantsService : IRestaurantsService
     {
         private readonly WeLoveFoodDbContext _data;
-        private readonly ICitiesService _citiesService;
 
-        public RestaurantsService(
-            WeLoveFoodDbContext data,
-            ICitiesService citiesService)
-        {
-            this._data = data;
-            this._citiesService = citiesService;
-        }
+        public RestaurantsService(WeLoveFoodDbContext data)
+            => this._data = data;
 
-        public AllCityRestaurantsQueryModel GetCityRestaurantCards(int cityId, AllCityRestaurantsQueryModel query)
+        public AllCityRestaurantsCardsQueryServiceModel AllCityRestaurantsCards(
+            int cityId,
+            string searchTerm,
+            int currentPage,
+            int restaurantsPerPage)
         {
             var restaurantsQuery = this._data
                 .Restaurants.AsQueryable();
@@ -26,17 +23,17 @@ namespace WeLoveFood.Services.Restaurants
             restaurantsQuery = restaurantsQuery
                 .Where(r => r.CityId == cityId);
 
-            if (!string.IsNullOrWhiteSpace(query.SearchTerm))
+            if (!string.IsNullOrWhiteSpace(searchTerm))
             {
                 restaurantsQuery = restaurantsQuery
-                    .Where(r => r.Name.ToLower().Contains(query.SearchTerm.ToLower()));
+                    .Where(r => r.Name.ToLower().Contains(searchTerm.ToLower()));
             }
 
             var restaurantsCards = restaurantsQuery
                 .OrderBy(c => c.Id)
-                .Skip((query.CurrentPage - 1) * AllCityRestaurantsQueryModel.RestaurantsPerPage)
-                .Take(AllCityRestaurantsQueryModel.RestaurantsPerPage)
-                .Select(r => new RestaurantCardViewModel
+                .Skip((currentPage - 1) * restaurantsPerPage)
+                .Take(restaurantsPerPage)
+                .Select(r => new RestaurantCardServiceModel
                 {
                     Id = r.Id,
                     Name = r.Name,
@@ -46,17 +43,14 @@ namespace WeLoveFood.Services.Restaurants
                 })
                 .ToList();
 
-            var cityName = this._citiesService
-                .GetCityName(cityId);
-
             var totalRestaurants = restaurantsQuery.Count();
 
-            return new AllCityRestaurantsQueryModel
+            return new AllCityRestaurantsCardsQueryServiceModel
             {
-                CurrentPage = query.CurrentPage,
+                CurrentPage = currentPage,
+                RestaurantsPerPage = restaurantsPerPage,
                 TotalRestaurants = totalRestaurants,
-                CityName = cityName,
-                RestaurantCardViewModels = restaurantsCards
+                RestaurantsCards = restaurantsCards
             };
         }
     }

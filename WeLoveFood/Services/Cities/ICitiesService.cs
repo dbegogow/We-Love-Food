@@ -1,11 +1,11 @@
-﻿using WeLoveFood.Models.Cities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using WeLoveFood.Services.Models.Cities;
 
 namespace WeLoveFood.Services.Cities
 {
     public interface ICitiesService
     {
-        IEnumerable<CityCardViewModel> GetAllCitiesCardsOrderByRestaurantsCount();
+        IEnumerable<CityCardServiceModel> GetAllCitiesCardsOrderByRestaurantsCount();
 
         string GetCityName(int id);
     }

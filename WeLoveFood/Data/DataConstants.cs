@@ -24,5 +24,11 @@
 
             public const int DescriptionMaxLength = 70;
         }
+
+        public class Menu
+        {
+            public const int CategoryMinLength = 3;
+            public const int CategoryMaxLength = 25;
+        }
     }
 }

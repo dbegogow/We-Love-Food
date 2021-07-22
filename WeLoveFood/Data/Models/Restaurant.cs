@@ -16,7 +16,10 @@ namespace WeLoveFood.Data.Models
         public string Name { get; set; }
 
         [Required]
-        public string ImgUrl { get; set; }
+        public string CardImgUrl { get; set; }
+
+        [Required]
+        public string MainImgUrl { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]
         public decimal? DeliveryFee { get; set; }

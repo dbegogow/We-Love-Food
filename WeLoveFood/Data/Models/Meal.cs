@@ -13,7 +13,6 @@ namespace WeLoveFood.Data.Models
         [MaxLength(NameMaxLength)]
         public string Name { get; set; }
 
-        [Range(WeightMinValue, WeightMaxValue)]
         public int Weight { get; set; }
 
         [MaxLength(DescriptionMaxLength)]

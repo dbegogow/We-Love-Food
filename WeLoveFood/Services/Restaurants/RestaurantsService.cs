@@ -38,7 +38,7 @@ namespace WeLoveFood.Services.Restaurants
                 {
                     Id = r.Id,
                     Name = r.Name,
-                    ImgUrl = r.ImgUrl,
+                    ImgUrl = r.CardImgUrl,
                     IsOpen = IsOpen(r.OpeningTime, r.ClosingTime)
                 })
                 .ToList();

@@ -10,8 +10,6 @@ namespace WeLoveFood.Services.Models.Restaurants
 
         public string ImgUrl { get; init; }
 
-        public TimeSpan OpeningTime { get; set; }
-
-        public TimeSpan ClosingTime { get; set; }
+        public bool IsOpen { get; init; }
     }
 }

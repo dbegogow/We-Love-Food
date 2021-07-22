@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Services.Models.Restaurants;
 
@@ -38,8 +39,7 @@ namespace WeLoveFood.Services.Restaurants
                     Id = r.Id,
                     Name = r.Name,
                     ImgUrl = r.ImgUrl,
-                    OpeningTime = r.OpeningTime,
-                    ClosingTime = r.ClosingTime
+                    IsOpen = IsOpen(r.OpeningTime, r.ClosingTime)
                 })
                 .ToList();
 
@@ -52,6 +52,13 @@ namespace WeLoveFood.Services.Restaurants
                 TotalRestaurants = totalRestaurants,
                 RestaurantsCards = restaurantsCards
             };
+        }
+
+        private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
+        {
+            var now = DateTime.Now.TimeOfDay;
+
+            return now > openingTime && now < closingTime;
         }
     }
 }

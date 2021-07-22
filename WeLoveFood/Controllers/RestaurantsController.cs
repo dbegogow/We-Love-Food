@@ -38,7 +38,7 @@ namespace WeLoveFood.Controllers
             return View(query);
         }
 
-        public IActionResult Restaurant(int id)
+        public IActionResult Menu(int id)
         {
             return View();
         }

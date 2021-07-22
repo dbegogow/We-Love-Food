@@ -23,5 +23,9 @@ namespace WeLoveFood.Data.Models
 
         [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
+
+        public int MenuId { get; set; }
+
+        public Menu Menu { get; set; }
     }
 }

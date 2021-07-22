@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace WeLoveFood.Models.Restaurants
+namespace WeLoveFood.Services.Models.Restaurants
 {
-    public class RestaurantCardViewModel
+    public class RestaurantCardServiceModel
     {
         public int Id { get; init; }
 

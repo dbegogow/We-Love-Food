@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Models.Restaurants
 {
-    public class AllCityRestaurantsQueryModel
+    public class AllCityRestaurantsCardsQueryModel
     {
         public const int RestaurantsPerPage = 16;
 
@@ -16,6 +17,6 @@ namespace WeLoveFood.Models.Restaurants
 
         public string CityName { get; init; }
 
-        public IEnumerable<RestaurantCardViewModel> RestaurantCardViewModels { get; init; }
+        public IEnumerable<RestaurantCardServiceModel> RestaurantsCards { get; set; }
     }
 }

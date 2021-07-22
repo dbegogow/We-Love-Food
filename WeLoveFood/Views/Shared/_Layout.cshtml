@@ -19,7 +19,10 @@
     <header class="header-container">
         <nav class="nav-container">
             <a asp-controller="Home" asp-action="Index" class="header-title">We Love Food</a>
-            <div>
+            <div class="bars-container">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="btns">
                 @if (!User.Identity.IsAuthenticated)
                 {
                     <div class="header-link-btn-container">
@@ -54,6 +57,8 @@
     <footer class="footer-container">
         <span>We Love Food</span>
     </footer>
+
+    <script type="text/javascript" src="~/js/shared/navMenu.js"></script>
 
     @await RenderSectionAsync("IndexScript", required: false)
     @await RenderSectionAsync("RestaurantScript", required: false)

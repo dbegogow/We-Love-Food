@@ -147,6 +147,7 @@
 }
 
 .restaurant-container .menu-section .meals-container .meal .description {
+    width: 100%;
     margin: 10px 0 0 0;
     display: inline-block;
     font-size: 0.9rem;

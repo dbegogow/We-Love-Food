@@ -2,8 +2,8 @@
     ViewData["Title"] = "Ресторант - ";
 }
 
-@section RestaurantStyles {
-    <link href="~/css/restaurants/restaurant.css" rel="stylesheet" />
+@section MenuStyles {
+    <link href="~/css/restaurants/menu.css" rel="stylesheet" />
 }
 
 <div class="restaurant-image-container">
@@ -34,7 +34,7 @@
         <div class="meals-container">
             <div class="meal" asp-controller="Restaurants" asp-action="Restaurant">
                 <div class="meal-info">
-                    <h3>Салата Капризе (280гр)</h3>
+                    <h3>Салата Капризe (280гр)</h3>
                     <p class="description">
                         домати, моцарела, босилек, зехтин екстра върджън и сос песто
                     </p>
@@ -48,6 +48,6 @@
     </div>
 </div>
 
-@section RestaurantScript {
+@section MenuScript {
     <script type="text/javascript" src="~/js/restaurants/restaurant.js"></script>
 }

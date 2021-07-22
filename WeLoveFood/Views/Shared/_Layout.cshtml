@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
     @await RenderSectionAsync("CartStyles", required: false)
+    @await RenderSectionAsync("MenuStyles", required: false)
     @await RenderSectionAsync("IndexStyles", required: false)
     @await RenderSectionAsync("LoginStyles", required: false)
     @await RenderSectionAsync("CitiesStyles", required: false)
     @await RenderSectionAsync("OrdersStyles", required: false)
-    @await RenderSectionAsync("RestaurantStyles", required: false)
     @await RenderSectionAsync("AllRestaurantsStyles", required: false)
 </head>
 <body>
@@ -67,8 +67,8 @@
 
     <script type="text/javascript" src="~/js/shared/navMenu.js"></script>
 
+    @await RenderSectionAsync("MenuScript", required: false)
     @await RenderSectionAsync("IndexScript", required: false)
-    @await RenderSectionAsync("RestaurantScript", required: false)
     @await RenderSectionAsync("PersonalDataScript", required: false)
 </body>
 </html>

@@ -6,24 +6,17 @@ namespace WeLoveFood.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private readonly IRestaurantsService _restaurants;
+        private readonly IRestaurantsService _restaurantsService;
 
-        public RestaurantsController(IRestaurantsService restaurants)
-            => this._restaurants = restaurants;
+        public RestaurantsController(IRestaurantsService restaurantsService)
+            => this._restaurantsService = restaurantsService;
 
-        public IActionResult All(int id, [FromQuery] AllCityRestaurantsCardsQueryModel query)
+        public IActionResult All(int id, [FromQuery] AllCityRestaurantsQueryModel query)
         {
-            var queryResult  = this._restaurants
-                .AllCityRestaurantsCards(
-                    id,
-                    query.SearchTerm,
-                    query.CurrentPage,
-                    AllCityRestaurantsCardsQueryModel.RestaurantsPerPage);
+            var restaurantsCards = this._restaurantsService
+                .GetCityRestaurantCards(id, query);
 
-            query.TotalRestaurants = queryResult.TotalRestaurants;
-            query.RestaurantsCards = queryResult.RestaurantsCards;
-
-            return View(query);
+            return View(restaurantsCards);
         }
 
         public IActionResult Restaurant(int id)

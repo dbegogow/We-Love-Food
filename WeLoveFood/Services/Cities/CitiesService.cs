@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using WeLoveFood.Data;
+using WeLoveFood.Models.Cities;
 using System.Collections.Generic;
-using WeLoveFood.Services.Models.Cities;
 
 namespace WeLoveFood.Services.Cities
 {
@@ -12,11 +12,11 @@ namespace WeLoveFood.Services.Cities
         public CitiesService(WeLoveFoodDbContext data)
             => this._data = data;
 
-        public IEnumerable<CityCardServiceModel> GetAllCitiesCardsOrderByRestaurantsCount()
+        public IEnumerable<CityCardViewModel> GetAllCitiesCardsOrderByRestaurantsCount()
             => this._data
                 .Cities
                 .OrderByDescending(c => c.Restaurants.Count())
-                .Select(c => new CityCardServiceModel
+                .Select(c => new CityCardViewModel
                 {
                     Id = c.Id,
                     Name = c.Name,

@@ -1,0 +1,41 @@
+﻿.cities-page-container {
+    padding: 11vh 7vw 7vh 7vw;
+}
+
+.cities-container {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 20px;
+    row-gap: 40px;
+}
+
+.cities-page-container h1 {
+    font-family: 'Open Sans', sans-serif;
+    color: #2F6F08;
+    margin-bottom: 5vh;
+    margin-left: 15px;
+}
+
+@media (max-width: 850px) {
+    .cities-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .cities-page-container h1 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .cities-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 450px) {
+    .cities-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<CityCardServiceModel>
+
+@section CitiesStyles {
+    <link href="~/css/cities/all.css" rel="stylesheet" />
+    <link href="~/css/cities/cityCard.css" rel="stylesheet" />
+}
+
+<div class="cities-page-container">
+    <h1>Намери ресторант в някой от тези градове</h1>
+
+    <div class="cities-container">
+        @foreach (var city in Model)
+        {
+            <partial name="_CityCardPartial" for="@city" />
+        }
+    </div>
+</div>

@@ -26,8 +26,41 @@
     row-gap: 30px;
 }
 
+.all-cities-btn {
+    width: 100%;
+    position: relative;
+    background: #2f6f08;
+}
+
+.all-cities-btn a {
+    position: absolute;
+    right: 14vw;
+    top: 3.8vh;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    background: #19900C;
+    color: #FFF;
+    padding: 6px 8px;
+    border-radius: 12px;
+    transition: 0.4s ease-in;
+}
+
+.all-cities-btn a:hover {
+    color: #19900C;
+    background: none;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.4s ease-out;
+}
+
+.all-cities-btn a i {
+    display: inline-block;
+    position: relative;
+    top: 1px;
+}
+
 .application-info {
-    margin: 8vh 6vw 5vh 6vw;
+    margin: 12vh 6vw 5vh 6vw;
     padding: 5px 20px;
     font-family: 'Noto Sans JP', sans-serif;
     border: 2px solid #919191;

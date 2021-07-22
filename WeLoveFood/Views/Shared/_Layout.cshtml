@@ -11,6 +11,7 @@
     @await RenderSectionAsync("CartStyles", required: false)
     @await RenderSectionAsync("IndexStyles", required: false)
     @await RenderSectionAsync("LoginStyles", required: false)
+    @await RenderSectionAsync("CitiesStyles", required: false)
     @await RenderSectionAsync("OrdersStyles", required: false)
     @await RenderSectionAsync("RestaurantStyles", required: false)
     @await RenderSectionAsync("AllRestaurantsStyles", required: false)
@@ -23,6 +24,12 @@
                 <i class="fas fa-bars"></i>
             </div>
             <div class="btns">
+                <div class="header-link-btn-container">
+                    <a asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
+                </div>
+                
+                <span class="border"></span>
+
                 @if (!User.Identity.IsAuthenticated)
                 {
                     <div class="header-link-btn-container">

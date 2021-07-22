@@ -26,9 +26,5 @@ namespace WeLoveFood.Data.Models
         public int MenuId { get; set; }
 
         public Menu Menu { get; set; }
-
-        public int RestaurantId { get; set; }
-
-        public Restaurant Restaurant { get; set; }
     }
 }

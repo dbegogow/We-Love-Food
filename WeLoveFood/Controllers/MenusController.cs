@@ -2,7 +2,7 @@
 
 namespace WeLoveFood.Controllers
 {
-    public class MenuController : Controller
+    public class MenusController : Controller
     {
         public IActionResult Meals(int id)
         {

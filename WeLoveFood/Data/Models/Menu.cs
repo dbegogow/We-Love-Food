@@ -13,6 +13,10 @@ namespace WeLoveFood.Data.Models
         [MaxLength(CategoryMaxLength)]
         public string Category { get; set; }
 
+        public int RestaurantId { get; set; }
+
+        public Restaurant Restaurant { get; set; }
+
         public IEnumerable<Meal> Meals { get; init; } = new HashSet<Meal>();
     }
 }

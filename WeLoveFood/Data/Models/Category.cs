@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.Menu;
+using static WeLoveFood.Data.DataConstants.Category;
 
 namespace WeLoveFood.Data.Models
 {
-    public class Menu
+    public class Category
     {
         public int Id { get; init; }
 
         [Required]
-        [MaxLength(CategoryMaxLength)]
-        public string Category { get; set; }
+        [MaxLength(NameMaxLength)]
+        public string Name { get; set; }
 
         public int RestaurantId { get; set; }
 

@@ -17,6 +17,6 @@ namespace WeLoveFood.Data
 
         public DbSet<Meal> Meals { get; init; }
 
-        public DbSet<Menu> Menus { get; init; }
+        public DbSet<Category> Categories { get; init; }
     }
 }

@@ -12,17 +12,17 @@ namespace WeLoveFood.Services.Menus
         public MenusService(WeLoveFoodDbContext data)
             => _data = data;
 
-        public IEnumerable<string> RestaurantMenuCategories(int restaurantId)
+        public IEnumerable<string> RestaurantCategories(int restaurantId)
             => this._data
-                .Menus
+                .Categories
                 .Where(m => m.Id == m.RestaurantId)
-                .Select(m => m.Category)
+                .Select(m => m.Name)
                 .ToList();
 
-        public IEnumerable<MealServiceModel> GetMenuMeals(int menuId)
+        public IEnumerable<MealServiceModel> GetCategoryMeals(int categoryId)
             => this._data
                 .Meals
-                .Where(m => m.MenuId == menuId)
+                .Where(m => m.CategoryId == categoryId)
                 .Select(m => new MealServiceModel
                 {
                     Id = m.Id,

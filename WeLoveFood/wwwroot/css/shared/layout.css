@@ -120,7 +120,7 @@ a:active {
     color: #7BA339;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 850px) {
     .header-container {
         height: 65px;
     }

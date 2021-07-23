@@ -41,6 +41,27 @@
     border-radius: 15px;
 }
 
+.restaurant-container .all-restaurants-btn-container {
+    margin-left: 7vw;
+    margin-top: 2vh;
+}
+
+.restaurant-container .all-restaurants-btn-container a {
+    background: #52a81c;
+    color: #FFF;
+    padding: 5px 12px;
+    border-radius: 12px;
+    transition: 0.3s ease-out;
+}
+
+.restaurant-container .all-restaurants-btn-container a:hover {
+    cursor: pointer;
+    background: #FFF;
+    color: #008000;
+    border: 2px solid #52a81c;
+    transition: 0.3s ease-in;
+}
+
 .restaurant-container .menu {
     width: 100%;
     margin-top: 6vh;

@@ -19,14 +19,18 @@
 
     @if (!Model.Restaurant.IsOpen)
     {
-        <span class="closing-message">Затворено в момента</span>
+    <span class="closing-message">Затворено в момента</span>
     }
+
+    <div class="all-restaurants-btn-container">
+        <a asp-controller="Restaurants" asp-action="All" asp-route-id="@Model.Restaurant.Id">Всички ресторанти</a>
+    </div>
 
     <div class="menu">
         <ul>
             @foreach (var category in Model.AllCategories)
             {
-                <li><a asp-controller="Menu" asp-action="MenuMeals" asp-route-categoryId="@category.Id">@category.Name</a></li>
+            <li><a asp-controller="Menu" asp-action="MenuMeals" asp-route-categoryId="@category.Id">@category.Name</a></li>
             }
         </ul>
     </div>
@@ -37,18 +41,18 @@
         <div class="meals-container">
             @foreach (var meal in Model.Meals)
             {
-                <div class="meal" asp-controller="Restaurants" asp-action="Restaurant">
-                    <div class="meal-info">
-                        <h3>@meal.Name (@meal.Weight гр)</h3>
-                        <p class="description">
-                            @meal.Description
-                        </p>
-                        <p class="price">@meal.Price лв</p>
-                    </div>
-                    <div class="image-container">
-                        <img src="@meal.ImgUrl" alt="Meal" />
-                    </div>
+            <div class="meal" asp-controller="Restaurants" asp-action="Restaurant">
+                <div class="meal-info">
+                    <h3>@meal.Name (@meal.Weight гр)</h3>
+                    <p class="description">
+                        @meal.Description
+                    </p>
+                    <p class="price">@meal.Price лв</p>
                 </div>
+                <div class="image-container">
+                    <img src="@meal.ImgUrl" alt="Meal" />
+                </div>
+            </div>
             }
         </div>
     </div>

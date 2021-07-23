@@ -1,22 +1,26 @@
 ﻿using System.Linq;
 using WeLoveFood.Data;
 using System.Collections.Generic;
-using WeLoveFood.Services.Models.Menus;
+using WeLoveFood.Services.Models.Menu;
 
-namespace WeLoveFood.Services.Menus
+namespace WeLoveFood.Services.Menu
 {
-    public class MenusService : IMenusService
+    public class MenuService : IMenuService
     {
         private readonly WeLoveFoodDbContext _data;
 
-        public MenusService(WeLoveFoodDbContext data)
+        public MenuService(WeLoveFoodDbContext data)
             => _data = data;
 
-        public IEnumerable<string> RestaurantCategories(int restaurantId)
+        public IEnumerable<CategoryServiceModel> RestaurantCategories(int restaurantId)
             => this._data
                 .Categories
-                .Where(m => m.Id == m.RestaurantId)
-                .Select(m => m.Name)
+                .Where(m => m.RestaurantId == restaurantId)
+                .Select(m => new CategoryServiceModel
+                {
+                    Id = m.Id,
+                    Name = m.Name
+                })
                 .ToList();
 
         public IEnumerable<MealServiceModel> GetCategoryMeals(int categoryId)
@@ -33,5 +37,12 @@ namespace WeLoveFood.Services.Menus
                     Price = m.Price
                 })
                 .ToList();
+
+        public string CategoryName(int categoryId)
+            => this._data
+                .Categories
+                .Where(c => c.Id == categoryId)
+                .Select(c => c.Name)
+                .FirstOrDefault();
     }
 }

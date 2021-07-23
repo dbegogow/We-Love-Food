@@ -9,5 +9,7 @@ namespace WeLoveFood.Services.Restaurants
             string searchTerm,
             int currentPage,
             int carsPerPage);
+
+        RestaurantServiceModel RestaurantInfo(int restaurantId);
     }
 }

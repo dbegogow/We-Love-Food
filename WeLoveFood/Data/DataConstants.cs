@@ -25,10 +25,10 @@
             public const int DescriptionMaxLength = 70;
         }
 
-        public class Menu
+        public class Category
         {
-            public const int CategoryMinLength = 3;
-            public const int CategoryMaxLength = 25;
+            public const int NameMinLength = 3;
+            public const int NameMaxLength = 25;
         }
     }
 }

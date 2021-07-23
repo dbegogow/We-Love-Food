@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WeLoveFood.Services.Menu;
 
 namespace WeLoveFood
 {
@@ -40,7 +41,8 @@ namespace WeLoveFood
 
             services
                 .AddTransient<ICitiesService, CitiesService>()
-                .AddTransient<IRestaurantsService, RestaurantsService>();
+                .AddTransient<IRestaurantsService, RestaurantsService>()
+                .AddTransient<IMenuService, MenuService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

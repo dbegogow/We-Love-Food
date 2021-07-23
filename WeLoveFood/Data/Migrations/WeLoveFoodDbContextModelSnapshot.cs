@@ -219,6 +219,28 @@ namespace WeLoveFood.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("WeLoveFood.Data.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<int>("RestaurantId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RestaurantId");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
                 {
                     b.Property<int>("Id")
@@ -247,15 +269,15 @@ namespace WeLoveFood.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
 
                     b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MenuId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -265,36 +287,14 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("RestaurantId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Weight")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MenuId");
-
-                    b.HasIndex("RestaurantId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Meals");
-                });
-
-            modelBuilder.Entity("WeLoveFood.Data.Models.Menu", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Menus");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
@@ -387,23 +387,26 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.Category", b =>
                 {
-                    b.HasOne("WeLoveFood.Data.Models.Menu", "Menu")
-                        .WithMany("Meals")
-                        .HasForeignKey("MenuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("WeLoveFood.Data.Models.Restaurant", "Restaurant")
-                        .WithMany("Meals")
+                        .WithMany("Categories")
                         .HasForeignKey("RestaurantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Menu");
-
                     b.Navigation("Restaurant");
+                });
+
+            modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>
+                {
+                    b.HasOne("WeLoveFood.Data.Models.Category", "Category")
+                        .WithMany("Meals")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
@@ -417,19 +420,19 @@ namespace WeLoveFood.Data.Migrations
                     b.Navigation("City");
                 });
 
+            modelBuilder.Entity("WeLoveFood.Data.Models.Category", b =>
+                {
+                    b.Navigation("Meals");
+                });
+
             modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
                 {
                     b.Navigation("Restaurants");
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Menu", b =>
-                {
-                    b.Navigation("Meals");
-                });
-
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
                 {
-                    b.Navigation("Meals");
+                    b.Navigation("Categories");
                 });
 #pragma warning restore 612, 618
         }

@@ -54,6 +54,22 @@ namespace WeLoveFood.Services.Restaurants
             };
         }
 
+        public RestaurantServiceModel RestaurantInfo(int restaurantId)
+            => this._data
+                .Restaurants
+                .Where(r => r.Id == restaurantId)
+                .Select(r => new RestaurantServiceModel
+                {
+                    Id = r.Id,
+                    Name = r.Name,
+                    MainImgUrl = r.MainImgUrl,
+                    DeliveryFee = r.DeliveryFee,
+                    OpeningTime = r.OpeningTime,
+                    ClosingTime = r.ClosingTime,
+                    IsOpen = IsOpen(r.OpeningTime, r.ClosingTime)
+                })
+                .FirstOrDefault();
+
         private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
         {
             var now = DateTime.Now.TimeOfDay;

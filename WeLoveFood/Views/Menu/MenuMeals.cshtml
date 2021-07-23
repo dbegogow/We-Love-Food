@@ -1,0 +1,59 @@
+﻿@model MenuViewModel
+
+@{
+    ViewData["Title"] = $"{Model.Restaurant.Name} - ";
+}
+
+@section MealsStyles {
+    <link href="~/css/menu/menuMeals.css" rel="stylesheet" />
+}
+
+<div class="restaurant-image-container">
+    <img src="@Model.Restaurant.MainImgUrl" alt="Restaurant Image" />
+</div>
+
+<div class="restaurant-container">
+    <h1>@Model.Restaurant.Name</h1>
+
+    <p class="opening-time">Работно време <span class="time">@Model.Restaurant.OpeningTime ч. - @Model.Restaurant.ClosingTime ч.</span></p>
+
+    @if (!Model.Restaurant.IsOpen)
+    {
+        <span class="closing-message">Затворено в момента</span>
+    }
+
+    <div class="menu">
+        <ul>
+            @foreach (var category in Model.AllCategories)
+            {
+                <li><a asp-controller="Menu" asp-action="MenuMeals" asp-route-categoryId="@category.Id">@category.Name</a></li>
+            }
+        </ul>
+    </div>
+
+    <div class="menu-section">
+        <h2>@Model.CategoryName</h2>
+
+        <div class="meals-container">
+            @foreach (var meal in Model.Meals)
+            {
+                <div class="meal" asp-controller="Restaurants" asp-action="Restaurant">
+                    <div class="meal-info">
+                        <h3>@meal.Name (@meal.Weight гр)</h3>
+                        <p class="description">
+                            @meal.Description
+                        </p>
+                        <p class="price">@meal.Price лв</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="@meal.ImgUrl" alt="Meal" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section MealsScript {
+    <script type="text/javascript" src="~/js/restaurants/restaurant.js"></script>
+}

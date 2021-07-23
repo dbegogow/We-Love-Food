@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using WeLoveFood.Services.Models.Menu;
+using WeLoveFood.Services.Models.Menus;
 
-namespace WeLoveFood.Services.Menu
+namespace WeLoveFood.Services.Menus
 {
-    public interface IMenuService
+    public interface IMenusService
     {
         IEnumerable<CategoryServiceModel> RestaurantCategories(int restaurantId);
 

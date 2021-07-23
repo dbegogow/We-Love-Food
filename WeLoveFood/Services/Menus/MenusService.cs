@@ -1,15 +1,15 @@
 ﻿using System.Linq;
 using WeLoveFood.Data;
 using System.Collections.Generic;
-using WeLoveFood.Services.Models.Menu;
+using WeLoveFood.Services.Models.Menus;
 
-namespace WeLoveFood.Services.Menu
+namespace WeLoveFood.Services.Menus
 {
-    public class MenuService : IMenuService
+    public class MenusService : IMenusService
     {
         private readonly WeLoveFoodDbContext _data;
 
-        public MenuService(WeLoveFoodDbContext data)
+        public MenusService(WeLoveFoodDbContext data)
             => _data = data;
 
         public IEnumerable<CategoryServiceModel> RestaurantCategories(int restaurantId)

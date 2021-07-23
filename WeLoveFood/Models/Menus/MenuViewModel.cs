@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using WeLoveFood.Services.Models.Menu;
+using WeLoveFood.Services.Models.Menus;
 using WeLoveFood.Services.Models.Restaurants;
 
-namespace WeLoveFood.Models.Menu
+namespace WeLoveFood.Models.Menus
 {
     public class MenuViewModel
     {

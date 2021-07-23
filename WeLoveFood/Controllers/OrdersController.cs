@@ -2,7 +2,7 @@
 
 namespace WeLoveFood.Controllers
 {
-    public class OrderController : Controller
+    public class OrdersController : Controller
     {
         public IActionResult Cart()
             => View();

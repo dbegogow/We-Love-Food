@@ -1,5 +1,6 @@
 using WeLoveFood.Data;
 using WeLoveFood.Infrastructure;
+using WeLoveFood.Services.Menus;
 using WeLoveFood.Services.Cities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
@@ -9,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WeLoveFood.Services.Menu;
 
 namespace WeLoveFood
 {
@@ -42,7 +42,7 @@ namespace WeLoveFood
             services
                 .AddTransient<ICitiesService, CitiesService>()
                 .AddTransient<IRestaurantsService, RestaurantsService>()
-                .AddTransient<IMenuService, MenuService>();
+                .AddTransient<IMenusService, MenusService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

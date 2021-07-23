@@ -5,7 +5,7 @@
 }
 
 @section MealsStyles {
-    <link href="~/css/menu/menuMeals.css" rel="stylesheet" />
+    <link href="~/css/menus/menuMeals.css" rel="stylesheet" />
 }
 
 <div class="restaurant-image-container">
@@ -19,7 +19,7 @@
 
     @if (!Model.Restaurant.IsOpen)
     {
-    <span class="closing-message">Затворено в момента</span>
+        <span class="closing-message">Затворено в момента</span>
     }
 
     <div class="all-restaurants-btn-container">
@@ -30,7 +30,7 @@
         <ul>
             @foreach (var category in Model.AllCategories)
             {
-            <li><a asp-controller="Menu" asp-action="MenuMeals" asp-route-categoryId="@category.Id">@category.Name</a></li>
+                <li><a asp-controller="Menu" asp-action="MenuMeals" asp-route-categoryId="@category.Id">@category.Name</a></li>
             }
         </ul>
     </div>
@@ -41,18 +41,18 @@
         <div class="meals-container">
             @foreach (var meal in Model.Meals)
             {
-            <div class="meal" asp-controller="Restaurants" asp-action="Restaurant">
-                <div class="meal-info">
-                    <h3>@meal.Name (@meal.Weight гр)</h3>
-                    <p class="description">
-                        @meal.Description
-                    </p>
-                    <p class="price">@meal.Price лв</p>
+                <div class="meal" asp-controller="Restaurants" asp-action="Restaurant">
+                    <div class="meal-info">
+                        <h3>@meal.Name (@meal.Weight гр)</h3>
+                        <p class="description">
+                            @meal.Description
+                        </p>
+                        <p class="price">@meal.Price лв</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="@meal.ImgUrl" alt="Meal" />
+                    </div>
                 </div>
-                <div class="image-container">
-                    <img src="@meal.ImgUrl" alt="Meal" />
-                </div>
-            </div>
             }
         </div>
     </div>

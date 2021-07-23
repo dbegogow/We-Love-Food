@@ -1,17 +1,17 @@
-﻿using WeLoveFood.Models.Menu;
-using WeLoveFood.Services.Menu;
+﻿using WeLoveFood.Models.Menus;
 using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Services.Menus;
 using WeLoveFood.Services.Restaurants;
 
 namespace WeLoveFood.Controllers
 {
-    public class MenuController : Controller
+    public class MenusController : Controller
     {
-        private readonly IMenuService _menus;
+        private readonly IMenusService _menus;
         private readonly IRestaurantsService _restaurants;
 
-        public MenuController(
-            IMenuService menus,
+        public MenusController(
+            IMenusService menus,
             IRestaurantsService restaurants)
         {
             _menus = menus;
@@ -39,6 +39,6 @@ namespace WeLoveFood.Controllers
                 Meals = meals,
                 Restaurant = restaurant
             });
-        }
+        }   
     }
 }

@@ -26,3 +26,14 @@
     -webkit-box-shadow: 0px 0px 5px 0px rgba(186,186,186,0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(186,186,186,0.75);
 }
+
+@media (max-width: 700px) {
+    .user-profile-page-container {
+        padding-top: 15vh;
+        flex-direction: column;
+    }
+
+    .user-profile-page-container .main-container h2 {
+        font-size: 1.1rem;
+    }
+}

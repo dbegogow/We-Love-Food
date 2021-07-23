@@ -2,7 +2,7 @@
 
 namespace WeLoveFood.Controllers
 {
-    public class UserController : Controller
+    public class UsersController : Controller
     {
         public IActionResult Orders()
             => View();

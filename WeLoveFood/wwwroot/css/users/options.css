@@ -40,3 +40,18 @@
     margin: 0;
     font-size: 1.1rem;
 }
+
+@media (max-width: 700px) {
+    .user-profile-options-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .user-profile-options-container a i {
+        font-size: 1.2rem;
+    }
+
+    .user-profile-options-container a h4 {
+        font-size: 0.9rem;
+    }
+}

@@ -53,3 +53,22 @@
 .user-profile-page-container .section-container .personal-data-container .change-container.hidden {
     display: none;
 }
+
+@media (max-width: 700px) {
+    .user-profile-page-container .section-container .personal-data {
+         padding: 20px 10px;
+    }
+
+    .user-profile-page-container .section-container .personal-data .field p {
+        font-size: 0.9rem;
+    }
+
+    .user-profile-page-container .section-container .personal-data .data input {
+         width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .user-profile-page-container .section-container .personal-data-container .change-container .btn {
+        font-size: 0.8rem;
+    }
+}

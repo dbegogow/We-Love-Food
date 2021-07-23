@@ -30,7 +30,7 @@
         <ul>
             @foreach (var category in Model.AllCategories)
             {
-                <li><a asp-controller="Menu" asp-action="MenuMeals" asp-route-categoryId="@category.Id">@category.Name</a></li>
+                <li><a asp-controller="Menus" asp-action="MenuMeals" asp-route-categoryId="@category.Id">@category.Name</a></li>
             }
         </ul>
     </div>
@@ -41,7 +41,7 @@
         <div class="meals-container">
             @foreach (var meal in Model.Meals)
             {
-                <div class="meal" asp-controller="Restaurants" asp-action="Restaurant">
+                <div class="meal">
                     <div class="meal-info">
                         <h3>@meal.Name (@meal.Weight гр)</h3>
                         <p class="description">

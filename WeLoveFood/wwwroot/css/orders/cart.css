@@ -96,6 +96,18 @@
     top: 6px;
 }
 
+.cart-page-container .cart-container .meals .cards .remove-btn {
+    position: relative;
+    bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.cart-page-container .cart-container .meals .cards .remove-btn a:hover {
+    cursor: pointer;
+    color: #C31E1E;
+    transition: 0.3s ease;
+}
+
 .cart-page-container .cart-container .order {
     width: 35%;
     padding: 3vh;
@@ -181,6 +193,9 @@
         display: none;
     }
 
+    .cart-page-container .cart-container .meals .cards .remove-btn {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 500px) {

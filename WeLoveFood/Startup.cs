@@ -1,4 +1,5 @@
 using WeLoveFood.Data;
+using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Menus;
 using WeLoveFood.Services.Cities;
@@ -37,7 +38,10 @@ namespace WeLoveFood
                 .AddEntityFrameworkStores<WeLoveFoodDbContext>();
 
             services
-                .AddControllersWithViews();
+                .AddControllersWithViews(options =>
+                    {
+                        options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+                    });
 
             services
                 .AddTransient<ICitiesService, CitiesService>()

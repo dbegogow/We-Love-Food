@@ -219,7 +219,7 @@ namespace WeLoveFood.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Category", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.MealsCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -387,7 +387,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Category", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.MealsCategory", b =>
                 {
                     b.HasOne("WeLoveFood.Data.Models.Restaurant", "Restaurant")
                         .WithMany("Categories")
@@ -400,13 +400,13 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>
                 {
-                    b.HasOne("WeLoveFood.Data.Models.Category", "Category")
+                    b.HasOne("WeLoveFood.Data.Models.MealsCategory", "MealsCategory")
                         .WithMany("Meals")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("MealsCategory");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
@@ -420,7 +420,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Category", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.MealsCategory", b =>
                 {
                     b.Navigation("Meals");
                 });

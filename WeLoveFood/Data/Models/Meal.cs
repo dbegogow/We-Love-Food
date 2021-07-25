@@ -25,6 +25,6 @@ namespace WeLoveFood.Data.Models
 
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public MealsCategory MealsCategory { get; set; }
     }
 }

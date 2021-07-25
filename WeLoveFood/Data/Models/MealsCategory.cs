@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.Category;
+using static WeLoveFood.Data.DataConstants.MealsCategory;
 
 namespace WeLoveFood.Data.Models
 {
-    public class Category
+    public class MealsCategory
     {
         public int Id { get; init; }
 

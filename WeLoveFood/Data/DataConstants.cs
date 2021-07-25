@@ -25,10 +25,18 @@
             public const int DescriptionMaxLength = 70;
         }
 
-        public class Category
+        public class MealsCategory
         {
             public const int NameMinLength = 3;
             public const int NameMaxLength = 25;
+        }
+
+        public class User
+        {
+            public const int NameMinLength = 2;
+            public const int NameMaxLength = 25;
+
+            public const int AddressMaxLength = 40;
         }
     }
 }

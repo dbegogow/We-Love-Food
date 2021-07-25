@@ -32,6 +32,6 @@ namespace WeLoveFood.Data.Models
 
         public City City { get; set; }
 
-        public IEnumerable<Category> Categories { get; init; } = new HashSet<Category>();
+        public IEnumerable<MealsCategory> MealsCategories { get; init; } = new HashSet<MealsCategory>();
     }
 }

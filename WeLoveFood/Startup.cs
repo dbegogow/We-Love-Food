@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WeLoveFood.Data.Models;
 
 namespace WeLoveFood
 {
@@ -28,13 +29,14 @@ namespace WeLoveFood
                     .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.
-                AddDefaultIdentity<IdentityUser>(options =>
+                AddDefaultIdentity<User>(options =>
                 {
                     options.Password.RequireDigit = false;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                 })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<WeLoveFoodDbContext>();
 
             services

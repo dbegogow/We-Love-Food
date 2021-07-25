@@ -18,7 +18,7 @@ namespace WeLoveFood.Controllers
             _restaurants = restaurants;
         }
 
-        public IActionResult MenuMeals(int id, int categoryId = 1)
+        public IActionResult Meals(int id, int categoryId = 1)
         {
             var allCategories = this._menus
                 .RestaurantCategories(id);

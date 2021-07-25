@@ -12,9 +12,9 @@ namespace WeLoveFood.Services.Models.Restaurants
 
         public decimal? DeliveryFee { get; init; }
 
-        public TimeSpan OpeningTime { get; init; }
+        public string OpeningTime { get; init; }
 
-        public TimeSpan ClosingTime { get; init; }
+        public string ClosingTime { get; init; }
 
         public bool IsOpen { get; init; }
     }

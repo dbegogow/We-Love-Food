@@ -39,6 +39,6 @@ namespace WeLoveFood.Controllers
                 Meals = meals,
                 Restaurant = restaurant
             });
-        }   
+        }
     }
 }

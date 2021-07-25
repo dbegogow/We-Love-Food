@@ -7,6 +7,8 @@ namespace WeLoveFood.Services.Restaurants
 {
     public class RestaurantsService : IRestaurantsService
     {
+        private const string WorkingTimeFormat = @"hh\:mm";
+
         private readonly WeLoveFoodDbContext _data;
 
         public RestaurantsService(WeLoveFoodDbContext data)
@@ -64,8 +66,8 @@ namespace WeLoveFood.Services.Restaurants
                     Name = r.Name,
                     MainImgUrl = r.MainImgUrl,
                     DeliveryFee = r.DeliveryFee,
-                    OpeningTime = r.OpeningTime,
-                    ClosingTime = r.ClosingTime,
+                    OpeningTime = r.OpeningTime.ToString(WorkingTimeFormat),
+                    ClosingTime = r.ClosingTime.ToString(WorkingTimeFormat),
                     IsOpen = IsOpen(r.OpeningTime, r.ClosingTime)
                 })
                 .FirstOrDefault();

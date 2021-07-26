@@ -61,6 +61,13 @@ a:active {
     font-size: 1.2rem;
 }
 
+button.header-link-btn {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+}
+
 .header-link-btn:hover {
     cursor: pointer;
 }
@@ -91,14 +98,15 @@ a:active {
     display: none;
 }
 
-    .nav-container .bars-container .fa-bars {
-        color: #037604;
-        font-size: 1.2rem;
-        cursor: pointer;
-    }
+.nav-container .bars-container .fa-bars {
+    color: #037604;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
 
 .nav-container .border {
     border-left: 2px solid #919191;
+    margin-right: 5px;
 }
 
 .footer-container {

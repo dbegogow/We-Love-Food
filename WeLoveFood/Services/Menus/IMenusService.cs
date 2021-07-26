@@ -7,8 +7,8 @@ namespace WeLoveFood.Services.Menus
     {
         IEnumerable<CategoryServiceModel> RestaurantCategories(int restaurantId);
 
-        IEnumerable<MealServiceModel> GetCategoryMeals(int categoryId);
+        IEnumerable<MealServiceModel> GetCategoryMeals(int mealsCategoryId);
 
-        string CategoryName(int categoryId);
+        string CategoryName(int mealsCategoryId);
     }
 }

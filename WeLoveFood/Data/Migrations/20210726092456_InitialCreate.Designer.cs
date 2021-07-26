@@ -10,7 +10,7 @@ using WeLoveFood.Data;
 namespace WeLoveFood.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
-    [Migration("20210726082803_InitialCreate")]
+    [Migration("20210726092456_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -184,9 +184,6 @@ namespace WeLoveFood.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
@@ -194,7 +191,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MealsCategoryId")
+                    b.Property<int>("MealsCategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -234,7 +231,7 @@ namespace WeLoveFood.Data.Migrations
 
                     b.HasIndex("RestaurantId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("MealsCategories");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Order", b =>
@@ -267,7 +264,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<int>("MealId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("OrderId")
+                    b.Property<int>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -464,7 +461,9 @@ namespace WeLoveFood.Data.Migrations
                 {
                     b.HasOne("WeLoveFood.Data.Models.MealsCategory", "MealsCategory")
                         .WithMany("Meals")
-                        .HasForeignKey("MealsCategoryId");
+                        .HasForeignKey("MealsCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("MealsCategory");
                 });
@@ -474,7 +473,7 @@ namespace WeLoveFood.Data.Migrations
                     b.HasOne("WeLoveFood.Data.Models.Restaurant", "Restaurant")
                         .WithMany("MealsCategories")
                         .HasForeignKey("RestaurantId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Restaurant");
@@ -483,9 +482,9 @@ namespace WeLoveFood.Data.Migrations
             modelBuilder.Entity("WeLoveFood.Data.Models.Order", b =>
                 {
                     b.HasOne("WeLoveFood.Data.Models.Restaurant", "Restaurant")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("RestaurantId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Restaurant");
@@ -494,16 +493,20 @@ namespace WeLoveFood.Data.Migrations
             modelBuilder.Entity("WeLoveFood.Data.Models.Portion", b =>
                 {
                     b.HasOne("WeLoveFood.Data.Models.Meal", "Meal")
-                        .WithMany()
+                        .WithMany("Portions")
                         .HasForeignKey("MealId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("WeLoveFood.Data.Models.Order", null)
+                    b.HasOne("WeLoveFood.Data.Models.Order", "Order")
                         .WithMany("Portions")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Meal");
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
@@ -511,7 +514,7 @@ namespace WeLoveFood.Data.Migrations
                     b.HasOne("WeLoveFood.Data.Models.City", "City")
                         .WithMany("Restaurants")
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("City");
@@ -531,6 +534,11 @@ namespace WeLoveFood.Data.Migrations
                     b.Navigation("Restaurants");
                 });
 
+            modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>
+                {
+                    b.Navigation("Portions");
+                });
+
             modelBuilder.Entity("WeLoveFood.Data.Models.MealsCategory", b =>
                 {
                     b.Navigation("Meals");
@@ -544,6 +552,8 @@ namespace WeLoveFood.Data.Migrations
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
                 {
                     b.Navigation("MealsCategories");
+
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

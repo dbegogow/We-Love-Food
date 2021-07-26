@@ -115,7 +115,7 @@ namespace WeLoveFood.Data.Migrations
                         column: x => x.CityId,
                         principalTable: "Cities",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -204,7 +204,7 @@ namespace WeLoveFood.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "MealsCategories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -214,13 +214,13 @@ namespace WeLoveFood.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_MealsCategories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Categories_Restaurants_RestaurantId",
+                        name: "FK_MealsCategories_Restaurants_RestaurantId",
                         column: x => x.RestaurantId,
                         principalTable: "Restaurants",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -240,7 +240,7 @@ namespace WeLoveFood.Data.Migrations
                         column: x => x.RestaurantId,
                         principalTable: "Restaurants",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -254,16 +254,15 @@ namespace WeLoveFood.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: true),
                     ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    MealsCategoryId = table.Column<int>(type: "int", nullable: true)
+                    MealsCategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Meals", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Meals_Categories_MealsCategoryId",
+                        name: "FK_Meals_MealsCategories_MealsCategoryId",
                         column: x => x.MealsCategoryId,
-                        principalTable: "Categories",
+                        principalTable: "MealsCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -276,7 +275,7 @@ namespace WeLoveFood.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     MealId = table.Column<int>(type: "int", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: true)
+                    OrderId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -286,7 +285,7 @@ namespace WeLoveFood.Data.Migrations
                         column: x => x.MealId,
                         principalTable: "Meals",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Portions_Orders_OrderId",
                         column: x => x.OrderId,
@@ -340,14 +339,14 @@ namespace WeLoveFood.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categories_RestaurantId",
-                table: "Categories",
-                column: "RestaurantId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Meals_MealsCategoryId",
                 table: "Meals",
                 column: "MealsCategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MealsCategories_RestaurantId",
+                table: "MealsCategories",
+                column: "RestaurantId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_RestaurantId",
@@ -403,7 +402,7 @@ namespace WeLoveFood.Data.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "MealsCategories");
 
             migrationBuilder.DropTable(
                 name: "Restaurants");

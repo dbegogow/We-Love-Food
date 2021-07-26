@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using static WeLoveFood.Data.DataConstants.Meal;
@@ -23,8 +24,10 @@ namespace WeLoveFood.Data.Models
         [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
 
-        public int CategoryId { get; set; }
+        public int MealsCategoryId { get; set; }
 
         public MealsCategory MealsCategory { get; set; }
+
+        public IEnumerable<Portion> Portions { get; init; } = new HashSet<Portion>();
     }
 }

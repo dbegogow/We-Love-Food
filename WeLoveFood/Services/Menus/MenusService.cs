@@ -14,7 +14,7 @@ namespace WeLoveFood.Services.Menus
 
         public IEnumerable<CategoryServiceModel> RestaurantCategories(int restaurantId)
             => this._data
-                .Categories
+                .MealsCategories
                 .Where(m => m.RestaurantId == restaurantId)
                 .Select(m => new CategoryServiceModel
                 {
@@ -23,10 +23,10 @@ namespace WeLoveFood.Services.Menus
                 })
                 .ToList();
 
-        public IEnumerable<MealServiceModel> GetCategoryMeals(int categoryId)
+        public IEnumerable<MealServiceModel> GetCategoryMeals(int mealsCategoryId)
             => this._data
                 .Meals
-                .Where(m => m.CategoryId == categoryId)
+                .Where(m => m.MealsCategoryId == mealsCategoryId)
                 .Select(m => new MealServiceModel
                 {
                     Id = m.Id,
@@ -38,10 +38,10 @@ namespace WeLoveFood.Services.Menus
                 })
                 .ToList();
 
-        public string CategoryName(int categoryId)
+        public string CategoryName(int mealsCategoryId)
             => this._data
-                .Categories
-                .Where(c => c.Id == categoryId)
+                .MealsCategories
+                .Where(c => c.Id == mealsCategoryId)
                 .Select(c => c.Name)
                 .FirstOrDefault();
     }

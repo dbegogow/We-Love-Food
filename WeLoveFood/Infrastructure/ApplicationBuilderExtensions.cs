@@ -50,8 +50,8 @@ namespace WeLoveFood.Infrastructure
 
                     await roleManager.CreateAsync(role);
 
-                    const string adminEmail = "admin@crs.com";
-                    const string adminPassword = "admin12";
+                    const string adminEmail = "admin_wlf@gmail.com";
+                    const string adminPassword = "Adminwlf1";
 
                     var user = new User
                     {

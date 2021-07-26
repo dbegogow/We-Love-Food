@@ -106,7 +106,7 @@ button.header-link-btn {
 
 .nav-container .border {
     border-left: 2px solid #919191;
-    margin-right: 5px;
+    margin: 0 5px;
 }
 
 .footer-container {
@@ -140,38 +140,38 @@ button.header-link-btn {
         margin: 0;
     }
 
-        .nav-container a,
-        .nav-container .bars-container {
-            padding-left: 15px;
-        }
+    .nav-container a,
+    .nav-container .bars-container {
+        padding-left: 15px;
+    }
+    
+    .nav-container .bars-container {
+        display: block;
+    }
+    
+    .nav-container .btns {
+        background: #faebd7;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        padding-top: 5px;
+        width: 100vw;
+        border-top: 1px solid #919191;
+        display: none;
+    }
 
-        .nav-container .bars-container {
-            display: block;
-        }
+    .nav-container .btns.active {
+        display: flex;
+        flex-direction: column;
+    }
 
-        .nav-container .btns {
-            background: #faebd7;
-            display: flex;
-            flex-direction: column;
-            margin-top: 10px;
-            padding-top: 5px;
-            width: 100vw;
-            border-top: 1px solid #919191;
-            display: none;
-        }
+    .nav-container .btns span:after {
+        left: 8px;
+    }
 
-            .nav-container .btns.active {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .nav-container .btns span:after {
-                left: 8px;
-            }
-
-            .nav-container .btns div {
-                margin-bottom: 7px;
-            }
+    .nav-container .btns div {
+        margin-bottom: 7px;
+    }
 
     .header-link-btn-container {
         padding: 0 5px 0 0;

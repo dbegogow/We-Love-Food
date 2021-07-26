@@ -31,10 +31,7 @@ namespace WeLoveFood
             services.
                 AddDefaultIdentity<User>(options =>
                 {
-                    options.Password.RequireDigit = false;
-                    options.Password.RequireLowercase = false;
                     options.Password.RequireNonAlphanumeric = false;
-                    options.Password.RequireUppercase = false;
                 })
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<WeLoveFoodDbContext>();

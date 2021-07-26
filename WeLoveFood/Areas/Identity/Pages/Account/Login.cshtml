@@ -1,0 +1,40 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewBag.Title = "Влез - ";
+}
+
+@section LoginStyles {
+    <link href="~/css/auth/auth-forms.css" rel="stylesheet" />
+}
+
+<div class="auth-form-container">
+    <div class="form-container">
+        <div>
+            <div class="form">
+                <h2>Влизане</h2>
+                <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <div>
+                        <i class="fas fa-user"></i>
+                        <input asp-for="Input.Email" type="text" placeholder="Email" />
+                    </div>
+                    <div>
+                        <i class="fas fa-lock"></i>
+                        <input asp-for="Input.Password" type="password" placeholder="Password" />
+                    </div>
+                    <button type="submit">Влез</button>
+                </form>
+                <div>
+                    <p>Все още нямате акаунт?</p>
+                    <a asp-page="./Register">Регистрирай се сега!</a>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="~/img/home/login/login-form-meal.jpg" alt="Login Form Meal" />
+        </div>
+    </div>
+
+    <img class="login-image" src="~/img/home/login/login-form.png" alt="Login Form Image" />
+</div>

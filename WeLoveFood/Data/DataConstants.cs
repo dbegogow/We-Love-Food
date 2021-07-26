@@ -33,6 +33,9 @@
 
         public class User
         {
+            public const int PasswordMinLength = 6;
+            public const int PasswordMaxLength = 100;
+
             public const int NameMinLength = 2;
             public const int NameMaxLength = 25;
 

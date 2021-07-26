@@ -27,16 +27,16 @@
                 <div class="header-link-btn-container">
                     <a asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
                 </div>
-                
+
                 <span class="border"></span>
 
                 @if (!User.Identity.IsAuthenticated)
                 {
                     <div class="header-link-btn-container">
-                        <a asp-controller="Auth" asp-action="Login" class="header-link-btn"><span>Вход</span></a>
+                        <a asp-area="Identity" asp-page="/Account/Login" class="header-link-btn"><span>Вход</span></a>
                     </div>
                     <div class="header-link-btn-container">
-                        <a asp-controller="Auth" asp-action="Register" class="header-link-btn"><span>Регистрация</span></a>
+                        <a asp-area="Identity" asp-page="/Account/Register" class="header-link-btn"><span>Регистрация</span></a>
                     </div>
                 }
                 else

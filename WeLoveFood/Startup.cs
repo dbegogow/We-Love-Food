@@ -1,4 +1,5 @@
 using WeLoveFood.Data;
+using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Menus;
@@ -11,7 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WeLoveFood.Data.Models;
 
 namespace WeLoveFood
 {

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WeLoveFood.Data
 {
-    public class WeLoveFoodDbContext : IdentityDbContext
+    public class WeLoveFoodDbContext : IdentityDbContext<User>
     {
         public WeLoveFoodDbContext(DbContextOptions<WeLoveFoodDbContext> options)
             : base(options)
@@ -18,5 +18,9 @@ namespace WeLoveFood.Data
         public DbSet<Meal> Meals { get; init; }
 
         public DbSet<MealsCategory> Categories { get; init; }
+
+        public DbSet<Order> Orders { get; init; }
+
+        public DbSet<Portion> Portions { get; init; }
     }
 }

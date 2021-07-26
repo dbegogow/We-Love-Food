@@ -28,6 +28,8 @@ namespace WeLoveFood.Data.Models
 
         public TimeSpan ClosingTime { get; set; }
 
+        public bool IsApproved { get; set; }
+
         public int CityId { get; set; }
 
         public City City { get; set; }

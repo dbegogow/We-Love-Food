@@ -8,6 +8,8 @@
         public const string RequiredPassword = "Паролата е задължителна.";
         public const string InvalidPasswordContent = "Паролата трябва да съдържа главна буква, малка буква и цифра.";
         public const string InvalidPasswordLength = "Паролата трябва да бъде между {2} и {1} символа.";
-        public const string InvalidConfirmPassword = "Паролата и потвърждението на паролата не съвпадат.";
+        public const string InvalidPasswordConfirmation = "Паролата и потвърждението на паролата не съвпадат.";
+
+        public const string InvalidAttempt = "Невалиден опит за влизане.";
     }
 }

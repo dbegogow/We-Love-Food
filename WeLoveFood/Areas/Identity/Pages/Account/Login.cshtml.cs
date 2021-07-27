@@ -7,11 +7,15 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
+using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
+
 namespace WeLoveFood.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
+        private const string RememberMeDisplayName = "Запомни ме";
+
         private readonly SignInManager<User> _signInManager;
 
         public LoginModel(SignInManager<User> signInManager)
@@ -27,15 +31,15 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = RequiredEmail)]
             [EmailAddress]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = RequiredPassword)]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember Me?")]
+            [Display(Name = RememberMeDisplayName)]
             public bool RememberMe { get; set; }
         }
 
@@ -71,7 +75,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, InvalidAttempt);
 
                     return Page();
                 }

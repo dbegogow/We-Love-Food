@@ -50,6 +50,20 @@ span.validation-message {
     margin-top: 5px;
 }
 
+div.validation-summary {
+    margin: 0;
+    min-height: 0;
+    margin-top: 20px;
+}
+
+div.validation-summary ul {
+    list-style-type: "\274C";
+    margin: 0;
+    padding-left: 21px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
 .header-title {
     font-family: 'Indie Flower', cursive;
     font-size: 1.7rem;

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
 using static WeLoveFood.Data.DataConstants.User;
+using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
 namespace WeLoveFood.Areas.Identity.Pages.Account
 {
@@ -31,18 +32,17 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = RequiredEmail)]
+            [EmailAddress(ErrorMessage = InvalidEmail)]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(PasswordMaxLength, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = PasswordMinLength)]
+            [Required(ErrorMessage = RequiredPassword)]
+            [StringLength(PasswordMaxLength, ErrorMessage = InvalidPasswordLength, MinimumLength = PasswordMinLength)]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm Password")]
-            [Compare(nameof(Password), ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare(nameof(Password), ErrorMessage = InvalidPasswordConfirmation)]
             public string ConfirmPassword { get; set; }
         }
 
@@ -71,7 +71,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                     return LocalRedirect(returnUrl);
                 }
 
-                ModelState.AddModelError("register", "Паролата трябва да съдържа главна буква, малка буква и цифра.");
+                ModelState.AddModelError(string.Empty, InvalidPasswordContent);
             }
 
             return Page();

@@ -1,0 +1,45 @@
+﻿@using WeLoveFood.Data.Models
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<header class="header-container">
+    <nav class="nav-container">
+        <a asp-controller="Home" asp-action="Index" class="header-title">We Love Food</a>
+        <div class="bars-container">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="btns">
+            <div class="header-link-btn-container">
+                <a asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
+            </div>
+
+            <span class="border"></span>
+
+            @if (!SignInManager.IsSignedIn(User))
+            {
+                <div class="header-link-btn-container">
+                    <a asp-area="Identity" asp-page="/Account/Login" class="header-link-btn"><span>Вход</span></a>
+                </div>
+                <div class="header-link-btn-container">
+                    <a asp-area="Identity" asp-page="/Account/Register" class="header-link-btn"><span>Регистрация</span></a>
+                </div>
+            }
+            else
+            {
+                <div class="header-link-btn-container">
+                    <a class="header-link-btn"><span>Профил</span></a>
+                </div>
+                <div class="header-link-btn-container">
+                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = string.Empty })">
+                        <button type="submit" class="header-link-btn"><span>Излизане</span></button>
+                    </form>
+                </div>
+            }
+            <div class="header-link-btn-container">
+                <a asp-controller="Orders" asp-action="Cart" class="header-link-btn"><span><i class="fas fa-shopping-bag"></i></span></a>
+            </div>
+        </div>
+    </nav>
+</header>

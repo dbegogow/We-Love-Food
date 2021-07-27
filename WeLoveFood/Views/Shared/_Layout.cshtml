@@ -14,48 +14,11 @@
     @await RenderSectionAsync("LoginStyles", required: false)
     @await RenderSectionAsync("CitiesStyles", required: false)
     @await RenderSectionAsync("OrdersStyles", required: false)
+    @await RenderSectionAsync("LogoutStyles", required: false)
     @await RenderSectionAsync("AllRestaurantsStyles", required: false)
 </head>
 <body>
-    <header class="header-container">
-        <nav class="nav-container">
-            <a asp-controller="Home" asp-action="Index" class="header-title">We Love Food</a>
-            <div class="bars-container">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="btns">
-                <div class="header-link-btn-container">
-                    <a asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
-                </div>
-
-                <span class="border"></span>
-
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    <div class="header-link-btn-container">
-                        <a asp-area="Identity" asp-page="/Account/Login" class="header-link-btn"><span>Вход</span></a>
-                    </div>
-                    <div class="header-link-btn-container">
-                        <a asp-area="Identity" asp-page="/Account/Register" class="header-link-btn"><span>Регистрация</span></a>
-                    </div>
-                }
-                else
-                {
-                    <div class="header-link-btn-container">
-                        <a asp-controller="Auth" asp-action="Logout" class="header-link-btn"><span>Профил</span></a>
-                    </div>
-                    <div class="header-link-btn-container">
-                        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                            <button type="submit" class="header-link-btn"><span>Излизане</span></button>
-                        </form>
-                    </div>
-                }
-                <div class="header-link-btn-container">
-                    <a asp-controller="Orders" asp-action="Cart" class="header-link-btn"><span><i class="fas fa-shopping-bag"></i></span></a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <partial name="_HeaderPartial" />
 
     <div>
         <main>

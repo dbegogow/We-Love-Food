@@ -1,0 +1,25 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewBag.Title = "Излизане -";
+}
+
+@section LogoutStyles {
+    <link href="~/css/auth/logout.css" rel="stylesheet" />
+}
+
+<div class="logout-container">
+    <h1>Излизане</h1>
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = string.Empty })" method="post">
+                <button type="submit">Излизане</button>
+            </form>
+        }
+        else
+        {
+            <p>Успешно сте излезли от своя профил</p>
+        }
+    }
+</div>

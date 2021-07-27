@@ -1,0 +1,30 @@
+﻿.logout-container {
+    padding: 12vh 5vw;
+    font-family: 'Open Sans', sans-serif;
+    color: #185E06;
+}
+
+.logout-container h1{
+    margin: 0;
+    margin-bottom: 3vh;
+}
+
+.logout-container button {
+    background: #19900C;
+    color: #FFF;
+    border: none;
+    padding: 7px 15px;
+    font-size: 1rem;
+    border-radius: 12px;
+}
+
+.logout-container button:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    opacity: 0.8;
+}
+
+.logout-container p {
+    margin: 0;
+    font-size: 1.1rem;
+}

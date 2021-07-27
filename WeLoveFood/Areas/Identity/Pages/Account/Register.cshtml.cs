@@ -41,7 +41,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+            [Display(Name = "Confirm Password")]
             [Compare(nameof(Password), ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
         }
@@ -71,10 +71,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                     return LocalRedirect(returnUrl);
                 }
 
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                ModelState.AddModelError("register", "Паролата трябва да съдържа главна буква, малка буква и цифра.");
             }
 
             return Page();

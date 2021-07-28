@@ -6,5 +6,8 @@ namespace WeLoveFood.Controllers
     {
         public IActionResult Cart()
             => View();
+
+        public IActionResult Mine()
+            => View();
     }
 }

@@ -9,13 +9,6 @@
     <link href="~/css/auth/auth-forms.css" rel="stylesheet" />
 }
 
-@{
-    var explicitlyAddedErrors = ModelState
-        .Where(_ => _.Key.StartsWith("#"))
-        .SelectMany(_ => _.Value.Errors)
-        .ToList();
-}
-
 <div class="auth-form-container">
     <div class="form-container">
         <div>
@@ -24,9 +17,9 @@
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
                     <div class="validation-summary">
                         <ul>
-                            @foreach (var error in explicitlyAddedErrors)
+                            @foreach (var error in ModelState.ModelStateErrorMessages())
                             {
-                                <li>@error.ErrorMessage</li>
+                                <li>@error</li>
                             }
                         </ul>
                     </div>

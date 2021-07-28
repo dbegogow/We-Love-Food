@@ -75,7 +75,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, InvalidAttempt);
+                    ModelState.AddModelError("#", InvalidAttempt);
 
                     return Page();
                 }

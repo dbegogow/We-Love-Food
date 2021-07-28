@@ -71,7 +71,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                     return LocalRedirect(returnUrl);
                 }
 
-                ModelState.AddModelError("#error", InvalidPasswordContent);
+                ModelState.AddModelError("#", InvalidPasswordContent);
             }
 
             return Page();

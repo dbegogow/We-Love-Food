@@ -15,16 +15,25 @@
             <div class="form">
                 <h2>Влизане</h2>
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                    <div asp-validation-summary="All" class="validation-summary"></div>
+                    <div class="validation-summary">
+                        <ul>
+                            @foreach (var error in ModelState.ModelStateErrorMessages())
+                            {
+                                <li>@error</li>
+                            }
+                        </ul>
+                    </div>
 
                     <div>
                         <i class="fas fa-user"></i>
                         <input asp-for="Input.Email" placeholder="Email" />
                     </div>
+                    <span asp-validation-for="Input.Email" class="validation-message"></span>
                     <div>
                         <i class="fas fa-lock"></i>
                         <input asp-for="Input.Password" placeholder="Password" />
                     </div>
+                    <span asp-validation-for="Input.Password" class="validation-message"></span>
                     <div class="checkbox-container">
                         <div class="checkbox">
                             <input asp-for="Input.RememberMe" />

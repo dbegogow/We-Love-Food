@@ -51,6 +51,55 @@
     top: 10px;
 }
 
+.auth-form-container .checkbox-container .checkbox {
+    margin-left: 10px;
+}
+
+.auth-form-container .checkbox-container .checkbox input[type=checkbox] + label {
+    width: 25px;
+    height: 25px;
+    border: 3px solid #555;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    transition: all ease-out 200ms;
+    text-indent: 35px;
+    font: normal normal 18px/22px "Helvetica";
+    white-space: nowrap;
+    color: #555;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.auth-form-container .checkbox-container .checkbox input[type=checkbox] + label:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 10px;
+    border-bottom: 3px solid #22b573;
+    border-left: 3px solid #22b573;
+    top: 20%;
+    left: 50%;
+    transform-origin: bottom left;
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: all ease-out 200ms;
+}
+
+.auth-form-container .checkbox-container .checkbox input[type=checkbox]:checked + label {
+    border: 3px solid #22b573;
+}
+
+.auth-form-container .checkbox-container .checkbox input[type=checkbox]:checked + label:after {
+    opacity: 1;
+    width: 30px;
+}
+
+.auth-form-container .checkbox-container .checkbox input[type=checkbox] {
+    display: none;
+}
+
 .auth-form-container .form-container form button {
     display: block;
     margin: 20px auto;

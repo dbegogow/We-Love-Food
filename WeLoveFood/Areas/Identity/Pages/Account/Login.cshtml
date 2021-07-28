@@ -19,11 +19,17 @@
 
                     <div>
                         <i class="fas fa-user"></i>
-                        <input asp-for="Input.Email" type="text" placeholder="Email" />
+                        <input asp-for="Input.Email" placeholder="Email" />
                     </div>
                     <div>
                         <i class="fas fa-lock"></i>
-                        <input asp-for="Input.Password" type="password" placeholder="Password" />
+                        <input asp-for="Input.Password" placeholder="Password" />
+                    </div>
+                    <div class="checkbox-container">
+                        <div class="checkbox">
+                            <input asp-for="Input.RememberMe" />
+                            <label asp-for="Input.RememberMe"></label>
+                        </div>
                     </div>
                     <button type="submit">Влез</button>
                 </form>

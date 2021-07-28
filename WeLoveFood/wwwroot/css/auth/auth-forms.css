@@ -4,8 +4,8 @@
 
 .auth-form-container .form-container {
     position: relative;
-    top: 15vh;
-    height: 70vh;
+    top: 14vh;
+    height: 72vh;
     width: 60vw;
     margin: 0 auto;
     border: 1px solid #C3C3C3;
@@ -160,12 +160,20 @@
 }
 
 @media (max-width: 1024px) {
+    .auth-form-container {
+        height: calc(130vh);
+    }
+
     .auth-form-container .form-container {
         top: 13vh;
-        height: 75vh;
+        height: 110vh;
         width: 80vw;
         grid-template-columns: repeat(1, 1fr);
         font-size: 0.9rem;
+    }
+
+    .auth-form-container .form-container .form {
+        padding-bottom: 2vh;
     }
 
     .auth-form-container .form-container .form div {

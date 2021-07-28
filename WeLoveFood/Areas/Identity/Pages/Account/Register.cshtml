@@ -9,13 +9,27 @@
     <link href="~/css/auth/auth-forms.css" rel="stylesheet" />
 }
 
+@{
+    var explicitlyAddedErrors = ModelState
+        .Where(_ => _.Key.StartsWith("#"))
+        .SelectMany(_ => _.Value.Errors)
+        .ToList();
+}
+
 <div class="auth-form-container">
     <div class="form-container">
         <div>
             <div class="form">
                 <h2>Регистриране</h2>
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                    <div asp-validation-summary="All" class="validation-summary"></div>
+                    <div class="validation-summary">
+                        <ul>
+                            @foreach (var error in explicitlyAddedErrors)
+                            {
+                                <li>@error.ErrorMessage</li>
+                            }
+                        </ul>
+                    </div>
 
                     <div>
                         <i class="fas fa-user"></i>

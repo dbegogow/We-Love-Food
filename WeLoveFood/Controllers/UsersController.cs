@@ -6,5 +6,11 @@ namespace WeLoveFood.Controllers
     {
         public IActionResult PersonalData()
             => View();
+
+        [HttpPost]
+        public IActionResult PersonalData()
+        {
+
+        }
     }
 }

@@ -22,12 +22,6 @@
     transition: 0.2s ease;
 }
 
-.user-profile-options-container .option.selected {
-    pointer-events: none;
-    background: #398809;
-    color: #FFF;
-}
-
 .user-profile-options-container .option i {
     position: relative;
     top: 3px;

@@ -142,12 +142,12 @@ button.header-link-btn {
     padding-left: 20px;
 }
 
-footer-container span {
-   font-family: 'Indie Flower', cursive;
-   font-size: 1.6rem;
-   font-weight: 600;
-   color: #7BA339;
-
+.footer-container span {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #7BA339;
+}
 
 @media (max-width: 850px) {
     .header-container {

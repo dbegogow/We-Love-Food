@@ -29,7 +29,7 @@
             else
             {
                 <div class="header-link-btn-container">
-                    <a class="header-link-btn"><span>Профил</span></a>
+                    <a asp-controller="Users" asp-action="PersonalData" class="header-link-btn"><span>Профил</span></a>
                 </div>
                 <div class="header-link-btn-container">
                     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = string.Empty })">

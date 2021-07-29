@@ -7,7 +7,7 @@
     -moz-box-shadow: 0px 0px 5px 0px rgba(186,186,186,0.75);
 }
 
-.user-profile-options-container a {
+.user-profile-options-container .option {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -15,30 +15,35 @@
     border-top: 0.5px solid #CECECE;
 }
 
-.user-profile-options-container a:hover {
+.user-profile-options-container .option:hover {
     cursor: pointer;
     background: #398809;
     color: #FFF;
     transition: 0.2s ease;
 }
 
-.user-profile-options-container a.selected {
+.user-profile-options-container .option.selected {
     pointer-events: none;
     background: #398809;
     color: #FFF;
 }
 
-.user-profile-options-container a i {
+.user-profile-options-container .option i {
     position: relative;
     top: 3px;
     font-size: 1.4rem;
     margin-right: 20px;
 }
 
-.user-profile-options-container a h4 {
+.user-profile-options-container .option h4 {
     display: inline-block;
     margin: 0;
     font-size: 1.1rem;
+}
+
+.user-profile-options-container button {
+    border: none;
+    background: #FFF;
 }
 
 @media (max-width: 700px) {
@@ -47,11 +52,11 @@
         margin-bottom: 20px;
     }
 
-    .user-profile-options-container a i {
+    .user-profile-options-container .option i {
         font-size: 1.2rem;
     }
 
-    .user-profile-options-container a h4 {
+    .user-profile-options-container .option h4 {
         font-size: 0.9rem;
     }
 }

@@ -1,18 +1,18 @@
 ﻿<div class="user-profile-options-container">
-    <a asp-controller="Orders" asp-action="Mine">
+    <a asp-controller="Orders" asp-action="Mine" class="option">
         <i class="fas fa-utensils"></i>
         <h4>Моите поръчки</h4>
     </a>
-    <a asp-controller="Users" asp-action="PersonalData">
+    <a asp-controller="Users" asp-action="PersonalData" class="option">
         <i class="fas fa-user"></i>
         <h4>Лични данни</h4>
     </a>
-    <a>
+    <a asp-controller="Restaurants" asp-action="Favorite" class="option">
         <i class="fas fa-heart"></i>
         <h4>Любими ресторанти</h4>
     </a>
-    <a>
+    <div class="option">
         <i class="fas fa-sign-out-alt"></i>
         <h4>Изход</h4>
-    </a>
+    </div>
 </div>

@@ -1,6 +1,5 @@
 ﻿.user-profile-page-container .section-container .orders {
     padding: 20px 30px;
-    width: 40vw;
 }
 
 .user-profile-page-container .section-container .orders .order-container {
@@ -73,4 +72,19 @@
     width: 100%;
     position: relative;
     bottom: 7px;
+}
+
+.user-profile-page-container .section-container .orders .order-container .meals ul li {
+    list-style-type: "\1F374";
+}
+
+.user-profile-page-container .section-container .orders .order-container .meals ul li span {
+    margin: 0 10px;
+    font-weight: 600;
+    color: #404040;
+}
+
+.user-profile-page-container .section-container .orders .order-container p .total-price {
+    font-weight: 600;
+    color: #404040;
 }

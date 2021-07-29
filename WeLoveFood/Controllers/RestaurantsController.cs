@@ -37,5 +37,10 @@ namespace WeLoveFood.Controllers
 
             return View(query);
         }
+
+        public IActionResult Favorite()
+        {
+            return View();
+        }
     }
 }

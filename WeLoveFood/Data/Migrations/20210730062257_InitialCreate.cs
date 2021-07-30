@@ -64,8 +64,7 @@ namespace WeLoveFood.Data.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     Address = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
-                    CityId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CityId1 = table.Column<int>(type: "int", nullable: true),
+                    CityId = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -85,8 +84,8 @@ namespace WeLoveFood.Data.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_Cities_CityId1",
-                        column: x => x.CityId1,
+                        name: "FK_AspNetUsers_Cities_CityId",
+                        column: x => x.CityId,
                         principalTable: "Cities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -327,9 +326,9 @@ namespace WeLoveFood.Data.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_CityId1",
+                name: "IX_AspNetUsers_CityId",
                 table: "AspNetUsers",
-                column: "CityId1");
+                column: "CityId");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",

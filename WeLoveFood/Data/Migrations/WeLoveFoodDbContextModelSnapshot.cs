@@ -331,10 +331,7 @@ namespace WeLoveFood.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<string>("CityId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CityId1")
+                    b.Property<int?>("CityId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -391,7 +388,7 @@ namespace WeLoveFood.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId1");
+                    b.HasIndex("CityId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -522,7 +519,7 @@ namespace WeLoveFood.Data.Migrations
                 {
                     b.HasOne("WeLoveFood.Data.Models.City", "City")
                         .WithMany()
-                        .HasForeignKey("CityId1");
+                        .HasForeignKey("CityId");
 
                     b.Navigation("City");
                 });

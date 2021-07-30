@@ -1,4 +1,6 @@
-﻿@{
+﻿@model PersonalDataServiceModel
+
+@{
     ViewBag.Title = "Лични данни -";
 }
 
@@ -6,6 +8,10 @@
     <link href="~/css/users/pageContainer.css" rel="stylesheet" />
     <link href="~/css/users/options.css" rel="stylesheet" />
     <link href="~/css/users/personalData.css" rel="stylesheet" />
+}
+
+@{
+    var emptyInput = "Няма информация";
 }
 
 <div class="user-profile-page-container">
@@ -19,19 +25,21 @@
                     <div class="field">
                         <p>Име</p>
                         <p>Фамилия</p>
-                        <p>Email</p>
                         <p>Телефон</p>
                         <p>Град</p>
                         <p>Адрес</p>
                     </div>
                     <div class="data">
-                        <input class="disable" type="text" value="Джулио" />
-                        <input class="disable" type="text" value="Бегогов" />
-                        <input class="disable" type="email" value="dzhulio_begogov@@abv.bg" />
-                        <input class="disable" type="text" value="0884184241" />
-                        <input class="disable" type="text" value="София" />
-                        <input class="disable" type="text" value="ул. Алеко Константинов '9'" />
+                        <input asp-for="FirstName" class="disable" type="text" value="@Model.FirstName" placeholder="@emptyInput" />
+                        <input asp-for="LastName" class="disable" type="text" value="@Model.LastName" placeholder="@emptyInput" />
+                        <input asp-for="PhoneNumber" class="disable" type="text" value="@Model.PhoneNumber" placeholder="@emptyInput" />
+                        <input asp-for="City" class="disable" type="text" value="@Model.City" placeholder="@emptyInput" />
+                        <input asp-for="Address" class="disable" type="text" value="@Model.Address" placeholder="@emptyInput" />
                     </div>
+                </div>
+
+                <div class="validation-summary-container">
+                    <div asp-validation-summary="All" class="validation-summary"></div>
                 </div>
 
                 <div class="change-container">

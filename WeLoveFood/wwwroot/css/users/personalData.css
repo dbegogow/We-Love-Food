@@ -32,6 +32,12 @@
     pointer-events: none;
 }
 
+.user-profile-page-container .section-container .personal-data-container .validation-summary-container {
+    position: relative;
+    bottom: 25px;
+    left: 28px;
+}
+
 .user-profile-page-container .section-container .personal-data-container .change-container {
     padding: 10px 30px 40px 30px;
 }
@@ -66,6 +72,10 @@
     .user-profile-page-container .section-container .personal-data .data input {
          width: 100%;
         font-size: 0.8rem;
+    }
+
+    .user-profile-page-container .section-container .personal-data-container .validation-summary-container {
+        left: 7px;
     }
 
     .user-profile-page-container .section-container .personal-data-container .change-container .btn {

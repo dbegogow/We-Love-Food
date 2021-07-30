@@ -16,7 +16,7 @@ namespace WeLoveFood.Data.Models
         [MaxLength(AddressMaxLength)]
         public string Address { get; set; }
 
-        public string CityId { get; set; }
+        public int? CityId { get; set; }
 
         public City City { get; set; }
     }

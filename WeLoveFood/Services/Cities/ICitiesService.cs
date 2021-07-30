@@ -9,5 +9,6 @@ namespace WeLoveFood.Services.Cities
 
         string GetCityName(int id);
 
+        int CityId(string cityName);
     }
 }

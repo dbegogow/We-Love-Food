@@ -31,5 +31,12 @@ namespace WeLoveFood.Services.Cities
                 .Where(c => c.Id == id)
                 .Select(c => c.Name)
                 .FirstOrDefault();
+
+        public int CityId(string cityName)
+            => this._data
+                .Cities
+                .Where(c => c.Name == cityName)
+                .Select(c => c.Id)
+                .FirstOrDefault();
     }
 }

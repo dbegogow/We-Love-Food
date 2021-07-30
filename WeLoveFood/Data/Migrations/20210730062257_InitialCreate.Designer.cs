@@ -10,7 +10,7 @@ using WeLoveFood.Data;
 namespace WeLoveFood.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
-    [Migration("20210726190528_InitialCreate")]
+    [Migration("20210730062257_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -333,10 +333,7 @@ namespace WeLoveFood.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<string>("CityId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CityId1")
+                    b.Property<int?>("CityId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -393,7 +390,7 @@ namespace WeLoveFood.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId1");
+                    b.HasIndex("CityId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -524,7 +521,7 @@ namespace WeLoveFood.Data.Migrations
                 {
                     b.HasOne("WeLoveFood.Data.Models.City", "City")
                         .WithMany()
-                        .HasForeignKey("CityId1");
+                        .HasForeignKey("CityId");
 
                     b.Navigation("City");
                 });

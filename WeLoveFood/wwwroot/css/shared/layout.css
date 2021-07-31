@@ -64,6 +64,20 @@ div.validation-summary ul {
     font-size: 1rem;
 }
 
+.status-message-container {
+    margin-top: 20px;
+    margin-left: 11px;
+    color: #676767;
+}
+
+.status-message-container button {
+    border: 2px solid #146C11;
+    border-radius: 5px;
+    background: #25B121;
+    color: #FFF;
+    font-size: 1.2rem;
+}
+
 .header-title {
     font-family: 'Indie Flower', cursive;
     font-size: 1.7rem;

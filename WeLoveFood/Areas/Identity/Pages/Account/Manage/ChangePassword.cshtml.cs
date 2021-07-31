@@ -1,17 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 using WeLoveFood.Data.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
+
+using static WeLoveFood.Data.DataConstants.User;
+using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
+
 namespace WeLoveFood.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {
+        private const string CurrentPasswordDisplayName = "Сегашна парола";
+        private const string NewPasswordDisplayName = "Нова парола";
+        private const string ConfirmNewPasswordDisplayName = "Повтори парола";
+
+        private const string PasswordMismatchModelErrorCode = "PasswordMismatch";
+
+        private const string LogInInformationText = "User changed their password successfully.";
+        private const string StatusMessageText = "Твоята парола бе успешно сменена.";
+
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger<ChangePasswordModel> _logger;
@@ -34,20 +45,20 @@ namespace WeLoveFood.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = RequiredField)]
             [DataType(DataType.Password)]
-            [Display(Name = "Current password")]
+            [Display(Name = CurrentPasswordDisplayName)]
             public string OldPassword { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = RequiredField)]
+            [StringLength(PasswordMaxLength, ErrorMessage = InvalidPasswordLength, MinimumLength = PasswordMinLength)]
             [DataType(DataType.Password)]
-            [Display(Name = "New password")]
+            [Display(Name = NewPasswordDisplayName)]
             public string NewPassword { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm new password")]
-            [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+            [Display(Name = ConfirmNewPasswordDisplayName)]
+            [Compare(nameof(NewPassword), ErrorMessage = InvalidPasswordConfirmation)]
             public string ConfirmPassword { get; set; }
         }
 
@@ -88,12 +99,20 @@ namespace WeLoveFood.Areas.Identity.Pages.Account.Manage
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
+
+                var isCurrentPasswordInvalid = changePasswordResult
+                    .Errors
+                    .Any(e => e.Code == PasswordMismatchModelErrorCode);
+
+                ModelState.AddModelError("#",
+                    isCurrentPasswordInvalid ? InvalidCurrentPassword : InvalidPasswordContent);
+
                 return Page();
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            _logger.LogInformation("User changed their password successfully.");
-            StatusMessage = "Your password has been changed.";
+            _logger.LogInformation(LogInInformationText);
+            StatusMessage = StatusMessageText;
 
             return RedirectToPage();
         }

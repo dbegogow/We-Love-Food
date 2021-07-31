@@ -14,6 +14,7 @@
         public const string InvalidPassword = "Грешна парола.";
         public const string RequiredField = "Полето е задължително.";
 
-        public const string AlreadyExistUserWithEmail = "Вече съществува потребител с този имейл";
+        public const string AlreadyExistUserWithEmail = "Вече съществува потребител с този имейл.";
+        public const string InvalidChangeEmail = "Грешка в смяната на имейла.";
     }
 }

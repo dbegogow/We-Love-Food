@@ -64,13 +64,13 @@ namespace WeLoveFood.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnGetAsync()
         {
-            var user = await _userManager.GetUserAsync(User);
+            var user = await this._userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Unable to load user with ID '{this._userManager.GetUserId(this.User)}'.");
             }
 
-            var hasPassword = await _userManager.HasPasswordAsync(user);
+            var hasPassword = await this._userManager.HasPasswordAsync(user);
             if (!hasPassword)
             {
                 return RedirectToPage("./SetPassword");
@@ -86,13 +86,13 @@ namespace WeLoveFood.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var user = await _userManager.GetUserAsync(User);
+            var user = await this._userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Unable to load user with ID '{this._userManager.GetUserId(this.User)}'.");
             }
 
-            var changePasswordResult = await _userManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
+            var changePasswordResult = await this._userManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
             if (!changePasswordResult.Succeeded)
             {
                 foreach (var error in changePasswordResult.Errors)
@@ -110,9 +110,9 @@ namespace WeLoveFood.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            await _signInManager.RefreshSignInAsync(user);
-            _logger.LogInformation(LogInInformationText);
-            StatusMessage = StatusMessageText;
+            await this._signInManager.RefreshSignInAsync(user);
+            this._logger.LogInformation(LogInInformationText);
+            this.StatusMessage = StatusMessageText;
 
             return RedirectToPage();
         }

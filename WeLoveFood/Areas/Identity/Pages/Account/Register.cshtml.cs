@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
@@ -14,6 +15,8 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
+        private const string DuplicateUserNameErrorCode = "DuplicateUserName";
+
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
 
@@ -71,7 +74,12 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                     return LocalRedirect(returnUrl);
                 }
 
-                ModelState.AddModelError("#", InvalidPasswordContent);
+                var hasDuplicateUserNameInvalid = result
+                    .Errors
+                    .Any(e => e.Code == DuplicateUserNameErrorCode);
+
+                ModelState.AddModelError("#",
+                    hasDuplicateUserNameInvalid ? AlreadyExistUserWithEmail : InvalidPasswordContent);
             }
 
             return Page();

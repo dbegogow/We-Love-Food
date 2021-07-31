@@ -1,5 +1,5 @@
 ﻿.user-profile-page-container .section-container .personal-data {
-    padding: 20px 30px;
+    padding: 10px 30px 5px 30px;
     display: flex;
     flex-direction: row;
     font-size: 1.07rem;
@@ -38,11 +38,11 @@
     left: 28px;
 }
 
-.user-profile-page-container .section-container .personal-data-container .change-container {
-    padding: 10px 30px 40px 30px;
+.user-profile-page-container .section-container .change-container {
+    padding: 0 30px 30px 30px;
 }
 
-.user-profile-page-container .section-container .personal-data-container .change-container .btn {
+.user-profile-page-container .section-container .change-container .btn {
     padding: 11px 30px;
     background: #398809;
     color: #FFF;
@@ -51,16 +51,28 @@
     border: none;
 }
 
-.user-profile-page-container .section-container .personal-data-container .change-container .btn {
+.user-profile-page-container .section-container .change-container .btn:hover {
     cursor: pointer;
     opacity: 0.9;
 }
 
-.user-profile-page-container .section-container .personal-data-container .change-container.hidden {
+.user-profile-page-container .section-container .change-container.hidden {
     display: none;
 }
 
-@media (max-width: 700px) {
+.user-profile-page-container .section-container .change-container.account-data a {
+    margin-right: 20px;
+}
+
+.user-profile-page-container .section-container .border {
+    display: block;
+    width: 35vw;
+    margin-left: 12px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #919191;
+}
+
+@media (max-width: 800px) {
     .user-profile-page-container .section-container .personal-data {
          padding: 20px 10px;
     }
@@ -78,7 +90,17 @@
         left: 7px;
     }
 
-    .user-profile-page-container .section-container .personal-data-container .change-container .btn {
+    .user-profile-page-container .section-container .change-container .btn {
         font-size: 0.8rem;
+    }
+
+    .user-profile-page-container .section-container .change-container.account-data {
+        display: flex;
+        flex-direction: column;
+        width: 270px;
+    }
+
+    .user-profile-page-container .section-container .change-container.account-data a:nth-child(1) {
+        margin-bottom: 20px;
     }
 }

@@ -18,6 +18,16 @@
     font-size: 1.9rem;
 }
 
+.change-password-page-container p {
+    margin-left: 11px;
+    font-size: 1.1rem;
+}
+
+.change-password-page-container p span {
+    margin-left: 10px;
+    color: #777777;
+}
+
 .change-password-page-container form div {
     display: flex;
     flex-direction: column;

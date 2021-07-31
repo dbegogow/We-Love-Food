@@ -105,7 +105,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account.Manage
                     .Any(e => e.Code == PasswordMismatchModelErrorCode);
 
                 ModelState.AddModelError("#",
-                    isCurrentPasswordInvalid ? InvalidCurrentPassword : InvalidPasswordContent);
+                    isCurrentPasswordInvalid ? InvalidPassword : InvalidPasswordContent);
 
                 return Page();
             }

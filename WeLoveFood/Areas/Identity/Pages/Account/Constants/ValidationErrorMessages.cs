@@ -11,7 +11,9 @@
 
         public const string InvalidAttempt = "Невалиден опит за влизане.";
 
-        public const string InvalidCurrentPassword = "Грешна парола.";
+        public const string InvalidPassword = "Грешна парола.";
         public const string RequiredField = "Полето е задължително.";
+
+        public const string AlreadyExistUserWithEmail = "Вече съществува потребител с този имейл";
     }
 }

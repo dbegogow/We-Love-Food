@@ -212,6 +212,10 @@ button.header-link-btn {
         padding: 0 5px 0 0;
     }
 
+    .header-link-btn-container form span {
+        padding-left: 15px;
+    }
+
     .header-title {
         font-size: 1.4rem;
     }

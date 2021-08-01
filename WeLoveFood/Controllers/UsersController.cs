@@ -4,6 +4,7 @@ using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Models.Users;
+using Microsoft.AspNetCore.Authorization;
 
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 
@@ -22,6 +23,7 @@ namespace WeLoveFood.Controllers
             _cities = cities;
         }
 
+        [Authorize]
         public IActionResult PersonalData()
         {
             var user = this._users
@@ -31,6 +33,7 @@ namespace WeLoveFood.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult PersonalData(PersonalDataFormModel user)
         {
             var cityId = this._cities

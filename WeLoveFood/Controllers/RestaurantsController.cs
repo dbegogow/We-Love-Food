@@ -2,6 +2,7 @@
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WeLoveFood.Controllers
 {
@@ -38,6 +39,7 @@ namespace WeLoveFood.Controllers
             return View(query);
         }
 
+        [Authorize]
         public IActionResult Favorite()
         {
             return View();

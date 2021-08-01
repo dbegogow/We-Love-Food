@@ -20,6 +20,24 @@
     font-size: 2.3rem;
 }
 
+.restaurant-container h1 a {
+    position: relative;
+    left: 25px;
+    font-size: 2rem;
+    color: #7DDA2A;
+}
+
+.restaurant-container h1 a:hover {
+    cursor: pointer;
+    color: #FC1313;
+    transition: 0.2s ease-out;
+}
+
+.restaurant-container h1 a.added {
+    color: #FC1313;
+    pointer-events: none;
+}
+
 .restaurant-container .opening-time {
     margin-left: 7vw;
     font-size: 1.05rem;

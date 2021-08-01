@@ -22,7 +22,7 @@
             public const int WeightMinValue = 10;
             public const int WeightMaxValue = 1000;
 
-            public const int DescriptionMaxLength = 70;
+            public const int DescriptionMaxLength = 60;
         }
 
         public class MealsCategory

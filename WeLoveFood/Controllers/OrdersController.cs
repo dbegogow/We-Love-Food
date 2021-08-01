@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WeLoveFood.Controllers
 {
@@ -7,6 +8,7 @@ namespace WeLoveFood.Controllers
         public IActionResult Cart()
             => View();
 
+        [Authorize]
         public IActionResult Mine()
             => View();
     }

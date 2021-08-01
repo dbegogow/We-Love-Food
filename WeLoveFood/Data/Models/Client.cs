@@ -1,14 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
+using static WeLoveFood.Data.DataConstants.User;
 
 namespace WeLoveFood.Data.Models
 {
     public class Client
     {
-        public int Id { get; init; }
+        [Key]
+        [Required]
+        [MaxLength(IdMaxLength)]
+        public string Id { get; init; } = Guid.NewGuid().ToString();
 
         [Required]
-        public string UserId { get; init; }
+        public string UserId { get; set; }
+
+        public User User { get; set; }
 
         public IEnumerable<Order> Orders { get; init; } = new HashSet<Order>();
 

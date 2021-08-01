@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
 using WeLoveFood.Data.Models;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
@@ -70,7 +70,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    await this._signInManager.SignInAsync(user, isPersistent: false);\
+                    await this._signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
                 }
 

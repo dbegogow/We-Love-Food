@@ -19,5 +19,9 @@ namespace WeLoveFood.Data.Models
         public int? CityId { get; set; }
 
         public City City { get; set; }
+
+        public string ClientId { get; set; }
+
+        public Client Client { get; set; }
     }
 }

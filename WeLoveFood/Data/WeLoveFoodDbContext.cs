@@ -79,6 +79,13 @@ namespace WeLoveFood.Data
                 .HasMany(c => c.Restaurants)
                 .WithMany(r => r.Clients);
 
+            builder
+                .Entity<User>()
+                .HasOne(u => u.Client)
+                .WithOne(c => c.User)
+                .HasForeignKey<Client>(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             base.OnModelCreating(builder);
         }
     }

@@ -14,5 +14,7 @@ namespace WeLoveFood.Data.Models
         public Restaurant Restaurant { get; set; }
 
         public IEnumerable<Portion> Portions { get; init; } = new HashSet<Portion>();
+
+        public IEnumerable<Client> Clients { get; init; } = new HashSet<Client>();
     }
 }

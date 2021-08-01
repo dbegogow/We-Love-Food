@@ -70,7 +70,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    await this._signInManager.SignInAsync(user, isPersistent: false);
+                    await this._signInManager.SignInAsync(user, isPersistent: false);\
                     return LocalRedirect(returnUrl);
                 }
 

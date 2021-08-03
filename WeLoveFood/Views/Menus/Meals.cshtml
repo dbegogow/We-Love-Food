@@ -13,7 +13,13 @@
 </div>
 
 <div class="restaurant-container">
-    <h1>@Model.Restaurant.Name <a class="add-to-favorite"><i class="fas fa-heart"></i></a></h1>
+    <div class="heading">
+        <h1>@Model.Restaurant.Name</h1>
+
+        <form  method="post">
+            <button id="add-to-favorite" type="submit" restaurant-id="@Model.Restaurant.Id"><i class="fas fa-heart"></i></button>
+        </form>
+    </div>
 
     <p class="opening-time">Работно време <span class="time">@Model.Restaurant.OpeningTime ч. - @Model.Restaurant.ClosingTime ч.</span></p>
 
@@ -50,7 +56,7 @@
                         <p class="price">@meal.Price лв</p>
                     </div>
                     <div class="image-container">
-                        <img src="@meal.ImgUrl"  />
+                        <img src="@meal.ImgUrl" />
                     </div>
                 </div>
             }
@@ -60,4 +66,5 @@
 
 @section MealsScript {
     <script type="text/javascript" src="~/js/restaurants/restaurant.js"></script>
+    <script type="text/javascript" src="~/js/restaurants/addToFavorite.js"></script>
 }

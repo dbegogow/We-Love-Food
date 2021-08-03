@@ -10,6 +10,8 @@ namespace WeLoveFood.Services.Restaurants
             int currentPage,
             int carsPerPage);
 
-        RestaurantServiceModel RestaurantInfo(int restaurantId);
+        RestaurantServiceModel RestaurantInfo(int id);
+
+        void AddRestaurantToFavorite(int restaurantId, string userId);
     }
 }

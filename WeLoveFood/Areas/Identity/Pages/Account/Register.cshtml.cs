@@ -2,6 +2,7 @@
 using WeLoveFood.Data.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Services.clients;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -19,13 +20,16 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
 
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
+        private readonly IClientsService _clients;
 
         public RegisterModel(
             UserManager<User> userManager,
-            SignInManager<User> signInManager)
+            SignInManager<User> signInManager,
+            IClientsService clients)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            this._userManager = userManager;
+            this._signInManager = signInManager;
+            this._clients = clients;
         }
 
         [BindProperty]
@@ -63,13 +67,15 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                 var user = new User
                 {
                     UserName = Input.Email,
-                    Email = Input.Email
+                    Email = Input.Email,
                 };
 
                 var result = await this._userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {
+                    this._clients.CreateClient(user.Id);
+
                     await this._signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
                 }

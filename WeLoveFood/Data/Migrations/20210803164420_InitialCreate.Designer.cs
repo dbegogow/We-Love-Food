@@ -10,7 +10,7 @@ using WeLoveFood.Data;
 namespace WeLoveFood.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
-    [Migration("20210801223619_InitialCreate")]
+    [Migration("20210803164420_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -215,12 +215,9 @@ namespace WeLoveFood.Data.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("Clients");
                 });
@@ -384,9 +381,6 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<int?>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ClientId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -535,17 +529,6 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Client", b =>
-                {
-                    b.HasOne("WeLoveFood.Data.Models.User", "User")
-                        .WithOne("Client")
-                        .HasForeignKey("WeLoveFood.Data.Models.Client", "UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>
                 {
                     b.HasOne("WeLoveFood.Data.Models.MealsCategory", "MealsCategory")
@@ -643,11 +626,6 @@ namespace WeLoveFood.Data.Migrations
                     b.Navigation("MealsCategories");
 
                     b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("WeLoveFood.Data.Models.User", b =>
-                {
-                    b.Navigation("Client");
                 });
 #pragma warning restore 612, 618
         }

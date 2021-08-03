@@ -56,10 +56,10 @@ namespace WeLoveFood.Services.Restaurants
             };
         }
 
-        public RestaurantServiceModel RestaurantInfo(int restaurantId)
+        public RestaurantServiceModel RestaurantInfo(int id)
             => this._data
                 .Restaurants
-                .Where(r => r.Id == restaurantId)
+                .Where(r => r.Id == id)
                 .Select(r => new RestaurantServiceModel
                 {
                     Id = r.Id,
@@ -71,6 +71,10 @@ namespace WeLoveFood.Services.Restaurants
                     IsOpen = IsOpen(r.OpeningTime, r.ClosingTime)
                 })
                 .FirstOrDefault();
+
+        public void AddRestaurantToFavorite(int restaurantId, string userId)
+        {
+        }
 
         private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
         {

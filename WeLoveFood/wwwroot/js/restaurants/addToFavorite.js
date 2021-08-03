@@ -14,10 +14,10 @@
                     "Content-Type": "application/json",
                     'RequestVerificationToken': token
                 },
-                body: JSON.stringify({id})
+                body: JSON.stringify({ id })
             })
-            .then(res => res.json())
-            .then(data => console.log(data));
+            .then()
+            .catch(e => console.log(e));
     }
 
     document.getElementById('add-to-favorite')

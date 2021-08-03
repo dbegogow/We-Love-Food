@@ -1,4 +1,5 @@
-﻿using WeLoveFood.Data;
+﻿using System.Linq;
+using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
 
 namespace WeLoveFood.Services.clients
@@ -20,5 +21,10 @@ namespace WeLoveFood.Services.clients
 
             this._data.SaveChanges();
         }
+
+        public Client GetClient(string userId)
+            => this._data
+                .Clients
+                .FirstOrDefault(c => c.UserId == userId);
     }
 }

@@ -5,6 +5,7 @@ using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Menus;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
+using WeLoveFood.Services.clients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
@@ -13,7 +14,6 @@ using Microsoft.EntityFrameworkCore;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WeLoveFood.Services.clients;
 
 namespace WeLoveFood
 {

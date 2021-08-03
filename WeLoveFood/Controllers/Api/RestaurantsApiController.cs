@@ -23,9 +23,12 @@ namespace WeLoveFood.Controllers.Api
             => _restaurants = restaurants;
 
         [HttpPost]
-        public void AddToFavorite(AddToFavoriteApiModel restaurant)
+        public IActionResult AddToFavorite(AddToFavoriteApiModel restaurant)
         {
-            this._restaurants.AddRestaurantToFavorite(restaurant.Id, this.User.Id());
+            var result = this._restaurants
+                .AddToFavorite(restaurant.Id, this.User.Id());
+
+            return result ? Ok() : BadRequest();
         }
     }
 }

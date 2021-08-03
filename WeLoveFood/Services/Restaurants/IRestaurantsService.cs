@@ -12,6 +12,6 @@ namespace WeLoveFood.Services.Restaurants
 
         RestaurantServiceModel RestaurantInfo(int id);
 
-        void AddRestaurantToFavorite(int restaurantId, string userId);
+        bool AddToFavorite(int restaurantId, string userId);
     }
 }

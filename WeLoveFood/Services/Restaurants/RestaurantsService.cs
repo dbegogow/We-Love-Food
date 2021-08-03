@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using WeLoveFood.Data;
+using WeLoveFood.Data.Models;
+using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Services.Restaurants
@@ -10,9 +12,15 @@ namespace WeLoveFood.Services.Restaurants
         private const string WorkingTimeFormat = @"hh\:mm";
 
         private readonly WeLoveFoodDbContext _data;
+        private readonly IClientsService _clients;
 
-        public RestaurantsService(WeLoveFoodDbContext data)
-            => this._data = data;
+        public RestaurantsService(
+            WeLoveFoodDbContext data,
+            IClientsService clients)
+        {
+            this._data = data;
+            _clients = clients;
+        }
 
         public AllCityRestaurantsCardsQueryServiceModel AllCityRestaurantsCards(
             int cityId,
@@ -72,8 +80,26 @@ namespace WeLoveFood.Services.Restaurants
                 })
                 .FirstOrDefault();
 
-        public void AddRestaurantToFavorite(int restaurantId, string userId)
+        public bool AddToFavorite(int restaurantId, string userId)
         {
+            var client = this._clients
+                .GetClient(userId);
+
+            var restaurant = this.GetRestaurant(restaurantId);
+
+            if (client == null ||
+                restaurant == null)
+            {
+                return false;
+            }
+
+            client
+                .Restaurants
+                .Add(restaurant);
+
+            this._data.SaveChanges();
+
+            return true;
         }
 
         private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
@@ -82,5 +108,10 @@ namespace WeLoveFood.Services.Restaurants
 
             return now > openingTime && now < closingTime;
         }
+
+        private Restaurant GetRestaurant(int restaurantId)
+            => this._data
+                .Restaurants
+                .Find(restaurantId);
     }
 }

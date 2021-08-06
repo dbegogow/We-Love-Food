@@ -1,4 +1,11 @@
 ﻿(() => {
+    const handleError = (res) => {
+        if (!res.ok) {
+            throw Error('Възникна грешка.');
+        }
+        return response;
+    };
+
     const addToFavorite = (e) => {
         e.preventDefault();
 
@@ -16,8 +23,9 @@
                 },
                 body: JSON.stringify({ id })
             })
-            .then()
-            .catch(e => console.log(e));
+            .then(res => handleError(res))
+            .then(res => console.log('yes'))
+            .catch(err => console.log(err.message));
     }
 
     document.getElementById('add-to-favorite')

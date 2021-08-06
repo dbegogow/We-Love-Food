@@ -20,7 +20,9 @@ namespace WeLoveFood.Infrastructure
             var services = serviceScope.ServiceProvider;
 
             MigrateDatabase(services);
+            CreateRole(services, AdministratorRoleName);
             SeedAdministrator(services);
+            CreateRole(services, ClientRoleName);
 
             return app;
         }
@@ -36,20 +38,10 @@ namespace WeLoveFood.Infrastructure
         private static void SeedAdministrator(IServiceProvider services)
         {
             var userManager = services.GetRequiredService<UserManager<User>>();
-            var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
             Task
                 .Run(async () =>
                 {
-                    if (await roleManager.RoleExistsAsync(AdministratorRoleName))
-                    {
-                        return;
-                    }
-
-                    var role = new IdentityRole { Name = AdministratorRoleName };
-
-                    await roleManager.CreateAsync(role);
-
                     const string adminEmail = "admin_wlf@gmail.com";
                     const string adminPassword = "Adminwlf1";
 
@@ -61,7 +53,27 @@ namespace WeLoveFood.Infrastructure
 
                     await userManager.CreateAsync(user, adminPassword);
 
-                    await userManager.AddToRoleAsync(user, role.Name);
+                    await userManager.AddToRoleAsync(user, AdministratorRoleName);
+                })
+                .GetAwaiter()
+                .GetResult();
+        }
+
+        private static void CreateRole(IServiceProvider services, string roleName)
+        {
+            var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+            Task
+                .Run(async () =>
+                {
+                    if (await roleManager.RoleExistsAsync(roleName))
+                    {
+                        return;
+                    }
+
+                    var role = new IdentityRole { Name = roleName };
+
+                    await roleManager.CreateAsync(role);
                 })
                 .GetAwaiter()
                 .GetResult();

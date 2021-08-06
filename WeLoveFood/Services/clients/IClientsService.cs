@@ -7,5 +7,7 @@ namespace WeLoveFood.Services.clients
         void CreateClient(string userId);
 
         Client GetClient(string userId);
+
+        bool HasRestaurantInFavorite(string userId, int restaurantId);
     }
 }

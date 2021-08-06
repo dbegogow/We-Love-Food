@@ -82,16 +82,18 @@ namespace WeLoveFood.Services.Restaurants
 
         public bool AddToFavorite(int restaurantId, string userId)
         {
+            var clientHasRestaurant = this._clients
+                .HasRestaurantInFavorite(userId, restaurantId);
+
+            if (clientHasRestaurant)
+            {
+                return false;
+            }
+
             var client = this._clients
                 .GetClient(userId);
 
             var restaurant = this.GetRestaurant(restaurantId);
-
-            if (client == null ||
-                restaurant == null)
-            {
-                return false;
-            }
 
             client
                 .Restaurants

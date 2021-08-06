@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
@@ -42,7 +43,10 @@ namespace WeLoveFood.Controllers
         [Authorize]
         public IActionResult Favorite()
         {
-            return View();
+            var favorite = this._restaurants
+                .Favorite(this.User.Id());
+
+            return View(favorite);
         }
     }
 }

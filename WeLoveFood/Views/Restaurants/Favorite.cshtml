@@ -1,10 +1,15 @@
-﻿@{
+﻿@model IEnumerable<RestaurantCardServiceModel>
+
+@{
     ViewBag.Title = "Любими ресторанти -";
 }
 
 @section CartStyles {
     <link href="~/css/users/pageContainer.css" rel="stylesheet" />
     <link href="~/css/users/options.css" rel="stylesheet" />
+    <link href="~/css/restaurants/card.css" rel="stylesheet" />
+    <link href="~/css/restaurants/all.css" rel="stylesheet" />
+    <link href="~/css/restaurants/favorite.css" rel="stylesheet" />
 }
 
 <div class="user-profile-page-container">
@@ -12,7 +17,15 @@
     <div class="main-container">
         <h2>Любими ресторанти</h2>
 
-        <div class="section-container"> 
+        <div class="section-container">
+            <div class="restaurants-page-container">
+                <div class="restaurants-container">
+                    @foreach (var card in Model)
+                    {
+                        <partial name="_RestaurantCardPartial" model="@card" />
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </div>

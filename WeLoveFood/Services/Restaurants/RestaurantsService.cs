@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
@@ -103,6 +104,20 @@ namespace WeLoveFood.Services.Restaurants
 
             return true;
         }
+
+        public IEnumerable<RestaurantCardServiceModel> Favorite(string userId)
+            => this._data
+                .Clients
+                .Where(c => c.UserId == userId)
+                .SelectMany(c => c.Restaurants)
+                .Select(r => new RestaurantCardServiceModel
+                {
+                    Id = r.Id,
+                    Name = r.Name,
+                    ImgUrl = r.CardImgUrl,
+                    IsOpen = IsOpen(r.OpeningTime, r.ClosingTime)
+                })
+                .ToList();
 
         private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
         {

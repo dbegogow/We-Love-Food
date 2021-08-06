@@ -9,5 +9,17 @@
         <p class="closing">Затворено</p>
     }
     <h3>@Model.Name</h3>
-    <p>#meat, salads, pizza, pancakes</p>
+    <p>
+        <span># </span>
+
+        @for (int count = 0; count < Model.MealsCategories.Count(); count++)
+        {
+            <span>@Model.MealsCategories[count]</span>
+
+            @if (count != Model.MealsCategories.Count - 1)
+            {
+                <span>, </span>
+            }
+        }
+    </p>
 </a>

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace WeLoveFood.Services.Models.Restaurants
 {
@@ -11,5 +11,7 @@ namespace WeLoveFood.Services.Models.Restaurants
         public string ImgUrl { get; init; }
 
         public bool IsOpen { get; init; }
+
+        public List<string> MealsCategories { get; init; }
     }
 }

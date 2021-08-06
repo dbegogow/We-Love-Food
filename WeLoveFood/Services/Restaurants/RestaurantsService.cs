@@ -50,7 +50,8 @@ namespace WeLoveFood.Services.Restaurants
                     Id = r.Id,
                     Name = r.Name,
                     ImgUrl = r.CardImgUrl,
-                    IsOpen = IsOpen(r.OpeningTime, r.ClosingTime)
+                    IsOpen = IsOpen(r.OpeningTime, r.ClosingTime),
+                    MealsCategories = r.MealsCategories.Select(mc => mc.Name).ToList()
                 })
                 .ToList();
 
@@ -115,7 +116,8 @@ namespace WeLoveFood.Services.Restaurants
                     Id = r.Id,
                     Name = r.Name,
                     ImgUrl = r.CardImgUrl,
-                    IsOpen = IsOpen(r.OpeningTime, r.ClosingTime)
+                    IsOpen = IsOpen(r.OpeningTime, r.ClosingTime),
+                    MealsCategories = r.MealsCategories.Select(mc => mc.Name).ToList()
                 })
                 .ToList();
 

@@ -1,4 +1,8 @@
-﻿@model MenuViewModel
+﻿@using WeLoveFood.Services.clients
+
+@model MenuViewModel
+
+@inject IClientsService _clients;
 
 @{
     ViewBag.Title = $"{Model.Restaurant.Name} -";
@@ -16,12 +20,15 @@
     <div class="heading">
         <h1>@Model.Restaurant.Name</h1>
 
-        @*@if (User.Identity.IsAuthenticated && User.IsInRole(""))
+        @if (User.IsInRole(ClientRoleName))
         {
-            @{
-                var has
-            }
-        }*@
+            var hasRestaurantInFavorite = _clients
+                .HasRestaurantInFavorite(User.Id(), @Model.Restaurant.Id);
+
+            <form method="post">
+                <button id="add-to-favorite" type="submit" restaurant-id="@Model.Restaurant.Id" class="@(hasRestaurantInFavorite ? "added" : string.Empty)"><i class="fas fa-heart"></i></button>
+            </form>
+        }
     </div>
 
     <p class="opening-time">Работно време <span class="time">@Model.Restaurant.OpeningTime ч. - @Model.Restaurant.ClosingTime ч.</span></p>

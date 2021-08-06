@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
+using static WeLoveFood.WebConstants;
 using static WeLoveFood.Data.DataConstants.User;
 using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
@@ -75,6 +76,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     this._clients.CreateClient(user.Id);
+                    await _userManager.AddToRoleAsync(user, ClientRoleName);
 
                     await this._signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);

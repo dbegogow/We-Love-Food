@@ -2,6 +2,11 @@
 {
     public class DataConstants
     {
+        public class Common
+        {
+            public const int IdMaxLength = 40;
+        }
+
         public class City
         {
             public const int NameMinLength = 3;
@@ -33,8 +38,6 @@
 
         public class User
         {
-            public const int IdMaxLength = 40;
-
             public const int PasswordMinLength = 6;
             public const int PasswordMaxLength = 100;
 

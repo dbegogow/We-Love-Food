@@ -1,15 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Infrastructure;
 using WeLoveFood.Models.Restaurants;
-using WeLoveFood.Services.Cities;
-using WeLoveFood.Services.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
 
 namespace WeLoveFood.Controllers.Api

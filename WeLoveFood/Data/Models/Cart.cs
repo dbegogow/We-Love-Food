@@ -6,7 +6,7 @@ using static WeLoveFood.Data.DataConstants.Common;
 
 namespace WeLoveFood.Data.Models
 {
-    public class Client
+    public class Cart
     {
         [Key]
         [Required]
@@ -14,10 +14,8 @@ namespace WeLoveFood.Data.Models
         public string Id { get; init; } = Guid.NewGuid().ToString();
 
         [Required]
-        public string UserId { get; set; }
+        public string ClientId { get; set; }
 
-        public ICollection<Order> Orders { get; init; } = new HashSet<Order>();
-
-        public ICollection<Restaurant> Restaurants { get; init; } = new HashSet<Restaurant>();
+        public IEnumerable<Portion> Portions { get; init; } = new HashSet<Portion>();
     }
 }

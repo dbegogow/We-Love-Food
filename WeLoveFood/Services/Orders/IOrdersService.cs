@@ -2,6 +2,9 @@
 {
     public interface IOrdersService
     {
-        bool AddMealToCart(int mealId);
+        bool AddMealToCart(
+            int mealId,
+            int restaurantId,
+            string userId);
     }
 }

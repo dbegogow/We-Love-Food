@@ -8,6 +8,8 @@ namespace WeLoveFood.Services.clients
 
         Client GetClient(string userId);
 
+        string GetClientId(string userId);
+
         bool HasRestaurantInFavorite(string userId, int restaurantId);
     }
 }

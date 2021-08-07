@@ -27,6 +27,13 @@ namespace WeLoveFood.Services.clients
                 .Clients
                 .FirstOrDefault(c => c.UserId == userId);
 
+        public string GetClientId(string userId)
+            => this._data
+                .Clients
+                .Where(c => c.UserId == userId)
+                .Select(c => c.Id)
+                .FirstOrDefault();
+
         public bool HasRestaurantInFavorite(string userId, int restaurantId)
             => this._data
                 .Clients

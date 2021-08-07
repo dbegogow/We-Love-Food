@@ -184,6 +184,21 @@ namespace WeLoveFood.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Carts");
+                });
+
             modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
                 {
                     b.Property<int>("Id")
@@ -304,6 +319,9 @@ namespace WeLoveFood.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CartId")
+                        .HasColumnType("nvarchar(40)");
+
                     b.Property<int>("MealId")
                         .HasColumnType("int");
 
@@ -314,6 +332,8 @@ namespace WeLoveFood.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CartId");
 
                     b.HasIndex("MealId");
 
@@ -562,6 +582,11 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Portion", b =>
                 {
+                    b.HasOne("WeLoveFood.Data.Models.Cart", "Cart")
+                        .WithMany("Portions")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("WeLoveFood.Data.Models.Meal", "Meal")
                         .WithMany("Portions")
                         .HasForeignKey("MealId")
@@ -573,6 +598,8 @@ namespace WeLoveFood.Data.Migrations
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Cart");
 
                     b.Navigation("Meal");
 
@@ -597,6 +624,11 @@ namespace WeLoveFood.Data.Migrations
                         .HasForeignKey("CityId");
 
                     b.Navigation("City");
+                });
+
+            modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
+                {
+                    b.Navigation("Portions");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>

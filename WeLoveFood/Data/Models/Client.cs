@@ -16,6 +16,10 @@ namespace WeLoveFood.Data.Models
         [Required]
         public string UserId { get; set; }
 
+        public string CartId { get; set; }
+
+        public Cart Cart { get; set; }
+
         public ICollection<Order> Orders { get; init; } = new HashSet<Order>();
 
         public ICollection<Restaurant> Restaurants { get; init; } = new HashSet<Restaurant>();

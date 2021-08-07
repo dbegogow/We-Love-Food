@@ -10,8 +10,12 @@
 
         public Meal Meal { get; set; }
 
-        public int OrderId { get; set; }
+        public int? OrderId { get; set; }
 
         public Order Order { get; set; }
+
+        public string  CartId { get; set; }
+
+        public Cart Cart { get; set; }
     }
 }

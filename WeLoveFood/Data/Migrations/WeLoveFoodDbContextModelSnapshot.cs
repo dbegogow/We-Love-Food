@@ -192,9 +192,12 @@ namespace WeLoveFood.Data.Migrations
 
                     b.Property<string>("ClientId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(40)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClientId")
+                        .IsUnique();
 
                     b.ToTable("Carts");
                 });
@@ -227,18 +230,14 @@ namespace WeLoveFood.Data.Migrations
                         .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("CartId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CartId1")
-                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CartId1");
 
                     b.ToTable("Clients");
                 });
@@ -555,13 +554,15 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Client", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
                 {
-                    b.HasOne("WeLoveFood.Data.Models.Cart", "Cart")
-                        .WithMany()
-                        .HasForeignKey("CartId1");
+                    b.HasOne("WeLoveFood.Data.Models.Client", "Client")
+                        .WithOne("Cart")
+                        .HasForeignKey("WeLoveFood.Data.Models.Cart", "ClientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.Navigation("Cart");
+                    b.Navigation("Client");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>
@@ -650,6 +651,11 @@ namespace WeLoveFood.Data.Migrations
             modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
                 {
                     b.Navigation("Restaurants");
+                });
+
+            modelBuilder.Entity("WeLoveFood.Data.Models.Client", b =>
+                {
+                    b.Navigation("Cart");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>

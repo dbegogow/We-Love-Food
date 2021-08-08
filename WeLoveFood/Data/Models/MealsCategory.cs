@@ -17,6 +17,6 @@ namespace WeLoveFood.Data.Models
 
         public Restaurant Restaurant { get; set; }
 
-        public IEnumerable<Meal> Meals { get; init; } = new HashSet<Meal>();
+        public ICollection<Meal> Meals { get; init; } = new HashSet<Meal>();
     }
 }

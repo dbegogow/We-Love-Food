@@ -1,6 +1,7 @@
 ﻿@model MenuViewModel
 
 @inject IClientsService _clients;
+@inject IOrdersService _orders;
 
 @{
     ViewBag.Title = $"{Model.Restaurant.Name} -";
@@ -21,7 +22,7 @@
         @if (User.IsInRole(ClientRoleName))
         {
             var hasRestaurantInFavorite = _clients
-                .HasRestaurantInFavorite(User.Id(), @Model.Restaurant.Id);
+                .HasRestaurantInFavorite(User.Id(), Model.Restaurant.Id);
 
             <form method="post">
                 <button id="add-to-favorite" type="submit" restaurant-id="@Model.Restaurant.Id" class="@(hasRestaurantInFavorite ? "added" : string.Empty)"><i class="fas fa-heart"></i></button>
@@ -57,8 +58,11 @@
         <div class="meals-container">
             @foreach (var meal in Model.Meals)
             {
+                var isMealAdded = this._orders
+                    .IsMealAddedInCart(meal.Id, this.User.Id());
+
                 <form method="post">
-                    <div class="meal" is-user-authenticated=@(User.Identity.IsAuthenticated ? "true" : "false") meal-id="@meal.Id" restaurant-id="@Model.Restaurant.Id">
+                    <div class="meal @(isMealAdded ? "added" : string.Empty)" is-user-authenticated=@(User.Identity.IsAuthenticated ? "true" : "false") meal-id="@meal.Id" restaurant-id="@Model.Restaurant.Id">
                         <div class="meal-info">
                             <h3>@meal.Name (@meal.Weight гр)</h3>
                             <p class="description">

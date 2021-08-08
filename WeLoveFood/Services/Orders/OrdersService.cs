@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
@@ -55,11 +54,8 @@ namespace WeLoveFood.Services.Orders
                 Quantity = InitialPortionsQuantity
             };
 
-            this._data
-                .Carts
-                .FirstOrDefault(c => c.ClientId == clientId)
+            this.Cart(clientId)
                 ?.Portions
-                .ToList()
                 .Add(portion);
 
             this._data.SaveChanges();
@@ -67,15 +63,30 @@ namespace WeLoveFood.Services.Orders
             return true;
         }
 
+        public bool IsMealAddedInCart(int mealId, string userId)
+        {
+            var clientId = this._clients
+                .GetClientId(userId);
+
+            if (clientId == null)
+            {
+                return false;
+            }
+
+            return this._data
+                .Carts
+                .Any(c => c.ClientId == clientId && c.Portions.Any(p => p.Meal.Id == mealId));
+        }
+
         private int CartRestaurantId(string clientId)
-            => this.ClientCart(clientId)
+            => this.CartQuery(clientId)
                 .Select(c => c.Portions
                     .Select(p => p.Meal.MealsCategory.Restaurant.Id)
                     .FirstOrDefault())
                 .FirstOrDefault();
 
         private int PortionsCount(string clientId)
-            => this.ClientCart(clientId)
+            => this.CartQuery(clientId)
                 .Select(c => c.Portions.Count())
                 .FirstOrDefault();
 
@@ -86,9 +97,14 @@ namespace WeLoveFood.Services.Orders
                 .Meals
                 .Any(m => m.Id == mealId && m.MealsCategory.Restaurant.Id == restaurantId);
 
-        private IQueryable<Cart> ClientCart(string clientId)
+        private IQueryable<Cart> CartQuery(string clientId)
             => this._data
                 .Carts
                 .Where(c => c.ClientId == clientId);
+
+        private Cart Cart(string clientId)
+            => this._data
+                .Carts
+                .FirstOrDefault(c => c.ClientId == clientId);
     }
 }

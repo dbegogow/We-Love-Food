@@ -16,6 +16,6 @@ namespace WeLoveFood.Data.Models
         [Required]
         public string ImgUrl { get; set; }
 
-        public IEnumerable<Restaurant> Restaurants { get; set; } = new HashSet<Restaurant>();
+        public ICollection<Restaurant> Restaurants { get; set; } = new HashSet<Restaurant>();
     }
 }

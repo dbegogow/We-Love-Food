@@ -16,6 +16,8 @@ namespace WeLoveFood.Data.Models
         [Required]
         public string ClientId { get; set; }
 
-        public IEnumerable<Portion> Portions { get; init; } = new HashSet<Portion>();
+        public Client Client { get; set; }
+
+        public ICollection<Portion> Portions { get; init; } = new HashSet<Portion>();
     }
 }

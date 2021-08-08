@@ -34,10 +34,10 @@ namespace WeLoveFood.Data.Models
 
         public City City { get; set; }
 
-        public IEnumerable<MealsCategory> MealsCategories { get; init; } = new HashSet<MealsCategory>();
+        public ICollection<MealsCategory> MealsCategories { get; init; } = new HashSet<MealsCategory>();
 
-        public IEnumerable<Order> Orders { get; init; } = new HashSet<Order>();
+        public ICollection<Order> Orders { get; init; } = new HashSet<Order>();
 
-        public IEnumerable<Client> Clients { get; init; } = new HashSet<Client>();
+        public ICollection<Client> Clients { get; init; } = new HashSet<Client>();
     }
 }

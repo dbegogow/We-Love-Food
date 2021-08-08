@@ -5,7 +5,7 @@
 
             throw Error(message);
         }
-        return response;
+        return res;
     };
 
     const addMealToOrders = (e) => {
@@ -33,6 +33,9 @@
                 body: JSON.stringify({ id: mealId, restaurantId })
             })
             .then(res => handleError(res))
+            .then(() => {
+                currentTarget.classList.add('added');
+            })
             .catch(err => alert(err.message));
     };
 

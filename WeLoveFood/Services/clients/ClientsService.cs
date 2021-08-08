@@ -19,6 +19,13 @@ namespace WeLoveFood.Services.clients
                 .Clients
                 .Add(client);
 
+            var cart = new Cart { ClientId = client.Id };
+            client.CartId = cart.Id;
+
+            this._data
+                .Carts
+                .Add(cart);
+
             this._data.SaveChanges();
         }
 

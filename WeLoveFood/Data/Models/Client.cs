@@ -16,6 +16,7 @@ namespace WeLoveFood.Data.Models
         [Required]
         public string UserId { get; set; }
 
+        [Required]
         public string CartId { get; set; }
 
         public Cart Cart { get; set; }

@@ -28,6 +28,6 @@ namespace WeLoveFood.Data.Models
 
         public MealsCategory MealsCategory { get; set; }
 
-        public IEnumerable<Portion> Portions { get; init; } = new HashSet<Portion>();
+        public ICollection<Portion> Portions { get; init; } = new HashSet<Portion>();
     }
 }

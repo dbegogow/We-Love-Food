@@ -22,18 +22,6 @@ namespace WeLoveFood.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Carts",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    ClientId = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Carts", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Cities",
                 columns: table => new
                 {
@@ -45,6 +33,19 @@ namespace WeLoveFood.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cities", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Clients",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CartId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clients", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,26 +67,6 @@ namespace WeLoveFood.Data.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Clients",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CartId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CartId1 = table.Column<string>(type: "nvarchar(40)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Clients", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Clients_Carts_CartId1",
-                        column: x => x.CartId1,
-                        principalTable: "Carts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -145,6 +126,24 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_Restaurants_Cities_CityId",
                         column: x => x.CityId,
                         principalTable: "Cities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    ClientId = table.Column<string>(type: "nvarchar(40)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Carts_Clients_ClientId",
+                        column: x => x.ClientId,
+                        principalTable: "Clients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -425,6 +424,12 @@ namespace WeLoveFood.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Carts_ClientId",
+                table: "Carts",
+                column: "ClientId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ClientOrder_OrdersId",
                 table: "ClientOrder",
                 column: "OrdersId");
@@ -433,11 +438,6 @@ namespace WeLoveFood.Data.Migrations
                 name: "IX_ClientRestaurant_RestaurantsId",
                 table: "ClientRestaurant",
                 column: "RestaurantsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Clients_CartId1",
-                table: "Clients",
-                column: "CartId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Meals_MealsCategoryId",
@@ -508,7 +508,7 @@ namespace WeLoveFood.Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Clients");
+                name: "Carts");
 
             migrationBuilder.DropTable(
                 name: "Meals");
@@ -517,7 +517,7 @@ namespace WeLoveFood.Data.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Carts");
+                name: "Clients");
 
             migrationBuilder.DropTable(
                 name: "MealsCategories");

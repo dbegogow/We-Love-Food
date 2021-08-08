@@ -3,8 +3,6 @@ using WeLoveFood.Models.Orders;
 using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Orders;
 
-using static WeLoveFood.WebConstants;
-
 namespace WeLoveFood.Controllers.Api
 {
     [Route("api/orders")]

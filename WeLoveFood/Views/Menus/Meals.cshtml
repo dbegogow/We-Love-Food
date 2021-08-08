@@ -55,24 +55,26 @@
         <div class="meals-container">
             @foreach (var meal in Model.Meals)
             {
-                <div class="meal">
-                    <div class="meal-info">
-                        <h3>@meal.Name (@meal.Weight гр)</h3>
-                        <p class="description">
-                            @meal.Description
-                        </p>
-                        <p class="price">@meal.Price лв</p>
+                <form method="post">
+                    <div class="meal" is-user-client=@(User.IsInRole(ClientRoleName) ? "true" : "false") meal-id="@meal.Id" restaurant-id="@Model.Restaurant.Id">
+                        <div class="meal-info">
+                            <h3>@meal.Name (@meal.Weight гр)</h3>
+                            <p class="description">
+                                @meal.Description
+                            </p>
+                            <p class="price">@meal.Price лв</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="@meal.ImgUrl" />
+                        </div>
                     </div>
-                    <div class="image-container">
-                        <img src="@meal.ImgUrl" />
-                    </div>
-                </div>
+                </form>
             }
         </div>
     </div>
 </div>
 
 @section MealsScript {
-    <script type="text/javascript" src="~/js/restaurants/restaurant.js"></script>
+    <script type="text/javascript" src="~/js/orders/addMealToCart.js"></script>
     <script type="text/javascript" src="~/js/restaurants/addToFavorite.js"></script>
 }

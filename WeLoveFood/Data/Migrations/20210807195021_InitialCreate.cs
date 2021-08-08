@@ -48,18 +48,6 @@ namespace WeLoveFood.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Clients",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Clients", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -78,6 +66,26 @@ namespace WeLoveFood.Data.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Clients",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CartId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CartId1 = table.Column<string>(type: "nvarchar(40)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clients", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Clients_Carts_CartId1",
+                        column: x => x.CartId1,
+                        principalTable: "Carts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -346,7 +354,7 @@ namespace WeLoveFood.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     MealId = table.Column<int>(type: "int", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: true),
                     CartId = table.Column<string>(type: "nvarchar(40)", nullable: true)
                 },
                 constraints: table =>
@@ -427,6 +435,11 @@ namespace WeLoveFood.Data.Migrations
                 column: "RestaurantsId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Clients_CartId1",
+                table: "Clients",
+                column: "CartId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Meals_MealsCategoryId",
                 table: "Meals",
                 column: "MealsCategoryId");
@@ -498,13 +511,13 @@ namespace WeLoveFood.Data.Migrations
                 name: "Clients");
 
             migrationBuilder.DropTable(
-                name: "Carts");
-
-            migrationBuilder.DropTable(
                 name: "Meals");
 
             migrationBuilder.DropTable(
                 name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "Carts");
 
             migrationBuilder.DropTable(
                 name: "MealsCategories");

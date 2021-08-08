@@ -1,7 +1,9 @@
 ﻿(() => {
     const handleError = (res) => {
         if (!res.ok) {
-            throw Error('Възникна грешка.');
+            const message = 'Възникна грешка.';
+
+            throw Error(message);
         }
         return response;
     };
@@ -28,6 +30,9 @@
             .catch(err => console.log(err.message));
     }
 
-    document.getElementById('add-to-favorite')
-        .addEventListener('click', addToFavorite);
+    const addToFavoriteBtn = document.getElementById('add-to-favorite');
+
+    if (addToFavoriteBtn !== null) {
+        addToFavoriteBtn.addEventListener('click', addToFavorite());
+    }
 })();

@@ -226,11 +226,19 @@ namespace WeLoveFood.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
+                    b.Property<string>("CartId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CartId1")
+                        .HasColumnType("nvarchar(40)");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CartId1");
 
                     b.ToTable("Clients");
                 });
@@ -325,7 +333,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<int>("MealId")
                         .HasColumnType("int");
 
-                    b.Property<int>("OrderId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -547,6 +555,15 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("WeLoveFood.Data.Models.Client", b =>
+                {
+                    b.HasOne("WeLoveFood.Data.Models.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId1");
+
+                    b.Navigation("Cart");
+                });
+
             modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>
                 {
                     b.HasOne("WeLoveFood.Data.Models.MealsCategory", "MealsCategory")
@@ -596,8 +613,7 @@ namespace WeLoveFood.Data.Migrations
                     b.HasOne("WeLoveFood.Data.Models.Order", "Order")
                         .WithMany("Portions")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Cart");
 

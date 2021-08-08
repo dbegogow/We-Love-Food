@@ -5,8 +5,11 @@ namespace WeLoveFood.Controllers
 {
     public class OrdersController : Controller
     {
+        [Authorize]
         public IActionResult Cart()
-            => View();
+        {
+            return View();
+        }
 
         [Authorize]
         public IActionResult Mine()

@@ -26,6 +26,8 @@
             <form method="post">
                 <button id="add-to-favorite" type="submit" restaurant-id="@Model.Restaurant.Id" class="@(hasRestaurantInFavorite ? "added" : string.Empty)"><i class="fas fa-heart"></i></button>
             </form>
+
+            <p class="add-to-favorite-success-message">Добавено в любими</p>
         }
     </div>
 

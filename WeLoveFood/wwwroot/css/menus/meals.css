@@ -25,6 +25,22 @@
     display: inline-block;
 }
 
+.restaurant-container .heading .add-to-favorite-success-message {
+    display: none;
+    position: relative;
+    left: 4vw;
+    bottom: 5px;
+    border: 3px solid #52a81c;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: #7dda2a;
+    color: #FFF;
+}
+
+.restaurant-container .heading .add-to-favorite-success-message.present {
+    display: inline-block;
+}
+
 .restaurant-container .heading form button {
     position: relative;
     left: 25px;
@@ -245,6 +261,10 @@
 }
 
 @media (max-width: 600px) {
+    .restaurant-container .heading .add-to-favorite-success-message {
+        left: 7vw;
+    }
+
     .restaurant-container .menu-section .meals-container .meal {
         width: 100%;
     }

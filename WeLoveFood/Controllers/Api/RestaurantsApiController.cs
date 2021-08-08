@@ -22,6 +22,6 @@ namespace WeLoveFood.Controllers.Api
                 .AddToFavorite(restaurant.Id, this.User.Id());
 
             return result ? Ok() : BadRequest();
-        }
+            }
     }
 }

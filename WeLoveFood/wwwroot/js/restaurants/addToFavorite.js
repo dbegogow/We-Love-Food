@@ -5,7 +5,7 @@
 
             throw Error(message);
         }
-        return response;
+        return res;
     };
 
     const addToFavorite = (e) => {
@@ -26,13 +26,22 @@
                 body: JSON.stringify({ id })
             })
             .then(res => handleError(res))
-            .then(res => console.log('yes'))
+            .then(() => {
+                currentTarget.classList.add('added');
+
+                const successMessage = document.querySelector('.add-to-favorite-success-message');
+                successMessage.classList.add('present');
+
+                setTimeout(() => {
+                    successMessage.classList.remove('present');
+                }, 1500);
+            })
             .catch(err => alert(err.message));
     }
 
     const addToFavoriteBtn = document.getElementById('add-to-favorite');
 
     if (addToFavoriteBtn !== null) {
-        addToFavoriteBtn.addEventListener('click', addToFavorite());
+        addToFavoriteBtn.addEventListener('click', addToFavorite);
     }
 })();

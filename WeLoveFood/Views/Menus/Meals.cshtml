@@ -56,7 +56,7 @@
             @foreach (var meal in Model.Meals)
             {
                 <form method="post">
-                    <div class="meal" is-user-client=@(User.IsInRole(ClientRoleName) ? "true" : "false") meal-id="@meal.Id" restaurant-id="@Model.Restaurant.Id">
+                    <div class="meal" is-user-authenticated=@(User.Identity.IsAuthenticated ? "true" : "false") meal-id="@meal.Id" restaurant-id="@Model.Restaurant.Id">
                         <div class="meal-info">
                             <h3>@meal.Name (@meal.Weight гр)</h3>
                             <p class="description">

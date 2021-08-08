@@ -1,7 +1,7 @@
 ﻿(() => {
     const handleError = (res) => {
         if (!res.ok) {
-            const message = 'Възникна грешка. Може да поръчвате едновременно само от един и същи ресторант.';
+            const message = 'Възникна грешка. Само клиент може да поръчва и трябва това да бъде само от един и същи ресторант.';
 
             throw Error(message);
         }
@@ -11,11 +11,10 @@
     const addMealToOrders = (e) => {
         const currentTarget = e.currentTarget;
 
-        const isUserClient = currentTarget.getAttribute('is-user-client');
+        const isUserAuthenticated = currentTarget.getAttribute('is-user-authenticated');
 
-        if (isUserClient === "false") {
+        if (isUserAuthenticated === "false") {
             window.location = "/Identity/Account/Login";
-
             return;
         }
 
@@ -34,7 +33,7 @@
                 body: JSON.stringify({ id: mealId, restaurantId })
             })
             .then(res => handleError(res))
-            .catch(err => console.log(err.message));
+            .catch(err => alert(err.message));
     };
 
     var meals = document.getElementsByClassName('meal');

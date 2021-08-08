@@ -27,7 +27,7 @@
             })
             .then(res => handleError(res))
             .then(res => console.log('yes'))
-            .catch(err => console.log(err.message));
+            .catch(err => alert(err.message));
     }
 
     const addToFavoriteBtn = document.getElementById('add-to-favorite');

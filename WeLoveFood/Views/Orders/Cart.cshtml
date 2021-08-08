@@ -1,5 +1,9 @@
-﻿@{
+﻿@model CartAllPortionsServiceModel
+
+@{
     ViewBag.Title = "Поръчка -";
+
+    var PriceFormat = "F2";
 }
 
 @section CartStyles {
@@ -11,7 +15,7 @@
         <div class="meals">
             <div class="header">
                 <h2>Твоите поръчки</h2>
-                <p>3 броя</p>
+                <p>@Model.Portions.Count() броя</p>
             </div>
 
             <div class="cards">
@@ -25,28 +29,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="meal">
-                                <h4>Салата капризе</h4>
-                                <div class="image-container">
-                                    <img src="https://d3fch0cwivr6nf.cloudfront.net/system/uploads/medium/data/14432/salata-kapreze.jpg" alt="Meal" />
-                                </div>
-                            </td>
-                            <td class="quantity">
-                                <span class="out">-</span>
-                                <span class="number">1</span>
-                                <span class="add">+</span>
-                            </td>
-                            <td class="price">
-                                13.08 лв
-                            </td>
-                            <td class="price">
-                                26.16 лв
-                            </td>
-                            <td class="remove-btn">
-                                <a><i class="fas fa-times"></i></a>
-                            </td>
-                        </tr>
+                        @foreach (var portion in Model.Portions)
+                        {
+                            <tr>
+                                <td class="meal">
+                                    <h4>@portion.Meal.Name</h4>
+                                    <div class="image-container">
+                                        <img src="@portion.Meal.ImgUrl" alt="Meal" />
+                                    </div>
+                                </td>
+                                <td class="quantity">
+                                    <span class="out">-</span>
+                                    <span class="number">@portion.Quantity</span>
+                                    <span class="add">+</span>
+                                </td>
+                                <td class="price">
+                                    @portion.Meal.Price.ToString(PriceFormat) лв
+                                </td>
+                                <td class="price">
+                                    @portion.Price.ToString(PriceFormat) лв
+                                </td>
+                                <td class="remove-btn">
+                                    <a><i class="fas fa-times"></i></a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -73,8 +80,8 @@
                 </div>
 
                 <div class="total-price">
-                    <p>Цена за доставка: <span>4.99</span> лв</p>
-                    <p>Обща цена: <span>32.50</span> лв</p>
+                    <p>Цена за доставка: <span>@Model.DeliveryFee.ToString(PriceFormat)</span> лв</p>
+                    <p>Обща цена: <span>@Model.TotalPrice.ToString(PriceFormat)</span> лв</p>
                 </div>
 
                 <input class="btn" type="submit" value="Поръчай" />

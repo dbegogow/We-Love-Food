@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
+using System.Collections.Generic;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Models.Restaurants;
 
@@ -120,6 +120,13 @@ namespace WeLoveFood.Services.Restaurants
                     MealsCategories = r.MealsCategories.Select(mc => mc.Name).ToList()
                 })
                 .ToList();
+
+        public decimal DeliveryFee(int restaurantId)
+            => this._data
+                .Restaurants
+                .Where(r => r.Id == restaurantId)
+                .Select(r => r.DeliveryFee.Value)
+                .FirstOrDefault();
 
         private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
         {

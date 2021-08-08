@@ -16,5 +16,7 @@ namespace WeLoveFood.Services.Restaurants
         bool AddToFavorite(int restaurantId, string userId);
 
         IEnumerable<RestaurantCardServiceModel> Favorite(string userId);
+
+        decimal DeliveryFee(int restaurantId);
     }
 }

@@ -1,8 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
+using System.Collections.Generic;
 using WeLoveFood.Services.clients;
+using WeLoveFood.Services.Models.Orders;
+using WeLoveFood.Services.Restaurants;
 
 namespace WeLoveFood.Services.Orders
 {
@@ -13,13 +15,16 @@ namespace WeLoveFood.Services.Orders
 
         private readonly WeLoveFoodDbContext _data;
         private readonly IClientsService _clients;
+        private readonly IRestaurantsService _restaurants;
 
         public OrdersService(
             WeLoveFoodDbContext data,
-            IClientsService clients)
+            IClientsService clients,
+            IRestaurantsService restaurants)
         {
             _data = data;
             _clients = clients;
+            _restaurants = restaurants;
         }
 
         public bool AddMealToCart(
@@ -76,6 +81,46 @@ namespace WeLoveFood.Services.Orders
             return this._data
                 .Carts
                 .Any(c => c.ClientId == clientId && c.Portions.Any(p => p.Meal.Id == mealId));
+        }
+
+        public CartAllPortionsServiceModel CartAllPortions(string userId)
+        {
+            var clientId = this._clients
+                .GetClientId(userId);
+
+            var portions = this.Portions(clientId).ToList();
+            var totalPrice = portions.Sum(p => p.Price);
+
+            var cartRestaurantId = this.CartRestaurantId(clientId);
+            var deliveryFee = this._restaurants
+                .DeliveryFee(cartRestaurantId);
+
+            return new CartAllPortionsServiceModel
+            {
+                Portions = portions,
+                TotalPrice = totalPrice,
+                DeliveryFee = deliveryFee
+            };
+        }
+
+        private IEnumerable<CartPortionServiceModel> Portions(string clientId)
+        {
+            return this.CartQuery(clientId)
+                .SelectMany(c => c.Portions)
+                .Select(p => new CartPortionServiceModel
+                {
+                    Id = p.Id,
+                    Quantity = p.Quantity,
+                    Price = p.Meal.Price * p.Quantity,
+                    Meal = new CartMealServiceModel
+                    {
+                        Id = p.Meal.Id,
+                        ImgUrl = p.Meal.ImgUrl,
+                        Name = p.Meal.Name,
+                        Price = p.Meal.Price
+                    }
+                })
+                .ToList();
         }
 
         private int CartRestaurantId(string clientId)

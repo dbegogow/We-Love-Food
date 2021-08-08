@@ -1,4 +1,6 @@
-﻿namespace WeLoveFood.Services.Orders
+﻿using WeLoveFood.Services.Models.Orders;
+
+namespace WeLoveFood.Services.Orders
 {
     public interface IOrdersService
     {
@@ -9,6 +11,6 @@
 
         bool IsMealAddedInCart(int mealId, string userId);
 
-
+        CartAllPortionsServiceModel CartAllPortions(string userId);
     }
 }

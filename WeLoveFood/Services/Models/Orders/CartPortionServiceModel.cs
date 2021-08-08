@@ -6,6 +6,8 @@
 
         public int Quantity { get; init; }
 
+        public decimal Price { get; init; }
+
         public CartMealServiceModel Meal { get; init; }
     }
 }

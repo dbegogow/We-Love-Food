@@ -34,6 +34,19 @@
 
     <p class="opening-time">Работно време <span class="time">@Model.Restaurant.OpeningTime ч. - @Model.Restaurant.ClosingTime ч.</span></p>
 
+    <p class="delivery-fee">
+        Цена за доставка:
+
+        @if (Model.Restaurant.DeliveryFee != null)
+        {
+            <span><span class="fee">@Model.Restaurant.DeliveryFee</span> лв</span>
+        }
+        else
+        {
+            <span>Безплатна доставка</span>
+        }
+    </p>
+
     @if (!Model.Restaurant.IsOpen)
     {
         <span class="closing-message">Затворено в момента</span>

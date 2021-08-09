@@ -66,12 +66,29 @@
 .restaurant-container .opening-time {
     margin-left: 7vw;
     font-size: 1.05rem;
-    display: inline-block;
 }
 
 .restaurant-container .opening-time .time {
     color: #8B8B8B;
     margin-left: 8px;
+}
+
+.restaurant-container .delivery-fee {
+    margin-left: 7vw;
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+.restaurant-container .delivery-fee span {
+    margin-left: 8px;
+    font-size: 1.1rem;
+    color: #8B8B8B;
+}
+
+.restaurant-container .delivery-fee .fee {
+    font-weight: 600;
+    color: #000;
+    font-size: 1.1rem;
 }
 
 .restaurant-container .closing-message {

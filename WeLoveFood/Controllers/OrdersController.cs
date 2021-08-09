@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Infrastructure;
-using WeLoveFood.Services.Orders;
+using WeLoveFood.Services.Carts;
 using Microsoft.AspNetCore.Authorization;
 
 namespace WeLoveFood.Controllers
 {
     public class OrdersController : Controller
     {
-        private readonly IOrdersService _orders;
+        private readonly ICartsService _carts;
 
-        public OrdersController(IOrdersService orders)
-            => _orders = orders;
+        public OrdersController(ICartsService carts)
+            => this._carts = carts;
 
         [Authorize]
         public IActionResult Cart()
         {
-            var cartAllPortions = this._orders
+            var cartAllPortions = this._carts
                 .CartAllPortions(this.User.Id());
 
             return View(cartAllPortions);

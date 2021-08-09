@@ -23,7 +23,7 @@
 
         const token = document.querySelector("input[name='__RequestVerificationToken']").value;
 
-        fetch('/api/orders',
+        fetch('/api/addMealToCart',
             {
                 method: 'POST',
                 headers: {

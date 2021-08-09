@@ -1,10 +1,9 @@
 ﻿using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
-using System.Collections.Generic;
+using WeLoveFood.Services.Carts;
 using WeLoveFood.Services.clients;
-using WeLoveFood.Services.Models.Orders;
-using WeLoveFood.Services.Restaurants;
+using WeLoveFood.Services.Portions;
 
 namespace WeLoveFood.Services.Orders
 {
@@ -15,16 +14,19 @@ namespace WeLoveFood.Services.Orders
 
         private readonly WeLoveFoodDbContext _data;
         private readonly IClientsService _clients;
-        private readonly IRestaurantsService _restaurants;
+        private readonly IPortionsService _portions;
+        private readonly ICartsService _carts;
 
         public OrdersService(
             WeLoveFoodDbContext data,
             IClientsService clients,
-            IRestaurantsService restaurants)
+            IPortionsService portions,
+            ICartsService carts)
         {
-            _data = data;
-            _clients = clients;
-            _restaurants = restaurants;
+            this._data = data;
+            this._clients = clients;
+            this._portions = portions;
+            this._carts = carts;
         }
 
         public bool AddMealToCart(
@@ -39,11 +41,14 @@ namespace WeLoveFood.Services.Orders
                 return false;
             }
 
-            var portionsCount = this.PortionsCount(clientId);
+            var portionsCount = this
+                ._portions
+                .PortionsCount(clientId);
 
             if (portionsCount > NoAddedPortions)
             {
-                var cartRestaurantId = this.CartRestaurantId(clientId);
+                var cartRestaurantId = this._carts
+                    .CartRestaurantId(clientId);
 
                 var isMealFromTheSameRestaurant = IsMealFromTheSameRestaurant(mealId, cartRestaurantId);
 
@@ -59,7 +64,8 @@ namespace WeLoveFood.Services.Orders
                 Quantity = InitialPortionsQuantity
             };
 
-            this.Cart(clientId)
+            this._carts
+                .Cart(clientId)
                 ?.Portions
                 .Add(portion);
 
@@ -83,73 +89,11 @@ namespace WeLoveFood.Services.Orders
                 .Any(c => c.ClientId == clientId && c.Portions.Any(p => p.Meal.Id == mealId));
         }
 
-        public CartAllPortionsServiceModel CartAllPortions(string userId)
-        {
-            var clientId = this._clients
-                .GetClientId(userId);
-
-            var portions = this.Portions(clientId).ToList();
-            var totalPrice = portions.Sum(p => p.Price);
-
-            var cartRestaurantId = this.CartRestaurantId(clientId);
-            var deliveryFee = this._restaurants
-                .DeliveryFee(cartRestaurantId);
-
-            return new CartAllPortionsServiceModel
-            {
-                Portions = portions,
-                TotalPrice = totalPrice,
-                DeliveryFee = deliveryFee
-            };
-        }
-
-        private IEnumerable<CartPortionServiceModel> Portions(string clientId)
-        {
-            return this.CartQuery(clientId)
-                .SelectMany(c => c.Portions)
-                .Select(p => new CartPortionServiceModel
-                {
-                    Id = p.Id,
-                    Quantity = p.Quantity,
-                    Price = p.Meal.Price * p.Quantity,
-                    Meal = new CartMealServiceModel
-                    {
-                        Id = p.Meal.Id,
-                        ImgUrl = p.Meal.ImgUrl,
-                        Name = p.Meal.Name,
-                        Price = p.Meal.Price
-                    }
-                })
-                .ToList();
-        }
-
-        private int CartRestaurantId(string clientId)
-            => this.CartQuery(clientId)
-                .Select(c => c.Portions
-                    .Select(p => p.Meal.MealsCategory.Restaurant.Id)
-                    .FirstOrDefault())
-                .FirstOrDefault();
-
-        private int PortionsCount(string clientId)
-            => this.CartQuery(clientId)
-                .Select(c => c.Portions.Count())
-                .FirstOrDefault();
-
         private bool IsMealFromTheSameRestaurant(
             int mealId,
             int restaurantId)
             => this._data
                 .Meals
                 .Any(m => m.Id == mealId && m.MealsCategory.Restaurant.Id == restaurantId);
-
-        private IQueryable<Cart> CartQuery(string clientId)
-            => this._data
-                .Carts
-                .Where(c => c.ClientId == clientId);
-
-        private Cart Cart(string clientId)
-            => this._data
-                .Carts
-                .FirstOrDefault(c => c.ClientId == clientId);
     }
 }

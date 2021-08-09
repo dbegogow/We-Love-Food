@@ -32,14 +32,16 @@
                         @foreach (var portion in Model.Portions)
                         {
                             <tr>
-                                <td class="meal">
+                                <td class="meal" portion-id="@portion.Id">
                                     <h4>@portion.Meal.Name</h4>
                                     <div class="image-container">
                                         <img src="@portion.Meal.ImgUrl" alt="Meal" />
                                     </div>
                                 </td>
                                 <td class="quantity">
-                                    <span class="out">-</span>
+                                    <form>
+                                        <span class="remove @(portion.Quantity == 1 ? "disable" : string.Empty)">-</span>
+                                    </form>
                                     <span class="number">@portion.Quantity</span>
                                     <span class="add">+</span>
                                 </td>
@@ -61,7 +63,7 @@
         <div class="order">
             <h2>Адрес за доставка</h2>
 
-            <form class="order-info">
+            <form class="order-info" method="post">
                 <div class="info">
                     <label>Име</label>
                     <input type="text" />
@@ -89,3 +91,7 @@
         </div>
     </div>
 </div>
+
+@section CartScript {
+    <script type="text/javascript" src="~/js/orders/removePortion.js"></script>
+}

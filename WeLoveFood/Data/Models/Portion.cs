@@ -2,7 +2,7 @@
 {
     public class Portion
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         public int Quantity { get; set; }
 
@@ -14,7 +14,7 @@
 
         public Order Order { get; set; }
 
-        public string  CartId { get; set; }
+        public string CartId { get; set; }
 
         public Cart Cart { get; set; }
     }

@@ -34,6 +34,7 @@
     <script type="text/javascript" src="~/js/shared/navMenu.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
+    @await RenderSectionAsync("CartScript", required: false)
     @await RenderSectionAsync("MealsScript", required: false)
     @await RenderSectionAsync("IndexScript", required: false)
     @await RenderSectionAsync("ValidationScripts", required: false)

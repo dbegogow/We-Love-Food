@@ -13,7 +13,7 @@ namespace WeLoveFood.Controllers
         public IActionResult All()
         {
             var citiesCards = this._cities
-                .GetCitiesCardsOrderByRestaurantsCount();
+                .CitiesCardsOrderByRestaurantsCount();
 
             return View(citiesCards);
         }

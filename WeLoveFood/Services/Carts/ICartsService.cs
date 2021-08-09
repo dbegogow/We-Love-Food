@@ -9,6 +9,6 @@ namespace WeLoveFood.Services.Carts
 
         int CartRestaurantId(string clientId);
 
-        Cart GetCart(string clientId);
+        Cart Cart(string clientId);
     }
 }

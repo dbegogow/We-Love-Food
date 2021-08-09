@@ -30,7 +30,7 @@ namespace WeLoveFood.Services.Carts
         public CartAllPortionsServiceModel CartAllPortions(string userId)
         {
             var clientId = this._clients
-                .GetClientId(userId);
+                .ClientId(userId);
 
             var cartRestaurantId = this.CartRestaurantId(clientId);
             var deliveryFee = this._restaurants
@@ -57,7 +57,7 @@ namespace WeLoveFood.Services.Carts
                     .FirstOrDefault())
                 .FirstOrDefault();
 
-        public Cart GetCart(string clientId)
+        public Cart Cart(string clientId)
             => this._data
                 .Carts
                 .FirstOrDefault(c => c.ClientId == clientId);

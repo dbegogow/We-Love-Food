@@ -34,7 +34,7 @@ namespace WeLoveFood.Services.Orders
             int restaurantId,
             string userId)
         {
-            var clientId = this._clients.GetClientId(userId);
+            var clientId = this._clients.ClientId(userId);
 
             if (clientId == null)
             {
@@ -65,7 +65,7 @@ namespace WeLoveFood.Services.Orders
             };
 
             this._carts
-                .GetCart(clientId)
+                .Cart(clientId)
                 ?.Portions
                 .Add(portion);
 
@@ -77,7 +77,7 @@ namespace WeLoveFood.Services.Orders
         public bool IsMealAddedInCart(int mealId, string userId)
         {
             var clientId = this._clients
-                .GetClientId(userId);
+                .ClientId(userId);
 
             if (clientId == null)
             {

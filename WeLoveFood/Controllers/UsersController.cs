@@ -19,8 +19,8 @@ namespace WeLoveFood.Controllers
             IUsersService users,
             ICitiesService cities)
         {
-            _users = users;
-            _cities = cities;
+            this._users = users;
+            this._cities = cities;
         }
 
         [Authorize]

@@ -29,12 +29,12 @@ namespace WeLoveFood.Services.clients
             this._data.SaveChanges();
         }
 
-        public Client GetClient(string userId)
+        public Client Client(string userId)
             => this._data
                 .Clients
                 .FirstOrDefault(c => c.UserId == userId);
 
-        public string GetClientId(string userId)
+        public string ClientId(string userId)
             => this._data
                 .Clients
                 .Where(c => c.UserId == userId)

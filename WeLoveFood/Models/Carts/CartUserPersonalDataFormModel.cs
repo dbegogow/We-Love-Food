@@ -7,22 +7,22 @@ namespace WeLoveFood.Models.Carts
 {
     public class CartUserPersonalDataFormModel
     {
-        [Required]
+        [Required(ErrorMessage = RequiredFirstName)]
         [StringLength(NameMaxLength, ErrorMessage = InvalidName, MinimumLength = NameMinLength)]
         public string FirstName { get; init; }
 
-        [Required]
-        [StringLength(NameMaxLength, ErrorMessage = InvalidName, MinimumLength = NameMinLength)]
+        [Required(ErrorMessage = RequiredLastName)]
+        [StringLength(NameMaxLength, ErrorMessage = InvalidLastName, MinimumLength = NameMinLength)]
         public string LastName { get; init; }
 
-        [Required]
+        [Required(ErrorMessage = RequiredPhoneNumber)]
         [RegularExpression(PhoneNumberRegularExpression, ErrorMessage = InvalidPhoneNumber)]
         public string PhoneNumber { get; init; }
 
-        [Required]
+        [Required(ErrorMessage = RequiredCity)]
         public string City { get; init; }
-        
-        [Required]
+
+        [Required(ErrorMessage = RequiredAddress)]
         [StringLength(AddressMaxLength, ErrorMessage = InvalidAddressLength)]
         public string Address { get; init; }
     }

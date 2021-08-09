@@ -23,7 +23,7 @@ namespace WeLoveFood.Services.Menus
                 })
                 .ToList();
 
-        public IEnumerable<MealServiceModel> GetCategoryMeals(int mealsCategoryId)
+        public IEnumerable<MealServiceModel> CategoryMeals(int mealsCategoryId)
             => this._data
                 .Meals
                 .Where(m => m.MealsCategoryId == mealsCategoryId)

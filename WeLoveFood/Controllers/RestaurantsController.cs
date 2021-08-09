@@ -33,7 +33,7 @@ namespace WeLoveFood.Controllers
             query.RestaurantsCards = queryResult.RestaurantsCards;
 
             var cityName = this._cities
-                .GetCityName(id);
+                .CityName(id);
 
             query.CityName = cityName;
 

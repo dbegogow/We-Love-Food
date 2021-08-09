@@ -23,7 +23,7 @@ namespace WeLoveFood.Services.Portions
         public int RemovePortion(int portionId, string userId)
         {
             var clientId = this._clients
-                .GetClientId(userId);
+                .ClientId(userId);
 
             if (clientId == null)
             {
@@ -47,7 +47,7 @@ namespace WeLoveFood.Services.Portions
         public int AddPortion(int portionId, string userId)
         {
             var clientId = this._clients
-                .GetClientId(userId);
+                .ClientId(userId);
 
             if (clientId == null)
             {

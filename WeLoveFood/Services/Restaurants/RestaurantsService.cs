@@ -93,7 +93,7 @@ namespace WeLoveFood.Services.Restaurants
             }
 
             var client = this._clients
-                .GetClient(userId);
+                .Client(userId);
 
             var restaurant = this.GetRestaurant(restaurantId);
 

@@ -65,32 +65,31 @@
         <div class="order">
             <h2>Адрес за доставка</h2>
 
+            <div class="validation-summary-container">
+                <div asp-validation-summary="All" class="validation-summary"></div>
+            </div>
+
             <form class="order-info" method="post">
                 <div class="info">
-                    <label asp-for="PersonalData.FirstName"></label>
-                    <input asp-for="PersonalData.FirstName" type="text" value="@Model.PersonalData.FirstName" />
+                    <label for="firt-name">Име</label>
+                    <input id="firt-name" name="firstName" type="text" value="@Model.PersonalData.FirstName" />
                 </div>
-                <span asp-validation-for="PersonalData.FirstName" class="validation-message"></span>
                 <div class="info">
-                    <label asp-for="PersonalData.LastName"></label>
-                    <input asp-for="PersonalData.LastName" type="text" value="@Model.PersonalData.LastName" />
+                    <label for="last-name">Фамилия</label>
+                    <input id="last-name" name="lastName" type="text" value="@Model.PersonalData.LastName" />
                 </div>
-                <span asp-validation-for="PersonalData.LastName" class="validation-message"></span>
                 <div class="info">
-                    <label asp-for="PersonalData.PhoneNumber"></label>
-                    <input asp-for="PersonalData.PhoneNumber" type="text" value="@Model.PersonalData.PhoneNumber" />
+                    <label for="phone-number">Телефон</label>
+                    <input id="phone-number" name="phoneNumber" type="text" value="@Model.PersonalData.PhoneNumber" />
                 </div>
-                <span asp-validation-for="PersonalData.PhoneNumber" class="validation-message"></span>
                 <div class="info">
-                    <label asp-for="PersonalData.City"></label>
-                    <input asp-for="PersonalData.City" type="text" value="@Model.PersonalData.City" />
+                    <label for="city">Град</label>
+                    <input id="city" name="city" type="text" value="@Model.PersonalData.City" />
                 </div>
-                <span asp-validation-for="PersonalData.City" class="validation-message"></span>
                 <div class="info">
-                    <label asp-for="PersonalData.Address"></label>
-                    <input asp-for="PersonalData.Address" type="text" value="@Model.PersonalData.Address" />
+                    <label for="address">Адрес</label>
+                    <input id="address" name="address" type="text" value="@Model.PersonalData.Address" />
                 </div>
-                <span asp-validation-for="PersonalData.Address" class="validation-message"></span>
 
                 <div class="total-price">
                     <p>Цена за доставка: <span>@Model.CartAllPortions.DeliveryFee.ToString(PriceFormat)</span> лв</p>

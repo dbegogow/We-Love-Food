@@ -17,8 +17,8 @@ namespace WeLoveFood.Controllers
             IMenusService menus,
             IRestaurantsService restaurants)
         {
-            _menus = menus;
-            _restaurants = restaurants;
+            this._menus = menus;
+            this._restaurants = restaurants;
         }
 
         public IActionResult Meals(int id, int categoryId = NoCategoryId)
@@ -30,7 +30,7 @@ namespace WeLoveFood.Controllers
             categoryId = categoryId == NoCategoryId ? allCategories[0].Id : categoryId;
 
             var meals = this._menus
-                .GetCategoryMeals(categoryId)
+                .CategoryMeals(categoryId)
                 .ToList();
 
             var categoryName = this._menus

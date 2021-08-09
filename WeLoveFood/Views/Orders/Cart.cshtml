@@ -1,4 +1,4 @@
-﻿@model CartAllPortionsServiceModel
+﻿@model CartViewModel
 
 @{
     ViewBag.Title = "Поръчка -";
@@ -15,7 +15,7 @@
         <div class="meals">
             <div class="header">
                 <h2>Твоите поръчки</h2>
-                <p>@Model.Portions.Count() броя</p>
+                <p>@Model.CartAllPortions.Portions.Count() броя</p>
             </div>
 
             <div class="cards">
@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var portion in Model.Portions)
+                        @foreach (var portion in Model.CartAllPortions.Portions)
                         {
                             <tr>
                                 <td class="meal">
@@ -67,28 +67,37 @@
 
             <form class="order-info" method="post">
                 <div class="info">
-                    <label>Име</label>
-                    <input type="text" />
+                    <label asp-for="PersonalData.FirstName"></label>
+                    <input asp-for="PersonalData.FirstName" type="text" value="@Model.PersonalData.FirstName" />
                 </div>
+                <span asp-validation-for="PersonalData.FirstName" class="validation-message"></span>
                 <div class="info">
-                    <label>Фамилия</label>
-                    <input type="text" />
+                    <label asp-for="PersonalData.LastName"></label>
+                    <input asp-for="PersonalData.LastName" type="text" value="@Model.PersonalData.LastName" />
                 </div>
+                <span asp-validation-for="PersonalData.LastName" class="validation-message"></span>
                 <div class="info">
-                    <label>Телефон</label>
-                    <input type="text" />
+                    <label asp-for="PersonalData.PhoneNumber"></label>
+                    <input asp-for="PersonalData.PhoneNumber" type="text" value="@Model.PersonalData.PhoneNumber" />
                 </div>
+                <span asp-validation-for="PersonalData.PhoneNumber" class="validation-message"></span>
                 <div class="info">
-                    <label>Адрес</label>
-                    <input type="text" />
+                    <label asp-for="PersonalData.City"></label>
+                    <input asp-for="PersonalData.City" type="text" value="@Model.PersonalData.City" />
                 </div>
+                <span asp-validation-for="PersonalData.City" class="validation-message"></span>
+                <div class="info">
+                    <label asp-for="PersonalData.Address"></label>
+                    <input asp-for="PersonalData.Address" type="text" value="@Model.PersonalData.Address" />
+                </div>
+                <span asp-validation-for="PersonalData.Address" class="validation-message"></span>
 
                 <div class="total-price">
-                    <p>Цена за доставка: <span>@Model.DeliveryFee.ToString(PriceFormat)</span> лв</p>
-                    <p>Обща цена: <span>@Model.TotalPrice.ToString(PriceFormat)</span> лв</p>
+                    <p>Цена за доставка: <span>@Model.CartAllPortions.DeliveryFee.ToString(PriceFormat)</span> лв</p>
+                    <p>Обща цена: <span>@Model.CartAllPortions.TotalPrice.ToString(PriceFormat)</span> лв</p>
                 </div>
 
-                <input class="btn @(!Model.Portions.Any() ? "disable" : string.Empty)" type="submit" value="Поръчай" />
+                <input class="btn @(!Model.CartAllPortions.Portions.Any() ? "disable" : string.Empty)" type="submit" value="Поръчай" />
             </form>
         </div>
     </div>

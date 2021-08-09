@@ -32,8 +32,8 @@ namespace WeLoveFood.Controllers
             return View(user);
         }
 
-        [HttpPost]
         [Authorize]
+        [HttpPost]
         public IActionResult PersonalData(PersonalDataFormModel user)
         {
             var cityId = this._cities

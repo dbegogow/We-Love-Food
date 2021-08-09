@@ -346,7 +346,7 @@ namespace WeLoveFood.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Portions",
+                name: "CartAllPortions",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -456,17 +456,17 @@ namespace WeLoveFood.Data.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Portions_CartId",
-                table: "Portions",
+                table: "CartAllPortions",
                 column: "CartId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Portions_MealId",
-                table: "Portions",
+                table: "CartAllPortions",
                 column: "MealId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Portions_OrderId",
-                table: "Portions",
+                table: "CartAllPortions",
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
@@ -499,7 +499,7 @@ namespace WeLoveFood.Data.Migrations
                 name: "ClientRestaurant");
 
             migrationBuilder.DropTable(
-                name: "Portions");
+                name: "CartAllPortions");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

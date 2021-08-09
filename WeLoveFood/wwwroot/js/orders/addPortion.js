@@ -8,7 +8,7 @@
         return res;
     };
 
-    const removePortion = (e) => {
+    const addPortion = (e) => {
         const target = e.target;
 
         const portionId = target
@@ -16,7 +16,7 @@
 
         const token = document.querySelector("input[name='__RequestVerificationToken']").value;
 
-        fetch('/api/removePortion',
+        fetch('/api/addPortion',
             {
                 method: 'POST',
                 headers: {
@@ -31,17 +31,17 @@
                 document.getElementById(`number-${portionId}`)
                     .textContent = quantity;
 
-                if (quantity === 1) {
+                if (quantity > 1) {
                     document.getElementById(`remove-${portionId}`)
-                        .classList.add('disable');
+                        .classList.remove('disable');
                 }
             })
             .catch(err => alert(err.message));
     };
 
-    var removePortionButtons = document.getElementsByClassName('remove');
+    var addPortionButtons = document.getElementsByClassName('add');
 
-    for (var removePortionButton = 0; removePortionButton < removePortionButtons.length; removePortionButton++) {
-        removePortionButtons[removePortionButton].addEventListener("click", removePortion);
+    for (var addPortionButton = 0; addPortionButton < addPortionButtons.length; addPortionButton++) {
+        addPortionButtons[addPortionButton].addEventListener("click", addPortion);
     }
 })();

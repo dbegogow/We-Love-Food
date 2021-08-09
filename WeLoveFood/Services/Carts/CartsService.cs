@@ -57,7 +57,7 @@ namespace WeLoveFood.Services.Carts
                     .FirstOrDefault())
                 .FirstOrDefault();
 
-        public Cart Cart(string clientId)
+        public Cart GetCart(string clientId)
             => this._data
                 .Carts
                 .FirstOrDefault(c => c.ClientId == clientId);

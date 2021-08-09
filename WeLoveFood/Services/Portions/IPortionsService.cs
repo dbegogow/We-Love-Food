@@ -7,6 +7,8 @@ namespace WeLoveFood.Services.Portions
     {
         int RemovePortion(int portionId, string userId);
 
+        int AddPortion(int portionId, string userId);
+
         int PortionsCount(string clientId);
 
         IEnumerable<CartPortionServiceModel> Portions(string clientId);

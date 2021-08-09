@@ -186,7 +186,7 @@ namespace WeLoveFood.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.GetCart", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(40)
@@ -556,11 +556,11 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.GetCart", b =>
                 {
                     b.HasOne("WeLoveFood.Data.Models.Client", "Client")
-                        .WithOne("Cart")
-                        .HasForeignKey("WeLoveFood.Data.Models.Cart", "ClientId")
+                        .WithOne("GetCart")
+                        .HasForeignKey("WeLoveFood.Data.Models.GetCart", "ClientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -602,7 +602,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Portion", b =>
                 {
-                    b.HasOne("WeLoveFood.Data.Models.Cart", "Cart")
+                    b.HasOne("WeLoveFood.Data.Models.GetCart", "GetCart")
                         .WithMany("Portions")
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -618,7 +618,7 @@ namespace WeLoveFood.Data.Migrations
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("Cart");
+                    b.Navigation("GetCart");
 
                     b.Navigation("Meal");
 
@@ -645,7 +645,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.GetCart", b =>
                 {
                     b.Navigation("Portions");
                 });
@@ -657,7 +657,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Client", b =>
                 {
-                    b.Navigation("Cart");
+                    b.Navigation("GetCart");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using WeLoveFood.Data;
+using WeLoveFood.Data.Models;
 using System.Collections.Generic;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Models.Orders;
@@ -29,9 +30,7 @@ namespace WeLoveFood.Services.Portions
                 return -1;
             }
 
-            var portion = this._data
-                .Portions
-                .Find(portionId);
+            var portion = this.GetPortion(portionId, clientId);
 
             if (portion == null || portion.Quantity == 1)
             {
@@ -39,6 +38,30 @@ namespace WeLoveFood.Services.Portions
             }
 
             portion.Quantity--;
+
+            this._data.SaveChanges();
+
+            return portion.Quantity;
+        }
+
+        public int AddPortion(int portionId, string userId)
+        {
+            var clientId = this._clients
+                .GetClientId(userId);
+
+            if (clientId == null)
+            {
+                return -1;
+            }
+
+            var portion = this.GetPortion(portionId, clientId);
+
+            if (portion == null)
+            {
+                return -1;
+            }
+
+            portion.Quantity++;
 
             this._data.SaveChanges();
 
@@ -73,5 +96,10 @@ namespace WeLoveFood.Services.Portions
                 .Where(c => c.ClientId == clientId)
                 .Select(c => c.Portions.Count())
                 .FirstOrDefault();
+
+        private Portion GetPortion(int portionId, string clientId)
+            => this._data
+                .Portions
+                .FirstOrDefault(p => p.Id == portionId && p.Cart.ClientId == clientId);
     }
 }

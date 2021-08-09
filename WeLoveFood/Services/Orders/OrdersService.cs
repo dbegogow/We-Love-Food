@@ -65,7 +65,7 @@ namespace WeLoveFood.Services.Orders
             };
 
             this._carts
-                .Cart(clientId)
+                .GetCart(clientId)
                 ?.Portions
                 .Add(portion);
 

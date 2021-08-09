@@ -88,7 +88,7 @@
                     <p>Обща цена: <span>@Model.TotalPrice.ToString(PriceFormat)</span> лв</p>
                 </div>
 
-                <input class="btn" type="submit" value="Поръчай" />
+                <input class="btn @(!Model.Portions.Any() ? "disable" : string.Empty)" type="submit" value="Поръчай" />
             </form>
         </div>
     </div>

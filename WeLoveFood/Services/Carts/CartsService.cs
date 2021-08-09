@@ -32,13 +32,13 @@ namespace WeLoveFood.Services.Carts
             var clientId = this._clients
                 .GetClientId(userId);
 
-            var portions = this._portions
-                .Portions(clientId).ToList();
-            var totalPrice = portions.Sum(p => p.Price);
-
             var cartRestaurantId = this.CartRestaurantId(clientId);
             var deliveryFee = this._restaurants
                 .DeliveryFee(cartRestaurantId);
+
+            var portions = this._portions
+                .Portions(clientId).ToList();
+            var totalPrice = portions.Sum(p => p.Price) + deliveryFee;
 
             return new CartAllPortionsServiceModel
             {

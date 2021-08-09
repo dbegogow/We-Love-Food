@@ -176,6 +176,10 @@
     color: #FFF;
 }
 
+.cart-page-container .cart-container .order .order-info .btn.disable {
+    pointer-events: none;
+}
+
 .cart-page-container .cart-container .order .order-info .btn:hover {
     cursor: pointer;
     transform: scale(1.07);

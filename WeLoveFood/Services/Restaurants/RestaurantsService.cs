@@ -125,7 +125,7 @@ namespace WeLoveFood.Services.Restaurants
             => this._data
                 .Restaurants
                 .Where(r => r.Id == restaurantId)
-                .Select(r => r.DeliveryFee.Value)
+                .Select(r => r.DeliveryFee.Value == null ? 0 : r.DeliveryFee.Value)
                 .FirstOrDefault();
 
         private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)

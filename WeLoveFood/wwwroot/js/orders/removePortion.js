@@ -9,6 +9,8 @@
     };
 
     const removePortion = (e) => {
+        e.preventDefault();
+
         const target = e.target;
 
         const portionId = target

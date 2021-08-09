@@ -40,11 +40,11 @@
                                 </td>
                                 <td class="quantity">
                                     <form method="post">
-                                        <span id="remove-@portion.Id" class="remove @(portion.Quantity == 1 ? "disable" : string.Empty)" portion-id="@portion.Id">-</span>
+                                        <button id="remove-@portion.Id" class="remove @(portion.Quantity == 1 ? "disable" : string.Empty)" portion-id="@portion.Id">-</button>
                                     </form>
                                     <span id="number-@portion.Id" class="number">@portion.Quantity</span>
                                     <form method="post">
-                                        <span class="add" portion-id="@portion.Id">+</span>
+                                        <button class="add" portion-id="@portion.Id">+</button>
                                     </form>
                                 </td>
                                 <td class="price">

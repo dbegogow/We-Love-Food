@@ -77,6 +77,12 @@
     display: inline-block;
 }
 
+.cart-page-container .cart-container .meals .cards .quantity form button {
+    background: none;
+    padding: 0;
+    border: none;
+}
+
 .cart-page-container .cart-container .meals .cards .quantity .remove {
     font-size: 2.5rem;
     cursor: pointer;

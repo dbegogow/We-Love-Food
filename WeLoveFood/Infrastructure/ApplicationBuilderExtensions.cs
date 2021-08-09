@@ -45,6 +45,13 @@ namespace WeLoveFood.Infrastructure
                     const string adminEmail = "admin_wlf@gmail.com";
                     const string adminPassword = "Adminwlf1";
 
+                    var admin = await userManager.FindByEmailAsync(adminEmail);
+
+                    if (admin != null)
+                    {
+                        return;
+                    }
+
                     var user = new User
                     {
                         Email = adminEmail,

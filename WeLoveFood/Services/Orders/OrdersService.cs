@@ -47,6 +47,14 @@ namespace WeLoveFood.Services.Orders
             int restaurantId,
             string userId)
         {
+            var isRestaurantOpen = this._restaurants
+                .IsRestaurantOpen(restaurantId);
+
+            if (!isRestaurantOpen)
+            {
+                return false;
+            }
+
             var clientId = this._clients.ClientId(userId);
 
             if (clientId == null)

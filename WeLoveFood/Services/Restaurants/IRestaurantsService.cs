@@ -8,7 +8,9 @@ namespace WeLoveFood.Services.Restaurants
     {
         bool AddToFavorite(int restaurantId, string userId);
 
-        decimal DeliveryFee(int restaurantId);
+        bool IsRestaurantOpen(int id);
+
+        decimal DeliveryFee(int id);
 
         Restaurant Restaurant(int id);
 

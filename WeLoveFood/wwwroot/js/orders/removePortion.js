@@ -36,12 +36,12 @@
                 const portionPrice = Number(document.getElementById(`portion-price-${portionId}`).textContent);
 
                 document.getElementById(`portion-total-price-${portionId}`)
-                    .textContent = portionPrice * quantity;
+                    .textContent = (portionPrice * quantity).toFixed(2);
 
                 const orderTotalPrice = document.getElementById('total-price');
                 const orderTotalPriceAsNumber = Number(orderTotalPrice.textContent);
 
-                orderTotalPrice.textContent = orderTotalPriceAsNumber - portionPrice;
+                orderTotalPrice.textContent = (orderTotalPriceAsNumber - portionPrice).toFixed(2);
 
                 if (quantity === 1) {
                     document.getElementById(`remove-${portionId}`)

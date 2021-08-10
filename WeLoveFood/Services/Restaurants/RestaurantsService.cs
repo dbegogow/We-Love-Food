@@ -49,10 +49,17 @@ namespace WeLoveFood.Services.Restaurants
             return true;
         }
 
-        public decimal DeliveryFee(int restaurantId)
+        public bool IsRestaurantOpen(int id)
             => this._data
                 .Restaurants
-                .Where(r => r.Id == restaurantId)
+                .Where(r => r.Id == id)
+                .Select(r => IsOpen(r.OpeningTime, r.ClosingTime))
+                .FirstOrDefault();
+
+        public decimal DeliveryFee(int id)
+            => this._data
+                .Restaurants
+                .Where(r => r.Id == id)
                 .Select(r => r.DeliveryFee.Value == null ? 0 : r.DeliveryFee.Value)
                 .FirstOrDefault();
 
@@ -135,7 +142,7 @@ namespace WeLoveFood.Services.Restaurants
                 })
                 .ToList();
 
-        private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
+        public static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
         {
             var now = DateTime.Now.TimeOfDay;
 

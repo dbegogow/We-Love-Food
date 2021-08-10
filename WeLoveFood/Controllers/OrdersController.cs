@@ -106,8 +106,12 @@ namespace WeLoveFood.Controllers
             this._orders
                 .MakeOrder(clientId);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("MadeSuccessfulOrder");
         }
+
+        [Authorize]
+        public IActionResult MadeSuccessfulOrder()
+            => View();
 
         [Authorize]
         public IActionResult Mine()

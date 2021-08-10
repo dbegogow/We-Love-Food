@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Успешно направена поръчка -";
+}
+
+@section MadeSuccessfulOrderStyles {
+    <link href="~/css/orders/madeSuccessfulOrder.css" rel="stylesheet" />
+}
+
+<div class="successful-order-page">
+    <h1>Вашата поръчка бе успешно направена!</h1>
+    
+    <div class="all-cities-btn">
+        <a asp-controller="Cities" asp-action="All">Всички градове <i class="fas fa-chevron-right"></i> <i class="fas fa-chevron-right"></i> </a>
+    </div>
+</div>
+

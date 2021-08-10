@@ -14,6 +14,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.restaurant-container .closed {
+    pointer-events: none;
+}
+
 .restaurant-container .heading h1 {
     margin: 3vh 0 0 7vw;
     color: #336409;
@@ -93,7 +97,6 @@
 .restaurant-container .closing-message {
     margin-left: 7vw;
     font-size: 1.05rem;
-    margin-left: 20px;
     background: #DD7B06;
     color: #FFF;
     padding: 5px 15px;
@@ -209,18 +212,14 @@
     justify-self: start;
 }
 
-.restaurant-container .menu-section .meals-container .meal.added {
-    border: 3px solid #52a81c;
-    border-radius: 10px;
-}
-
 .restaurant-container .menu-section .meals-container .meal:hover {
     cursor: pointer;
 }
 
-.restaurant-container .menu-section .meals-container .meal.select {
-    border: 2px solid #52a81c;
-    border-radius: 12px;
+.restaurant-container .menu-section .meals-container .meal.added {
+    border: 3px solid #52a81c;
+    border-radius: 10px;
+    pointer-events: none;
 }
 
 .restaurant-container .menu-section .meals-container .meal-info {

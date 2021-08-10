@@ -65,7 +65,7 @@
         </ul>
     </div>
 
-    <div class="menu-section">
+    <div class="menu-section @(Model.Restaurant.IsOpen ? string.Empty : "closed")">
         <h2>@Model.CategoryName</h2>
 
         <div class="meals-container">

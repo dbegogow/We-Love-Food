@@ -33,6 +33,16 @@
                 document.getElementById(`number-${portionId}`)
                     .textContent = quantity;
 
+                const portionPrice = Number(document.getElementById(`portion-price-${portionId}`).textContent);
+
+                document.getElementById(`portion-total-price-${portionId}`)
+                    .textContent = portionPrice * quantity;
+
+                const orderTotalPrice = document.getElementById('total-price');
+                const orderTotalPriceAsNumber = Number(orderTotalPrice.textContent);
+
+                orderTotalPrice.textContent = orderTotalPriceAsNumber - portionPrice;
+
                 if (quantity === 1) {
                     document.getElementById(`remove-${portionId}`)
                         .classList.add('disable');

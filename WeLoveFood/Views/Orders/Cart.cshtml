@@ -31,7 +31,7 @@
                     <tbody>
                         @foreach (var portion in Model.CartAllPortions.Portions)
                         {
-                            <tr>
+                            <tr id="portion-@portion.Id">
                                 <td class="meal">
                                     <h4>@portion.Meal.Name</h4>
                                     <div class="image-container">
@@ -53,8 +53,10 @@
                                 <td class="price">
                                     <span id="portion-total-price-@portion.Id">@portion.Price.ToString(PriceFormat)</span> лв
                                 </td>
-                                <td class="remove-btn">
-                                    <a><i class="fas fa-times"></i></a>
+                                <td class="remove-btn-container">
+                                    <form method="post">
+                                        <button class="remove-btn" type="submit" portion-id="@portion.Id"><i class="fas fa-times"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         }
@@ -105,4 +107,5 @@
 @section CartScript {
     <script type="text/javascript" src="~/js/orders/removePortion.js"></script>
     <script type="text/javascript" src="~/js/orders/addPortion.js"></script>
+    <script type="text/javascript" src="~/js/orders/deletePortionFromCart.js"></script>
 }

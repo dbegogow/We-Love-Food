@@ -14,6 +14,7 @@ namespace WeLoveFood.Services.Orders
     public class OrdersService : IOrdersService
     {
         private const int NoAddedPortions = 0;
+        private const int InitialPortionsQuantity = 1;
 
         private const string TimeFormat = @"hh\:mm";
         private const string DayFormat = "d";
@@ -61,8 +62,7 @@ namespace WeLoveFood.Services.Orders
                 return false;
             }
 
-            var portionsCount = this
-                ._portions
+            var portionsCount = this._portions
                 .PortionsCount(clientId);
 
             if (portionsCount > NoAddedPortions)
@@ -78,27 +78,20 @@ namespace WeLoveFood.Services.Orders
                 }
             }
 
-            this._portions
-                .CreatePortion(clientId, mealId);
+            var portion = new Portion
+            {
+                MealId = mealId,
+                Quantity = InitialPortionsQuantity
+            };
+
+            this._carts
+                .Cart(clientId)
+                ?.Portions
+                .Add(portion);
+
+            this._data.SaveChanges();
 
             return true;
-        }
-
-        public bool RemoveMealFromCart(int mealId, string userId)
-        {
-            var clientId = this._clients
-                .ClientId(userId);
-
-            if (clientId == null)
-            {
-                return false;
-            }
-
-            var portionId = this._portions
-                .PortionIdByMealId(mealId);
-
-            return this._portions
-                .DeletePortion(portionId, clientId);
         }
 
         public bool IsMealAddedInCart(int mealId, string userId)

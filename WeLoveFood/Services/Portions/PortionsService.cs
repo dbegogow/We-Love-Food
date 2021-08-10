@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
-using WeLoveFood.Services.Carts;
 using System.Collections.Generic;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Models.Orders;
@@ -10,21 +9,16 @@ namespace WeLoveFood.Services.Portions
 {
     public class PortionsService : IPortionsService
     {
-        private const int InitialPortionsQuantity = 1;
-
         private readonly WeLoveFoodDbContext _data;
 
-        private readonly ICartsService _carts;
         private readonly IClientsService _clients;
 
         public PortionsService(
             WeLoveFoodDbContext data,
-            ICartsService carts,
             IClientsService clients)
         {
             this._data = data;
 
-            this._carts = carts;
             this._clients = clients;
         }
 
@@ -76,44 +70,33 @@ namespace WeLoveFood.Services.Portions
             return portion.Quantity;
         }
 
-        public bool DeletePortion(int portionId, string clientId)
+        public bool DeletePortionFromCart(int portionId, string userId)
         {
-            var portion = this.GetPortion(portionId, clientId);
+            var clientId = this._clients
+                .ClientId(userId);
+
+            if (clientId == null)
+            {
+                return false;
+            }
+
+            var portion = this._data
+                .Portions
+                .FirstOrDefault(p => p.Id == portionId && p.Cart.ClientId == clientId);
 
             if (portion == null)
             {
                 return false;
             }
 
-            this._data.Portions.Remove(portion);
+            this._data
+                .Portions
+                .Remove(portion);
 
             this._data.SaveChanges();
 
             return true;
         }
-
-        public void CreatePortion(string clientId, int mealId)
-        {
-            var portion = new Portion
-            {
-                MealId = mealId,
-                Quantity = InitialPortionsQuantity
-            };
-
-            this._carts
-                .Cart(clientId)
-                ?.Portions
-                .Add(portion);
-
-            this._data.SaveChanges();
-        }
-
-        public int PortionIdByMealId(int mealId)
-            => this._data
-                .Portions
-                .Where(p => p.Meal.Id == mealId)
-                .Select(p => p.Id)
-                .FirstOrDefault();
 
         public IEnumerable<CartPortionServiceModel> Portions(string clientId)
         {

@@ -9,7 +9,13 @@ namespace WeLoveFood.Services.Portions
 
         int AddPortion(int portionId, string userId);
 
+        bool DeletePortion(int portionId, string clientId);
+
+        void CreatePortion(string clientId, int mealId);
+
         int PortionsCount(string clientId);
+
+        int PortionIdByMealId(int mealId);
 
         IEnumerable<CartPortionServiceModel> Portions(string clientId);
 

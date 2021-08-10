@@ -10,6 +10,8 @@ namespace WeLoveFood.Services.Orders
             int restaurantId,
             string userId);
 
+        bool RemoveMealFromCart(int mealId, string userId);
+
         bool IsMealAddedInCart(int mealId, string userId);
 
         void MakeOrder(string clientId, decimal totalPrice);

@@ -5,17 +5,17 @@ using WeLoveFood.Services.Orders;
 
 namespace WeLoveFood.Controllers.Api
 {
-    [Route("api/addMealToCart")]
+    [Route("api/removeMealFromCart")]
     [ApiController]
-    public class AddMealToCartApiController : ControllerBase
+    public class RemoveMealFromCartApiController : ControllerBase
     {
         private readonly IOrdersService _orders;
 
-        public AddMealToCartApiController(IOrdersService orders)
+        public RemoveMealFromCartApiController(IOrdersService orders)
             => _orders = orders;
 
         [HttpPost]
-        public IActionResult Add(AddMealToCartApiModel meal)
+        public IActionResult Remove(AddMealToCartApiModel meal)
         {
             var result = this._orders
                 .AddMealToCart(meal.Id, meal.RestaurantId, this.User.Id());

@@ -12,19 +12,6 @@ namespace WeLoveFood.Services.Cities
         public CitiesService(WeLoveFoodDbContext data)
             => this._data = data;
 
-        public IEnumerable<CityCardServiceModel> CitiesCardsOrderByRestaurantsCount(int? citiesCount)
-            => this._data
-                .Cities
-                .OrderByDescending(c => c.Restaurants.Count())
-                .Take(citiesCount ?? this._data.Cities.Count())
-                .Select(c => new CityCardServiceModel
-                {
-                    Id = c.Id,
-                    Name = c.Name,
-                    ImgUrl = c.ImgUrl
-                })
-                .ToList();
-
         public string CityName(int id)
             => this._data
                 .Cities
@@ -45,5 +32,18 @@ namespace WeLoveFood.Services.Cities
                 .Where(r => r.Id == restaurantId)
                 .Select(r => r.City.Name)
                 .FirstOrDefault();
+
+        public IEnumerable<CityCardServiceModel> CitiesCardsOrderByRestaurantsCount(int? citiesCount)
+            => this._data
+                .Cities
+                .OrderByDescending(c => c.Restaurants.Count())
+                .Take(citiesCount ?? this._data.Cities.Count())
+                .Select(c => new CityCardServiceModel
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    ImgUrl = c.ImgUrl
+                })
+                .ToList();
     }
 }

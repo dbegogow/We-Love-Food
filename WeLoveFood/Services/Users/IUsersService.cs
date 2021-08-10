@@ -4,8 +4,6 @@ namespace WeLoveFood.Services.Users
 {
     public interface IUsersService
     {
-        PersonalDataServiceModel PersonalData(string userId);
-
         void ChangePersonalData(
             string userId,
             string firstName,
@@ -13,5 +11,7 @@ namespace WeLoveFood.Services.Users
             string phoneNumber,
             int cityId,
             string address);
+
+        PersonalDataServiceModel PersonalData(string userId);
     }
 }

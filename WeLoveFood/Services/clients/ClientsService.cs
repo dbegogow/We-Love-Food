@@ -29,11 +29,6 @@ namespace WeLoveFood.Services.clients
             this._data.SaveChanges();
         }
 
-        public Client Client(string userId)
-            => this._data
-                .Clients
-                .FirstOrDefault(c => c.UserId == userId);
-
         public string ClientId(string userId)
             => this._data
                 .Clients
@@ -46,5 +41,10 @@ namespace WeLoveFood.Services.clients
                 .Clients
                 .Any(c => c.UserId == userId &&
                           c.Restaurants.Any(r => r.Id == restaurantId));
+
+        public Client Client(string userId)
+            => this._data
+                .Clients
+                .FirstOrDefault(c => c.UserId == userId);
     }
 }

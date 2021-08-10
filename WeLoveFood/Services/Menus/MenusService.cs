@@ -12,6 +12,13 @@ namespace WeLoveFood.Services.Menus
         public MenusService(WeLoveFoodDbContext data)
             => _data = data;
 
+        public string CategoryName(int mealsCategoryId)
+            => this._data
+                .MealsCategories
+                .Where(c => c.Id == mealsCategoryId)
+                .Select(c => c.Name)
+                .FirstOrDefault();
+
         public IEnumerable<CategoryServiceModel> RestaurantCategories(int restaurantId)
             => this._data
                 .MealsCategories
@@ -37,12 +44,5 @@ namespace WeLoveFood.Services.Menus
                     Price = m.Price
                 })
                 .ToList();
-
-        public string CategoryName(int mealsCategoryId)
-            => this._data
-                .MealsCategories
-                .Where(c => c.Id == mealsCategoryId)
-                .Select(c => c.Name)
-                .FirstOrDefault();
     }
 }

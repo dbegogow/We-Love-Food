@@ -11,6 +11,7 @@ namespace WeLoveFood.Services.Carts
     public class CartsService : ICartsService
     {
         private readonly WeLoveFoodDbContext _data;
+
         private readonly IClientsService _clients;
         private readonly IPortionsService _portions;
         private readonly IRestaurantsService _restaurants;
@@ -22,10 +23,25 @@ namespace WeLoveFood.Services.Carts
             IRestaurantsService restaurants)
         {
             this._data = data;
+
             this._clients = clients;
             this._portions = portions;
             this._restaurants = restaurants;
         }
+
+        public int CartRestaurantId(string clientId)
+            => this._data
+                .Carts
+                .Where(c => c.ClientId == clientId)
+                .Select(c => c.Portions
+                    .Select(p => p.Meal.MealsCategory.Restaurant.Id)
+                    .FirstOrDefault())
+                .FirstOrDefault();
+
+        public Cart Cart(string clientId)
+            => this._data
+                .Carts
+                .FirstOrDefault(c => c.ClientId == clientId);
 
         public CartAllPortionsServiceModel CartAllPortions(string userId)
         {
@@ -47,19 +63,5 @@ namespace WeLoveFood.Services.Carts
                 DeliveryFee = deliveryFee
             };
         }
-
-        public int CartRestaurantId(string clientId)
-            => this._data
-                .Carts
-                .Where(c => c.ClientId == clientId)
-                .Select(c => c.Portions
-                    .Select(p => p.Meal.MealsCategory.Restaurant.Id)
-                    .FirstOrDefault())
-                .FirstOrDefault();
-
-        public Cart Cart(string clientId)
-            => this._data
-                .Carts
-                .FirstOrDefault(c => c.ClientId == clientId);
     }
 }

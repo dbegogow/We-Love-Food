@@ -14,22 +14,24 @@ namespace WeLoveFood.Services.Orders
         private const int InitialPortionsQuantity = 1;
 
         private readonly WeLoveFoodDbContext _data;
+
+        private readonly ICartsService _carts;
         private readonly IClientsService _clients;
         private readonly IPortionsService _portions;
-        private readonly ICartsService _carts;
         private readonly IRestaurantsService _restaurants;
 
         public OrdersService(
             WeLoveFoodDbContext data,
+            ICartsService carts,
             IClientsService clients,
             IPortionsService portions,
-            ICartsService carts,
             IRestaurantsService restaurants)
         {
             this._data = data;
+
+            this._carts = carts;
             this._clients = clients;
             this._portions = portions;
-            this._carts = carts;
             this._restaurants = restaurants;
         }
 

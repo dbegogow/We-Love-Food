@@ -11,20 +11,6 @@ namespace WeLoveFood.Services.Users
         public UsersService(WeLoveFoodDbContext data)
             => _data = data;
 
-        public PersonalDataServiceModel PersonalData(string userId)
-            => this._data
-                .Users
-                .Where(u => u.Id == userId)
-                .Select(u => new PersonalDataServiceModel
-                {
-                    FirstName = u.FirstName,
-                    LastName = u.LastName,
-                    PhoneNumber = u.PhoneNumber,
-                    City = u.City.Name,
-                    Address = u.Address
-                })
-                .FirstOrDefault();
-
         public void ChangePersonalData(
             string userId,
             string firstName,
@@ -45,5 +31,19 @@ namespace WeLoveFood.Services.Users
 
             this._data.SaveChanges();
         }
+
+        public PersonalDataServiceModel PersonalData(string userId)
+            => this._data
+                .Users
+                .Where(u => u.Id == userId)
+                .Select(u => new PersonalDataServiceModel
+                {
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    PhoneNumber = u.PhoneNumber,
+                    City = u.City.Name,
+                    Address = u.Address
+                })
+                .FirstOrDefault();
     }
 }

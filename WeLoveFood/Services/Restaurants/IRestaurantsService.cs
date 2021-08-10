@@ -6,6 +6,12 @@ namespace WeLoveFood.Services.Restaurants
 {
     public interface IRestaurantsService
     {
+        bool AddToFavorite(int restaurantId, string userId);
+
+        decimal DeliveryFee(int restaurantId);
+
+        Restaurant Restaurant(int id);
+
         AllCityRestaurantsCardsQueryServiceModel AllCityRestaurantsCards(
             int cityId,
             string searchTerm,
@@ -14,12 +20,6 @@ namespace WeLoveFood.Services.Restaurants
 
         RestaurantServiceModel RestaurantInfo(int id);
 
-        bool AddToFavorite(int restaurantId, string userId);
-
         IEnumerable<RestaurantCardServiceModel> Favorite(string userId);
-
-        decimal DeliveryFee(int restaurantId);
-
-        Restaurant Restaurant(int id);
     }
 }

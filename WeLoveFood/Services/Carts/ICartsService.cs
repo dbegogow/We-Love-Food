@@ -5,10 +5,10 @@ namespace WeLoveFood.Services.Carts
 {
     public interface ICartsService
     {
-        CartAllPortionsServiceModel CartAllPortions(string userId);
-
         int CartRestaurantId(string clientId);
 
         Cart Cart(string clientId);
+
+        CartAllPortionsServiceModel CartAllPortions(string userId);
     }
 }

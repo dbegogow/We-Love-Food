@@ -13,6 +13,7 @@ namespace WeLoveFood.Services.Restaurants
         private const string WorkingTimeFormat = @"hh\:mm";
 
         private readonly WeLoveFoodDbContext _data;
+
         private readonly IClientsService _clients;
 
         public RestaurantsService(
@@ -20,8 +21,45 @@ namespace WeLoveFood.Services.Restaurants
             IClientsService clients)
         {
             this._data = data;
+
             _clients = clients;
         }
+
+        public bool AddToFavorite(int restaurantId, string userId)
+        {
+            var clientHasRestaurant = this._clients
+                .HasRestaurantInFavorite(userId, restaurantId);
+
+            if (clientHasRestaurant)
+            {
+                return false;
+            }
+
+            var client = this._clients
+                .Client(userId);
+
+            var restaurant = this.GetRestaurant(restaurantId);
+
+            client
+                .Restaurants
+                .Add(restaurant);
+
+            this._data.SaveChanges();
+
+            return true;
+        }
+
+        public decimal DeliveryFee(int restaurantId)
+            => this._data
+                .Restaurants
+                .Where(r => r.Id == restaurantId)
+                .Select(r => r.DeliveryFee.Value == null ? 0 : r.DeliveryFee.Value)
+                .FirstOrDefault();
+
+        public Restaurant Restaurant(int id)
+            => this._data
+                .Restaurants
+                .Find(id);
 
         public AllCityRestaurantsCardsQueryServiceModel AllCityRestaurantsCards(
             int cityId,
@@ -82,30 +120,6 @@ namespace WeLoveFood.Services.Restaurants
                 })
                 .FirstOrDefault();
 
-        public bool AddToFavorite(int restaurantId, string userId)
-        {
-            var clientHasRestaurant = this._clients
-                .HasRestaurantInFavorite(userId, restaurantId);
-
-            if (clientHasRestaurant)
-            {
-                return false;
-            }
-
-            var client = this._clients
-                .Client(userId);
-
-            var restaurant = this.GetRestaurant(restaurantId);
-
-            client
-                .Restaurants
-                .Add(restaurant);
-
-            this._data.SaveChanges();
-
-            return true;
-        }
-
         public IEnumerable<RestaurantCardServiceModel> Favorite(string userId)
             => this._data
                 .Clients
@@ -120,18 +134,6 @@ namespace WeLoveFood.Services.Restaurants
                     MealsCategories = r.MealsCategories.Select(mc => mc.Name).ToList()
                 })
                 .ToList();
-
-        public decimal DeliveryFee(int restaurantId)
-            => this._data
-                .Restaurants
-                .Where(r => r.Id == restaurantId)
-                .Select(r => r.DeliveryFee.Value == null ? 0 : r.DeliveryFee.Value)
-                .FirstOrDefault();
-
-        public Restaurant Restaurant(int id)
-            => this._data
-                .Restaurants
-                .Find(id);
 
         private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
         {

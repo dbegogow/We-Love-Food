@@ -10,6 +10,7 @@ namespace WeLoveFood.Services.Portions
     public class PortionsService : IPortionsService
     {
         private readonly WeLoveFoodDbContext _data;
+
         private readonly IClientsService _clients;
 
         public PortionsService(
@@ -17,6 +18,7 @@ namespace WeLoveFood.Services.Portions
             IClientsService clients)
         {
             this._data = data;
+
             this._clients = clients;
         }
 

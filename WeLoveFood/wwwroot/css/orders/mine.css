@@ -2,6 +2,11 @@
     padding: 20px 30px;
 }
 
+.user-profile-page-container .section-container .no-made-orders-message {
+    font-size: 1.2rem;
+    color: #696969;
+}
+
 .user-profile-page-container .section-container .orders .order-container {
     --border-width: 3px;
     position: relative;

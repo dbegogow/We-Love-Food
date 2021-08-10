@@ -16,38 +16,45 @@
         <h2>Моите поръчки</h2>
 
         <div class="section-container">
-            @foreach (var order in Model)
+            @if (Model.Any())
             {
-                <div class="orders">
-                    <div class="order-container">
-                        <p>Дата: <span class="time">@order.Time</span> <span class="day">@order.Day</span></p>
+                @foreach (var order in Model)
+                {
+                    <div class="orders">
+                        <div class="order-container">
+                            <p>Дата: <span class="time">@order.Time</span> <span class="day">@order.Day</span></p>
 
-                        <p>Ресторант: <span>@order.RestaurantName (@order.RestaurantCityName)</span></p>
+                            <p>Ресторант: <span>@order.RestaurantName (@order.RestaurantCityName)</span></p>
 
-                        <p>Адрес: <span>@order.Address</span></p>
+                            <p>Адрес: <span>@order.Address</span></p>
 
-                        <span class="border"></span>
+                            <span class="border"></span>
 
-                        <div class="meals">
-                            <p>Поръчки:</p>
+                            <div class="meals">
+                                <p>Поръчки:</p>
 
-                            <ul>
-                                @foreach (var portion in order.Portions)
-                                {
-                                    <li><span>(@portion.Quantity)x</span> @portion.MealName <span>@portion.Price лв</span></li>
-                                }
-                            </ul>
+                                <ul>
+                                    @foreach (var portion in order.Portions)
+                                    {
+                                        <li><span>(@portion.Quantity)x</span> @portion.MealName <span>@portion.Price лв</span></li>
+                                    }
+                                </ul>
+                            </div>
+
+                            <span class="border"></span>
+
+                            <p>Цена за доставка: <span>@order.DeliveryFee лв</span></p>
+
+                            <span class="border"></span>
+
+                            <p>Обща сума: <span class="total-price">@order.TotalPrice лв</span></p>
                         </div>
-
-                        <span class="border"></span>
-
-                        <p>Цена за доставка: <span>@order.DeliveryFee лв</span></p>
-
-                        <span class="border"></span>
-
-                        <p>Обща сума: <span class="total-price">@order.TotalPrice лв</span></p>
                     </div>
-                </div>
+                }
+            }
+            else
+            {
+                <p class="no-made-orders-message">Все още нямате направени поръчки.</p>
             }
         </div>
     </div>

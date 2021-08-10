@@ -4,6 +4,7 @@ using WeLoveFood.Data.Models;
 using WeLoveFood.Services.Carts;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Portions;
+using WeLoveFood.Services.Restaurants;
 
 namespace WeLoveFood.Services.Orders
 {
@@ -16,17 +17,20 @@ namespace WeLoveFood.Services.Orders
         private readonly IClientsService _clients;
         private readonly IPortionsService _portions;
         private readonly ICartsService _carts;
+        private readonly IRestaurantsService _restaurants;
 
         public OrdersService(
             WeLoveFoodDbContext data,
             IClientsService clients,
             IPortionsService portions,
-            ICartsService carts)
+            ICartsService carts,
+            IRestaurantsService restaurants)
         {
             this._data = data;
             this._clients = clients;
             this._portions = portions;
             this._carts = carts;
+            this._restaurants = restaurants;
         }
 
         public bool AddMealToCart(
@@ -87,6 +91,42 @@ namespace WeLoveFood.Services.Orders
             return this._data
                 .Carts
                 .Any(c => c.ClientId == clientId && c.Portions.Any(p => p.Meal.Id == mealId));
+        }
+
+        public void MakeOrder(string clientId)
+        {
+            var cart = this._carts
+                .Cart(clientId);
+
+            var portions = this._data
+                .Portions
+                .Where(c => c.CartId == cart.Id)
+                .ToList();
+
+            var restaurantId = this._carts
+                .CartRestaurantId(clientId);
+
+            var restaurant = this._restaurants
+                .Restaurant(restaurantId);
+
+            var client = this._data
+                .Clients
+                .FirstOrDefault(c => c.Id == clientId);
+
+            var order = new Order
+            {
+                Restaurant = restaurant,
+                Portions = portions,
+                Client = client
+            };
+
+            this._data
+                .Orders
+                .Add(order);
+
+            cart.Portions.Clear();
+
+            this._data.SaveChanges();
         }
 
         private bool IsMealFromTheSameRestaurant(

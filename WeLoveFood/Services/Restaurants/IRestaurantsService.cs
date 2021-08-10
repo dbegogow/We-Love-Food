@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using WeLoveFood.Data.Models;
+using System.Collections.Generic;
 using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Services.Restaurants
@@ -18,5 +19,7 @@ namespace WeLoveFood.Services.Restaurants
         IEnumerable<RestaurantCardServiceModel> Favorite(string userId);
 
         decimal DeliveryFee(int restaurantId);
+
+        Restaurant Restaurant(int id);
     }
 }

@@ -10,7 +10,7 @@ using WeLoveFood.Data;
 namespace WeLoveFood.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
-    [Migration("20210809103129_InitialCreate")]
+    [Migration("20210809233430_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,21 +20,6 @@ namespace WeLoveFood.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("ClientOrder", b =>
-                {
-                    b.Property<string>("ClientsId")
-                        .HasColumnType("nvarchar(40)");
-
-                    b.Property<int>("OrdersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ClientsId", "OrdersId");
-
-                    b.HasIndex("OrdersId");
-
-                    b.ToTable("ClientOrder");
-                });
 
             modelBuilder.Entity("ClientRestaurant", b =>
                 {
@@ -308,6 +293,10 @@ namespace WeLoveFood.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -315,6 +304,8 @@ namespace WeLoveFood.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
 
                     b.HasIndex("RestaurantId");
 
@@ -348,7 +339,7 @@ namespace WeLoveFood.Data.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("CartAllPortions");
+                    b.ToTable("Portions");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
@@ -475,21 +466,6 @@ namespace WeLoveFood.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("ClientOrder", b =>
-                {
-                    b.HasOne("WeLoveFood.Data.Models.Client", null)
-                        .WithMany()
-                        .HasForeignKey("ClientsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WeLoveFood.Data.Models.Order", null)
-                        .WithMany()
-                        .HasForeignKey("OrdersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ClientRestaurant", b =>
                 {
                     b.HasOne("WeLoveFood.Data.Models.Client", null)
@@ -591,11 +567,19 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Order", b =>
                 {
+                    b.HasOne("WeLoveFood.Data.Models.Client", "Client")
+                        .WithMany("Orders")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("WeLoveFood.Data.Models.Restaurant", "Restaurant")
                         .WithMany("Orders")
                         .HasForeignKey("RestaurantId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Client");
 
                     b.Navigation("Restaurant");
                 });
@@ -603,18 +587,18 @@ namespace WeLoveFood.Data.Migrations
             modelBuilder.Entity("WeLoveFood.Data.Models.Portion", b =>
                 {
                     b.HasOne("WeLoveFood.Data.Models.Cart", "Cart")
-                        .WithMany("CartAllPortions")
+                        .WithMany("Portions")
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("WeLoveFood.Data.Models.Meal", "Meal")
-                        .WithMany("CartAllPortions")
+                        .WithMany("Portions")
                         .HasForeignKey("MealId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("WeLoveFood.Data.Models.Order", "Order")
-                        .WithMany("CartAllPortions")
+                        .WithMany("Portions")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Restrict);
 
@@ -647,7 +631,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
                 {
-                    b.Navigation("CartAllPortions");
+                    b.Navigation("Portions");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
@@ -658,11 +642,13 @@ namespace WeLoveFood.Data.Migrations
             modelBuilder.Entity("WeLoveFood.Data.Models.Client", b =>
                 {
                     b.Navigation("Cart");
+
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>
                 {
-                    b.Navigation("CartAllPortions");
+                    b.Navigation("Portions");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.MealsCategory", b =>
@@ -672,7 +658,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Order", b =>
                 {
-                    b.Navigation("CartAllPortions");
+                    b.Navigation("Portions");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>

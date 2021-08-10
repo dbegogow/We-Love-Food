@@ -73,15 +73,17 @@ namespace WeLoveFood.Data
 
             builder
                 .Entity<Order>()
+                .HasOne(o => o.Client)
+                .WithMany(c => c.Orders)
+                .HasForeignKey(o => o.ClientId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Entity<Order>()
                 .HasOne(o => o.Restaurant)
                 .WithMany(r => r.Orders)
                 .HasForeignKey(o => o.RestaurantId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder
-                .Entity<Client>()
-                .HasMany(c => c.Orders)
-                .WithMany(o => o.Clients);
 
             builder
                 .Entity<Client>()

@@ -8,5 +8,7 @@
             string userId);
 
         bool IsMealAddedInCart(int mealId, string userId);
+
+        void MakeOrder(string clientId);
     }
 }

@@ -4,10 +4,12 @@ using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Carts;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
-using Microsoft.AspNetCore.Authorization;
+using WeLoveFood.Services.Orders;
 using WeLoveFood.Services.clients;
-using WeLoveFood.Services.Models.Users;
 using WeLoveFood.Services.Portions;
+using WeLoveFood.Services.Models.Users;
+using Microsoft.AspNetCore.Authorization;
+
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 using static WeLoveFood.Models.Constants.Portions.ExceptionMessages;
 
@@ -22,19 +24,22 @@ namespace WeLoveFood.Controllers
         private readonly ICitiesService _cities;
         private readonly IClientsService _clients;
         private readonly IPortionsService _portions;
+        private readonly IOrdersService _orders;
 
         public OrdersController(
             ICartsService carts,
             IUsersService users,
             ICitiesService cities,
             IClientsService clients,
-            IPortionsService portions)
+            IPortionsService portions,
+            IOrdersService orders)
         {
             this._carts = carts;
             this._users = users;
             this._cities = cities;
             this._clients = clients;
             this._portions = portions;
+            this._orders = orders;
         }
 
         [Authorize]
@@ -97,6 +102,9 @@ namespace WeLoveFood.Controllers
                     }
                 });
             }
+
+            this._orders
+                .MakeOrder(clientId);
 
             return RedirectToAction("Index", "Home");
         }

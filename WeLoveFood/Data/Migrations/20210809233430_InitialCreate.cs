@@ -284,11 +284,18 @@ namespace WeLoveFood.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ClientId = table.Column<string>(type: "nvarchar(40)", nullable: false),
                     RestaurantId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_Clients_ClientId",
+                        column: x => x.ClientId,
+                        principalTable: "Clients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Orders_Restaurants_RestaurantId",
                         column: x => x.RestaurantId,
@@ -322,31 +329,7 @@ namespace WeLoveFood.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ClientOrder",
-                columns: table => new
-                {
-                    ClientsId = table.Column<string>(type: "nvarchar(40)", nullable: false),
-                    OrdersId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ClientOrder", x => new { x.ClientsId, x.OrdersId });
-                    table.ForeignKey(
-                        name: "FK_ClientOrder_Clients_ClientsId",
-                        column: x => x.ClientsId,
-                        principalTable: "Clients",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ClientOrder_Orders_OrdersId",
-                        column: x => x.OrdersId,
-                        principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CartAllPortions",
+                name: "Portions",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -430,11 +413,6 @@ namespace WeLoveFood.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClientOrder_OrdersId",
-                table: "ClientOrder",
-                column: "OrdersId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ClientRestaurant_RestaurantsId",
                 table: "ClientRestaurant",
                 column: "RestaurantsId");
@@ -450,23 +428,28 @@ namespace WeLoveFood.Data.Migrations
                 column: "RestaurantId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_ClientId",
+                table: "Orders",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_RestaurantId",
                 table: "Orders",
                 column: "RestaurantId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Portions_CartId",
-                table: "CartAllPortions",
+                table: "Portions",
                 column: "CartId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Portions_MealId",
-                table: "CartAllPortions",
+                table: "Portions",
                 column: "MealId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Portions_OrderId",
-                table: "CartAllPortions",
+                table: "Portions",
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
@@ -493,13 +476,10 @@ namespace WeLoveFood.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "ClientOrder");
-
-            migrationBuilder.DropTable(
                 name: "ClientRestaurant");
 
             migrationBuilder.DropTable(
-                name: "CartAllPortions");
+                name: "Portions");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -517,10 +497,10 @@ namespace WeLoveFood.Data.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Clients");
+                name: "MealsCategories");
 
             migrationBuilder.DropTable(
-                name: "MealsCategories");
+                name: "Clients");
 
             migrationBuilder.DropTable(
                 name: "Restaurants");

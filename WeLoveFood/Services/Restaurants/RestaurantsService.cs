@@ -128,6 +128,11 @@ namespace WeLoveFood.Services.Restaurants
                 .Select(r => r.DeliveryFee.Value == null ? 0 : r.DeliveryFee.Value)
                 .FirstOrDefault();
 
+        public Restaurant Restaurant(int id)
+            => this._data
+                .Restaurants
+                .Find(id);
+
         private static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)
         {
             var now = DateTime.Now.TimeOfDay;

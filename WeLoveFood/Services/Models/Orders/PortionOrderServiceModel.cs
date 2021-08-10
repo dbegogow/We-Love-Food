@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WeLoveFood.Services.Models.Orders
+﻿namespace WeLoveFood.Services.Models.Orders
 {
-    public class MealOrderServiceModel
+    public class PortionOrderServiceModel
     {
+        public int Quantity { get; init; }
+
+        public string MealName { get; init; }
+
+        public decimal Price { get; init; }
     }
 }

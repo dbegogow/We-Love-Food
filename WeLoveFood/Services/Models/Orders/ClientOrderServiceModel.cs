@@ -4,7 +4,9 @@ namespace WeLoveFood.Services.Models.Orders
 {
     public class ClientOrderServiceModel
     {
-        public string Date { get; init; }
+        public string Time { get; init; }
+
+        public string Day { get; init; }
 
         public string RestaurantName { get; init; }
 

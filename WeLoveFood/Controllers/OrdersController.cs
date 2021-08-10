@@ -1,4 +1,5 @@
-﻿using WeLoveFood.Models.Carts;
+﻿using System.Linq;
+using WeLoveFood.Models.Carts;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Carts;
@@ -84,11 +85,11 @@ namespace WeLoveFood.Controllers
                 ModelState.AddModelError(string.Empty, RestaurantNotFromCity);
             }
 
+            var cartAllPortions = this._carts
+                .CartAllPortions(this.User.Id());
+
             if (!ModelState.IsValid)
             {
-                var cartAllPortions = this._carts
-                    .CartAllPortions(this.User.Id());
-
                 return View(new CartViewModel
                 {
                     CartAllPortions = cartAllPortions,
@@ -104,7 +105,7 @@ namespace WeLoveFood.Controllers
             }
 
             this._orders
-                .MakeOrder(clientId);
+                .MakeOrder(clientId, cartAllPortions.TotalPrice);
 
             return RedirectToAction("MadeSuccessfulOrder");
         }
@@ -116,7 +117,11 @@ namespace WeLoveFood.Controllers
         [Authorize]
         public IActionResult Mine()
         {
-            return View();
+            var orders = this._orders
+                .ClientOrders(this.User.Id())
+                .ToList();
+
+            return View(orders);
         }
     }
 }

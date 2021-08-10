@@ -9,15 +9,15 @@ namespace WeLoveFood.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private readonly IRestaurantsService _restaurants;
         private readonly ICitiesService _cities;
+        private readonly IRestaurantsService _restaurants;
 
         public RestaurantsController(
-            IRestaurantsService restaurants,
-            ICitiesService cities)
+            ICitiesService cities,
+            IRestaurantsService restaurants)
         {
-            this._restaurants = restaurants;
             this._cities = cities;
+            this._restaurants = restaurants;
         }
 
         public IActionResult All(int id, [FromQuery] AllCityRestaurantsCardsQueryModel query)

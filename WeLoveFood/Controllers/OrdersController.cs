@@ -22,24 +22,24 @@ namespace WeLoveFood.Controllers
         private readonly ICartsService _carts;
         private readonly IUsersService _users;
         private readonly ICitiesService _cities;
+        private readonly IOrdersService _orders;
         private readonly IClientsService _clients;
         private readonly IPortionsService _portions;
-        private readonly IOrdersService _orders;
 
         public OrdersController(
             ICartsService carts,
             IUsersService users,
             ICitiesService cities,
+            IOrdersService orders,
             IClientsService clients,
-            IPortionsService portions,
-            IOrdersService orders)
+            IPortionsService portions)
         {
             this._carts = carts;
             this._users = users;
             this._cities = cities;
+            this._orders = orders;
             this._clients = clients;
             this._portions = portions;
-            this._orders = orders;
         }
 
         [Authorize]

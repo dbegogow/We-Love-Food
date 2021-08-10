@@ -11,8 +11,7 @@ namespace WeLoveFood.Controllers.Api
     {
         private readonly IRestaurantsService _restaurants;
 
-        public RestaurantsApiController(
-            IRestaurantsService restaurants)
+        public RestaurantsApiController(IRestaurantsService restaurants)
             => _restaurants = restaurants;
 
         [HttpPost]
@@ -22,6 +21,6 @@ namespace WeLoveFood.Controllers.Api
                 .AddToFavorite(restaurant.Id, this.User.Id());
 
             return result ? Ok() : BadRequest();
-            }
+        }
     }
 }

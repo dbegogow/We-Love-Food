@@ -115,6 +115,8 @@ namespace WeLoveFood.Controllers
 
         [Authorize]
         public IActionResult Mine()
-            => View();
+        {
+            return View();
+        }
     }
 }

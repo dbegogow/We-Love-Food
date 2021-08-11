@@ -3,6 +3,7 @@ using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Menus;
+using WeLoveFood.Services.Carts;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Orders;
@@ -10,13 +11,12 @@ using WeLoveFood.Services.clients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
+using WeLoveFood.Services.Portions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WeLoveFood.Services.Carts;
-using WeLoveFood.Services.Portions;
 
 namespace WeLoveFood
 {
@@ -30,8 +30,7 @@ namespace WeLoveFood
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<WeLoveFoodDbContext>(options => options
-                    .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                .AddDbContext<WeLoveFoodDbContext>();
 
             services.
                 AddDefaultIdentity<User>(options =>

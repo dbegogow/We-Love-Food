@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using AutoMapper;
+using System.Linq;
 using WeLoveFood.Data;
 using System.Collections.Generic;
+using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.Models.Menus;
 
 namespace WeLoveFood.Services.Menus
@@ -8,9 +10,15 @@ namespace WeLoveFood.Services.Menus
     public class MenusService : IMenusService
     {
         private readonly WeLoveFoodDbContext _data;
+        private readonly IConfigurationProvider _mapper;
 
-        public MenusService(WeLoveFoodDbContext data)
-            => _data = data;
+        public MenusService(
+            WeLoveFoodDbContext data,
+            IMapper mapper)
+        {
+            _data = data;
+            _mapper = mapper.ConfigurationProvider;
+        }
 
         public string CategoryName(int mealsCategoryId)
             => this._data
@@ -22,27 +30,15 @@ namespace WeLoveFood.Services.Menus
         public IEnumerable<CategoryServiceModel> RestaurantCategories(int restaurantId)
             => this._data
                 .MealsCategories
-                .Where(m => m.RestaurantId == restaurantId)
-                .Select(m => new CategoryServiceModel
-                {
-                    Id = m.Id,
-                    Name = m.Name
-                })
+                .Where(mc => mc.RestaurantId == restaurantId)
+                .ProjectTo<CategoryServiceModel>(this._mapper)
                 .ToList();
 
         public IEnumerable<MealServiceModel> CategoryMeals(int mealsCategoryId)
             => this._data
                 .Meals
                 .Where(m => m.MealsCategoryId == mealsCategoryId)
-                .Select(m => new MealServiceModel
-                {
-                    Id = m.Id,
-                    Name = m.Name,
-                    Weight = m.Weight,
-                    Description = m.Description,
-                    ImgUrl = m.ImgUrl,
-                    Price = m.Price
-                })
+                .ProjectTo<MealServiceModel>(this._mapper)
                 .ToList();
     }
 }

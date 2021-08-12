@@ -30,7 +30,8 @@ namespace WeLoveFood
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<WeLoveFoodDbContext>();
+                .AddDbContext<WeLoveFoodDbContext>(options => options
+                    .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.
                 AddDefaultIdentity<User>(options =>
@@ -39,6 +40,8 @@ namespace WeLoveFood
                 })
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<WeLoveFoodDbContext>();
+
+            services.AddAutoMapper(typeof(Startup));
 
             services
                 .AddControllersWithViews(options =>

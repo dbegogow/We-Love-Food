@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoMapper;
 using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
@@ -6,6 +7,7 @@ using WeLoveFood.Services.Carts;
 using System.Collections.Generic;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Portions;
+using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.Restaurants;
 using WeLoveFood.Services.Models.Orders;
 
@@ -16,11 +18,8 @@ namespace WeLoveFood.Services.Orders
         private const int NoAddedPortions = 0;
         private const int InitialPortionsQuantity = 1;
 
-        private const string TimeFormat = @"hh\:mm";
-        private const string DayFormat = "d";
-        private const string PriceFormat = "F2";
-
         private readonly WeLoveFoodDbContext _data;
+        private readonly IConfigurationProvider _mapper;
 
         private readonly ICartsService _carts;
         private readonly IClientsService _clients;
@@ -29,12 +28,14 @@ namespace WeLoveFood.Services.Orders
 
         public OrdersService(
             WeLoveFoodDbContext data,
+            IMapper mapper,
             ICartsService carts,
             IClientsService clients,
             IPortionsService portions,
             IRestaurantsService restaurants)
         {
             this._data = data;
+            _mapper = mapper.ConfigurationProvider;
 
             this._carts = carts;
             this._clients = clients;
@@ -155,22 +156,7 @@ namespace WeLoveFood.Services.Orders
             return this._data
                 .Orders
                 .Where(o => o.ClientId == clientId)
-                .Select(o => new ClientOrderServiceModel
-                {
-                    Time = o.Date.TimeOfDay.ToString(TimeFormat),
-                    Day = o.Date.ToString(DayFormat),
-                    RestaurantName = o.Restaurant.Name,
-                    RestaurantCityName = o.Restaurant.City.Name,
-                    Address = o.Client.User.Address,
-                    DeliveryFee = o.Restaurant.DeliveryFee.ToString(),
-                    TotalPrice = o.TotalPrice.ToString(PriceFormat),
-                    Portions = o.Portions.Select(p => new PortionOrderServiceModel
-                    {
-                        MealName = p.Meal.Name,
-                        Quantity = p.Quantity,
-                        Price = p.Meal.Price
-                    })
-                })
+                .ProjectTo<ClientOrderServiceModel>(this._mapper)
                 .ToList();
         }
 

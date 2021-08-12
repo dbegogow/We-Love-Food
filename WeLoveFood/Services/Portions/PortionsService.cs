@@ -2,6 +2,8 @@
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
 using System.Collections.Generic;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Models.Orders;
 
@@ -10,14 +12,17 @@ namespace WeLoveFood.Services.Portions
     public class PortionsService : IPortionsService
     {
         private readonly WeLoveFoodDbContext _data;
+        private readonly IConfigurationProvider _mapper;
 
         private readonly IClientsService _clients;
 
         public PortionsService(
             WeLoveFoodDbContext data,
+            IMapper mapper,
             IClientsService clients)
         {
             this._data = data;
+            _mapper = mapper.ConfigurationProvider;
 
             this._clients = clients;
         }
@@ -104,19 +109,7 @@ namespace WeLoveFood.Services.Portions
                 .Carts
                 .Where(c => c.ClientId == clientId)
                 .SelectMany(c => c.Portions)
-                .Select(p => new CartPortionServiceModel
-                {
-                    Id = p.Id,
-                    Quantity = p.Quantity,
-                    Price = p.Meal.Price * p.Quantity,
-                    Meal = new CartMealServiceModel
-                    {
-                        Id = p.Meal.Id,
-                        ImgUrl = p.Meal.ImgUrl,
-                        Name = p.Meal.Name,
-                        Price = p.Meal.Price
-                    }
-                })
+                .ProjectTo<CartPortionServiceModel>(this._mapper)
                 .ToList();
         }
 

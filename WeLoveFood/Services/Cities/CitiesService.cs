@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using AutoMapper;
+using System.Linq;
 using WeLoveFood.Data;
 using System.Collections.Generic;
+using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.Models.Cities;
 
 namespace WeLoveFood.Services.Cities
@@ -8,9 +10,15 @@ namespace WeLoveFood.Services.Cities
     public class CitiesService : ICitiesService
     {
         private readonly WeLoveFoodDbContext _data;
+        private readonly IConfigurationProvider _mapper;
 
-        public CitiesService(WeLoveFoodDbContext data)
-            => this._data = data;
+        public CitiesService(
+            WeLoveFoodDbContext data,
+            IMapper mapper)
+        {
+            this._data = data;
+            this._mapper = mapper.ConfigurationProvider;
+        }
 
         public string CityName(int id)
             => this._data
@@ -38,12 +46,7 @@ namespace WeLoveFood.Services.Cities
                 .Cities
                 .OrderByDescending(c => c.Restaurants.Count())
                 .Take(citiesCount ?? this._data.Cities.Count())
-                .Select(c => new CityCardServiceModel
-                {
-                    Id = c.Id,
-                    Name = c.Name,
-                    ImgUrl = c.ImgUrl
-                })
+                .ProjectTo<CityCardServiceModel>(this._mapper)
                 .ToList();
     }
 }

@@ -3,6 +3,7 @@ using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
 using System.Collections.Generic;
+using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Models.Restaurants;
 

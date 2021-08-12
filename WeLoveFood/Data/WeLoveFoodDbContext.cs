@@ -1,8 +1,6 @@
-﻿using System.IO;
-using WeLoveFood.Data.Models;
+﻿using WeLoveFood.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace WeLoveFood.Data
 {
@@ -28,14 +26,6 @@ namespace WeLoveFood.Data
         public DbSet<Client> Clients { get; init; }
 
         public DbSet<Cart> Carts { get; init; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var connectionString = DbConfiguration.GetConfigurationString();
-
-            optionsBuilder
-                .UseSqlServer(connectionString);
-        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

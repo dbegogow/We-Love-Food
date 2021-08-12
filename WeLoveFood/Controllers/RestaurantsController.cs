@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.AspNetCore.Authorization;
+using WeLoveFood.Infrastructure.Extensions;
 
 using static WeLoveFood.WebConstants;
 

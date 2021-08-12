@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using static WeLoveFood.WebConstants;
 
-namespace WeLoveFood.Infrastructure
+namespace WeLoveFood.Infrastructure.Extensions
 {
     public static class ApplicationBuilderExtensions
     {

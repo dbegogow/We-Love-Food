@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Нови ресторанти -";
+}
+
+@section AllRestaurantsStyles {
+    <link href="~/css/restaurants/all.css" rel="stylesheet" />
+    <link href="~/css/restaurants/card.css" rel="stylesheet" />
+}
+
+<div class="restaurants-page-container">
+    <h1>Новодобавени ресторанти</h1>
+
+    <div class="restaurants-container">
+        @*@foreach (var restaurant in Model.RestaurantsCards)
+        {
+            <partial name="_RestaurantCardPartial" for="@restaurant" />
+        }*@
+    </div>
+</div>

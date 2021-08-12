@@ -1,7 +1,6 @@
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Menus;
 using WeLoveFood.Services.Carts;
 using WeLoveFood.Services.Users;
@@ -16,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
+using WeLoveFood.Infrastructure.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace WeLoveFood
@@ -83,6 +83,7 @@ namespace WeLoveFood
                 .UseAuthorization()
                 .UseEndpoints(endpoints =>
                 {
+                    endpoints.MapDefaultAreaRoute();
                     endpoints.MapDefaultControllerRoute();
                     endpoints.MapRazorPages();
                 });

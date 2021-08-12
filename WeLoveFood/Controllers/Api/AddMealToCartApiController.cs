@@ -1,7 +1,7 @@
 ﻿using WeLoveFood.Models.Carts;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Orders;
+using WeLoveFood.Infrastructure.Extensions;
 
 namespace WeLoveFood.Controllers.Api
 {

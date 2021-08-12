@@ -1,6 +1,8 @@
 ﻿@using WeLoveFood.Data.Models
 @using Microsoft.AspNetCore.Identity
 
+@using static WeLoveFood.WebConstants
+
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
@@ -28,18 +30,32 @@
             }
             else
             {
-                <div class="header-link-btn-container">
-                    <a asp-controller="Users" asp-action="PersonalData" class="header-link-btn"><span>Профил</span></a>
-                </div>
+                @if (User.IsInRole(AdministratorRoleName))
+                {
+                    <div class="header-link-btn-container">
+                        <a asp-area="Admin" asp-controller="Restaurants" asp-action="New" class="header-link-btn"><span>Нови ресторанти</span></a>
+                    </div>
+                }
+                else
+                {
+                    <div class="header-link-btn-container">
+                        <a asp-controller="Users" asp-action="PersonalData" class="header-link-btn"><span>Профил</span></a>
+                    </div>
+                }
+
                 <div class="header-link-btn-container">
                     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = string.Empty })">
                         <button type="submit" class="header-link-btn"><span>Излизане</span></button>
                     </form>
                 </div>
             }
-            <div class="header-link-btn-container">
-                <a asp-controller="Orders" asp-action="Cart" class="header-link-btn"><span><i class="fas fa-shopping-bag"></i></span></a>
-            </div>
+
+            @if (!SignInManager.IsSignedIn(User) || User.IsInRole(ClientRoleName))
+            {
+                <div class="header-link-btn-container">
+                    <a asp-controller="Orders" asp-action="Cart" class="header-link-btn"><span><i class="fas fa-shopping-bag"></i></span></a>
+                </div>
+            }
         </div>
     </nav>
 </header>

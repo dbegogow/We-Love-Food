@@ -1,10 +1,10 @@
 ﻿using WeLoveFood.Models.Users;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Models.Users;
 using Microsoft.AspNetCore.Authorization;
+using WeLoveFood.Infrastructure.Extensions;
 
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 

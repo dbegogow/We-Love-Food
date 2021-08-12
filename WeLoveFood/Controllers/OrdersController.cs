@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using WeLoveFood.Models.Carts;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Infrastructure;
 using WeLoveFood.Services.Carts;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
@@ -10,6 +9,7 @@ using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Portions;
 using WeLoveFood.Services.Models.Users;
 using Microsoft.AspNetCore.Authorization;
+using WeLoveFood.Infrastructure.Extensions;
 
 using static WeLoveFood.WebConstants;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;

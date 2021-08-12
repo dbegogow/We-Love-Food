@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Infrastructure;
 using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
+using WeLoveFood.Infrastructure.Extensions;
 
 namespace WeLoveFood.Controllers.Api
 {

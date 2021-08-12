@@ -11,6 +11,7 @@ using WeLoveFood.Services.Portions;
 using WeLoveFood.Services.Models.Users;
 using Microsoft.AspNetCore.Authorization;
 
+using static WeLoveFood.WebConstants;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 using static WeLoveFood.Models.Constants.Portions.ExceptionMessages;
 
@@ -43,7 +44,7 @@ namespace WeLoveFood.Controllers
             this._portions = portions;
         }
 
-        [Authorize]
+        [Authorize(Roles = ClientRoleName)]
         public IActionResult Cart()
         {
             var cartAllPortions = this._carts
@@ -59,7 +60,7 @@ namespace WeLoveFood.Controllers
             });
         }
 
-        [Authorize]
+        [Authorize(Roles = ClientRoleName)]
         [HttpPost]
         public IActionResult Cart(CartUserPersonalDataFormModel user)
         {
@@ -110,7 +111,7 @@ namespace WeLoveFood.Controllers
             return RedirectToAction("MadeSuccessfulOrder");
         }
 
-        [Authorize]
+        [Authorize(Roles = ClientRoleName)]
         public IActionResult MadeSuccessfulOrder()
             => View();
 

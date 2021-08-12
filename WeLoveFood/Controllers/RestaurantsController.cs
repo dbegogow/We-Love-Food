@@ -5,6 +5,8 @@ using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.AspNetCore.Authorization;
 
+using static WeLoveFood.WebConstants;
+
 namespace WeLoveFood.Controllers
 {
     public class RestaurantsController : Controller
@@ -40,7 +42,7 @@ namespace WeLoveFood.Controllers
             return View(query);
         }
 
-        [Authorize]
+        [Authorize(Roles = ClientRoleName)]
         public IActionResult Favorite()
         {
             var favorite = this._restaurants

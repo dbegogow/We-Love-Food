@@ -23,6 +23,7 @@ namespace WeLoveFood.Infrastructure.Extensions
             CreateRole(services, AdministratorRoleName);
             SeedAdministrator(services);
             CreateRole(services, ClientRoleName);
+            CreateRole(services, ManagerRoleName);
 
             return app;
         }

@@ -36,6 +36,11 @@ namespace WeLoveFood.Data.Models
 
         public City City { get; set; }
 
+        [Required]
+        public string ManagerId { get; set; }
+
+        public Manager Manager { get; set; }
+
         public ICollection<MealsCategory> MealsCategories { get; init; } = new HashSet<MealsCategory>();
 
         public ICollection<Order> Orders { get; init; } = new HashSet<Order>();

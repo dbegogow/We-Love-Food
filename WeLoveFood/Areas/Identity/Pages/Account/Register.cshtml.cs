@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
-
+using WeLoveFood.Services.Managers;
 using static WeLoveFood.WebConstants;
 using static WeLoveFood.Data.DataConstants.User;
 using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
@@ -17,20 +17,24 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
+        private const string IsManagerDisplayName = "Регистрирай ме като ресторантюр";
         private const string DuplicateUserNameErrorCode = "DuplicateUserName";
 
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
         private readonly IClientsService _clients;
+        private readonly IManagersService _managers;
 
         public RegisterModel(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
-            IClientsService clients)
+            IClientsService clients,
+            IManagersService managers)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
             this._clients = clients;
+            this._managers = managers;
         }
 
         [BindProperty]
@@ -52,6 +56,9 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
             [DataType(DataType.Password)]
             [Compare(nameof(Password), ErrorMessage = InvalidPasswordConfirmation)]
             public string ConfirmPassword { get; set; }
+
+            [Display(Name = IsManagerDisplayName)]
+            public bool IsManager { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
@@ -75,8 +82,16 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    this._clients.CreateClient(user.Id);
-                    await _userManager.AddToRoleAsync(user, ClientRoleName);
+                    if (Input.IsManager)
+                    {
+                        this._managers.CreateManager(user.Id);
+                        await _userManager.AddToRoleAsync(user, ManagerRoleName);
+                    }
+                    else
+                    {
+                        this._clients.CreateClient(user.Id);
+                        await _userManager.AddToRoleAsync(user, ClientRoleName);
+                    }
 
                     await this._signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);

@@ -1,6 +1,5 @@
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
-using WeLoveFood.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.Menus;
 using WeLoveFood.Services.Carts;
@@ -12,6 +11,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
 using WeLoveFood.Services.Portions;
+using WeLoveFood.Services.Managers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WeLoveFood.Services.Restaurants;
@@ -58,6 +58,7 @@ namespace WeLoveFood
                 .AddTransient<IOrdersService, OrdersService>()
                 .AddTransient<IClientsService, ClientsService>()
                 .AddTransient<IPortionsService, PortionsService>()
+                .AddTransient<IManagersService, ManagersService>()
                 .AddTransient<IRestaurantsService, RestaurantsService>();
         }
 

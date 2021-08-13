@@ -39,12 +39,18 @@
                         <input asp-for="Input.ConfirmPassword" placeholder="Confirm Password" />
                     </div>
                     <span asp-validation-for="Input.ConfirmPassword" class="validation-message"></span>
+                    <div class="checkbox-container">
+                        <div class="checkbox">
+                            <input asp-for="Input.IsManager" />
+                            <label asp-for="Input.IsManager"></label>
+                        </div>
+                    </div>
 
-                    <button type="submit">Влез</button>
+                    <button type="submit">Регистрация</button>
                 </form>
                 <div>
-                    <p>Имате ресторант?</p>
-                    <a asp-page="./Login">Добавете ресторанта си сега!</a>
+                    <p>Вече имате акаунт?</p>
+                    <a asp-page="./Login">Влезте в акаунта си сега!</a>
                 </div>
             </div>
         </div>

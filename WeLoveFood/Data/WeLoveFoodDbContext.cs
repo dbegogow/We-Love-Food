@@ -27,6 +27,8 @@ namespace WeLoveFood.Data
 
         public DbSet<Cart> Carts { get; init; }
 
+        public DbSet<Manager> Managers { get; init; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder
@@ -34,6 +36,13 @@ namespace WeLoveFood.Data
                 .HasOne(r => r.City)
                 .WithMany(c => c.Restaurants)
                 .HasForeignKey(r => r.CityId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Entity<Restaurant>()
+                .HasOne(r => r.Manager)
+                .WithMany(m => m.Restaurants)
+                .HasForeignKey(r => r.ManagerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder

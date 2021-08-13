@@ -1,0 +1,14 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    ViewBag.Title = "Недостъпна страница";
+}
+
+@section AccessDeniedStyles {
+    <link href="~/css/shared/accessDenied.css" rel="stylesheet" />
+}
+
+<div class="access-denied-page">
+    <h1>@ViewBag.Title</h1>
+    <p>Нямате достъп до тази страница.</p>
+</div>

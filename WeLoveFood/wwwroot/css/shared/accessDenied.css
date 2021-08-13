@@ -1,0 +1,15 @@
+﻿.access-denied-page {
+    padding-top: 12vh;
+    padding-left: 5vw;
+}
+
+.access-denied-page h1 {
+    margin: 0;
+    color: #2F6F08;
+}
+
+.access-denied-page p {
+    margin: 20px 0 0 0;
+    font-size: 1.1rem;
+    color: #696969;
+}

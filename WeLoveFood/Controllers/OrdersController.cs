@@ -115,7 +115,7 @@ namespace WeLoveFood.Controllers
         public IActionResult MadeSuccessfulOrder()
             => View();
 
-        [Authorize]
+        [Authorize(Roles = ClientRoleName)]
         public IActionResult Mine()
         {
             var orders = this._orders

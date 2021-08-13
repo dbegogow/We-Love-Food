@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Manager\Views\" />
+    <Folder Include="Areas\Manager\Views\Shared\" />
   </ItemGroup>
 
 </Project>

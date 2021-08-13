@@ -6,12 +6,15 @@ using WeLoveFood.Services.Models.Users;
 using Microsoft.AspNetCore.Authorization;
 using WeLoveFood.Infrastructure.Extensions;
 
+using static WeLoveFood.WebConstants;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 
 namespace WeLoveFood.Controllers
 {
     public class UsersController : Controller
     {
+        private const string AuthorizeRoles = ClientRoleName + ", " + ManagerRoleName;
+
         private readonly IUsersService _users;
         private readonly ICitiesService _cities;
 
@@ -23,7 +26,7 @@ namespace WeLoveFood.Controllers
             this._cities = cities;
         }
 
-        [Authorize]
+        [Authorize(Roles = AuthorizeRoles)]
         public IActionResult PersonalData()
         {
             var user = this._users
@@ -32,7 +35,7 @@ namespace WeLoveFood.Controllers
             return View(user);
         }
 
-        [Authorize]
+        [Authorize(Roles = AuthorizeRoles)]
         [HttpPost]
         public IActionResult PersonalData(PersonalDataFormModel user)
         {

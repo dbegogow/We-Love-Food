@@ -1,8 +1,6 @@
 ﻿@using WeLoveFood.Data.Models
 @using Microsoft.AspNetCore.Identity
 
-@using static WeLoveFood.WebConstants
-
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
@@ -14,7 +12,7 @@
         </div>
         <div class="btns">
             <div class="header-link-btn-container">
-                <a asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
+                <a asp-area="" asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
             </div>
 
             <span class="border"></span>
@@ -39,7 +37,7 @@
                 else
                 {
                     <div class="header-link-btn-container">
-                        <a asp-controller="Users" asp-action="PersonalData" class="header-link-btn"><span>Профил</span></a>
+                        <a asp-area="" asp-controller="Users" asp-action="PersonalData" class="header-link-btn"><span>Профил</span></a>
                     </div>
                 }
 
@@ -53,7 +51,7 @@
             @if (!SignInManager.IsSignedIn(User) || User.IsInRole(ClientRoleName))
             {
                 <div class="header-link-btn-container">
-                    <a asp-controller="Orders" asp-action="Cart" class="header-link-btn"><span><i class="fas fa-shopping-bag"></i></span></a>
+                    <a asp-area="" asp-controller="Orders" asp-action="Cart" class="header-link-btn"><span><i class="fas fa-shopping-bag"></i></span></a>
                 </div>
             }
         </div>

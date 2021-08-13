@@ -1,5 +1,6 @@
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
+using WeLoveFood.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.Menus;
 using WeLoveFood.Services.Carts;
@@ -84,6 +85,16 @@ namespace WeLoveFood
                 .UseEndpoints(endpoints =>
                 {
                     endpoints.MapDefaultAreaRoute();
+
+                    endpoints.MapControllerRoute(
+                        name: "All Cities",
+                        pattern: "/Cities/All",
+                        defaults: new
+                        {
+                            controller = typeof(CitiesController).GetControllerName(),
+                            action = nameof(CitiesController.All)
+                        });
+
                     endpoints.MapDefaultControllerRoute();
                     endpoints.MapRazorPages();
                 });

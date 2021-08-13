@@ -5,7 +5,7 @@ using static WeLoveFood.WebConstants;
 
 namespace WeLoveFood.Areas.Admin.Controllers
 {
-    [Area(AreaName)]
+    [Area(AdminAreaName)]
     [Authorize(Roles = AdministratorRoleName)]
     public abstract class AdminController : Controller
     {

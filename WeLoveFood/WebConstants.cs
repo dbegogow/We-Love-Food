@@ -2,9 +2,12 @@
 {
     public class WebConstants
     {
-        public const string AreaName = "Admin";
-        public const string AdministratorRoleName = "Administrator";
+        public const string AdminAreaName = "Admin";
+        public const string AdministratorRoleName = "AdminRole";
 
-        public const string ClientRoleName = "Client";
+        public const string ClientRoleName = "ClientRole";
+
+        public const string ManagerAreaName = "Manager";
+        public const string ManagerRoleName = "ManagerRole";
     }
 }

@@ -36,15 +36,15 @@ namespace WeLoveFood.Services.Restaurants
             var clientHasRestaurant = this._clients
                 .HasRestaurantInFavorite(userId, restaurantId);
 
-            if (clientHasRestaurant)
+            var restaurant = this.Restaurant(restaurantId);
+
+            if (clientHasRestaurant || restaurant == null)
             {
                 return false;
             }
 
             var client = this._clients
                 .Client(userId);
-
-            var restaurant = this.GetRestaurant(restaurantId);
 
             client
                 .Restaurants
@@ -58,14 +58,14 @@ namespace WeLoveFood.Services.Restaurants
         public bool IsRestaurantOpen(int id)
             => this._data
                 .Restaurants
-                .Where(r => r.Id == id)
+                .Where(r => r.Id == id && r.IsApproved)
                 .Select(r => IsOpen(r.OpeningTime, r.ClosingTime))
                 .FirstOrDefault();
 
         public bool IsRestaurantExist(int id)
             => this._data
                 .Restaurants
-                .Any(r => r.Id == id);
+                .Any(r => r.Id == id && r.IsApproved);
 
         public bool IsApproved(int id)
             => this._data
@@ -85,14 +85,14 @@ namespace WeLoveFood.Services.Restaurants
         public decimal DeliveryFee(int id)
             => this._data
                 .Restaurants
-                .Where(r => r.Id == id)
+                .Where(r => r.Id == id && r.IsApproved)
                 .Select(r => r.DeliveryFee ?? 0)
                 .FirstOrDefault();
 
         public Restaurant Restaurant(int id)
             => this._data
                 .Restaurants
-                .Find(id);
+                .FirstOrDefault(r => r.Id == id && r.IsApproved);
 
         public AllCityRestaurantsCardsQueryServiceModel AllCityRestaurantsCards(
             int cityId,
@@ -139,7 +139,7 @@ namespace WeLoveFood.Services.Restaurants
         public RestaurantServiceModel RestaurantInfo(int id)
             => this._data
                 .Restaurants
-                .Where(r => r.Id == id)
+                .Where(r => r.Id == id && r.IsApproved)
                 .Select(r => new RestaurantServiceModel
                 {
                     Id = r.Id,
@@ -180,10 +180,5 @@ namespace WeLoveFood.Services.Restaurants
 
             return now > openingTime && now < closingTime;
         }
-
-        private Restaurant GetRestaurant(int restaurantId)
-            => this._data
-                .Restaurants
-                .Find(restaurantId);
     }
 }

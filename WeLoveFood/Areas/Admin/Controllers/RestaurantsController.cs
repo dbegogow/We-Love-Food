@@ -17,5 +17,21 @@ namespace WeLoveFood.Areas.Admin.Controllers
 
             return View(newRestaurantsCards);
         }
+
+        public IActionResult Add(int id)
+        {
+            var isRestaurantApproved = this._restaurants
+                .IsApproved(id);
+
+            if (isRestaurantApproved)
+            {
+                return BadRequest();
+            }
+
+            this._restaurants
+                .Approve(id);
+
+            return RedirectToAction("New");
+        }
     }
 }

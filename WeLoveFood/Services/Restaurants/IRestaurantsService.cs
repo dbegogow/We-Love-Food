@@ -11,6 +11,10 @@ namespace WeLoveFood.Services.Restaurants
 
         bool IsRestaurantOpen(int id);
 
+        bool IsApproved(int id);
+
+        void Approve(int id);
+
         decimal DeliveryFee(int id);
 
         Restaurant Restaurant(int id);

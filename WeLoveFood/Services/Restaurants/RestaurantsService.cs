@@ -62,6 +62,21 @@ namespace WeLoveFood.Services.Restaurants
                 .Select(r => IsOpen(r.OpeningTime, r.ClosingTime))
                 .FirstOrDefault();
 
+        public bool IsApproved(int id)
+            => this._data
+                .Restaurants
+                .Any(r => r.Id == id && r.IsApproved);
+
+        public void Approve(int id)
+        {
+            this._data
+                .Restaurants
+                .Find(id)
+                .IsApproved = true;
+
+            this._data.SaveChanges();
+        }
+
         public decimal DeliveryFee(int id)
             => this._data
                 .Restaurants
@@ -81,10 +96,9 @@ namespace WeLoveFood.Services.Restaurants
             int restaurantsPerPage)
         {
             var restaurantsQuery = this._data
-                .Restaurants.AsQueryable();
-
-            restaurantsQuery = restaurantsQuery
-                .Where(r => r.CityId == cityId);
+                .Restaurants
+                .Where(r => r.IsApproved && r.CityId == cityId)
+                .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {

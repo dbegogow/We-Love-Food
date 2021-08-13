@@ -1,0 +1,35 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.restaurant-card-container {
+    position: relative;
+    flex-grow: 1;
+    padding: 7px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.restaurant-card-container .image-container {
+    height: 23vh;
+}
+
+.restaurant-card-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.restaurant-card-container h3 {
+    margin: 7px 0 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1.05rem;
+}
+
+.restaurant-card-container p {
+    margin: 0;
+    opacity: 0.5;
+}
+
+.restaurant-card-container .btns {
+
+}

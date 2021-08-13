@@ -86,14 +86,14 @@ namespace WeLoveFood
                 {
                     endpoints.MapDefaultAreaRoute();
 
-                    endpoints.MapControllerRoute(
-                        name: "All Cities",
-                        pattern: "/Cities/All",
-                        defaults: new
-                        {
-                            controller = typeof(CitiesController).GetControllerName(),
-                            action = nameof(CitiesController.All)
-                        });
+                    //endpoints.MapControllerRoute(
+                    //    name: "All Cities",
+                    //    pattern: "/Cities/All",
+                    //    defaults: new
+                    //    {
+                    //        controller = typeof(CitiesController).GetControllerName(),
+                    //        action = nameof(CitiesController.All)
+                    //    });
 
                     endpoints.MapDefaultControllerRoute();
                     endpoints.MapRazorPages();

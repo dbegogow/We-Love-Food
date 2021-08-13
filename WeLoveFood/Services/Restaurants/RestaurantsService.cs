@@ -1,10 +1,12 @@
 ﻿using System;
+using AutoMapper;
 using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
 using System.Collections.Generic;
-using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.clients;
+using WeLoveFood.Models.Restaurants;
+using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Services.Restaurants
@@ -14,14 +16,17 @@ namespace WeLoveFood.Services.Restaurants
         private const string WorkingTimeFormat = @"hh\:mm";
 
         private readonly WeLoveFoodDbContext _data;
+        private readonly IConfigurationProvider _mapper;
 
         private readonly IClientsService _clients;
 
         public RestaurantsService(
             WeLoveFoodDbContext data,
+            IMapper mapper,
             IClientsService clients)
         {
             this._data = data;
+            this._mapper = mapper.ConfigurationProvider;
 
             _clients = clients;
         }
@@ -141,6 +146,13 @@ namespace WeLoveFood.Services.Restaurants
                     IsOpen = IsOpen(r.OpeningTime, r.ClosingTime),
                     MealsCategories = r.MealsCategories.Select(mc => mc.Name).ToList()
                 })
+                .ToList();
+
+        public IEnumerable<NewRestaurantCardViewModel> NewRestaurants()
+            => this._data
+                .Restaurants
+                .Where(r => !r.IsApproved)
+                .ProjectTo<NewRestaurantCardViewModel>(this._mapper)
                 .ToList();
 
         public static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)

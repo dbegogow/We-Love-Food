@@ -12,10 +12,17 @@
 <div class="restaurants-page-container">
     <h1>Новодобавени ресторанти</h1>
 
-    <div class="restaurants-container">
-        @foreach (var restaurant in Model)
-        {
-            <partial name="_NewRestaurantCardPartial" for="@restaurant" />
-        }
-    </div>
+    @if (Model.Any())
+    {
+        <div class="restaurants-container">
+            @foreach (var restaurant in Model)
+            {
+                <partial name="_NewRestaurantCardPartial" for="@restaurant" />
+            }
+        </div>
+    }
+    else
+    {
+        <h2>Няма неодобрени ресторани.</h2>
+    }
 </div>

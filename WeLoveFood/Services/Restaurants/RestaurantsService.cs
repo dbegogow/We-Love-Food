@@ -62,6 +62,11 @@ namespace WeLoveFood.Services.Restaurants
                 .Select(r => IsOpen(r.OpeningTime, r.ClosingTime))
                 .FirstOrDefault();
 
+        public bool IsRestaurantExist(int id)
+            => this._data
+                .Restaurants
+                .Any(r => r.Id == id);
+
         public bool IsApproved(int id)
             => this._data
                 .Restaurants

@@ -10,6 +10,8 @@ namespace WeLoveFood.Services.Restaurants
         bool AddToFavorite(int restaurantId, string userId);
 
         bool IsRestaurantOpen(int id);
+        
+        bool IsRestaurantExist(int id);
 
         bool IsApproved(int id);
 

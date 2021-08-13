@@ -99,6 +99,11 @@
     color: #CCC;
 }
 
+.restaurants-page-container h2 {
+    font-family: 'Open Sans', sans-serif;
+    color: #696969;
+}
+
 @media (max-width: 1200px) {
     .restaurants-container {
         grid-template-columns: repeat(3, 1fr);

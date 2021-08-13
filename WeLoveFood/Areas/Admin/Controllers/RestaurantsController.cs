@@ -18,8 +18,16 @@ namespace WeLoveFood.Areas.Admin.Controllers
             return View(newRestaurantsCards);
         }
 
-        public IActionResult Add(int id)
+        public IActionResult Approve(int id)
         {
+            var isRestaurantExist = this._restaurants
+                .IsRestaurantExist(id);
+
+            if (!isRestaurantExist)
+            {
+                return BadRequest();
+            }
+
             var isRestaurantApproved = this._restaurants
                 .IsApproved(id);
 
@@ -31,7 +39,10 @@ namespace WeLoveFood.Areas.Admin.Controllers
             this._restaurants
                 .Approve(id);
 
-            return RedirectToAction("New");
+            return RedirectToAction("SuccessfulApproved");
         }
+
+        public IActionResult SuccessfulApproved()
+           => View();
     }
 }

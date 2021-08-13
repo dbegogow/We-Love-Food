@@ -1,21 +1,21 @@
-﻿.successful-order-page {
+﻿.successful-message-page {
     position: relative;
     top: 20vh;
     width: 50vw;
     margin: 0 auto;
 }
 
-.successful-order-page h1 {
+.successful-message-page h1 {
     margin: 0 0 5vh 0;
     color: #696969;
 }
 
-.successful-order-page .all-cities-btn {
+.successful-message-page .btn-container {
     width: 100%;
     background: #2f6f08;
 }
 
-.successful-order-page .all-cities-btn a {
+.successful-message-page .btn-container a {
     position: absolute;
     font-size: 1.2rem;
     font-family: 'Open Sans', sans-serif;
@@ -26,7 +26,7 @@
     transition: 0.4s ease-in;
 }
 
-.successful-order-page .all-cities-btn a:hover {
+.successful-message-page .btn-container a:hover {
     color: #19900C;
     background: none;
     cursor: pointer;
@@ -34,18 +34,18 @@
     transition: 0.4s ease-out;
 }
 
-.successful-order-page .all-cities-btn a i {
+.successful-message-page .btn-container a i {
     display: inline-block;
     position: relative;
     top: 1px;
 }
 
 @media (max-width: 700px) {
-    .successful-order-page h1 {
+    .successful-message-page h1 {
         font-size: 1.4rem;
     }
 
-    .successful-order-page .all-cities-btn a {
+    .successful-message-page .btn-container a {
         font-size: 0.9rem;
     }
 }

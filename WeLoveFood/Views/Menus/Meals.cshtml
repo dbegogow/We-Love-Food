@@ -52,9 +52,18 @@
         <span class="closing-message">Затворено в момента</span>
     }
 
-    <div class="all-restaurants-btn-container">
-        <a asp-area="" asp-controller="Restaurants" asp-action="All" asp-route-id="@Model.Restaurant.Id">Всички ресторанти</a>
-    </div>
+    @if (User.IsInRole(AdministratorRoleName))
+    {
+        <div class="all-restaurants-btn-container">
+            <a asp-area="Admin" asp-controller="Restaurants" asp-action="New" asp-route-id="@Model.Restaurant.Id">Всички нови ресторанти</a>
+        </div>
+    }
+    else
+    {
+        <div class="all-restaurants-btn-container">
+            <a asp-area="" asp-controller="Restaurants" asp-action="All" asp-route-id="@Model.Restaurant.Id">Всички ресторанти</a>
+        </div>
+    }
 
     <div class="menu">
         <ul>

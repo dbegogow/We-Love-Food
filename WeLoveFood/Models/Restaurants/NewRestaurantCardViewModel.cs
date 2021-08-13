@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WeLoveFood.Areas.Admin.Models.Restaurants
+namespace WeLoveFood.Models.Restaurants
 {
     public class NewRestaurantCardViewModel
     {

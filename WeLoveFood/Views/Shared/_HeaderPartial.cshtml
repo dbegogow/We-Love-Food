@@ -6,16 +6,26 @@
 
 <header class="header-container">
     <nav class="nav-container">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="header-title">We Love Food</a>
+        @if (!User.IsInRole(ManagerRoleName))
+        {
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="header-title">We Love Food</a>
+        }
+        else
+        {
+            <a class="header-title">We Love Food</a>
+        }
+
         <div class="bars-container">
             <i class="fas fa-bars"></i>
         </div>
-        <div class="btns">
-            <div class="header-link-btn-container">
-                <a asp-area="" asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
-            </div>
 
-            <span class="border"></span>
+        <div class="btns">
+            @if (!User.IsInRole(ManagerRoleName))
+            {
+                <div class="header-link-btn-container">
+                    <a asp-area="" asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
+                </div>
+            }
 
             @if (!SignInManager.IsSignedIn(User))
             {
@@ -34,8 +44,10 @@
                         <a asp-area="Admin" asp-controller="Restaurants" asp-action="New" class="header-link-btn"><span>Нови ресторанти</span></a>
                     </div>
                 }
-                else
+                else if (!User.IsInRole(ManagerRoleName))
                 {
+                    <span class="border"></span>
+
                     <div class="header-link-btn-container">
                         <a asp-area="" asp-controller="Users" asp-action="PersonalData" class="header-link-btn"><span>Профил</span></a>
                     </div>

@@ -15,11 +15,28 @@
 }
 
 <div class="user-profile-page-container">
-    <partial name="_OptionsPartial" />
+    @if (User.IsInRole(ClientRoleName))
+    {
+        <partial name="_OptionsPartial" />
+    }
+    else
+    {
+        <partial name="~/Areas/Manager/Views/Shared/_OptionsPartial.cshtml" />
+    }
+
     <div class="main-container">
         <h2>Лични данни</h2>
 
         <div class="section-container">
+            @if (!User.IsInRole(ClientRoleName))
+            {
+                <div class="profile-image-container">
+                    <div class="profile-image">
+                        <img src="https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg" alt="Profile picture" />
+                    </div>
+                </div>
+            }
+
             <form class="personal-data-container" method="post">
                 <div class="personal-data">
                     <div class="field">
@@ -49,9 +66,9 @@
                     <button type="submit" class="btn" id="save-btn"><i class="far fa-check-square"></i> Запиши</button>
                 </div>
             </form>
-            
+
             <span class="border"></span>
-            
+
             <div class="change-container account-data">
                 <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" class="btn"><i class="fas fa-unlock-alt"></i> Смени парола си</a>
                 <a asp-area="Identity" asp-page="/Account/Manage/Email" class="btn"><i class="far fa-envelope"></i> Смени имейла си</a>

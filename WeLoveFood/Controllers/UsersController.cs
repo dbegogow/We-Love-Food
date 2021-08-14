@@ -1,8 +1,8 @@
-﻿using WeLoveFood.Models.Users;
+﻿using AutoMapper;
+using WeLoveFood.Models.Users;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
-using WeLoveFood.Services.Models.Users;
 using Microsoft.AspNetCore.Authorization;
 using WeLoveFood.Infrastructure.Extensions;
 
@@ -15,13 +15,18 @@ namespace WeLoveFood.Controllers
     {
         private const string AuthorizeRoles = ClientRoleName + ", " + ManagerRoleName;
 
+        private readonly IMapper _mapper;
+
         private readonly IUsersService _users;
         private readonly ICitiesService _cities;
 
         public UsersController(
+            IMapper mapper,
             IUsersService users,
             ICitiesService cities)
         {
+            this._mapper = mapper;
+
             this._users = users;
             this._cities = cities;
         }
@@ -32,7 +37,9 @@ namespace WeLoveFood.Controllers
             var user = this._users
                 .PersonalData(this.User.Id());
 
-            return View(user);
+            var userForm = this._mapper.Map<PersonalDataFormModel>(user);
+
+            return View(userForm);
         }
 
         [Authorize(Roles = AuthorizeRoles)]
@@ -49,14 +56,7 @@ namespace WeLoveFood.Controllers
 
             if (!ModelState.IsValid)
             {
-                return View(new PersonalDataServiceModel
-                {
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    PhoneNumber = user.PhoneNumber,
-                    City = user.City,
-                    Address = user.Address
-                });
+                return View(user);
             }
 
             this._users
@@ -69,6 +69,12 @@ namespace WeLoveFood.Controllers
                     user.Address);
 
             return RedirectToAction(nameof(PersonalData));
+        }
+
+        [HttpPost]
+        public IActionResult UploadProfilePicture(PersonalDataFormModel user)
+        {
+            return Ok();
         }
     }
 }

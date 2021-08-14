@@ -1,4 +1,4 @@
-﻿@model PersonalDataServiceModel
+﻿@model PersonalDataFormModel
 
 @{
     ViewBag.Title = "Лични данни -";
@@ -34,10 +34,15 @@
                     <div class="profile-image">
                         <img src="https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg" alt="Profile picture" />
                     </div>
+
+                    <form asp-controller="Users" asp-action="UploadProfilePicture" method="post" enctype="multipart/form-data">
+                        <label asp-for="ProfilePicture"><i class="fas fa-portrait"></i> Избери снимка</label>
+                        <input type="file" asp-for="ProfilePicture" class="hidden"/>
+                    </form>
                 </div>
             }
 
-            <form class="personal-data-container" method="post">
+            <form class="personal-data-container" asp-controller="Users" asp-action="PersonalData" method="post">
                 <div class="personal-data">
                     <div class="field">
                         <p>Име</p>

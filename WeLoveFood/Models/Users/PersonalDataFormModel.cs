@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 using static WeLoveFood.Data.DataConstants.User;
 using static WeLoveFood.Models.Constants.Users.ExceptionMessages;
@@ -20,5 +21,7 @@ namespace WeLoveFood.Models.Users
 
         [StringLength(AddressMaxLength, ErrorMessage = InvalidAddressLength)]
         public string Address { get; init; }
+
+        public IFormFile ProfilePicture { get; init; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿.user-profile-page-container .section-container .profile-image-container {
-    padding: 10px 30px 10px 30px;
+    padding: 10px 30px 0 30px;
 }
 
 .user-profile-page-container .section-container .profile-image-container .profile-image {
@@ -14,6 +14,26 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.user-profile-page-container .section-container .profile-image-container form label {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 7px 20px;
+    background: #398809;
+    color: #FFF;
+    font-size: 1.08rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.user-profile-page-container .section-container .profile-image-container form label:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.user-profile-page-container .section-container .profile-image-container form input {
+    display: none;
 }
 
 .user-profile-page-container .section-container .personal-data {
@@ -94,6 +114,10 @@
     .user-profile-page-container .section-container .profile-image-container .profile-image {
         width: 170px;
         height: 150px;
+    }
+
+    .user-profile-page-container .section-container .profile-image-container form label {
+        font-size: 0.8rem;
     }
 
     .user-profile-page-container .section-container .personal-data {

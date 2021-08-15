@@ -16,7 +16,7 @@
     border-radius: 50%;
 }
 
-.user-profile-page-container .section-container .profile-image-container form label {
+.user-profile-page-container .section-container .profile-image-container form .btn {
     display: inline-block;
     margin-top: 20px;
     padding: 7px 20px;
@@ -27,9 +27,14 @@
     border: none;
 }
 
-.user-profile-page-container .section-container .profile-image-container form label:hover {
+.user-profile-page-container .section-container .profile-image-container form .btn:hover {
     cursor: pointer;
     opacity: 0.9;
+}
+
+.user-profile-page-container .section-container .profile-image-container form .upload {
+    display: block;
+    margin-top: 10px;
 }
 
 .user-profile-page-container .section-container .profile-image-container form input {
@@ -81,6 +86,7 @@
 }
 
 .user-profile-page-container .section-container .change-container .btn {
+    padding: 11px 30px;
     padding: 11px 30px;
     background: #398809;
     color: #FFF;

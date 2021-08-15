@@ -6,6 +6,7 @@ using WeLoveFood.Services.Carts;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Orders;
+using WeLoveFood.Services.Images;
 using WeLoveFood.Services.clients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
@@ -56,6 +57,7 @@ namespace WeLoveFood
                 .AddTransient<ICartsService, CartsService>()
                 .AddTransient<ICitiesService, CitiesService>()
                 .AddTransient<IOrdersService, OrdersService>()
+                .AddTransient<IImagesService, ImagesService>()
                 .AddTransient<IClientsService, ClientsService>()
                 .AddTransient<IPortionsService, PortionsService>()
                 .AddTransient<IManagersService, ManagersService>()

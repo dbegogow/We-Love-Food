@@ -6,7 +6,7 @@
 
         public string LastName { get; init; }
 
-        public string ProfilePicture { get; init; }
+        public string ProfileImgUrl { get; init; }
 
         public string PhoneNumber { get; init; }
 

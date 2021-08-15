@@ -3,6 +3,7 @@ using WeLoveFood.Models.Users;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
+using WeLoveFood.Services.Images;
 using Microsoft.AspNetCore.Authorization;
 using WeLoveFood.Infrastructure.Extensions;
 
@@ -14,21 +15,25 @@ namespace WeLoveFood.Controllers
     public class UsersController : Controller
     {
         private const string AuthorizeRoles = ClientRoleName + ", " + ManagerRoleName;
+        private const string UsersImagesPath = "img/users";
 
         private readonly IMapper _mapper;
 
         private readonly IUsersService _users;
         private readonly ICitiesService _cities;
+        private readonly IImagesService _images;
 
         public UsersController(
             IMapper mapper,
             IUsersService users,
-            ICitiesService cities)
+            ICitiesService cities,
+            IImagesService images)
         {
             this._mapper = mapper;
 
             this._users = users;
             this._cities = cities;
+            this._images = images;
         }
 
         [Authorize(Roles = AuthorizeRoles)]
@@ -74,7 +79,12 @@ namespace WeLoveFood.Controllers
         [HttpPost]
         public IActionResult UploadProfilePicture(PersonalDataFormModel user)
         {
-            return Ok();
+
+            string uniqueFileName = this._images.UploadImage(user.ProfileImg, UsersImagesPath);
+
+            this._users.UpdateProfileImage(this.User.Id(), uniqueFileName);
+
+            return RedirectToAction(nameof(PersonalData));
         }
     }
 }

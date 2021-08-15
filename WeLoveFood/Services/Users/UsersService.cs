@@ -40,10 +40,20 @@ namespace WeLoveFood.Services.Users
             this._data.SaveChanges();
         }
 
-        public PersonalDataServiceModel PersonalData(string userId)
+        public void UpdateProfileImage(string id, string profileImgUrl)
+        {
+            this._data
+                .Users
+                .Find(id)
+                .ProfileImgUrl = profileImgUrl;
+
+            this._data.SaveChanges();
+        }
+
+        public PersonalDataServiceModel PersonalData(string id)
             => this._data
                 .Users
-                .Where(u => u.Id == userId)
+                .Where(u => u.Id == id)
                 .ProjectTo<PersonalDataServiceModel>(this._mapper)
                 .FirstOrDefault();
     }

@@ -22,6 +22,8 @@ namespace WeLoveFood.Models.Users
         [StringLength(AddressMaxLength, ErrorMessage = InvalidAddressLength)]
         public string Address { get; init; }
 
-        public IFormFile ProfilePicture { get; init; }
+        public IFormFile ProfileImg { get; init; }
+
+        public string ProfileImgUrl { get; init; }
     }
 }

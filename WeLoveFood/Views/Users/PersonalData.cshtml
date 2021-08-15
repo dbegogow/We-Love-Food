@@ -32,12 +32,21 @@
             {
                 <div class="profile-image-container">
                     <div class="profile-image">
-                        <img src="https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg" alt="Profile picture" />
+                        @if (string.IsNullOrWhiteSpace(Model.ProfileImgUrl))
+                        {
+                            <img src="~/img/users/default-profil.jpg" alt="Default profile picture" />
+                        }
+                        else
+                        {
+                            <img src="~/img/users/@Model.ProfileImgUrl" alt="Profile picture" />
+                        }
                     </div>
 
                     <form asp-controller="Users" asp-action="UploadProfilePicture" method="post" enctype="multipart/form-data">
-                        <label asp-for="ProfilePicture"><i class="fas fa-portrait"></i> Избери снимка</label>
-                        <input type="file" asp-for="ProfilePicture" class="hidden"/>
+                        <label asp-for="ProfileImg" class="btn"><i class="fas fa-portrait"></i> Избери снимка</label>
+                        <input asp-for="ProfileImg" />
+
+                        <button type="submit" class="btn upload"><i class="fas fa-upload"></i> Качи</button>
                     </form>
                 </div>
             }

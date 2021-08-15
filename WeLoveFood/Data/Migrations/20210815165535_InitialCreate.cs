@@ -63,7 +63,7 @@ namespace WeLoveFood.Data.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
-                    ProfilePicture = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProfileImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
                     CityId = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),

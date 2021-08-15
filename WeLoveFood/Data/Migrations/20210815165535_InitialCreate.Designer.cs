@@ -10,7 +10,7 @@ using WeLoveFood.Data;
 namespace WeLoveFood.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
-    [Migration("20210814123723_InitialCreate")]
+    [Migration("20210815165535_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -472,7 +472,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ProfilePicture")
+                    b.Property<string>("ProfileImgUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")

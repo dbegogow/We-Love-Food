@@ -12,6 +12,8 @@ namespace WeLoveFood.Services.Users
             int cityId,
             string address);
 
-        PersonalDataServiceModel PersonalData(string userId);
+        void UpdateProfileImage(string id, string profileImgUrl);
+
+        PersonalDataServiceModel PersonalData(string id);
     }
 }

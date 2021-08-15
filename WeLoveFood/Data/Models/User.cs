@@ -13,7 +13,7 @@ namespace WeLoveFood.Data.Models
         [MaxLength(NameMaxLength)]
         public string LastName { get; set; }
 
-        public string ProfilePicture { get; set; }
+        public string ProfileImgUrl { get; set; }
 
         [MaxLength(AddressMaxLength)]
         public string Address { get; set; }

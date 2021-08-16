@@ -1,0 +1,80 @@
+﻿.add-form-container .form-container {
+    padding: 30px 50px;
+    position: relative;
+    top: 14vh;
+    width: 35vw;
+    margin: 0 auto;
+    border: 2px solid #C3C3C3;
+    border-radius: 12px;
+    background: #FFF;
+}
+
+.add-form-container .form-container h2 {
+    text-align: center;
+    font-family: cursive;
+    color: #23A829;
+    margin-bottom: 0;
+}
+
+.add-form-container .form-container form div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+}
+
+.add-form-container .form-container form input {
+    width: 100%;
+    margin-left: 7px;
+    outline: none;
+    border: 2px solid #777777;
+    border-radius: 18px;
+    padding: 10px;
+    background: #F7F7F7;
+}
+
+.add-form-container .form-container form button {
+    display: block;
+    margin: 20px auto;
+    margin-top: 40px;
+    padding: 8px 6vw;
+    border-radius: 15px;
+    border: none;
+    background: #2EAC04;
+    color: #FFF;
+    font-family: cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.add-form-container .form-container form button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.add-form-container .form-container .form div {
+    font-size: 1.07rem;
+}
+
+.add-form-container .form-container .form div p {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 1024px) {
+    .add-form-container .form-container {
+        top: 13vh;
+        width: 80vw;
+        font-size: 0.9rem;
+    }
+    
+    .add-form-container .form-container .form {
+        padding-bottom: 2vh;
+    }
+
+    .add-form-container .form-container .form div {
+        font-size: 0.9rem;
+    }
+    
+    .add-form-container .form-container form button {
+        font-size: 1rem;
+    }
+}

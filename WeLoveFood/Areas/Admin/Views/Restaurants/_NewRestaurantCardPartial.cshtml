@@ -27,6 +27,6 @@
 
     <div class="btns">
         <a asp-area="" asp-controller="Menus" asp-action="Meals" asp-route-id="@Model.Id" class="open">Отвори</a>
-        <a asp-area="Admin" asp-controller="Restaurants" asp-action="Approve" asp-route-id="@Model.Id" class="add">Одобри</a>
+        <a asp-area="Admin" asp-controller="Restaurants" asp-action="Approve" asp-route-id="@Model.Id" asp-route-cityName="@Model.CityName" class="add">Одобри</a>
     </div>
 </div>

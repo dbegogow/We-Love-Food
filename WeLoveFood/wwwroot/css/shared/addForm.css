@@ -59,6 +59,27 @@
     margin-bottom: 5px;
 }
 
+.add-form-container .form-container .form .upload label {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 7px 20px;
+    background: #2EAC04;
+    color: #FFF;
+    font-size: 1.08rem;
+    border-radius: 10px;
+    border: none;
+    margin-left: 10px;
+}
+
+.add-form-container .form-container .form .upload label:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.add-form-container .form-container .form .upload input {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .add-form-container .form-container {
         top: 13vh;

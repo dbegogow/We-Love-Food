@@ -36,7 +36,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
             this._cities
                 .AddCity(city.Name, uniqueFileName);
 
-            return RedirectToAction("New", "Restaurants");
+            return RedirectToAction("All", "Cities");
         }
     }
 }

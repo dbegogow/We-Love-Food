@@ -156,6 +156,7 @@ namespace WeLoveFood.Services.Orders
             return this._data
                 .Orders
                 .Where(o => o.ClientId == clientId)
+                .OrderByDescending(o => o.Id)
                 .ProjectTo<ClientOrderServiceModel>(this._mapper)
                 .ToList();
         }

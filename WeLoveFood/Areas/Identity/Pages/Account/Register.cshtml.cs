@@ -3,11 +3,12 @@ using WeLoveFood.Data.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.clients;
+using WeLoveFood.Services.Managers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
-using WeLoveFood.Services.Managers;
+
 using static WeLoveFood.WebConstants;
 using static WeLoveFood.Data.DataConstants.User;
 using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
@@ -19,6 +20,9 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
     {
         private const string IsManagerDisplayName = "Регистрирай ме като ресторантюр";
         private const string DuplicateUserNameErrorCode = "DuplicateUserName";
+
+        private const string HomePagePath = "~/";
+        private const string PersonalDataPagePath = "~/Users/PersonalData";
 
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
@@ -66,10 +70,8 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync()
         {
-            returnUrl ??= Url.Content("~/");
-
             if (ModelState.IsValid)
             {
                 var user = new User
@@ -86,15 +88,18 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                     {
                         this._managers.CreateManager(user.Id);
                         await _userManager.AddToRoleAsync(user, ManagerRoleName);
-                    }
-                    else
-                    {
-                        this._clients.CreateClient(user.Id);
-                        await _userManager.AddToRoleAsync(user, ClientRoleName);
+
+                        await this._signInManager.SignInAsync(user, isPersistent: false);
+
+                        return LocalRedirect(PersonalDataPagePath);
                     }
 
+                    this._clients.CreateClient(user.Id);
+                    await _userManager.AddToRoleAsync(user, ClientRoleName);
+
                     await this._signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+
+                    return LocalRedirect(HomePagePath);
                 }
 
                 var hasDuplicateUserNameInvalid = result

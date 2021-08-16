@@ -1,0 +1,16 @@
+﻿<div class="user-profile-options-container">
+    <a asp-area="" asp-controller="Users" asp-action="PersonalData" class="option">
+        <i class="fas fa-user"></i>
+        <h4>Лични данни</h4>
+    </a>
+    <a asp-area="" asp-controller="" asp-action="" class="option">
+        <i class="fas fa-heart"></i>
+        <h4>Моите ресторанти</h4>
+    </a>
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = string.Empty})">
+        <button type="submit" class="option">
+            <i class="fas fa-sign-out-alt"></i>
+            <h4>Изход</h4>
+        </button>
+    </form>
+</div>

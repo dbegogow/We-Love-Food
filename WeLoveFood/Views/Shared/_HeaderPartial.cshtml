@@ -6,7 +6,7 @@
 
 <header class="header-container">
     <nav class="nav-container">
-        @if (!User.IsInRole(ManagerRoleName))
+        @if (!User.IsManager())
         {
             <a asp-area="" asp-controller="Home" asp-action="Index" class="header-title">We Love Food</a>
         }
@@ -20,7 +20,7 @@
         </div>
 
         <div class="btns">
-            @if (!User.IsInRole(ManagerRoleName))
+            @if (!User.IsManager())
             {
                 <div class="header-link-btn-container">
                     <a asp-area="" asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
@@ -38,13 +38,13 @@
             }
             else
             {
-                @if (User.IsInRole(AdministratorRoleName))
+                @if (User.IsAdmin())
                 {
                     <div class="header-link-btn-container">
                         <a asp-area="Admin" asp-controller="Restaurants" asp-action="New" class="header-link-btn"><span>Нови ресторанти</span></a>
                     </div>
                 }
-                else if (!User.IsInRole(ManagerRoleName))
+                else if (!User.IsManager())
                 {
                     <span class="border"></span>
 
@@ -60,7 +60,7 @@
                 </div>
             }
 
-            @if (!SignInManager.IsSignedIn(User) || User.IsInRole(ClientRoleName))
+            @if (!SignInManager.IsSignedIn(User) || User.IsClient())
             {
                 <div class="header-link-btn-container">
                     <a asp-area="" asp-controller="Orders" asp-action="Cart" class="header-link-btn"><span><i class="fas fa-shopping-bag"></i></span></a>

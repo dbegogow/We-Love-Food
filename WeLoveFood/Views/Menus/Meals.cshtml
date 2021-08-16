@@ -19,7 +19,7 @@
     <div class="heading">
         <h1>@Model.Restaurant.Name</h1>
 
-        @if (User.IsInRole(ClientRoleName))
+        @if (User.IsClient())
         {
             var hasRestaurantInFavorite = _clients
                 .HasRestaurantInFavorite(User.Id(), Model.Restaurant.Id);
@@ -52,7 +52,7 @@
         <span class="closing-message">Затворено в момента</span>
     }
 
-    @if (User.IsInRole(AdministratorRoleName))
+    @if (User.IsAdmin())
     {
         <div class="all-restaurants-btn-container">
             <a asp-area="Admin" asp-controller="Restaurants" asp-action="New" asp-route-id="@Model.Restaurant.Id">Всички нови ресторанти</a>

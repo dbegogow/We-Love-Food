@@ -11,6 +11,7 @@ using System.ComponentModel.DataAnnotations;
 
 using static WeLoveFood.WebConstants;
 using static WeLoveFood.Data.DataConstants.User;
+using static WeLoveFood.Areas.Identity.Pages.Account.Constants.RedirectionPaths;
 using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
 namespace WeLoveFood.Areas.Identity.Pages.Account
@@ -20,9 +21,6 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
     {
         private const string IsManagerDisplayName = "Регистрирай ме като ресторантюр";
         private const string DuplicateUserNameErrorCode = "DuplicateUserName";
-
-        private const string HomePagePath = "~/";
-        private const string PersonalDataPagePath = "~/Users/PersonalData";
 
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;

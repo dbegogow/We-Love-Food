@@ -15,20 +15,20 @@
 }
 
 <div class="user-profile-page-container">
-    @if (User.IsInRole(ClientRoleName))
+    @if (User.IsClient())
     {
         <partial name="_OptionsPartial" />
     }
     else
     {
-        <partial name="~/Areas/Manager/Views/Shared/_OptionsPartial.cshtml" />
+        <partial name="~/Areas/Manager/Views/Shared/_ProfileOptionsPartial.cshtml" />
     }
 
     <div class="main-container">
         <h2>Лични данни</h2>
 
         <div class="section-container">
-            @if (!User.IsInRole(ClientRoleName))
+            @if (!User.IsClient())
             {
                 <div class="profile-image-container">
                     <div class="profile-image">

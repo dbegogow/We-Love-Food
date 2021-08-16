@@ -1,6 +1,6 @@
 ﻿namespace WeLoveFood.Areas.Identity.Pages.Account.Constants
 {
-    public static class ValidationErrorMessages
+    public class ValidationErrorMessages
     {
         public const string RequiredEmail = "Валидният имейл е задължителен.";
         public const string InvalidEmail = "Невалиден емейл.";

@@ -3,7 +3,7 @@
 }
 
 .user-profile-page-container .section-container .manager-restaurants .add-restaurant {
-    margin-bottom: 10vh;
+    margin-bottom: 8vh;
 }
 
 .user-profile-page-container .section-container .manager-restaurants .add-restaurant a {
@@ -21,8 +21,94 @@
     opacity: 0.9;
 }
 
+.user-profile-page-container .section-container .manager-restaurants .restaurant {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #B1B1B1;
+    border-radius: 5px;
+    padding: 7px;
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .card {
+    width: 200px;
+    height: 150px;
+    border-radius: 3px;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info {
+    margin-left: 20px
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info span {
+    text-transform: uppercase;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .active {
+    color: #4DEC2C;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .archived {
+    color: #B8B8B8;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns {
+    margin-top: 25px;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns a {
+    margin-right: 7px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns a:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns .archive {
+    background: #E3E3E3;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns .add {
+    background: #42D221;
+    color: #FFF;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns .delete {
+    background: #FF2B1A;
+    color: #FFF;
+}
+
 @media(max-width: 800px) {
     .user-profile-page-container .section-container .manager-restaurants .add-restaurant a {
         font-size: 0.8rem;
+    }
+
+    .user-profile-page-container .section-container .manager-restaurants {
+        padding: 20px 10px;
+    }
+
+    .user-profile-page-container .section-container .manager-restaurants .add-restaurant {
+        margin-bottom: 5vh;
+    }
+
+    .user-profile-page-container .section-container .manager-restaurants .restaurant {
+        width: 100%;
+    }
+
+    .user-profile-page-container .section-container .manager-restaurants .restaurant .card {
+        display: none;
     }
 }

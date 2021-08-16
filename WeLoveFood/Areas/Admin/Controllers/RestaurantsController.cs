@@ -1,23 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Restaurants;
 
 namespace WeLoveFood.Areas.Admin.Controllers
 {
     public class RestaurantsController : AdminController
-    {
-        private const int NoCity = 0;
-
-        private readonly ICitiesService _cities;
+    { 
         private readonly IRestaurantsService _restaurants;
 
-        public RestaurantsController(
-            ICitiesService cities,
-            IRestaurantsService restaurants)
-        {
-            this._cities = cities;
-            this._restaurants = restaurants;
-        }
+        public RestaurantsController(IRestaurantsService restaurants)
+            => this._restaurants = restaurants;
 
         public IActionResult New()
         {
@@ -27,7 +18,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
             return View(newRestaurantsCards);
         }
 
-        public IActionResult Approve(int id, string cityName)
+        public IActionResult Approve(int id)
         {
             var isRestaurantExist = this._restaurants
                 .IsRestaurantExist(id);
@@ -41,14 +32,6 @@ namespace WeLoveFood.Areas.Admin.Controllers
                 .IsApproved(id);
 
             if (isRestaurantApproved)
-            {
-                return BadRequest();
-            }
-
-            int cityId = this._cities
-                .CityId(cityName);
-
-            if (cityId == NoCity)
             {
                 return BadRequest();
             }

@@ -10,7 +10,7 @@ using WeLoveFood.Data;
 namespace WeLoveFood.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
-    [Migration("20210815165535_InitialCreate")]
+    [Migration("20210816151304_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

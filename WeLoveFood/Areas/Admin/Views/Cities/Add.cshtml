@@ -1,10 +1,11 @@
-﻿@{
+﻿@model AddCityFormModel
+
+@{
     ViewBag.Title = "Добави град -";
 }
 
-@section AddCityStyles {
+@section AddFormStyles {
     <link href="~/css/shared/addForm.css" rel="stylesheet" />
-    <link href="~/css/cities/add.css" rel="stylesheet" />
 }
 
 <div class="add-form-container">
@@ -12,14 +13,14 @@
         <div class="form">
             <h2>Добави град</h2>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <div>
-                    <label></label>
-                    <input  />
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" />
                 </div>
                 <div class="upload">
-                    <label><i class="fas fa-upload"></i> Качи снимка</label>
-                    <input type="file" />
+                    <label asp-for="Img"><i class="fas fa-upload"></i> Качи снимка</label>
+                    <input asp-for="Img" />
                 </div>
 
                 <button type="submit">Добави</button>

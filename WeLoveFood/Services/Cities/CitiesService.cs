@@ -3,6 +3,7 @@ using System.Linq;
 using WeLoveFood.Data;
 using System.Collections.Generic;
 using AutoMapper.QueryableExtensions;
+using WeLoveFood.Data.Models;
 using WeLoveFood.Services.Models.Cities;
 
 namespace WeLoveFood.Services.Cities
@@ -18,6 +19,21 @@ namespace WeLoveFood.Services.Cities
         {
             this._data = data;
             this._mapper = mapper.ConfigurationProvider;
+        }
+
+        public void AddCity(string name, string imgUrl)
+        {
+            var newCity = new City
+            {
+                Name = name,
+                ImgUrl = imgUrl
+            };
+
+            this._data
+                .Cities
+                .Add(newCity);
+
+            this._data.SaveChanges();
         }
 
         public string CityName(int id)

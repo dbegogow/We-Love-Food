@@ -18,7 +18,7 @@
 
 .add-form-container .form-container form div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 25px;
 }
 
@@ -30,6 +30,12 @@
     border-radius: 18px;
     padding: 10px;
     background: #F7F7F7;
+}
+
+.add-form-container .form-container form label {
+    margin-left: 10px;
+    margin-bottom: 7px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .add-form-container .form-container form button {
@@ -57,6 +63,10 @@
 
 .add-form-container .form-container .form div p {
     margin-bottom: 5px;
+}
+
+.add-form-container .form-container form .upload {
+    flex-direction: row;
 }
 
 .add-form-container .form-container .form .upload label {

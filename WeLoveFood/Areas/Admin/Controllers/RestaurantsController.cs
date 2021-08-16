@@ -50,7 +50,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
 
             if (cityId == NoCity)
             {
-                LocalRedirect($"~/Areas/Admin/Cities/Add?restaurantId={id}");
+                return BadRequest();
             }
 
             this._restaurants

@@ -5,6 +5,8 @@ namespace WeLoveFood.Services.Cities
 {
     public interface ICitiesService
     {
+        void AddCity(string name, string imgUrl);
+
         string CityName(int id);
 
         int CityId(string cityName);

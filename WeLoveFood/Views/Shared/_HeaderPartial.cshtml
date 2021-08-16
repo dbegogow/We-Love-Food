@@ -45,6 +45,9 @@
                     <div class="header-link-btn-container">
                         <a asp-area="Admin" asp-controller="Restaurants" asp-action="New" class="header-link-btn"><span>Нови ресторанти</span></a>
                     </div>
+                    <div class="header-link-btn-container">
+                        <a asp-area="Admin" asp-controller="Cities" asp-action="Add" class="header-link-btn"><span>Добави град</span></a>
+                    </div>
 
                 }
                 else if (!User.IsManager())

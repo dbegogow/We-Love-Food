@@ -7,9 +7,7 @@
 @section ManagerRestaurantsStyles {
     <link href="~/css/users/pageContainer.css" rel="stylesheet" />
     <link href="~/css/users/options.css" rel="stylesheet" />
-    <link href="~/css/restaurants/card.css" rel="stylesheet" />
-    <link href="~/css/restaurants/all.css" rel="stylesheet" />
-    <link href="~/css/restaurants/users.css" rel="stylesheet" />
+    <link href="~/css/restaurants/managers.css" rel="stylesheet" />
 }
 
 <div class="user-profile-page-container">
@@ -18,22 +16,31 @@
         <h2>Моите ресторанти</h2>
 
         <div class="section-container">
-            <div class="restaurants-page-container">
-                @if (Model.Any())
-                {
-                    <div class="restaurants-container">
-                        @foreach (var restaurant in Model)
-                        {
-                            <a class="restaurant-card-container" asp-area="" asp-controller="Menus" asp-action="Meals" asp-route-id="@restaurant.Id">
-                                <partial name="~/Views/Restaurants/_RestaurantCardPartial.cshtml" for="@restaurant" />
-                            </a>
-                        }
-                    </div>
-                }
-                else
-                {
-                    <p class="no-added-restaurants-message">Все още нямате добавени ресторанти.</p>
-                }
+            <div class="manager-restaurants">
+                <div class="add-restaurant">
+                    <a><i class="fas fa-plus"></i> Добави ресторант</a>
+                </div>
+
+                <div class="restaurants">
+                    @foreach (var restaurant in Model)
+                    {
+                        <div class="restaurant-card-container">
+                            <img src="https://passionpassport-1.s3.amazonaws.com/wp-content/uploads/2020/11/05114630/sofia-bulgaria-gem-header.jpg" alt="Restaurant image" />
+                        </div>
+
+                        <div class="restaurant-info">
+                            <h2>Ресторант 1</h2>
+
+                            <p>Статус: <span class="active">активен</span></p>
+
+                            <div class="btns">
+                                <a class="archive">Архивирай</a>
+                                <a class="add">Добави</a>
+                                <a class="delete">Изтрий</a>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>

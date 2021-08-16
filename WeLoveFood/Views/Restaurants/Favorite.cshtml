@@ -24,9 +24,7 @@
                     <div class="restaurants-container">
                         @foreach (var restaurant in Model)
                         {
-                            <a class="restaurant-card-container" asp-area="" asp-controller="Menus" asp-action="Meals" asp-route-id="@restaurant.Id">
-                                <partial name="_RestaurantCardPartial" for="@restaurant" />
-                            </a>
+                            <partial name="_RestaurantCardPartial" for="@restaurant" />
                         }
                     </div>
                 }

@@ -1,16 +1,13 @@
 ﻿@model RestaurantCardServiceModel
 
-<div>
+<a class="restaurant-card-container" asp-area="" asp-controller="Menus" asp-action="Meals" asp-route-id="@Model.Id">
     <div class="image-container">
         <img src="@Model.ImgUrl" alt="Restaurant Image">
     </div>
 
-    @if (!User.IsManager())
+    @if (!Model.IsOpen)
     {
-        @if (!Model.IsOpen)
-        {
-            <p class="closing">Затворено</p>
-        }
+        <p class="closing">Затворено</p>
     }
 
     <h3>@Model.Name</h3>
@@ -28,4 +25,4 @@
             }
         }
     </p>
-</div>
+</a>

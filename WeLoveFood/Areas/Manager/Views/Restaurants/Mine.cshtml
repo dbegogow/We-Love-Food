@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<RestaurantCardServiceModel>
 
 @{
-    ViewBag.Title = "Любими ресторанти -";
+    ViewBag.Title = "Моите ресторанти -";
 }
 
-@section CartStyles {
+@section ManagerRestaurantsStyles {
     <link href="~/css/users/pageContainer.css" rel="stylesheet" />
     <link href="~/css/users/options.css" rel="stylesheet" />
     <link href="~/css/restaurants/card.css" rel="stylesheet" />
@@ -13,9 +13,9 @@
 }
 
 <div class="user-profile-page-container">
-    <partial name="~/Views/Users/_OptionsPartial.cshtml" />
+    <partial name="~/Areas/Manager/Views/Shared/_ProfileOptionsPartial.cshtml" />
     <div class="main-container">
-        <h2>Любими ресторанти</h2>
+        <h2>Моите ресторанти</h2>
 
         <div class="section-container">
             <div class="restaurants-page-container">
@@ -25,14 +25,14 @@
                         @foreach (var restaurant in Model)
                         {
                             <a class="restaurant-card-container" asp-area="" asp-controller="Menus" asp-action="Meals" asp-route-id="@restaurant.Id">
-                                <partial name="_RestaurantCardPartial" for="@restaurant" />
+                                <partial name="~/Views/Restaurants/_RestaurantCardPartial.cshtml" for="@restaurant" />
                             </a>
                         }
                     </div>
                 }
                 else
                 {
-                    <p class="no-added-restaurants-message">Все още нямате добавени ресторанти в любими.</p>
+                    <p class="no-added-restaurants-message">Все още нямате добавени ресторанти.</p>
                 }
             </div>
         </div>

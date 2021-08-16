@@ -167,6 +167,14 @@ namespace WeLoveFood.Services.Restaurants
                 })
                 .ToList();
 
+        public IEnumerable<RestaurantCardServiceModel> Managers(string userId)
+            => this._data
+                .Managers
+                .Where(m => m.UserId == userId)
+                .SelectMany(m => m.Restaurants)
+                .ProjectTo<RestaurantCardServiceModel>(this._mapper)
+                .ToList();
+
         public IEnumerable<NewRestaurantCardViewModel> NewRestaurants()
             => this._data
                 .Restaurants

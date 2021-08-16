@@ -31,6 +31,8 @@ namespace WeLoveFood.Services.Restaurants
 
         IEnumerable<RestaurantCardServiceModel> Favorite(string userId);
 
+        IEnumerable<RestaurantCardServiceModel> Managers(string userId);
+
         IEnumerable<NewRestaurantCardViewModel> NewRestaurants();
     }
 }

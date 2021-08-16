@@ -25,6 +25,8 @@
                 <div class="header-link-btn-container">
                     <a asp-area="" asp-controller="Cities" asp-action="All" class="header-link-btn"><span>Всички градове</span></a>
                 </div>
+
+                <span class="border"></span>
             }
 
             @if (!SignInManager.IsSignedIn(User))
@@ -43,11 +45,10 @@
                     <div class="header-link-btn-container">
                         <a asp-area="Admin" asp-controller="Restaurants" asp-action="New" class="header-link-btn"><span>Нови ресторанти</span></a>
                     </div>
+
                 }
                 else if (!User.IsManager())
                 {
-                    <span class="border"></span>
-
                     <div class="header-link-btn-container">
                         <a asp-area="" asp-controller="Users" asp-action="PersonalData" class="header-link-btn"><span>Профил</span></a>
                     </div>

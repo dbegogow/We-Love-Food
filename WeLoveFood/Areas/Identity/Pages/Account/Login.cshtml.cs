@@ -5,10 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using WeLoveFood.Infrastructure.Extensions;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Areas.Identity.Pages.Account.Constants.RedirectionPaths;
 using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
 namespace WeLoveFood.Areas.Identity.Pages.Account
@@ -59,20 +57,17 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            returnUrl ??= Url.Content("~/");
+
             if (ModelState.IsValid)
             {
                 var result = await this._signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
-                    if (User.IsManager())
-                    {
-                        return LocalRedirect(PersonalDataPagePath);
-                    }
-
-                    return LocalRedirect(HomePagePath);
+                    return LocalRedirect(returnUrl);
                 }
                 if (result.IsLockedOut)
                 {

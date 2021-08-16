@@ -11,7 +11,6 @@ using System.ComponentModel.DataAnnotations;
 
 using static WeLoveFood.WebConstants;
 using static WeLoveFood.Data.DataConstants.User;
-using static WeLoveFood.Areas.Identity.Pages.Account.Constants.RedirectionPaths;
 using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
 namespace WeLoveFood.Areas.Identity.Pages.Account
@@ -68,8 +67,10 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            returnUrl ??= Url.Content("~/");
+
             if (ModelState.IsValid)
             {
                 var user = new User
@@ -86,18 +87,15 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                     {
                         this._managers.CreateManager(user.Id);
                         await _userManager.AddToRoleAsync(user, ManagerRoleName);
-
-                        await this._signInManager.SignInAsync(user, isPersistent: false);
-
-                        return LocalRedirect(PersonalDataPagePath);
+                    }
+                    else
+                    {
+                        this._clients.CreateClient(user.Id);
+                        await _userManager.AddToRoleAsync(user, ClientRoleName);
                     }
 
-                    this._clients.CreateClient(user.Id);
-                    await _userManager.AddToRoleAsync(user, ClientRoleName);
-
                     await this._signInManager.SignInAsync(user, isPersistent: false);
-
-                    return LocalRedirect(HomePagePath);
+                    return LocalRedirect(returnUrl);
                 }
 
                 var hasDuplicateUserNameInvalid = result

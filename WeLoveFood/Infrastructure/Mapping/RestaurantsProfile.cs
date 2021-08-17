@@ -10,12 +10,16 @@ namespace WeLoveFood.Infrastructure.Mapping
     {
         public RestaurantsProfile()
         {
+            this.CreateMap<Restaurant, EditRestaurantServiceModel>();
+
             this.CreateMap<Restaurant, ManagersRestaurantServiceModel>();
 
             this.CreateMap<Restaurant, NewRestaurantCardViewModel>()
                 .ForMember(nrc => nrc.MealsCategories,
                     cfg =>
                         cfg.MapFrom(r => r.MealsCategories.Select(mc => mc.Name)));
+
+            this.CreateMap<EditRestaurantServiceModel, RestaurantFormModel>();
         }
     }
 }

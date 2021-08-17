@@ -108,7 +108,7 @@ namespace WeLoveFood.Controllers
             this._orders
                 .MakeOrder(clientId, cartAllPortions.TotalPrice);
 
-            return RedirectToAction(nameof(MadeSuccessfulOrder));
+            return RedirectToAction("MadeSuccessfulOrder");
         }
 
         [Authorize(Roles = ClientRoleName)]

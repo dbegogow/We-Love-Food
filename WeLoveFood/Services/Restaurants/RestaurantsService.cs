@@ -3,11 +3,11 @@ using AutoMapper;
 using System.Linq;
 using WeLoveFood.Data;
 using WeLoveFood.Data.Models;
+using WeLoveFood.Services.Menus;
 using System.Collections.Generic;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Models.Restaurants;
 using AutoMapper.QueryableExtensions;
-using WeLoveFood.Services.Menus;
 using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Services.Restaurants
@@ -171,7 +171,7 @@ namespace WeLoveFood.Services.Restaurants
             };
         }
 
-        public RestaurantServiceModel Info(int id)
+        public RestaurantServiceModel Information(int id)
             => this._data
                 .Restaurants
                 .Where(r => r.Id == id && !r.IsDeleted && r.IsApproved)
@@ -185,6 +185,13 @@ namespace WeLoveFood.Services.Restaurants
                     ClosingTime = r.ClosingTime.ToString(WorkingTimeFormat),
                     IsOpen = IsOpen(r.OpeningTime, r.ClosingTime)
                 })
+                .FirstOrDefault();
+
+        public EditRestaurantServiceModel InformationForEdit(int id, string userId)
+            => this._data
+                .Restaurants
+                .Where(r => r.Id == id && !r.IsDeleted && r.Manager.UserId == userId)
+                .ProjectTo<EditRestaurantServiceModel>(this._mapper)
                 .FirstOrDefault();
 
         public IEnumerable<RestaurantCardServiceModel> Favorite(string userId)

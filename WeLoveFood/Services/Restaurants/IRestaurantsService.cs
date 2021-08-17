@@ -31,7 +31,9 @@ namespace WeLoveFood.Services.Restaurants
             int currentPage,
             int carsPerPage);
 
-        RestaurantServiceModel Info(int id);
+        RestaurantServiceModel Information(int id);
+
+        EditRestaurantServiceModel InformationForEdit(int id, string userId);
 
         IEnumerable<RestaurantCardServiceModel> Favorite(string userId);
 

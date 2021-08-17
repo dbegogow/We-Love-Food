@@ -187,7 +187,7 @@ namespace WeLoveFood.Data.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.CityName", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -674,7 +674,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
                 {
-                    b.HasOne("WeLoveFood.Data.Models.City", "City")
+                    b.HasOne("WeLoveFood.Data.Models.CityName", "CityName")
                         .WithMany("Restaurants")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -686,18 +686,18 @@ namespace WeLoveFood.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("City");
+                    b.Navigation("CityName");
 
                     b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.User", b =>
                 {
-                    b.HasOne("WeLoveFood.Data.Models.City", "City")
+                    b.HasOne("WeLoveFood.Data.Models.CityName", "CityName")
                         .WithMany()
                         .HasForeignKey("CityId");
 
-                    b.Navigation("City");
+                    b.Navigation("CityName");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
@@ -705,7 +705,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Navigation("Portions");
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.CityName", b =>
                 {
                     b.Navigation("Restaurants");
                 });

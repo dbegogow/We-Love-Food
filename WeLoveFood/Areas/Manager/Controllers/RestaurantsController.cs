@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.Managers;
+using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
 using WeLoveFood.Infrastructure.Extensions;
 
@@ -7,13 +9,18 @@ namespace WeLoveFood.Areas.Manager.Controllers
 {
     public class RestaurantsController : ManagerController
     {
+        private readonly IMapper _mapper;
+
         private readonly IManagersService _managers;
         private readonly IRestaurantsService _restaurants;
 
         public RestaurantsController(
+            IMapper mapper,
             IManagersService managers,
             IRestaurantsService restaurants)
         {
+            this._mapper = mapper;
+
             this._managers = managers;
             this._restaurants = restaurants;
         }
@@ -24,6 +31,21 @@ namespace WeLoveFood.Areas.Manager.Controllers
                 .Restaurants(this.User.Id());
 
             return View(restaurants);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var restaurant = this._restaurants
+                .InformationForEdit(id, User.Id());
+
+            if (restaurant == null)
+            {
+                return BadRequest();
+            }
+
+            var restaurantForm = this._mapper.Map<RestaurantFormModel>(restaurant);
+
+            return View(restaurantForm);
         }
 
         public IActionResult Archive(int id)
@@ -39,7 +61,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
             this._restaurants
                 .Archive(id);
 
-            return RedirectToAction(nameof(Mine));
+            return RedirectToAction("Mine");
         }
 
         public IActionResult UnArchive(int id)
@@ -55,7 +77,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
             this._restaurants
                 .UnArchive(id);
 
-            return RedirectToAction(nameof(Mine));
+            return RedirectToAction("Mine");
         }
 
         public IActionResult Delete(int id)
@@ -71,7 +93,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
             this._restaurants
                 .Delete(id);
 
-            return RedirectToAction(nameof(Mine));
+            return RedirectToAction("Mine");
         }
     }
 }

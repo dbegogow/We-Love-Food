@@ -12,7 +12,7 @@ namespace WeLoveFood.Models.Cities
         [Display(Name = NameDisplay)]
         public string Name { get; init; }
 
-        [Required(ErrorMessage = RequiredCityImage)]
+        [Required(ErrorMessage = RequiredCityImg)]
         public IFormFile Img { get; init; }
     }
 }

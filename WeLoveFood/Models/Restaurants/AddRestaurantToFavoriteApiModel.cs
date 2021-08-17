@@ -1,6 +1,6 @@
 ﻿namespace WeLoveFood.Models.Restaurants
 {
-    public class AddToFavoriteApiModel
+    public class AddRestaurantToFavoriteApiModel
     {
         public int Id { get; init; }
     }

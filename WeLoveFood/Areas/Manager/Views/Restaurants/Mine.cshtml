@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RestaurantCardServiceModel>
+﻿@model IEnumerable<ManagersRestaurantServiceModel>
 
 @{
     ViewBag.Title = "Моите ресторанти -";
@@ -21,31 +21,49 @@
                     <a><i class="fas fa-plus"></i> Добави ресторант</a>
                 </div>
 
-                <div class="restaurant">
-                    <div class="card">
-                        <img src="https://passionpassport-1.s3.amazonaws.com/wp-content/uploads/2020/11/05114630/sofia-bulgaria-gem-header.jpg" alt="Restaurant image" />
-                    </div>
+                @foreach (var restaurant in Model)
+                {
+                    <div class="restaurant">
+                        <div class="card">
+                            <img src="~/img/restaurants/@restaurant.CardImgUrl" alt="Restaurant image" />
+                        </div>
 
-                    <div class="info">
-                        <h3>Ресторант 1</h3>
+                        <div class="info">
+                            <h3>@restaurant.Name</h3>
 
-                        <p>Статус: <span class="archived">Архивиран</span></p>
+                            <p>
+                                Статус:
 
-                        <div class="btns">
-                            <form method="post">
-                                <button type="submit" class="archive">Архивирай</button>
-                            </form>
+                                @if (restaurant.IsApproved)
+                                {
+                                    <span class="active">Активен</span>
+                                }
+                                else if (restaurant.IsArchived)
+                                {
+                                    <span class="archived">Архивиран</span>
+                                }
+                                else
+                                {
+                                    <span class="pending">В изчакване</span>
+                                }
+                            </p>
 
-                            <form method="post">
-                                <button class="add">Добави</button>
-                            </form>
-                            
-                            <form method="post">
-                                <button class="delete">Изтрий</button>
-                            </form>
+                            <div class="btns">
+                                <form method="post">
+                                    <button type="submit" class="archive">Архивирай</button>
+                                </form>
+
+                                <form method="post">
+                                    <button class="add">Добави</button>
+                                </form>
+
+                                <form method="post">
+                                    <button class="delete">Изтрий</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
 
             </div>
         </div>

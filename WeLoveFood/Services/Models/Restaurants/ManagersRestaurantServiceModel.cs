@@ -6,6 +6,8 @@
 
         public string Name { get; init; }
 
+        public string CardImgUrl { get; init; }
+
         public bool IsApproved { get; init; }
 
         public bool IsArchived { get; init; }

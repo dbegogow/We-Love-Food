@@ -23,21 +23,21 @@ namespace WeLoveFood.Services.Menus
         public string CategoryName(int mealsCategoryId)
             => this._data
                 .MealsCategories
-                .Where(c => c.Id == mealsCategoryId)
+                .Where(c => c.Id == mealsCategoryId && !c.IsDeleted)
                 .Select(c => c.Name)
                 .FirstOrDefault();
 
         public IEnumerable<CategoryServiceModel> RestaurantCategories(int restaurantId)
             => this._data
                 .MealsCategories
-                .Where(mc => mc.RestaurantId == restaurantId)
+                .Where(mc => mc.RestaurantId == restaurantId && !mc.IsDeleted)
                 .ProjectTo<CategoryServiceModel>(this._mapper)
                 .ToList();
 
         public IEnumerable<MealServiceModel> CategoryMeals(int mealsCategoryId)
             => this._data
                 .Meals
-                .Where(m => m.MealsCategoryId == mealsCategoryId)
+                .Where(m => m.MealsCategoryId == mealsCategoryId && !m.IsDeleted)
                 .ProjectTo<MealServiceModel>(this._mapper)
                 .ToList();
     }

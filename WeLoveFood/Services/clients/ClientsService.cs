@@ -40,7 +40,7 @@ namespace WeLoveFood.Services.clients
             => this._data
                 .Clients
                 .Any(c => c.UserId == userId &&
-                          c.Restaurants.Any(r => r.Id == restaurantId));
+                          c.Restaurants.Any(r => r.Id == restaurantId && !r.IsDeleted));
 
         public Client Client(string userId)
             => this._data

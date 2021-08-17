@@ -41,5 +41,21 @@ namespace WeLoveFood.Areas.Manager.Controllers
 
             return RedirectToAction(nameof(Mine));
         }
+
+        public IActionResult UnArchive(int id)
+        {
+            var hasRestaurant = this._managers
+                .HasRestaurant(this.User.Id(), id);
+
+            if (!hasRestaurant)
+            {
+                return BadRequest();
+            }
+
+            this._restaurants
+                .UnArchive(id);
+
+            return RedirectToAction(nameof(Mine));
+        }
     }
 }

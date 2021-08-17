@@ -7,15 +7,17 @@ namespace WeLoveFood.Services.Restaurants
 {
     public interface IRestaurantsService
     {
-        bool AddToFavorite(int restaurantId, string userId);
-
         bool IsOpen(int id);
 
         bool IsExist(int id);
 
+        bool AddToFavorite(int restaurantId, string userId);
+
         void Approve(int id);
 
         void Archive(int id);
+
+        void UnArchive(int id);
 
         decimal DeliveryFee(int id);
 

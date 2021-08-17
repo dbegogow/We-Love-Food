@@ -32,6 +32,8 @@ namespace WeLoveFood.Data.Models
 
         public bool IsArchived { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public int CityId { get; set; }
 
         public City City { get; set; }

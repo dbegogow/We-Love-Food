@@ -53,7 +53,7 @@
                             <div class="btns">
                                 @if (restaurant.IsArchived)
                                 {
-                                    <a class="add">Добави</a>
+                                    <a asp-controller="Restaurants" asp-action="UnArchive" asp-route-id="@restaurant.Id" class="add">Добави</a>
                                 }
                                 else
                                 {

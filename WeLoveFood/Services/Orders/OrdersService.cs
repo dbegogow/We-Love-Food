@@ -166,6 +166,6 @@ namespace WeLoveFood.Services.Orders
             int restaurantId)
             => this._data
                 .Meals
-                .Any(m => m.Id == mealId && m.MealsCategory.Restaurant.Id == restaurantId);
+                .Any(m => m.Id == mealId && !m.IsDeleted && m.MealsCategory.Restaurant.Id == restaurantId);
     }
 }

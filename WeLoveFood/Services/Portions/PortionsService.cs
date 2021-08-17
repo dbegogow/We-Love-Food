@@ -117,7 +117,7 @@ namespace WeLoveFood.Services.Portions
             => this._data
                 .Carts
                 .Where(c => c.ClientId == clientId)
-                .Select(c => c.Portions.Count())
+                .Select(c => c.Portions.Count)
                 .FirstOrDefault();
 
         private Portion GetPortion(int portionId, string clientId)

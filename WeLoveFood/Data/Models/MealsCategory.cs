@@ -13,6 +13,8 @@ namespace WeLoveFood.Data.Models
         [MaxLength(NameMaxLength)]
         public string Name { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public int RestaurantId { get; set; }
 
         public Restaurant Restaurant { get; set; }

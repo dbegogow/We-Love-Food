@@ -31,6 +31,18 @@ namespace WeLoveFood.Services.Restaurants
             _clients = clients;
         }
 
+        public bool IsOpen(int id)
+            => this._data
+                .Restaurants
+                .Where(r => r.Id == id && !r.IsDeleted && r.IsApproved)
+                .Select(r => IsOpen(r.OpeningTime, r.ClosingTime))
+                .FirstOrDefault();
+
+        public bool IsExist(int id)
+            => this._data
+                .Restaurants
+                .Any(r => r.Id == id && !r.IsDeleted);
+
         public bool AddToFavorite(int restaurantId, string userId)
         {
             var clientHasRestaurant = this._clients
@@ -55,18 +67,6 @@ namespace WeLoveFood.Services.Restaurants
             return true;
         }
 
-        public bool IsOpen(int id)
-            => this._data
-                .Restaurants
-                .Where(r => r.Id == id && r.IsApproved)
-                .Select(r => IsOpen(r.OpeningTime, r.ClosingTime))
-                .FirstOrDefault();
-
-        public bool IsExist(int id)
-            => this._data
-                .Restaurants
-                .Any(r => r.Id == id && r.IsApproved);
-
         public void Approve(int id)
         {
             var restaurant = this.FindRestaurant(id);
@@ -86,17 +86,26 @@ namespace WeLoveFood.Services.Restaurants
             this._data.SaveChanges();
         }
 
+        public void UnArchive(int id)
+        {
+            var restaurant = this.FindRestaurant(id);
+
+            restaurant.IsArchived = false;
+
+            this._data.SaveChanges();
+        }
+
         public decimal DeliveryFee(int id)
             => this._data
                 .Restaurants
-                .Where(r => r.Id == id && r.IsApproved)
+                .Where(r => r.Id == id && !r.IsDeleted && r.IsApproved)
                 .Select(r => r.DeliveryFee ?? 0)
                 .FirstOrDefault();
 
         public Restaurant Restaurant(int id)
             => this._data
                 .Restaurants
-                .FirstOrDefault(r => r.Id == id && r.IsApproved);
+                .FirstOrDefault(r => r.Id == id && !r.IsDeleted && r.IsApproved);
 
         public AllCityRestaurantsCardsQueryServiceModel AllCityRestaurantsCards(
             int cityId,
@@ -106,7 +115,7 @@ namespace WeLoveFood.Services.Restaurants
         {
             var restaurantsQuery = this._data
                 .Restaurants
-                .Where(r => r.IsApproved && r.CityId == cityId)
+                .Where(r => r.IsApproved && !r.IsDeleted && r.CityId == cityId)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
@@ -143,7 +152,7 @@ namespace WeLoveFood.Services.Restaurants
         public RestaurantServiceModel Info(int id)
             => this._data
                 .Restaurants
-                .Where(r => r.Id == id && r.IsApproved)
+                .Where(r => r.Id == id && !r.IsDeleted && r.IsApproved)
                 .Select(r => new RestaurantServiceModel
                 {
                     Id = r.Id,
@@ -174,7 +183,7 @@ namespace WeLoveFood.Services.Restaurants
         public IEnumerable<NewRestaurantCardViewModel> NewOnes()
             => this._data
                 .Restaurants
-                .Where(r => !r.IsApproved)
+                .Where(r => !r.IsApproved && !r.IsDeleted && !r.IsArchived)
                 .ProjectTo<NewRestaurantCardViewModel>(this._mapper)
                 .ToList();
 
@@ -188,6 +197,6 @@ namespace WeLoveFood.Services.Restaurants
         private Restaurant FindRestaurant(int id)
             => this._data
                 .Restaurants
-                .Find(id);
+                .FirstOrDefault(r => r.Id == id && !r.IsDeleted);
     }
 }

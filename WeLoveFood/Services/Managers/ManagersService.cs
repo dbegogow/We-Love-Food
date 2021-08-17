@@ -35,13 +35,14 @@ namespace WeLoveFood.Services.Managers
         public bool HasRestaurant(string userId, int restaurantId)
             => this._data
                 .Managers
-                .Any(m => m.UserId == userId && m.Restaurants.Any(r => r.Id == restaurantId));
+                .Any(m => m.UserId == userId && m.Restaurants.Any(r => r.Id == restaurantId && !r.IsDeleted));
 
         public IEnumerable<ManagersRestaurantServiceModel> Restaurants(string userId)
             => this._data
                 .Managers
                 .Where(m => m.UserId == userId)
                 .SelectMany(m => m.Restaurants)
+                .Where(r => !r.IsDeleted)
                 .OrderByDescending(r => r.IsApproved)
                 .ThenBy(r => r.IsArchived)
                 .ProjectTo<ManagersRestaurantServiceModel>(this._mapper)

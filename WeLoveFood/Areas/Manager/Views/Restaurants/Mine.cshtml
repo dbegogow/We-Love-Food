@@ -21,83 +21,32 @@
                     <a><i class="fas fa-plus"></i> Добави ресторант</a>
                 </div>
 
-                @foreach (var restaurant in Model)
-                {
-                    <div class="restaurant">
-                        <div class="card">
-                            <img src="https://passionpassport-1.s3.amazonaws.com/wp-content/uploads/2020/11/05114630/sofia-bulgaria-gem-header.jpg" alt="Restaurant image" />
-                        </div>
-
-                        <div class="info">
-                            <h3>Ресторант 1</h3>
-
-                            <p>Статус: <span class="archived">Архивиран</span></p>
-
-                            <div class="btns">
-                                <a class="archive">Архивирай</a>
-                                <a class="add">Добави</a>
-                                <a class="delete">Изтрий</a>
-                            </div>
-                        </div>
+                <div class="restaurant">
+                    <div class="card">
+                        <img src="https://passionpassport-1.s3.amazonaws.com/wp-content/uploads/2020/11/05114630/sofia-bulgaria-gem-header.jpg" alt="Restaurant image" />
                     </div>
 
+                    <div class="info">
+                        <h3>Ресторант 1</h3>
 
-                    <div class="restaurant">
-                        <div class="card">
-                            <img src="https://passionpassport-1.s3.amazonaws.com/wp-content/uploads/2020/11/05114630/sofia-bulgaria-gem-header.jpg" alt="Restaurant image" />
-                        </div>
+                        <p>Статус: <span class="archived">Архивиран</span></p>
 
-                        <div class="info">
-                            <h3>Ресторант 1</h3>
+                        <div class="btns">
+                            <form method="post">
+                                <button type="submit" class="archive">Архивирай</button>
+                            </form>
 
-                            <p>Статус: <span class="archived">Архивиран</span></p>
-
-                            <div class="btns">
-                                <a class="archive">Архивирай</a>
-                                <a class="add">Добави</a>
-                                <a class="delete">Изтрий</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="restaurant">
-                        <div class="card">
-                            <img src="https://passionpassport-1.s3.amazonaws.com/wp-content/uploads/2020/11/05114630/sofia-bulgaria-gem-header.jpg" alt="Restaurant image" />
-                        </div>
-
-                        <div class="info">
-                            <h3>Ресторант 1</h3>
-
-                            <p>Статус: <span class="archived">Архивиран</span></p>
-
-                            <div class="btns">
-                                <a class="archive">Архивирай</a>
-                                <a class="add">Добави</a>
-                                <a class="delete">Изтрий</a>
-                            </div>
+                            <form method="post">
+                                <button class="add">Добави</button>
+                            </form>
+                            
+                            <form method="post">
+                                <button class="delete">Изтрий</button>
+                            </form>
                         </div>
                     </div>
+                </div>
 
-
-                    <div class="restaurant">
-                        <div class="card">
-                            <img src="https://passionpassport-1.s3.amazonaws.com/wp-content/uploads/2020/11/05114630/sofia-bulgaria-gem-header.jpg" alt="Restaurant image" />
-                        </div>
-
-                        <div class="info">
-                            <h3>Ресторант 1</h3>
-
-                            <p>Статус: <span class="archived">Архивиран</span></p>
-
-                            <div class="btns">
-                                <a class="archive">Архивирай</a>
-                                <a class="add">Добави</a>
-                                <a class="delete">Изтрий</a>
-                            </div>
-                        </div>
-                    </div>
-                }
             </div>
         </div>
     </div>

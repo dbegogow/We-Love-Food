@@ -66,13 +66,19 @@
     margin-top: 25px;
 }
 
-.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns a {
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns form {
+    display: inline-block;
+}
+
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns button {
     margin-right: 7px;
     padding: 5px 10px;
     border-radius: 5px;
+    border: none;
+    font-size: 1.1rem;
 }
 
-.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns a:hover {
+.user-profile-page-container .section-container .manager-restaurants .restaurant .info .btns button:hover {
     opacity: 0.8;
     cursor: pointer;
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Models.Restaurants;
 using AutoMapper.QueryableExtensions;
+using WeLoveFood.Services.Menus;
 using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Services.Restaurants
@@ -18,17 +19,20 @@ namespace WeLoveFood.Services.Restaurants
         private readonly WeLoveFoodDbContext _data;
         private readonly IConfigurationProvider _mapper;
 
+        private readonly IMenusService _menus;
         private readonly IClientsService _clients;
 
         public RestaurantsService(
             WeLoveFoodDbContext data,
             IMapper mapper,
+            IMenusService menus,
             IClientsService clients)
         {
             this._data = data;
             this._mapper = mapper.ConfigurationProvider;
 
-            _clients = clients;
+            this._menus = menus;
+            this._clients = clients;
         }
 
         public bool IsOpen(int id)
@@ -93,6 +97,24 @@ namespace WeLoveFood.Services.Restaurants
             restaurant.IsArchived = false;
 
             this._data.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var restaurant = this.FindRestaurant(id);
+
+            restaurant.IsDeleted = true;
+
+            this._data.SaveChanges();
+
+            var mealsCategoriesIds = this._menus
+                .RestaurantMealsCategoriesIds(id);
+
+            foreach (var mealsCategoryId in mealsCategoriesIds)
+            {
+                this._menus
+                    .DeleteMealsCategory(mealsCategoryId);
+            }
         }
 
         public decimal DeliveryFee(int id)

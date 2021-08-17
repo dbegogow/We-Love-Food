@@ -53,14 +53,14 @@
                             <div class="btns">
                                 @if (restaurant.IsArchived)
                                 {
-                                    <a asp-controller="Restaurants" asp-action="UnArchive" asp-route-id="@restaurant.Id" class="add">Добави</a>
+                                    <a asp-area="Manager" asp-controller="Restaurants" asp-action="UnArchive" asp-route-id="@restaurant.Id" class="add">Добави</a>
                                 }
                                 else
                                 {
-                                    <a asp-controller="Restaurants" asp-action="Archive" asp-route-id="@restaurant.Id" class="archive">Архивирай</a>
+                                    <a asp-area="Manager" asp-controller="Restaurants" asp-action="Archive" asp-route-id="@restaurant.Id" class="archive">Архивирай</a>
                                 }
 
-                                <a class="delete">Изтрий</a>
+                                <a asp-area="Manager" asp-controller="Restaurants" asp-action="Delete" asp-route-id="@restaurant.Id" class="delete">Изтрий</a>
                             </div>
                         </div>
                     </div>

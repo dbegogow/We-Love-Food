@@ -19,6 +19,8 @@ namespace WeLoveFood.Services.Restaurants
 
         void UnArchive(int id);
 
+        void Delete(int id);
+
         decimal DeliveryFee(int id);
 
         Restaurant Restaurant(int id);

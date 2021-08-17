@@ -8,6 +8,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
     public class CitiesController : AdminController
     {
         private const string CitiesImagesPath = "img/cities";
+        private const string AllCitiesPagePath = "~/Cities/All";
 
         private readonly ICitiesService _cities;
         private readonly IImagesService _images;
@@ -36,7 +37,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
             this._cities
                 .AddCity(city.Name, uniqueFileName);
 
-            return RedirectToAction("All", "Cities");
+            return LocalRedirect(AllCitiesPagePath);
         }
     }
 }

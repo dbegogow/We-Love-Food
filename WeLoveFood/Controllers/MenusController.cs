@@ -24,13 +24,13 @@ namespace WeLoveFood.Controllers
         public IActionResult Meals(int id, int categoryId = NoCategoryId)
         {
             var allCategories = this._menus
-                .RestaurantCategories(id)
+                .RestaurantMealsCategories(id)
                 .ToList();
 
             categoryId = categoryId == NoCategoryId ? allCategories[0].Id : categoryId;
 
             var meals = this._menus
-                .CategoryMeals(categoryId)
+                .MealsCategory(categoryId)
                 .ToList();
 
             var categoryName = this._menus

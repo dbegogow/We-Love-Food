@@ -7,8 +7,14 @@ namespace WeLoveFood.Services.Menus
     {
         string CategoryName(int mealsCategoryId);
 
-        IEnumerable<CategoryServiceModel> RestaurantCategories(int restaurantId);
+        void DeleteMeal(int mealId);
 
-        IEnumerable<MealServiceModel> CategoryMeals(int mealsCategoryId);
+        void DeleteMealsCategory(int mealsCategoryId);
+
+        IEnumerable<int> RestaurantMealsCategoriesIds(int restaurantId);
+
+        IEnumerable<CategoryServiceModel> RestaurantMealsCategories(int restaurantId);
+
+        IEnumerable<MealServiceModel> MealsCategory(int mealsCategoryId);
     }
 }

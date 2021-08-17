@@ -49,7 +49,7 @@ namespace WeLoveFood.Services.Orders
             string userId)
         {
             var isRestaurantOpen = this._restaurants
-                .IsRestaurantOpen(restaurantId);
+                .IsOpen(restaurantId);
 
             if (!isRestaurantOpen)
             {

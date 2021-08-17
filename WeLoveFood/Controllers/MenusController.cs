@@ -37,7 +37,7 @@ namespace WeLoveFood.Controllers
                 .CategoryName(categoryId);
 
             var restaurant = this._restaurants
-                .RestaurantInfo(id);
+                .Info(id);
 
             return View(new MenuViewModel
             {

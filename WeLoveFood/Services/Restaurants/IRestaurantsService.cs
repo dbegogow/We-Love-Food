@@ -9,13 +9,13 @@ namespace WeLoveFood.Services.Restaurants
     {
         bool AddToFavorite(int restaurantId, string userId);
 
-        bool IsRestaurantOpen(int id);
-        
-        bool IsRestaurantExist(int id);
+        bool IsOpen(int id);
 
-        bool IsApproved(int id);
+        bool IsExist(int id);
 
         void Approve(int id);
+
+        void Archive(int id);
 
         decimal DeliveryFee(int id);
 
@@ -27,12 +27,10 @@ namespace WeLoveFood.Services.Restaurants
             int currentPage,
             int carsPerPage);
 
-        RestaurantServiceModel RestaurantInfo(int id);
+        RestaurantServiceModel Info(int id);
 
         IEnumerable<RestaurantCardServiceModel> Favorite(string userId);
 
-        IEnumerable<ManagersRestaurantServiceModel> Managers(string userId);
-
-        IEnumerable<NewRestaurantCardViewModel> NewRestaurants();
+        IEnumerable<NewRestaurantCardViewModel> NewOnes();
     }
 }

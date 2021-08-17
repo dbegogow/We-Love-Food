@@ -55,29 +55,33 @@ namespace WeLoveFood.Services.Restaurants
             return true;
         }
 
-        public bool IsRestaurantOpen(int id)
+        public bool IsOpen(int id)
             => this._data
                 .Restaurants
                 .Where(r => r.Id == id && r.IsApproved)
                 .Select(r => IsOpen(r.OpeningTime, r.ClosingTime))
                 .FirstOrDefault();
 
-        public bool IsRestaurantExist(int id)
-            => this._data
-                .Restaurants
-                .Any(r => r.Id == id && r.IsApproved);
-
-        public bool IsApproved(int id)
+        public bool IsExist(int id)
             => this._data
                 .Restaurants
                 .Any(r => r.Id == id && r.IsApproved);
 
         public void Approve(int id)
         {
-            this._data
-                .Restaurants
-                .Find(id)
-                .IsApproved = true;
+            var restaurant = this.FindRestaurant(id);
+
+            restaurant.IsApproved = true;
+
+            this._data.SaveChanges();
+        }
+
+        public void Archive(int id)
+        {
+            var restaurant = this.FindRestaurant(id);
+
+            restaurant.IsArchived = true;
+            restaurant.IsApproved = false;
 
             this._data.SaveChanges();
         }
@@ -136,7 +140,7 @@ namespace WeLoveFood.Services.Restaurants
             };
         }
 
-        public RestaurantServiceModel RestaurantInfo(int id)
+        public RestaurantServiceModel Info(int id)
             => this._data
                 .Restaurants
                 .Where(r => r.Id == id && r.IsApproved)
@@ -167,17 +171,7 @@ namespace WeLoveFood.Services.Restaurants
                 })
                 .ToList();
 
-        public IEnumerable<ManagersRestaurantServiceModel> Managers(string userId)
-            => this._data
-                .Managers
-                .Where(m => m.UserId == userId)
-                .SelectMany(m => m.Restaurants)
-                .OrderByDescending(r => r.IsApproved)
-                .ThenBy(r => r.IsArchived)
-                .ProjectTo<ManagersRestaurantServiceModel>(this._mapper)
-                .ToList();
-
-        public IEnumerable<NewRestaurantCardViewModel> NewRestaurants()
+        public IEnumerable<NewRestaurantCardViewModel> NewOnes()
             => this._data
                 .Restaurants
                 .Where(r => !r.IsApproved)
@@ -190,5 +184,10 @@ namespace WeLoveFood.Services.Restaurants
 
             return now > openingTime && now < closingTime;
         }
+
+        private Restaurant FindRestaurant(int id)
+            => this._data
+                .Restaurants
+                .Find(id);
     }
 }

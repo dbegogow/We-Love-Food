@@ -30,7 +30,7 @@
 
                         <div class="info">
                             <h3>@restaurant.Name</h3>
-                            
+
                             <a class="open">Отвори</a>
 
                             <p>
@@ -53,20 +53,14 @@
                             <div class="btns">
                                 @if (restaurant.IsArchived)
                                 {
-                                    <form method="post">
-                                        <button class="add">Добави</button>
-                                    </form>
+                                    <a class="add">Добави</a>
                                 }
                                 else
                                 {
-                                    <form method="post">
-                                        <button type="submit" class="archive">Архивирай</button>
-                                    </form>
+                                    <a asp-controller="Restaurants" asp-action="Archive" asp-route-id="@restaurant.Id" class="archive">Архивирай</a>
                                 }
 
-                                <form method="post">
-                                    <button class="delete">Изтрий</button>
-                                </form>
+                                <a class="delete">Изтрий</a>
                             </div>
                         </div>
                     </div>

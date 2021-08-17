@@ -13,7 +13,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
         public IActionResult New()
         {
             var newRestaurantsCards = this._restaurants
-                .NewRestaurants();
+                .NewOnes();
 
             return View(newRestaurantsCards);
         }
@@ -21,17 +21,9 @@ namespace WeLoveFood.Areas.Admin.Controllers
         public IActionResult Approve(int id)
         {
             var isRestaurantExist = this._restaurants
-                .IsRestaurantExist(id);
+                .IsExist(id);
 
             if (!isRestaurantExist)
-            {
-                return BadRequest();
-            }
-
-            var isRestaurantApproved = this._restaurants
-                .IsApproved(id);
-
-            if (isRestaurantApproved)
             {
                 return BadRequest();
             }

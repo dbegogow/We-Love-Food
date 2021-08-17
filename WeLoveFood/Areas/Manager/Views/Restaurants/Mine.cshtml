@@ -49,13 +49,18 @@
                             </p>
 
                             <div class="btns">
-                                <form method="post">
-                                    <button type="submit" class="archive">Архивирай</button>
-                                </form>
-
-                                <form method="post">
-                                    <button class="add">Добави</button>
-                                </form>
+                                @if (restaurant.IsArchived)
+                                {
+                                    <form method="post">
+                                        <button class="add">Добави</button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form method="post">
+                                        <button type="submit" class="archive">Архивирай</button>
+                                    </form>
+                                }
 
                                 <form method="post">
                                     <button class="delete">Изтрий</button>

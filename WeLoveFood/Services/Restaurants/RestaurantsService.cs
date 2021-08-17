@@ -172,7 +172,8 @@ namespace WeLoveFood.Services.Restaurants
                 .Managers
                 .Where(m => m.UserId == userId)
                 .SelectMany(m => m.Restaurants)
-                .OrderBy(r => r.IsApproved)
+                .OrderByDescending(r => r.IsApproved)
+                .ThenBy(r => r.IsArchived)
                 .ProjectTo<ManagersRestaurantServiceModel>(this._mapper)
                 .ToList();
 

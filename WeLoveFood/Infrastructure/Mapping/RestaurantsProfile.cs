@@ -2,6 +2,7 @@
 using System.Linq;
 using WeLoveFood.Data.Models;
 using WeLoveFood.Models.Restaurants;
+using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Infrastructure.Mapping
 {
@@ -9,6 +10,8 @@ namespace WeLoveFood.Infrastructure.Mapping
     {
         public RestaurantsProfile()
         {
+            this.CreateMap<Restaurant, ManagersRestaurantServiceModel>();
+
             this.CreateMap<Restaurant, NewRestaurantCardViewModel>()
                 .ForMember(nrc => nrc.MealsCategories,
                     cfg =>

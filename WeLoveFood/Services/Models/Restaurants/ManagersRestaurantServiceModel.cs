@@ -1,6 +1,6 @@
 ﻿namespace WeLoveFood.Services.Models.Restaurants
 {
-    public class ManagerRestaurantServiceModel
+    public class ManagersRestaurantServiceModel
     {
         public int Id { get; init; }
 

@@ -73,7 +73,7 @@ namespace WeLoveFood.Controllers
                     cityId,
                     user.Address);
 
-            return RedirectToAction(nameof(PersonalData));
+            return RedirectToAction("PersonalData");
         }
 
         [HttpPost]
@@ -84,7 +84,7 @@ namespace WeLoveFood.Controllers
 
             this._users.UpdateProfileImage(this.User.Id(), uniqueFileName);
 
-            return RedirectToAction(nameof(PersonalData));
+            return RedirectToAction("PersonalData");
         }
     }
 }

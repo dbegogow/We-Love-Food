@@ -4,7 +4,7 @@ using WeLoveFood.Services.Restaurants;
 namespace WeLoveFood.Areas.Admin.Controllers
 {
     public class RestaurantsController : AdminController
-    { 
+    {
         private readonly IRestaurantsService _restaurants;
 
         public RestaurantsController(IRestaurantsService restaurants)

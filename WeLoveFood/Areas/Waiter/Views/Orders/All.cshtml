@@ -11,7 +11,7 @@
 }
 
 <div class="user-profile-page-container">
-    <partial name="~/Areas/Manager/Views/Shared/_SettingsOptionsPartial.cshtml" />
+    <partial name="~/Areas/Waiter/Views/Shared/_SettingsOptionsPartial.cshtml" />
     <div class="main-container">
         <h2>Поръчки</h2>
 
@@ -42,21 +42,17 @@
                             <span class="border"></span>
 
                             <p>Обща сума: <span class="total-price">@order.TotalPrice лв</span></p>
-                            
-                            <span class="border"></span>
-                            
-                            <p class="status">
-                                Статус:
 
-                                @if (order.IsAccepted)
-                                {
-                                    <span class="accepted">приета</span>
-                                }
-                                else
-                                {
-                                    <span class="not-accepted">неприета</span>
-                                }
-                            </p>
+                            <span class="border"></span>
+
+                            @if (order.IsAccepted)
+                            {
+                                <p class="status">Статус: <span class="accepted">приета</span></p>
+                            }
+                            else
+                            {
+                                <a class="accept-btn">Приеми</a>
+                            }
                         </div>
                     </div>
                 }
@@ -68,3 +64,4 @@
         </div>
     </div>
 </div>
+

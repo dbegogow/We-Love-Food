@@ -13,9 +13,10 @@ namespace WeLoveFood.Controllers
             {
                 return RedirectToAction("Mine", "Restaurants", new { area = "Manager" });
             }
-            else if (User.IsWaiter())
+
+            if (User.IsWaiter())
             {
-                return RedirectToAction("Mine", "Orders", new { area = "" });
+                return RedirectToAction("All", "Orders", new { area = "Waiter" });
             }
 
             return View();

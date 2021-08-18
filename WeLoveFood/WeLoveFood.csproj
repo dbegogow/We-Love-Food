@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Waiter\Views\" />
     <Folder Include="wwwroot\img\meals\" />
     <Folder Include="wwwroot\img\cities\" />
     <Folder Include="wwwroot\img\restaurants\" />

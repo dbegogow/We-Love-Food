@@ -111,3 +111,19 @@
 .user-profile-page-container .section-container .orders .order-container p .not-accepted {
     color: #D89A16;
 }
+
+.user-profile-page-container .section-container .orders .order-container .accept-btn {
+    display: inline-block;
+    padding: 5px 15px;
+    background: #398809;
+    color: #FFF;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: none;
+    margin: 10px 0;
+}
+
+.user-profile-page-container .section-container .orders .order-container .accept-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

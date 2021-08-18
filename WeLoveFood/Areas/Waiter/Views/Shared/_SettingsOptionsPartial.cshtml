@@ -1,0 +1,12 @@
+﻿<div class="user-profile-options-container">
+    <a asp-area="Waiter" asp-controller="Orders" asp-action="All" class="option">
+        <i class="fas fa-sort-amount-up-alt"></i>
+        <h4>Поръчки</h4>
+    </a>
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = string.Empty})">
+        <button type="submit" class="option">
+            <i class="fas fa-sign-out-alt"></i>
+            <h4>Изход</h4>
+        </button>
+    </form>
+</div>

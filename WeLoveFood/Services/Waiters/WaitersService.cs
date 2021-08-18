@@ -57,6 +57,13 @@ namespace WeLoveFood.Services.Waiters
 
             this._data.SaveChanges();
         }
+
+        public int RestaurantId(string userId)
+            => this._data
+                .Waiters
+                .Where(w => w.UserId == userId)
+                .Select(w => w.RestaurantId)
+                .FirstOrDefault();
     }
 }
 

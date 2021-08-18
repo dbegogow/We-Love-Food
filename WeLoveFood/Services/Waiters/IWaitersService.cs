@@ -15,5 +15,7 @@ namespace WeLoveFood.Services.Waiters
             int cityId,
             string address,
             string profileImgUrl);
+
+        int RestaurantId(string userId);
     }
 }

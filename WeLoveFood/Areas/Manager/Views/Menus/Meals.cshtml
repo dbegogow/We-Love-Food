@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<ManagerMenuViewModel>
+
+@{
     ViewBag.Title = "Меню -";
 }
 
@@ -19,40 +21,47 @@
                     <a><i class="fas fa-plus"></i> Добави ястие</a>
                     <a><i class="fas fa-plus"></i> Добави категория</a>
                 </div>
-                
+
                 <div class="categories">
-                    <div class="category">
-                        <h3>Салати</h3>
+                    @foreach (var mealsCategory in Model)
+                    {
+                        <div class="category">
+                            <h3>@mealsCategory.MealsCategory.Name</h3>
 
-                        <div class="btns">
-                            <a class="edit">Промени</a>
-                            <a class="delete">Изтрий</a>
-                        </div>
-                        
-                        <div class="meals">
-                            <div class="meal">
-                                <div class="card">
-                                    <img src="https://i.ytimg.com/vi/dgiX4iQLGDU/maxresdefault.jpg" alt="Meal image" />
-                                </div>
+                            <div class="btns">
+                                <a class="edit">Промени</a>
+                                <a class="delete">Изтрий</a>
+                            </div>
 
-                                <div class="info">
-                                    <h3>Салата Цезар</h3>
+                            <div class="meals">
+                                @foreach (var meal in mealsCategory.Meals)
+                                {
+                                    <div class="meal">
+                                        <div class="card">
+                                            <img src="~/img/meals/@meal.ImgUrl" alt="Meal image" />
+                                        </div>
 
-                                    <p>
-                                        цалата айцберг, пилешко филе, сос
-                                    </p>
-                                    
-                                    <p class="price">
-                                        Цена: <span>8.99 лв.</span>
-                                    </p>
+                                        <div class="info">
+                                            <h3>@meal.Name <span>(@meal.Weight гр.)</span></h3>
 
-                                    <div class="btns">
-                                        <a class="edit">Промени</a>
-                                        <a class="delete">Изтрий</a>
+                                            <p>
+                                                @meal.Description
+                                            </p>
+
+                                            <p class="price">
+                                                Цена: <span>@meal.Price лв.</span>
+                                            </p>
+
+                                            <div class="btns">
+                                                <a class="edit">Промени</a>
+                                                <a class="delete">Изтрий</a>
+                                            </div>
+                                        </div>
                                     </div>
+                                }
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>

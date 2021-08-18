@@ -3,7 +3,7 @@
         <i class="fas fa-edit"></i>
         <h4>Промени</h4>
     </a>
-    <a asp-area="" asp-controller="" asp-action="" class="option">
+    <a asp-area="Manager" asp-controller="Menus" asp-action="Meals" asp-route-id="@ViewBag.RestaurantId" class="option">
         <i class="fas fa-utensils"></i>
         <h4>Меню</h4>
     </a>
@@ -12,7 +12,7 @@
         <h4>Сервитьори</h4>
     </a>
     <a asp-area="Manager" asp-controller="Restaurants" asp-action="Mine" class="option">
-        <i class="fas fa-utensils"></i>
+        <i class="fas fa-industry"></i>
         <h4>Моите ресторанти</h4>
     </a>
 </div>

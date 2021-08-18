@@ -53,8 +53,7 @@
                                             </p>
 
                                             <div class="btns">
-                                                <a asp-route-id="@meal.Id" class="edit">Промени</a>
-                                                <a asp-route-id="@meal.Id" class="delete">Изтрий</a>
+                                                <a asp-area="Manager" asp-controller="Menus" asp-action="DeleteMeal" asp-route-id="@ViewBag.RestaurantId" asp-route-mealId="@meal.Id" asp-route-mealsCategoryId="@mealsCategory.MealsCategory.Id" class="delete">Изтрий</a>
                                             </div>
                                         </div>
                                     </div>

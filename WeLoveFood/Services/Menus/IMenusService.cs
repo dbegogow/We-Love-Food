@@ -5,7 +5,9 @@ namespace WeLoveFood.Services.Menus
 {
     public interface IMenusService
     {
-        bool IsExistInRestaurant(string name, int restaurantId);
+        bool IsMealsCategoryExistInRestaurant(string name, int restaurantId);
+
+        bool IsMealExistInMealsCategory(int mealId, int mealsCategoryId);
 
         string CategoryName(int mealsCategoryId);
 

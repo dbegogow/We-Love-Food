@@ -21,10 +21,15 @@ namespace WeLoveFood.Services.Menus
             _mapper = mapper.ConfigurationProvider;
         }
 
-        public bool IsExistInRestaurant(string name, int restaurantId)
+        public bool IsMealsCategoryExistInRestaurant(string name, int restaurantId)
             => this._data
                 .MealsCategories
-                .Any(mc => mc.Name == name && mc.RestaurantId == restaurantId);
+                .Any(mc => mc.Name == name && mc.RestaurantId == restaurantId && !mc.IsDeleted);
+
+        public bool IsMealExistInMealsCategory(int mealId, int mealsCategoryId)
+            => this._data
+                .Meals
+                .Any(m => m.Id == mealId && m.MealsCategoryId == mealsCategoryId && !m.IsDeleted);
 
         public string CategoryName(int mealsCategoryId)
             => this._data

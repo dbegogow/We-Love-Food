@@ -71,7 +71,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
             }
 
             var isExist = this._menus
-                .IsExistInRestaurant(mealsCategory.Name, id);
+                .IsMealsCategoryExistInRestaurant(mealsCategory.Name, id);
 
             if (isExist)
             {
@@ -117,7 +117,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
             }
 
             var isExist = this._menus
-                .IsExistInRestaurant(mealsCategory.Name, id);
+                .IsMealsCategoryExistInRestaurant(mealsCategory.Name, id);
 
             if (isExist)
             {
@@ -149,7 +149,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
                 .CategoryName(mealsCategoryId);
 
             var isExist = this._menus
-                .IsExistInRestaurant(mealsCategoryName, id);
+                .IsMealsCategoryExistInRestaurant(mealsCategoryName, id);
 
             if (!isExist)
             {
@@ -158,6 +158,33 @@ namespace WeLoveFood.Areas.Manager.Controllers
 
             this._menus
                 .DeleteMealsCategory(mealsCategoryId);
+
+            return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
+        }
+
+        public IActionResult DeleteMeal(
+            int id,
+            int mealId,
+            int mealsCategoryId)
+        {
+            var hasRestaurant = this._managers
+                .HasRestaurant(User.Id(), id);
+
+            if (!hasRestaurant)
+            {
+                return BadRequest();
+            }
+
+            var isMealExistInMealsCategory = this._menus
+                .IsMealExistInMealsCategory(mealId, mealsCategoryId);
+
+            if (!isMealExistInMealsCategory)
+            {
+                return BadRequest();
+            }
+
+            this._menus
+                .DeleteMeal(mealId);
 
             return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }

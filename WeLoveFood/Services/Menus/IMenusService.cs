@@ -9,6 +9,8 @@ namespace WeLoveFood.Services.Menus
 
         bool IsMealExistInMealsCategory(int mealId, int mealsCategoryId);
 
+        int MealsCategoryId(string mealsCategoryName, int restaurantId);
+
         string CategoryName(int mealsCategoryId);
 
         void DeleteMeal(int mealId);
@@ -18,9 +20,17 @@ namespace WeLoveFood.Services.Menus
         void AddMealsCategory(int restaurantId, string name);
 
         void EditMealsCategory(
-            int restaurantId, 
+            int restaurantId,
             int mealsCategoryId,
             string name);
+
+        void AddMeal(
+            string name,
+            int weight,
+            string description,
+            string imgUrl,
+            decimal price,
+            int mealsCategoryId);
 
         IEnumerable<int> RestaurantMealsCategoriesIds(int restaurantId);
 

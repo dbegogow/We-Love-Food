@@ -18,7 +18,7 @@
         <div class="section-container">
             <div class="manager-meals-container">
                 <div class="add-btns">
-                    <a><i class="fas fa-plus"></i> Добави ястие</a>
+                    <a asp-area="Manager" asp-controller="Menus" asp-action="AddMeal" asp-route-id="@ViewBag.RestaurantId"><i class="fas fa-plus"></i> Добави ястие</a>
                     <a asp-area="Manager" asp-controller="Menus" asp-action="AddMealsCategory" asp-route-id="@ViewBag.RestaurantId"><i class="fas fa-plus"></i> Добави категория</a>
                 </div>
 

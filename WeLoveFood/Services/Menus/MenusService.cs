@@ -31,6 +31,13 @@ namespace WeLoveFood.Services.Menus
                 .Meals
                 .Any(m => m.Id == mealId && m.MealsCategoryId == mealsCategoryId && !m.IsDeleted);
 
+        public int MealsCategoryId(string mealsCategoryName, int restaurantId)
+            => this._data
+                .MealsCategories
+                .Where(mc => mc.Name == mealsCategoryName && mc.RestaurantId == restaurantId)
+                .Select(mc => mc.Id)
+                .FirstOrDefault();
+
         public string CategoryName(int mealsCategoryId)
             => this._data
                 .MealsCategories
@@ -86,6 +93,31 @@ namespace WeLoveFood.Services.Menus
             var mealsCategory = this.FindMealsCategory(mealsCategoryId);
 
             mealsCategory.Name = name;
+
+            this._data.SaveChanges();
+        }
+
+        public void AddMeal(
+            string name,
+            int weight,
+            string description,
+            string imgUrl,
+            decimal price,
+            int mealsCategoryId)
+        {
+            var meal = new Meal
+            {
+                Name = name,
+                Weight = weight,
+                Description = description,
+                ImgUrl = imgUrl,
+                Price = price,
+                MealsCategoryId = mealsCategoryId
+            };
+
+            this._data
+                .Meals
+                .Add(meal);
 
             this._data.SaveChanges();
         }

@@ -3,6 +3,7 @@ using WeLoveFood.Models.Menus;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.Menus;
 using System.Collections.Generic;
+using WeLoveFood.Services.Images;
 using WeLoveFood.Services.Managers;
 using WeLoveFood.Infrastructure.Extensions;
 
@@ -12,14 +13,20 @@ namespace WeLoveFood.Areas.Manager.Controllers
 {
     public class MenusController : ManagerController
     {
+        private const int InvalidMealsCategory = 0;
+        private const string MealsImagesPath = "img/meals";
+
         private readonly IMenusService _menus;
+        private readonly IImagesService _images;
         private readonly IManagersService _managers;
 
         public MenusController(
             IMenusService menus,
+            IImagesService images,
             IManagersService managers)
         {
             this._menus = menus;
+            this._images = images;
             this._managers = managers;
         }
 
@@ -54,6 +61,47 @@ namespace WeLoveFood.Areas.Manager.Controllers
             ViewBag.RestaurantId = id;
 
             return View(menu);
+        }
+
+        public IActionResult AddMeal()
+            => View();
+
+        [HttpPost]
+        public IActionResult AddMeal(int id, AddMealFormModel meal)
+        {
+            var hasRestaurant = this._managers
+                .HasRestaurant(User.Id(), id);
+
+            if (!hasRestaurant)
+            {
+                return BadRequest();
+            }
+
+            var mealsCategoryId = this._menus
+                .MealsCategoryId(meal.MealsCategory, id);
+
+            if (mealsCategoryId == InvalidMealsCategory)
+            {
+                ModelState.AddModelError("#", MealsCategoryNotExist);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(meal);
+            }
+
+            string uniqueFileName = this._images.UploadImage(meal.Img, MealsImagesPath);
+
+            this._menus
+                .AddMeal(
+                    meal.Name,
+                    meal.Weight,
+                    meal.Description,
+                    uniqueFileName,
+                    meal.Price,
+                    mealsCategoryId);
+
+            return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }
 
         public IActionResult AddMealsCategory()

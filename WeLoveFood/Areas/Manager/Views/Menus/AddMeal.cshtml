@@ -1,0 +1,68 @@
+﻿@model AddMealFormModel
+
+@{
+    ViewBag.Title = "Добави ястие -";
+}
+
+@section AddFormStyles {
+    <link href="~/css/shared/form.css" rel="stylesheet" />
+}
+
+<div class="form-page">
+    <div class="main-form-container">
+        <div class="form-container">
+            <div class="form">
+                <h2>Добави ястие</h2>
+
+                <div class="validation-summary">
+                    <ul>
+                        @foreach (var error in ViewData.ModelState.ModelStateErrorMessages())
+                        {
+                            <li>@error</li>
+                        }
+                    </ul>
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    <div>
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" />
+                    </div>
+                    <span asp-validation-for="Name" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="Weight"></label>
+                        <input asp-for="Weight" />
+                    </div>
+                    <span asp-validation-for="Weight" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" />
+                    </div>
+                    <span asp-validation-for="Description" class="validation-message"></span>
+
+                    <div class="upload">
+                        <label asp-for="Img"></label>
+                        <input asp-for="Img" />
+                    </div>
+                    <span asp-validation-for="Img" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="Price"></label>
+                        <input asp-for="Price" />
+                    </div>
+                    <span asp-validation-for="Price" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="MealsCategory"></label>
+                        <input asp-for="MealsCategory" />
+                    </div>
+                    <span asp-validation-for="MealsCategory" class="validation-message"></span>
+
+                    <button type="submit">Добави</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

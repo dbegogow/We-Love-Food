@@ -19,6 +19,28 @@ namespace WeLoveFood.Services.Restaurants
 
         void UnArchive(int id);
 
+        void Add(
+            string managerId,
+            string name,
+            string cardImgUrl,
+            string mainImgUrl,
+            decimal deliveryFee,
+            string openingTime,
+            string closingTime,
+            int cityId);
+
+        void Edit(
+            int id,
+            string name,
+            decimal? deliveryFee,
+            string openingTime,
+            string closingTime,
+            int cityId);
+
+        void EditCardImg(int id, string cardImgUrl);
+
+        void EditMainImg(int id, string mainImgUrl);
+
         void Delete(int id);
 
         decimal DeliveryFee(int id);
@@ -33,7 +55,7 @@ namespace WeLoveFood.Services.Restaurants
 
         RestaurantServiceModel Information(int id);
 
-        EditRestaurantServiceModel InformationForEdit(int id, string userId);
+        EditRestaurantServiceModel InformationForEdit(int id);
 
         IEnumerable<RestaurantCardServiceModel> Favorite(string userId);
 

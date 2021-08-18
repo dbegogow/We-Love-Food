@@ -9,6 +9,8 @@ namespace WeLoveFood.Services.Managers
 
         bool HasRestaurant(string userId, int restaurantId);
 
+        string ManagerId(string userId);
+
         IEnumerable<ManagersRestaurantServiceModel> Restaurants(string userId);
     }
 }

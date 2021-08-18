@@ -7,7 +7,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
 {
     public class CitiesController : AdminController
     {
-        private const string CitiesImagesPath = "img/cities";
+        private const string CitiesImagesPath = "~/img/cities";
 
         private readonly ICitiesService _cities;
         private readonly IImagesService _images;

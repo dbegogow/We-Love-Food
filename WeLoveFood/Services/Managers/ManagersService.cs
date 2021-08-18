@@ -37,6 +37,13 @@ namespace WeLoveFood.Services.Managers
                 .Managers
                 .Any(m => m.UserId == userId && m.Restaurants.Any(r => r.Id == restaurantId && !r.IsDeleted));
 
+        public string ManagerId(string userId)
+            => this._data
+                .Managers
+                .Where(m => m.UserId == userId)
+                .Select(m => m.Id)
+                .FirstOrDefault();
+
         public IEnumerable<ManagersRestaurantServiceModel> Restaurants(string userId)
             => this._data
                 .Managers

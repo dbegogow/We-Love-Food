@@ -399,7 +399,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("MainImgUrl")
+                    b.Property<string>("MainImg")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

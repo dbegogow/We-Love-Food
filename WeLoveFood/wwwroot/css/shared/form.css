@@ -1,7 +1,10 @@
-﻿.add-form-container .form-container {
+﻿.form-page {
+    padding-top: 15vh;
+    padding-bottom: 7vh;
+}
+
+.main-form-container .form-container {
     padding: 30px 50px;
-    position: relative;
-    top: 14vh;
     width: 35vw;
     margin: 0 auto;
     border: 2px solid #C3C3C3;
@@ -9,20 +12,20 @@
     background: #FFF;
 }
 
-.add-form-container .form-container h2 {
+.main-form-container .form-container h2 {
     text-align: center;
     font-family: cursive;
     color: #23A829;
     margin-bottom: 0;
 }
 
-.add-form-container .form-container form div {
+.main-form-container .form-container form div {
     display: flex;
     flex-direction: column;
     margin-top: 25px;
 }
 
-.add-form-container .form-container form input {
+.main-form-container .form-container form input {
     width: 100%;
     margin-left: 7px;
     outline: none;
@@ -32,13 +35,13 @@
     background: #F7F7F7;
 }
 
-.add-form-container .form-container form label {
+.main-form-container .form-container form label {
     margin-left: 10px;
     margin-bottom: 7px;
     font-family: 'Open Sans', sans-serif;
 }
 
-.add-form-container .form-container form button {
+.main-form-container .form-container form button {
     display: block;
     margin: 20px auto;
     margin-top: 40px;
@@ -52,24 +55,24 @@
     font-weight: 700;
 }
 
-.add-form-container .form-container form button:hover {
+.main-form-container .form-container form button:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
-.add-form-container .form-container .form div {
+.main-form-container .form-container .form div {
     font-size: 1.07rem;
 }
 
-.add-form-container .form-container .form div p {
+.main-form-container .form-container .form div p {
     margin-bottom: 5px;
 }
 
-.add-form-container .form-container form .upload {
+.main-form-container .form-container form .upload {
     flex-direction: row;
 }
 
-.add-form-container .form-container .form .upload label {
+.main-form-container .form-container .form .upload label {
     display: inline-block;
     margin-top: 20px;
     padding: 7px 20px;
@@ -81,31 +84,32 @@
     margin-left: 10px;
 }
 
-.add-form-container .form-container .form .upload label:hover {
+.main-form-container .form-container .form .upload label:hover {
     opacity: 0.9;
     cursor: pointer;
 }
 
-.add-form-container .form-container .form .upload input {
+.main-form-container .form-container .form .upload input,
+.main-form-container .form-container .form .hidden {
     display: none;
 }
 
 @media (max-width: 1024px) {
-    .add-form-container .form-container {
+    .main-form-container .form-container {
         top: 13vh;
         width: 80vw;
         font-size: 0.9rem;
     }
     
-    .add-form-container .form-container .form {
+    .main-form-container .form-container .form {
         padding-bottom: 2vh;
     }
 
-    .add-form-container .form-container .form div {
+    .main-form-container .form-container .form div {
         font-size: 0.9rem;
     }
     
-    .add-form-container .form-container form button {
+    .main-form-container .form-container form button {
         font-size: 1rem;
     }
 }

@@ -6,6 +6,7 @@ using WeLoveFood.Data.Models;
 using WeLoveFood.Services.Menus;
 using System.Collections.Generic;
 using WeLoveFood.Services.clients;
+using WeLoveFood.Services.Managers;
 using WeLoveFood.Models.Restaurants;
 using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.Models.Restaurants;
@@ -21,18 +22,21 @@ namespace WeLoveFood.Services.Restaurants
 
         private readonly IMenusService _menus;
         private readonly IClientsService _clients;
+        private readonly IManagersService _managers;
 
         public RestaurantsService(
             WeLoveFoodDbContext data,
             IMapper mapper,
             IMenusService menus,
-            IClientsService clients)
+            IClientsService clients,
+            IManagersService managers)
         {
             this._data = data;
             this._mapper = mapper.ConfigurationProvider;
 
             this._menus = menus;
             this._clients = clients;
+            this._managers = managers;
         }
 
         public bool IsOpen(int id)
@@ -95,6 +99,75 @@ namespace WeLoveFood.Services.Restaurants
             var restaurant = this.FindRestaurant(id);
 
             restaurant.IsArchived = false;
+
+            this._data.SaveChanges();
+        }
+
+        public void Add(
+            string userId,
+            string name,
+            string cardImgUrl,
+            string mainImgUrl,
+            decimal deliveryFee,
+            string openingTime,
+            string closingTime,
+            int cityId)
+        {
+            var managerId = this._managers
+                .ManagerId(userId);
+
+            var restaurant = new Restaurant
+            {
+                ManagerId = managerId,
+                Name = name,
+                CardImgUrl = cardImgUrl,
+                MainImgUrl = mainImgUrl,
+                DeliveryFee = deliveryFee,
+                OpeningTime = TimeSpan.Parse(openingTime),
+                ClosingTime = TimeSpan.Parse(closingTime),
+                CityId = cityId
+            };
+
+            this._data
+                .Restaurants
+                .Add(restaurant);
+
+            this._data.SaveChanges();
+        }
+
+        public void Edit(
+            int id,
+            string name,
+            decimal? deliveryFee,
+            string openingTime,
+            string closingTime,
+            int cityId)
+        {
+            var restaurant = this.FindRestaurant(id);
+
+            restaurant.Name = name;
+            restaurant.DeliveryFee = deliveryFee;
+            restaurant.OpeningTime = TimeSpan.Parse(openingTime);
+            restaurant.ClosingTime = TimeSpan.Parse(closingTime);
+            restaurant.CityId = cityId;
+
+            this._data.SaveChanges();
+        }
+
+        public void EditCardImg(int id, string cardImgUrl)
+        {
+            var restaurant = this.FindRestaurant(id);
+
+            restaurant.CardImgUrl = cardImgUrl;
+
+            this._data.SaveChanges();
+        }
+
+        public void EditMainImg(int id, string mainImgUrl)
+        {
+            var restaurant = this.FindRestaurant(id);
+
+            restaurant.MainImgUrl = mainImgUrl;
 
             this._data.SaveChanges();
         }
@@ -187,10 +260,10 @@ namespace WeLoveFood.Services.Restaurants
                 })
                 .FirstOrDefault();
 
-        public EditRestaurantServiceModel InformationForEdit(int id, string userId)
+        public EditRestaurantServiceModel InformationForEdit(int id)
             => this._data
                 .Restaurants
-                .Where(r => r.Id == id && !r.IsDeleted && r.Manager.UserId == userId)
+                .Where(r => r.Id == id && !r.IsDeleted)
                 .ProjectTo<EditRestaurantServiceModel>(this._mapper)
                 .FirstOrDefault();
 

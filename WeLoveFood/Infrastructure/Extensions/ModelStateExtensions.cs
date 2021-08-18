@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace WeLoveFood.Areas.Identity.Pages.Account.Infrastructure
+namespace WeLoveFood.Infrastructure.Extensions
 {
     public static class ModelStateExtensions
     {

@@ -73,6 +73,18 @@ namespace WeLoveFood.Services.Menus
             this._data.SaveChanges();
         }
 
+        public void EditMealsCategory(
+            int restaurantId,
+            int mealsCategoryId,
+            string name)
+        {
+            var mealsCategory = this.FindMealsCategory(mealsCategoryId);
+
+            mealsCategory.Name = name;
+
+            this._data.SaveChanges();
+        }
+
         public IEnumerable<int> RestaurantMealsCategoriesIds(int restaurantId)
             => this._data
                 .MealsCategories

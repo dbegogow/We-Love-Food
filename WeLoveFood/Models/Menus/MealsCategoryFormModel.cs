@@ -5,7 +5,7 @@ using static WeLoveFood.Models.Constants.Menus.ExceptionMessages;
 
 namespace WeLoveFood.Models.Menus
 {
-    public class AddMealsCategoryFormModel
+    public class MealsCategoryFormModel
     {
         [Required(ErrorMessage = RequiredMealsCategoryName)]
         [StringLength(NameMaxLength, ErrorMessage = InvalidMealsCategoryName, MinimumLength = NameMinLength)]

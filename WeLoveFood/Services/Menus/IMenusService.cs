@@ -15,6 +15,11 @@ namespace WeLoveFood.Services.Menus
 
         void AddMealsCategory(int restaurantId, string name);
 
+        void EditMealsCategory(
+            int restaurantId, 
+            int mealsCategoryId,
+            string name);
+
         IEnumerable<int> RestaurantMealsCategoriesIds(int restaurantId);
 
         IEnumerable<CategoryServiceModel> RestaurantMealsCategories(int restaurantId);

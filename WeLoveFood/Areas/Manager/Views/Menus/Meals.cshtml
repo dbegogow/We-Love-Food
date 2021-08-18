@@ -29,8 +29,8 @@
                             <h3>@mealsCategory.MealsCategory.Name</h3>
 
                             <div class="btns">
-                                <a asp-route-id="@mealsCategory.MealsCategory.Id" class="edit">Промени</a>
-                                <a asp-route-id="@mealsCategory.MealsCategory.Id" class="delete">Изтрий</a>
+                                <a asp-area="Manager" asp-controller="Menus" asp-action="EditMealsCategory" asp-route-id="@ViewBag.RestaurantId" asp-route-mealsCategoryId="@mealsCategory.MealsCategory.Id" class="edit">Промени</a>
+                                <a asp-area="Manager" asp-controller="Menus" asp-action="DeleteMealsCategory" asp-route-id="@ViewBag.RestaurantId" asp-route-mealsCategoryId="@mealsCategory.MealsCategory.Id" class="delete">Изтрий</a>
                             </div>
 
                             <div class="meals">

@@ -2,9 +2,10 @@
     ViewBag.Title = "Меню -";
 }
 
-@section ManagerRestaurantsStyles {
+@section ManagerMenuStyles {
     <link href="~/css/users/pageContainer.css" rel="stylesheet" />
     <link href="~/css/users/options.css" rel="stylesheet" />
+    <link href="~/css/menus/manager.css" rel="stylesheet" />
 }
 
 <div class="user-profile-page-container">
@@ -13,7 +14,47 @@
         <h2>Меню</h2>
 
         <div class="section-container">
+            <div class="manager-meals-container">
+                <div class="add-btns">
+                    <a><i class="fas fa-plus"></i> Добави ястие</a>
+                    <a><i class="fas fa-plus"></i> Добави категория</a>
+                </div>
+                
+                <div class="categories">
+                    <div class="category">
+                        <h3>Салати</h3>
 
+                        <div class="btns">
+                            <a class="edit">Промени</a>
+                            <a class="delete">Изтрий</a>
+                        </div>
+                        
+                        <div class="meals">
+                            <div class="meal">
+                                <div class="card">
+                                    <img src="https://i.ytimg.com/vi/dgiX4iQLGDU/maxresdefault.jpg" alt="Meal image" />
+                                </div>
+
+                                <div class="info">
+                                    <h3>Салата Цезар</h3>
+
+                                    <p>
+                                        цалата айцберг, пилешко филе, сос
+                                    </p>
+                                    
+                                    <p class="price">
+                                        Цена: <span>8.99 лв.</span>
+                                    </p>
+
+                                    <div class="btns">
+                                        <a class="edit">Промени</a>
+                                        <a class="delete">Изтрий</a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -106,10 +106,10 @@ namespace WeLoveFood.Areas.Manager.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(EditRestaurantFormModel restaurant)
+        public IActionResult Edit(int id, EditRestaurantFormModel restaurant)
         {
             var hasRestaurant = this._managers
-                .HasRestaurant(User.Id(), restaurant.Id);
+                .HasRestaurant(User.Id(), id);
 
             if (!hasRestaurant)
             {
@@ -131,7 +131,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
 
             this._restaurants
                 .Edit(
-                    restaurant.Id,
+                    id,
                     restaurant.Name,
                     restaurant.DeliveryFee,
                     restaurant.OpeningTime,
@@ -144,7 +144,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
             if (uniqueFileNameCardImg != null)
             {
                 this._restaurants
-                    .EditCardImg(restaurant.Id, uniqueFileNameCardImg);
+                    .EditCardImg(id, uniqueFileNameCardImg);
             }
 
             string uniqueFileNameMainImg = this._images.UploadImage(restaurant.MainImg, RestaurantsImagesPath);
@@ -152,10 +152,10 @@ namespace WeLoveFood.Areas.Manager.Controllers
             if (uniqueFileNameMainImg != null)
             {
                 this._restaurants
-                    .EditMainImg(restaurant.Id, uniqueFileNameMainImg);
+                    .EditMainImg(id, uniqueFileNameMainImg);
             }
 
-            return RedirectToAction("Meals", "Menus", new { area = "Manager", id = restaurant.Id });
+            return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }
 
         public IActionResult Archive(int id)

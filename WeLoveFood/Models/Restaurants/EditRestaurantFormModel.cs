@@ -10,8 +10,6 @@ namespace WeLoveFood.Models.Restaurants
 {
     public class EditRestaurantFormModel
     {
-        public int Id { get; init; }
-
         [Required(ErrorMessage = RequiredName)]
         [StringLength(NameMaxLength, ErrorMessage = InvalidName, MinimumLength = NameMinLength)]
         public string Name { get; init; }

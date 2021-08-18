@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using System.Linq;
 using WeLoveFood.Data;
+using WeLoveFood.Data.Models;
 using System.Collections.Generic;
 using AutoMapper.QueryableExtensions;
-using WeLoveFood.Data.Models;
 using WeLoveFood.Services.Models.Menus;
 
 namespace WeLoveFood.Services.Menus
@@ -20,6 +20,11 @@ namespace WeLoveFood.Services.Menus
             _data = data;
             _mapper = mapper.ConfigurationProvider;
         }
+
+        public bool IsExistInRestaurant(string name, int restaurantId)
+            => this._data
+                .MealsCategories
+                .Any(mc => mc.Name == name && mc.RestaurantId == restaurantId);
 
         public string CategoryName(int mealsCategoryId)
             => this._data
@@ -49,6 +54,21 @@ namespace WeLoveFood.Services.Menus
             var mealsCategory = this.FindMealsCategory(mealsCategoryId);
 
             mealsCategory.IsDeleted = true;
+
+            this._data.SaveChanges();
+        }
+
+        public void AddMealsCategory(int restaurantId, string name)
+        {
+            var mealsCategory = new MealsCategory
+            {
+                RestaurantId = restaurantId,
+                Name = name
+            };
+
+            this._data
+                .MealsCategories
+                .Add(mealsCategory);
 
             this._data.SaveChanges();
         }

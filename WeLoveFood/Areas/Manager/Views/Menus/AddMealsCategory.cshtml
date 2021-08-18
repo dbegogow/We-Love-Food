@@ -1,0 +1,38 @@
+﻿@model AddMealsCategoryFormModel
+
+@{
+    ViewBag.Title = "Добави категория -";
+}
+
+@section AddFormStyles {
+    <link href="~/css/shared/form.css" rel="stylesheet" />
+}
+
+<div class="form-page">
+    <div class="main-form-container">
+        <div class="form-container">
+            <div class="form">
+                <h2>Добави категория</h2>
+
+                <div class="validation-summary">
+                    <ul>
+                        @foreach (var error in ViewData.ModelState.ModelStateErrorMessages())
+                        {
+                            <li>@error</li>
+                        }
+                    </ul>
+                </div>
+
+                <form method="post">
+                    <div>
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" />
+                    </div>
+                    <span asp-validation-for="Name" class="validation-message"></span>
+
+                    <button type="submit">Добави</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

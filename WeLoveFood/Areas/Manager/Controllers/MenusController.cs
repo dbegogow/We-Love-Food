@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using WeLoveFood.Models.Menus;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.Menus;
+using System.Collections.Generic;
 using WeLoveFood.Services.Managers;
 using WeLoveFood.Infrastructure.Extensions;
-using WeLoveFood.Models.Menus;
+
+using static WeLoveFood.Models.Constants.Menus.ExceptionMessages;
 
 namespace WeLoveFood.Areas.Manager.Controllers
 {
@@ -52,6 +54,39 @@ namespace WeLoveFood.Areas.Manager.Controllers
             ViewBag.RestaurantId = id;
 
             return View(menu);
+        }
+
+        public IActionResult AddMealsCategory()
+            => View();
+
+        [HttpPost]
+        public IActionResult AddMealsCategory(int id, AddMealsCategoryFormModel mealsCategory)
+        {
+            var hasRestaurant = this._managers
+                .HasRestaurant(User.Id(), id);
+
+            if (!hasRestaurant)
+            {
+                return BadRequest();
+            }
+
+            var isExist = this._menus
+                .IsExistInRestaurant(mealsCategory.Name, id);
+
+            if (isExist)
+            {
+                ModelState.AddModelError("#", MealsCategoryAlreadyExist);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(mealsCategory);
+            }
+
+            this._menus
+                .AddMealsCategory(id, mealsCategory.Name);
+
+            return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }
     }
 }

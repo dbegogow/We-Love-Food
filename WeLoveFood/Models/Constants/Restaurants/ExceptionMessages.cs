@@ -12,9 +12,9 @@
         public const int MaximumDeliveryFee = 20;
         public const string InvalidDeliveryFee = "Доставката трябва да бъде между 1 лв. и 20 лв.";
 
-        public const string RequiredOpeningTime = "Времето на отваряне е задължително";
-        public const string RequiredClosingTime = "Времето на затваряне е задължително";
+        public const string RequiredOpeningTime = "Времето на отваряне е задължително.";
+        public const string RequiredClosingTime = "Времето на затваряне е задължително.";
 
-        public const string InvalidWorkingTime = "Времето на работа е невалидно. Трябва да бъде в формат часове/минути - '09:30'";
+        public const string InvalidWorkingTime = "Времето на работа е невалидно. Трябва да бъде в формат часове/минути - '09:30'.";
     }
 }

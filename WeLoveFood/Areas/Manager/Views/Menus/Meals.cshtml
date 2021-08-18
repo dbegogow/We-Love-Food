@@ -19,7 +19,7 @@
             <div class="manager-meals-container">
                 <div class="add-btns">
                     <a><i class="fas fa-plus"></i> Добави ястие</a>
-                    <a><i class="fas fa-plus"></i> Добави категория</a>
+                    <a asp-area="Manager" asp-controller="Menus" asp-action="AddMealsCategory" asp-route-id="@ViewBag.RestaurantId"><i class="fas fa-plus"></i> Добави категория</a>
                 </div>
 
                 <div class="categories">
@@ -29,8 +29,8 @@
                             <h3>@mealsCategory.MealsCategory.Name</h3>
 
                             <div class="btns">
-                                <a class="edit">Промени</a>
-                                <a class="delete">Изтрий</a>
+                                <a asp-route-id="@mealsCategory.MealsCategory.Id" class="edit">Промени</a>
+                                <a asp-route-id="@mealsCategory.MealsCategory.Id" class="delete">Изтрий</a>
                             </div>
 
                             <div class="meals">
@@ -53,8 +53,8 @@
                                             </p>
 
                                             <div class="btns">
-                                                <a class="edit">Промени</a>
-                                                <a class="delete">Изтрий</a>
+                                                <a asp-route-id="@meal.Id" class="edit">Промени</a>
+                                                <a asp-route-id="@meal.Id" class="delete">Изтрий</a>
                                             </div>
                                         </div>
                                     </div>

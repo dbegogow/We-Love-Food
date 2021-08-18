@@ -18,7 +18,7 @@ namespace WeLoveFood.Controllers.Api
         public IActionResult Delete(PortionApiModel portion)
         {
             var result = this._portions
-                .DeletePortionFromCart(portion.Id, this.User.Id());
+                .DeleteFromCart(portion.Id, this.User.Id());
 
             return result ? Ok() : BadRequest();
         }

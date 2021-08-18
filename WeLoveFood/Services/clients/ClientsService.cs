@@ -11,7 +11,7 @@ namespace WeLoveFood.Services.clients
         public ClientsService(WeLoveFoodDbContext data)
             => _data = data;
 
-        public void CreateClient(string userId)
+        public void Create(string userId)
         {
             var client = new Client { UserId = userId };
 
@@ -29,7 +29,7 @@ namespace WeLoveFood.Services.clients
             this._data.SaveChanges();
         }
 
-        public string ClientId(string userId)
+        public string Id(string userId)
             => this._data
                 .Clients
                 .Where(c => c.UserId == userId)

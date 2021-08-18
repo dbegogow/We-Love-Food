@@ -15,7 +15,7 @@ namespace WeLoveFood.Components
         public IViewComponentResult Invoke()
         {
             var cities = this._cities
-                .CitiesCardsOrderByRestaurantsCount(CitiesWithMostRestaurants);
+                .CardsOrderByRestaurantsCount(CitiesWithMostRestaurants);
 
             return View(cities);
         }

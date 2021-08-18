@@ -114,7 +114,7 @@ namespace WeLoveFood.Services.Restaurants
             int cityId)
         {
             var managerId = this._managers
-                .ManagerId(userId);
+                .Id(userId);
 
             var restaurant = new Restaurant
             {

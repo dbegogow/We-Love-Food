@@ -41,7 +41,7 @@ namespace WeLoveFood.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Waiters_ManagerId",
                 table: "Waiters",
-                column: "ManagerId");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Waiters_RestaurantId",

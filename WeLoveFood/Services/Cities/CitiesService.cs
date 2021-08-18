@@ -21,7 +21,7 @@ namespace WeLoveFood.Services.Cities
             this._mapper = mapper.ConfigurationProvider;
         }
 
-        public void AddCity(string name, string imgUrl)
+        public void Add(string name, string imgUrl)
         {
             var newCity = new City
             {
@@ -36,28 +36,28 @@ namespace WeLoveFood.Services.Cities
             this._data.SaveChanges();
         }
 
-        public string CityName(int id)
+        public string Name(int id)
             => this._data
                 .Cities
                 .Where(c => c.Id == id)
                 .Select(c => c.Name)
                 .FirstOrDefault();
 
-        public int CityId(string cityName)
+        public int Id(string cityName)
             => this._data
                 .Cities
                 .Where(c => c.Name == cityName)
                 .Select(c => c.Id)
                 .FirstOrDefault();
 
-        public string CityNameByRestaurantId(int restaurantId)
+        public string NameByRestaurantId(int restaurantId)
             => this._data
                 .Restaurants
                 .Where(r => r.Id == restaurantId)
                 .Select(r => r.City.Name)
                 .FirstOrDefault();
 
-        public IEnumerable<CityCardServiceModel> CitiesCardsOrderByRestaurantsCount(int? citiesCount)
+        public IEnumerable<CityCardServiceModel> CardsOrderByRestaurantsCount(int? citiesCount)
             => this._data
                 .Cities
                 .OrderByDescending(c => c.Restaurants.Count())

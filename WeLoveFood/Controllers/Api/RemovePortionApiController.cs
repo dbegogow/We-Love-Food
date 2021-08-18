@@ -19,7 +19,7 @@ namespace WeLoveFood.Controllers.Api
         public IActionResult Remove(PortionApiModel portion)
         {
             var quantity = this._portions
-                .RemovePortion(portion.Id, this.User.Id());
+                .Remove(portion.Id, this.User.Id());
 
             return quantity > -1 ? Ok(quantity) : BadRequest();
         }

@@ -5,11 +5,11 @@ namespace WeLoveFood.Services.Portions
 {
     public interface IPortionsService
     {
-        int RemovePortion(int portionId, string userId);
+        int Remove(int id, string userId);
 
-        int AddPortion(int portionId, string userId);
+        int Add(int id, string userId);
 
-        bool DeletePortionFromCart(int portionId, string userId);
+        bool DeleteFromCart(int id, string userId);
 
         int PortionsCount(string clientId);
 

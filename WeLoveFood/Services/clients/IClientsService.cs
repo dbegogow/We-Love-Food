@@ -4,9 +4,9 @@ namespace WeLoveFood.Services.clients
 {
     public interface IClientsService
     {
-        void CreateClient(string userId);
+        void Create(string userId);
 
-        string ClientId(string userId);
+        string Id(string userId);
 
         bool HasRestaurantInFavorite(string userId, int restaurantId);
 

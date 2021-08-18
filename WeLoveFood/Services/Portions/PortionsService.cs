@@ -27,17 +27,17 @@ namespace WeLoveFood.Services.Portions
             this._clients = clients;
         }
 
-        public int RemovePortion(int portionId, string userId)
+        public int Remove(int id, string userId)
         {
             var clientId = this._clients
-                .ClientId(userId);
+                .Id(userId);
 
             if (clientId == null)
             {
                 return -1;
             }
 
-            var portion = this.GetPortion(portionId, clientId);
+            var portion = this.GetPortion(id, clientId);
 
             if (portion == null || portion.Quantity == 1)
             {
@@ -51,17 +51,17 @@ namespace WeLoveFood.Services.Portions
             return portion.Quantity;
         }
 
-        public int AddPortion(int portionId, string userId)
+        public int Add(int id, string userId)
         {
             var clientId = this._clients
-                .ClientId(userId);
+                .Id(userId);
 
             if (clientId == null)
             {
                 return -1;
             }
 
-            var portion = this.GetPortion(portionId, clientId);
+            var portion = this.GetPortion(id, clientId);
 
             if (portion == null)
             {
@@ -75,10 +75,10 @@ namespace WeLoveFood.Services.Portions
             return portion.Quantity;
         }
 
-        public bool DeletePortionFromCart(int portionId, string userId)
+        public bool DeleteFromCart(int id, string userId)
         {
             var clientId = this._clients
-                .ClientId(userId);
+                .Id(userId);
 
             if (clientId == null)
             {
@@ -87,7 +87,7 @@ namespace WeLoveFood.Services.Portions
 
             var portion = this._data
                 .Portions
-                .FirstOrDefault(p => p.Id == portionId && p.Cart.ClientId == clientId);
+                .FirstOrDefault(p => p.Id == id && p.Cart.ClientId == clientId);
 
             if (portion == null)
             {

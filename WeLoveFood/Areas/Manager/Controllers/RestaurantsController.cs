@@ -53,7 +53,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
         public IActionResult Add(AddRestaurantFormModel restaurant)
         {
             var cityId = this._cities
-                .CityId(restaurant.CityName);
+                .Id(restaurant.CityName);
 
             if (cityId == NoCity)
             {
@@ -117,7 +117,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
             }
 
             var cityId = this._cities
-                .CityId(restaurant.CityName);
+                .Id(restaurant.CityName);
 
             if (cityId == NoCity)
             {
@@ -161,7 +161,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
         public IActionResult Archive(int id)
         {
             var hasRestaurant = this._managers
-                .HasRestaurant(this.User.Id(), id);
+                .HasRestaurant(User.Id(), id);
 
             if (!hasRestaurant)
             {
@@ -177,7 +177,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
         public IActionResult UnArchive(int id)
         {
             var hasRestaurant = this._managers
-                .HasRestaurant(this.User.Id(), id);
+                .HasRestaurant(User.Id(), id);
 
             if (!hasRestaurant)
             {
@@ -193,7 +193,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
         public IActionResult Delete(int id)
         {
             var hasRestaurant = this._managers
-                .HasRestaurant(this.User.Id(), id);
+                .HasRestaurant(User.Id(), id);
 
             if (!hasRestaurant)
             {

@@ -6,11 +6,11 @@ namespace WeLoveFood.Services.Managers
 {
     public interface IManagersService
     {
-        void CreateManager(string userId);
+        void Create(string userId);
 
         bool HasRestaurant(string userId, int restaurantId);
 
-        string ManagerId(string userId);
+        string Id(string userId);
 
         IEnumerable<ManagersRestaurantServiceModel> Restaurants(string userId);
         

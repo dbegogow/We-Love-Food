@@ -5,14 +5,14 @@ namespace WeLoveFood.Services.Cities
 {
     public interface ICitiesService
     {
-        void AddCity(string name, string imgUrl);
+        void Add(string name, string imgUrl);
 
-        string CityName(int id);
+        string Name(int id);
 
-        int CityId(string cityName);
+        int Id(string cityName);
 
-        string CityNameByRestaurantId(int restaurantId);
+        string NameByRestaurantId(int restaurantId);
 
-        IEnumerable<CityCardServiceModel> CitiesCardsOrderByRestaurantsCount(int? citiesCount = null);
+        IEnumerable<CityCardServiceModel> CardsOrderByRestaurantsCount(int? citiesCount = null);
     }
 }

@@ -34,7 +34,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
             string uniqueFileName = this._images.UploadImage(city.Img, CitiesImagesPath);
 
             this._cities
-                .AddCity(city.Name, uniqueFileName);
+                .Add(city.Name, uniqueFileName);
 
             return RedirectToAction("All", "Cities", new { area = "" });
         }

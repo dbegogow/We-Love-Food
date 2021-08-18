@@ -23,6 +23,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
 
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
+
         private readonly IClientsService _clients;
         private readonly IManagersService _managers;
 
@@ -34,6 +35,7 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
+
             this._clients = clients;
             this._managers = managers;
         }
@@ -85,12 +87,12 @@ namespace WeLoveFood.Areas.Identity.Pages.Account
                 {
                     if (Input.IsManager)
                     {
-                        this._managers.CreateManager(user.Id);
+                        this._managers.Create(user.Id);
                         await _userManager.AddToRoleAsync(user, ManagerRoleName);
                     }
                     else
                     {
-                        this._clients.CreateClient(user.Id);
+                        this._clients.Create(user.Id);
                         await _userManager.AddToRoleAsync(user, ClientRoleName);
                     }
 

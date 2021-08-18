@@ -35,7 +35,7 @@ namespace WeLoveFood.Controllers
             query.RestaurantsCards = queryResult.RestaurantsCards;
 
             var cityName = this._cities
-                .CityName(id);
+                .Name(id);
 
             query.CityName = cityName;
 
@@ -46,7 +46,7 @@ namespace WeLoveFood.Controllers
         public IActionResult Favorite()
         {
             var favorite = this._restaurants
-                .Favorite(this.User.Id());
+                .Favorite(User.Id());
 
             return View(favorite);
         }

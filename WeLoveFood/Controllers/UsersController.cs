@@ -40,7 +40,7 @@ namespace WeLoveFood.Controllers
         public IActionResult PersonalData()
         {
             var user = this._users
-                .PersonalData(this.User.Id());
+                .PersonalData(User.Id());
 
             var userForm = this._mapper.Map<PersonalDataFormModel>(user);
 
@@ -52,7 +52,7 @@ namespace WeLoveFood.Controllers
         public IActionResult PersonalData(PersonalDataFormModel user)
         {
             var cityId = this._cities
-                .CityId(user.City);
+                .Id(user.City);
 
             if (cityId == 0)
             {
@@ -66,7 +66,7 @@ namespace WeLoveFood.Controllers
 
             this._users
                 .ChangePersonalData(
-                    this.User.Id(),
+                    User.Id(),
                     user.FirstName,
                     user.LastName,
                     user.PhoneNumber,
@@ -82,7 +82,7 @@ namespace WeLoveFood.Controllers
 
             string uniqueFileName = this._images.UploadImage(user.ProfileImg, UsersImagesPath);
 
-            this._users.UpdateProfileImage(this.User.Id(), uniqueFileName);
+            this._users.UpdateProfileImage(User.Id(), uniqueFileName);
 
             return RedirectToAction("PersonalData");
         }

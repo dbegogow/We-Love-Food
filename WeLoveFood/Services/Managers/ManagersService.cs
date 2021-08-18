@@ -22,7 +22,7 @@ namespace WeLoveFood.Services.Managers
             this._mapper = mapper.ConfigurationProvider;
         }
 
-        public void CreateManager(string userId)
+        public void Create(string userId)
         {
             var manager = new Manager { UserId = userId };
 
@@ -38,7 +38,7 @@ namespace WeLoveFood.Services.Managers
                 .Managers
                 .Any(m => m.UserId == userId && m.Restaurants.Any(r => r.Id == restaurantId && !r.IsDeleted));
 
-        public string ManagerId(string userId)
+        public string Id(string userId)
             => this._data
                 .Managers
                 .Where(m => m.UserId == userId)

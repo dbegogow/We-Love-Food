@@ -48,10 +48,10 @@ namespace WeLoveFood.Controllers
         public IActionResult Cart()
         {
             var cartAllPortions = this._carts
-                .CartAllPortions(this.User.Id());
+                .AllPortions(User.Id());
 
             var userPersonalData = this._users
-                .PersonalData(this.User.Id());
+                .PersonalData(User.Id());
 
             return View(new CartViewModel
             {
@@ -65,7 +65,7 @@ namespace WeLoveFood.Controllers
         public IActionResult Cart(CartUserPersonalDataFormModel user)
         {
             var clientId = this._clients
-                .ClientId(this.User.Id());
+                .Id(User.Id());
 
             var portionsCount = this._portions
                 .PortionsCount(clientId);
@@ -79,7 +79,7 @@ namespace WeLoveFood.Controllers
                 .CartRestaurantId(clientId);
 
             var restaurantCityName = this._cities
-                .CityNameByRestaurantId(cartRestaurantId);
+                .NameByRestaurantId(cartRestaurantId);
 
             if (restaurantCityName != user.City)
             {
@@ -87,7 +87,7 @@ namespace WeLoveFood.Controllers
             }
 
             var cartAllPortions = this._carts
-                .CartAllPortions(this.User.Id());
+                .AllPortions(User.Id());
 
             if (!ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace WeLoveFood.Controllers
             }
 
             this._orders
-                .MakeOrder(clientId, user.Address, cartAllPortions.TotalPrice);
+                .Make(clientId, user.Address, cartAllPortions.TotalPrice);
 
             return RedirectToAction("MadeSuccessfulOrder");
         }
@@ -119,7 +119,7 @@ namespace WeLoveFood.Controllers
         public IActionResult Mine()
         {
             var orders = this._orders
-                .ClientOrders(this.User.Id())
+                .ClientOrders(User.Id())
                 .ToList();
 
             return View(orders);

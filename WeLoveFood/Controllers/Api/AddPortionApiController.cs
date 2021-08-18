@@ -19,7 +19,7 @@ namespace WeLoveFood.Controllers.Api
         public IActionResult Add(PortionApiModel portion)
         {
             var quantity = this._portions
-                .AddPortion(portion.Id, this.User.Id());
+                .Add(portion.Id, this.User.Id());
 
             return quantity > -1 ? Ok(quantity) : BadRequest();
         }

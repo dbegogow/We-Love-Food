@@ -175,13 +175,13 @@ namespace WeLoveFood.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<string>("ClientId")
+                    b.Property<string>("Id")
                         .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId")
+                    b.HasIndex("Id")
                         .IsUnique();
 
                     b.ToTable("Carts");
@@ -319,7 +319,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ClientId")
+                    b.Property<string>("Id")
                         .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
@@ -337,7 +337,7 @@ namespace WeLoveFood.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId");
+                    b.HasIndex("Id");
 
                     b.HasIndex("RestaurantId");
 
@@ -385,7 +385,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CityId")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<TimeSpan>("ClosingTime")
@@ -407,7 +407,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ManagerId")
+                    b.Property<string>("Id")
                         .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
@@ -421,9 +421,9 @@ namespace WeLoveFood.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
+                    b.HasIndex("Id");
 
-                    b.HasIndex("ManagerId");
+                    b.HasIndex("Id");
 
                     b.ToTable("Restaurants");
                 });
@@ -440,7 +440,7 @@ namespace WeLoveFood.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<int?>("CityId")
+                    b.Property<int?>("Id")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -500,7 +500,7 @@ namespace WeLoveFood.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
+                    b.HasIndex("Id");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -519,7 +519,7 @@ namespace WeLoveFood.Data.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<string>("ManagerId")
+                    b.Property<string>("Id")
                         .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
@@ -532,7 +532,7 @@ namespace WeLoveFood.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ManagerId");
+                    b.HasIndex("Id");
 
                     b.HasIndex("RestaurantId");
 
@@ -611,7 +611,7 @@ namespace WeLoveFood.Data.Migrations
                 {
                     b.HasOne("WeLoveFood.Data.Models.Client", "Client")
                         .WithOne("Cart")
-                        .HasForeignKey("WeLoveFood.Data.Models.Cart", "ClientId")
+                        .HasForeignKey("WeLoveFood.Data.Models.Cart", "Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -666,7 +666,7 @@ namespace WeLoveFood.Data.Migrations
                 {
                     b.HasOne("WeLoveFood.Data.Models.Client", "Client")
                         .WithMany("Orders")
-                        .HasForeignKey("ClientId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -710,13 +710,13 @@ namespace WeLoveFood.Data.Migrations
                 {
                     b.HasOne("WeLoveFood.Data.Models.City", "City")
                         .WithMany("Restaurants")
-                        .HasForeignKey("CityId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("WeLoveFood.Data.Models.Manager", "Manager")
                         .WithMany("Restaurants")
-                        .HasForeignKey("ManagerId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -729,7 +729,7 @@ namespace WeLoveFood.Data.Migrations
                 {
                     b.HasOne("WeLoveFood.Data.Models.City", "City")
                         .WithMany()
-                        .HasForeignKey("CityId");
+                        .HasForeignKey("Id");
 
                     b.Navigation("City");
                 });
@@ -738,7 +738,7 @@ namespace WeLoveFood.Data.Migrations
                 {
                     b.HasOne("WeLoveFood.Data.Models.Manager", "Manager")
                         .WithMany("Waiters")
-                        .HasForeignKey("ManagerId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

@@ -436,7 +436,7 @@ namespace WeLoveFood.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_CityId",
                 table: "AspNetUsers",
-                column: "CityId");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
@@ -448,7 +448,7 @@ namespace WeLoveFood.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Carts_ClientId",
                 table: "Carts",
-                column: "ClientId",
+                column: "Id",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -479,7 +479,7 @@ namespace WeLoveFood.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_ClientId",
                 table: "Orders",
-                column: "ClientId");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_RestaurantId",
@@ -504,12 +504,12 @@ namespace WeLoveFood.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Restaurants_CityId",
                 table: "Restaurants",
-                column: "CityId");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Restaurants_ManagerId",
                 table: "Restaurants",
-                column: "ManagerId");
+                column: "Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

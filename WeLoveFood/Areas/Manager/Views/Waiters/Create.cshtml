@@ -1,0 +1,86 @@
+﻿@model AddWaiterFormModel
+
+@{
+    ViewBag.Title = "Добави сервитьор -";
+}
+
+@section AddFormStyles {
+    <link href="~/css/shared/form.css" rel="stylesheet" />
+}
+
+<div class="form-page">
+    <div class="main-form-container">
+        <div class="form-container">
+            <div class="form">
+                <h2>Добави сервитьор</h2>
+
+                <div class="validation-summary">
+                    <ul>
+                        @foreach (var error in ViewData.ModelState.ModelStateErrorMessages())
+                        {
+                            <li>@error</li>
+                        }
+                    </ul>
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    <div>
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" />
+                    </div>
+                    <span asp-validation-for="Email" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" />
+                    </div>
+                    <span asp-validation-for="Password" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="ConfirmPassword"></label>
+                        <input asp-for="ConfirmPassword" />
+                    </div>
+                    <span asp-validation-for="ConfirmPassword" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="FirstName"></label>
+                        <input asp-for="FirstName" />
+                    </div>
+                    <span asp-validation-for="FirstName" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName" />
+                    </div>
+                    <span asp-validation-for="LastName" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="PhoneNumber"></label>
+                        <input asp-for="PhoneNumber" />
+                    </div>
+                    <span asp-validation-for="PhoneNumber" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="City"></label>
+                        <input asp-for="City" />
+                    </div>
+                    <span asp-validation-for="City" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="Address"></label>
+                        <input asp-for="Address" />
+                    </div>
+                    <span asp-validation-for="Address" class="validation-message"></span>
+
+                    <div class="upload">
+                        <label asp-for="ProfileImg"><i class="fas fa-upload"></i> Качи профилна снимка</label>
+                        <input asp-for="ProfileImg" />
+                    </div>
+                    <span asp-validation-for="ProfileImg" class="validation-message"></span>
+
+                    <button type="submit">Добави</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

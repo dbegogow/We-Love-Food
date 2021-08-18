@@ -5,6 +5,15 @@ namespace WeLoveFood.Services.Waiters
 {
     public interface IWaitersService
     {
-        
+        void CreateWaiter(
+            string userId,
+            string waiterUserId,
+            int restaurantId,
+            string firstName,
+            string lastName,
+            string phoneNumber,
+            int cityId,
+            string address,
+            string profileImgUrl);
     }
 }

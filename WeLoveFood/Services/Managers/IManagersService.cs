@@ -13,7 +13,7 @@ namespace WeLoveFood.Services.Managers
         string ManagerId(string userId);
 
         IEnumerable<ManagersRestaurantServiceModel> Restaurants(string userId);
-
+        
         IEnumerable<ManagerWaiterServiceModel> Waiters(string userId, int restaurantId);
     }
 }

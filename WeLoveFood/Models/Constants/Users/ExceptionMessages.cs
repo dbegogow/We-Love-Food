@@ -14,5 +14,7 @@
 
         public const string InvalidAddressLength = "Адресът трябва да бъде от максимум {1} символа.";
         public const string RequiredAddress = "Адресът е задължителен.";
+
+        public const string RequiredProfileImage = "Профилната снимка е задължителна";
     }
 }

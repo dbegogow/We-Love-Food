@@ -18,7 +18,7 @@
         <div class="section-container">
             <div class="all-waiters-container">
                 <div class="add-waiter">
-                    <a asp-area="Manager" asp-controller="Restaurants" asp-action="Add"><i class="fas fa-plus"></i> Добави сервитьор</a>
+                    <a asp-area="Manager" asp-controller="Waiters" asp-action="Create" asp-route-id="@ViewBag.RestaurantId"><i class="fas fa-plus"></i> Създай сервитьор</a>
                 </div>
 
                 @foreach (var waiter in Model)

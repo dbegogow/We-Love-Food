@@ -8,6 +8,7 @@ using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Orders;
 using WeLoveFood.Services.Images;
 using WeLoveFood.Services.clients;
+using WeLoveFood.Services.Waiters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
@@ -19,7 +20,6 @@ using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
 using WeLoveFood.Infrastructure.Extensions;
 using Microsoft.Extensions.DependencyInjection;
-using WeLoveFood.Services.Waiters;
 
 namespace WeLoveFood
 {

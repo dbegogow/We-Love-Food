@@ -14,8 +14,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
     public class RestaurantsController : ManagerController
     {
         private const int NoCity = 0;
-        private const string RestaurantsImagesPath = "~/img/restaurants";
-        private const string MenuMealsPagePath = "~/Manager/Menus/Meals/{0}";
+        private const string RestaurantsImagesPath = "img/restaurants";
 
         private readonly IMapper _mapper;
 
@@ -120,7 +119,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
                     .EditMainImg(restaurant.Id, uniqueFileNameMainImg);
             }
 
-            return LocalRedirect(string.Format(MenuMealsPagePath, restaurant.Id));
+            return RedirectToAction("Meals", "Menus", new { area = "Manager", id = restaurant.Id });
         }
 
         public IActionResult Archive(int id)

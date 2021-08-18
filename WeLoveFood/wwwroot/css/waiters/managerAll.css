@@ -1,0 +1,64 @@
+﻿.user-profile-page-container .section-container .all-waiters-container {
+    padding: 30px 30px;
+}
+
+.user-profile-page-container .section-container .all-waiters-container .add-waiter {
+    margin-bottom: 8vh;
+}
+
+.user-profile-page-container .section-container .all-waiters-container .add-waiter a {
+    display: inline-block;
+    padding: 7px 20px;
+    background: #398809;
+    color: #FFF;
+    font-size: 1.08rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.user-profile-page-container .section-container .all-waiters-container .add-waiter a:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.user-profile-page-container .section-container .all-waiters-container .waiter {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #BCBCBC;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.user-profile-page-container .section-container .all-waiters-container .waiter .profile-image-container {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #BCBCBC;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.user-profile-page-container .section-container .all-waiters-container .waiter .profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user-profile-page-container .section-container .all-waiters-container .waiter .personal-data {
+    margin-left: 30px;
+}
+
+.user-profile-page-container .section-container .all-waiters-container .waiter .personal-data p {
+    font-size: 1.1rem;
+}
+
+.user-profile-page-container .section-container .all-waiters-container .waiter .personal-data p span {
+    color: #6D6D6D;
+    margin-right: 8px;
+}
+
+@media (max-width:  800px) {
+    .user-profile-page-container .section-container .all-waiters-container .waiter .profile-image-container {
+        display: none;
+    }
+}

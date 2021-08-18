@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using WeLoveFood.Services.Models.Waiters;
 using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Services.Managers
@@ -12,5 +13,7 @@ namespace WeLoveFood.Services.Managers
         string ManagerId(string userId);
 
         IEnumerable<ManagersRestaurantServiceModel> Restaurants(string userId);
+
+        IEnumerable<ManagerWaiterServiceModel> Waiters(string userId, int restaurantId);
     }
 }

@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 using static WeLoveFood.Data.DataConstants.Common;
 
 namespace WeLoveFood.Data.Models
 {
-    public class Manager
+    public class Waiter
     {
-        [KeyAttribute]
+        [Key]
         [Required]
         [MaxLength(IdMaxLength)]
         public string Id { get; init; } = Guid.NewGuid().ToString();
@@ -18,8 +17,13 @@ namespace WeLoveFood.Data.Models
 
         public User User { get; set; }
 
-        public ICollection<Restaurant> Restaurants { get; init; } = new HashSet<Restaurant>();
+        [Required]
+        public string ManagerId { get; set; }
 
-        public ICollection<Waiter> Waiters { get; init; } = new HashSet<Waiter>();
+        public Manager Manager { get; set; }
+
+        public int RestaurantId { get; set; }
+
+        public Restaurant Restaurant { get; set; }
     }
 }

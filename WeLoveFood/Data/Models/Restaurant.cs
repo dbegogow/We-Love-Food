@@ -48,5 +48,7 @@ namespace WeLoveFood.Data.Models
         public ICollection<Order> Orders { get; init; } = new HashSet<Order>();
 
         public ICollection<Client> Clients { get; init; } = new HashSet<Client>();
+
+        public ICollection<Waiter> Waiters { get; init; } = new HashSet<Waiter>();
     }
 }

@@ -5,6 +5,7 @@ using WeLoveFood.Data.Models;
 using System.Collections.Generic;
 using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.Models.Restaurants;
+using WeLoveFood.Services.Models.Waiters;
 
 namespace WeLoveFood.Services.Managers
 {
@@ -53,6 +54,15 @@ namespace WeLoveFood.Services.Managers
                 .OrderByDescending(r => r.IsApproved)
                 .ThenBy(r => r.IsArchived)
                 .ProjectTo<ManagersRestaurantServiceModel>(this._mapper)
+                .ToList();
+
+        public IEnumerable<ManagerWaiterServiceModel> Waiters(string userId, int restaurantId)
+            => this._data
+                .Managers
+                .Where(m => m.UserId == userId)
+                .SelectMany(m => m.Waiters)
+                .Where(w => w.RestaurantId == restaurantId)
+                .ProjectTo<ManagerWaiterServiceModel>(this._mapper)
                 .ToList();
     }
 }

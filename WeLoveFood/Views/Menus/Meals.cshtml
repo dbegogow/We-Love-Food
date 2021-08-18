@@ -12,7 +12,7 @@
 }
 
 <div class="restaurant-image-container">
-    <img src="@Model.Restaurant.MainImgUrl" alt="Restaurant Image" />
+    <img src="~/img/restaurants/@Model.Restaurant.MainImgUrl" alt="Restaurant Image" />
 </div>
 
 <div class="restaurant-container">
@@ -93,7 +93,7 @@
                             <p class="price">@meal.Price лв</p>
                         </div>
                         <div class="image-container">
-                            <img src="@meal.ImgUrl" />
+                            <img src="~/img/meals/@meal.ImgUrl" />
                         </div>
                     </div>
                 </form>

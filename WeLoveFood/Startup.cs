@@ -64,6 +64,12 @@ namespace WeLoveFood
                 .AddTransient<IPortionsService, PortionsService>()
                 .AddTransient<IManagersService, ManagersService>()
                 .AddTransient<IRestaurantsService, RestaurantsService>();
+
+            services.AddRazorPages(options =>
+            {
+                options.Conventions.AddAreaPageRoute("Identity", "/Account/Register", "/Register");
+                options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "/Login");
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -89,16 +95,8 @@ namespace WeLoveFood
                 .UseAuthorization()
                 .UseEndpoints(endpoints =>
                 {
+                    endpoints.MapCustomControllerRoutes();
                     endpoints.MapDefaultAreaRoute();
-
-                    //endpoints.MapControllerRoute(
-                    //    name: "All Cities",
-                    //    pattern: "/Cities/All",
-                    //    defaults: new
-                    //    {
-                    //        controller = typeof(CitiesController).GetControllerName(),
-                    //        action = nameof(CitiesController.All)
-                    //    });
 
                     endpoints.MapDefaultControllerRoute();
                     endpoints.MapRazorPages();

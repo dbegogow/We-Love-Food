@@ -1,16 +1,16 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Data.Models;
-using WeLoveFood.Services.Managers;
-using WeLoveFood.Infrastructure.Extensions;
+using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Models.Waiters;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Images;
 using WeLoveFood.Services.Waiters;
+using WeLoveFood.Services.Managers;
+using Microsoft.AspNetCore.Identity;
+using WeLoveFood.Infrastructure.Extensions;
+
 using static WeLoveFood.WebConstants;
-using static WeLoveFood.Data.DataConstants.User;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 

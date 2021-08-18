@@ -343,6 +343,38 @@ namespace WeLoveFood.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Waiters",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ManagerId = table.Column<string>(type: "nvarchar(40)", nullable: false),
+                    RestaurantId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Waiters", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Waiters_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Waiters_Managers_ManagerId",
+                        column: x => x.ManagerId,
+                        principalTable: "Managers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Waiters_Restaurants_RestaurantId",
+                        column: x => x.RestaurantId,
+                        principalTable: "Restaurants",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Meals",
                 columns: table => new
                 {
@@ -436,7 +468,7 @@ namespace WeLoveFood.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_CityId",
                 table: "AspNetUsers",
-                column: "Id");
+                column: "CityId");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
@@ -448,7 +480,7 @@ namespace WeLoveFood.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Carts_ClientId",
                 table: "Carts",
-                column: "Id",
+                column: "ClientId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -479,7 +511,7 @@ namespace WeLoveFood.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_ClientId",
                 table: "Orders",
-                column: "Id");
+                column: "ClientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_RestaurantId",
@@ -504,12 +536,27 @@ namespace WeLoveFood.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Restaurants_CityId",
                 table: "Restaurants",
-                column: "Id");
+                column: "CityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Restaurants_ManagerId",
                 table: "Restaurants",
-                column: "Id");
+                column: "ManagerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Waiters_ManagerId",
+                table: "Waiters",
+                column: "ManagerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Waiters_RestaurantId",
+                table: "Waiters",
+                column: "RestaurantId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Waiters_UserId",
+                table: "Waiters",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -534,6 +581,9 @@ namespace WeLoveFood.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Portions");
+
+            migrationBuilder.DropTable(
+                name: "Waiters");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -14,6 +14,8 @@ namespace WeLoveFood.Services.Orders
 
         void MakeOrder(string clientId, string address,decimal totalPrice);
 
+        void Accept(int orderId);
+
         IEnumerable<RestaurantOrderServiceModel> RestaurantOrders(int restaurantId);
 
         IEnumerable<ClientOrderServiceModel> ClientOrders(string userId);

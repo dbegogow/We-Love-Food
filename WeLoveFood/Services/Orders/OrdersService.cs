@@ -149,6 +149,17 @@ namespace WeLoveFood.Services.Orders
             this._data.SaveChanges();
         }
 
+        public void Accept(int orderId)
+        {
+            var order = this._data
+                .Orders
+                .Find(orderId);
+
+            order.IsAccepted = true;
+
+            this._data.SaveChanges();
+        }
+
         public IEnumerable<RestaurantOrderServiceModel> RestaurantOrders(int restaurantId)
             => this._data
                 .Orders

@@ -7,6 +7,8 @@ namespace WeLoveFood.Areas.Waiter.Controllers
 {
     public class OrdersController : WaiterController
     {
+        private const int NoRestaurant = 0;
+
         private readonly IOrdersService _orders;
         private readonly IWaitersService _waiters;
 
@@ -27,6 +29,22 @@ namespace WeLoveFood.Areas.Waiter.Controllers
                 .RestaurantOrders(restaurantId);
 
             return View(orders);
+        }
+
+        public IActionResult Accept(int id)
+        {
+            var restaurantId = this._waiters
+                .RestaurantId(User.Id());
+
+            if (restaurantId == NoRestaurant)
+            {
+                return BadRequest();
+            }
+
+            this._orders
+                .Accept(id);
+
+            return RedirectToAction("All", "Orders", new { area = "Waiter" });
         }
     }
 }

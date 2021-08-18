@@ -12,10 +12,13 @@ namespace WeLoveFood.Infrastructure.Extensions
         public static bool IsAdmin(this ClaimsPrincipal user)
             => user.IsInRole(AdministratorRoleName);
 
-        public static bool IsClient(this ClaimsPrincipal user)
-            => user.IsInRole(ClientRoleName);
-
         public static bool IsManager(this ClaimsPrincipal user)
             => user.IsInRole(ManagerRoleName);
+
+        public static bool IsWaiter(this ClaimsPrincipal user)
+            => user.IsInRole(WaiterRoleName);
+
+        public static bool IsClient(this ClaimsPrincipal user)
+            => user.IsInRole(ClientRoleName);
     }
 }

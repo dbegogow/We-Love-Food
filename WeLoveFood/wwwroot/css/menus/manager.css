@@ -34,12 +34,6 @@
     font-size: 1.6rem;
 }
 
-.user-profile-page-container .section-container .manager-meals-container .categories .category h3 span {
-    margin-left: 5px;
-    font-size: 1.4rem;
-    font-weight: 500;
-}
-
 .user-profile-page-container .section-container .manager-meals-container .categories .category .btns a {
     display: inline-block;
     padding: 7px 20px;
@@ -70,6 +64,16 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row;
+}
+
+.user-profile-page-container .section-container .manager-meals-container .categories .category .meal h4 {
+    font-size: 1.2rem;
+}
+
+.user-profile-page-container .section-container .manager-meals-container .categories .category .meal h4 span {
+    margin-left: 5px;
+    font-size: 1.3rem;
+    font-weight: 500;
 }
 
 .user-profile-page-container .section-container .manager-meals-container .categories .category .meal .card {

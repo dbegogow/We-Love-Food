@@ -18,7 +18,7 @@
         <div class="section-container">
             <div class="manager-restaurants">
                 <div class="add-restaurant">
-                    <a><i class="fas fa-plus"></i> Добави ресторант</a>
+                    <a asp-area="Manager" asp-controller="Restaurants" asp-action="Add"><i class="fas fa-plus"></i> Добави ресторант</a>
                 </div>
 
                 @foreach (var restaurant in Model)

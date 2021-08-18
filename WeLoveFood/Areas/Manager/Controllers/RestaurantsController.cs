@@ -46,6 +46,42 @@ namespace WeLoveFood.Areas.Manager.Controllers
             return View(restaurants);
         }
 
+        public IActionResult Add()
+            => View();
+
+        [HttpPost]
+        public IActionResult Add(AddRestaurantFormModel restaurant)
+        {
+            var cityId = this._cities
+                .CityId(restaurant.CityName);
+
+            if (cityId == NoCity)
+            {
+                ModelState.AddModelError("#", InvalidCity);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(restaurant);
+            }
+
+            string uniqueFileNameCardImg = this._images.UploadImage(restaurant.CardImg, RestaurantsImagesPath);
+            string uniqueFileNameMainImg = this._images.UploadImage(restaurant.MainImg, RestaurantsImagesPath);
+
+            this._restaurants
+                .Add(
+                    User.Id(),
+                    restaurant.Name,
+                    uniqueFileNameCardImg,
+                    uniqueFileNameMainImg,
+                    restaurant.DeliveryFee,
+                    restaurant.OpeningTime,
+                    restaurant.ClosingTime,
+                    cityId);
+
+            return RedirectToAction("Mine", "Restaurants", new { area = "Manager" });
+        }
+
         public IActionResult Edit(int id)
         {
             var hasRestaurant = this._managers

@@ -108,7 +108,7 @@ namespace WeLoveFood.Services.Restaurants
             string name,
             string cardImgUrl,
             string mainImgUrl,
-            decimal deliveryFee,
+            decimal? deliveryFee,
             string openingTime,
             string closingTime,
             int cityId)

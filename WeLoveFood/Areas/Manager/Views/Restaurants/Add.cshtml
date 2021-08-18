@@ -1,0 +1,74 @@
+﻿@model AddRestaurantFormModel
+
+@{
+    ViewBag.Title = "Добави ресторант -";
+}
+
+@section AddFormStyles {
+    <link href="~/css/shared/form.css" rel="stylesheet" />
+}
+
+<div class="form-page">
+    <div class="main-form-container">
+        <div class="form-container">
+            <div class="form">
+                <h2>Добави ресторант</h2>
+
+                <div class="validation-summary">
+                    <ul>
+                        @foreach (var error in ViewData.ModelState.ModelStateErrorMessages())
+                        {
+                            <li>@error</li>
+                        }
+                    </ul>
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    <div>
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" />
+                    </div>
+                    <span asp-validation-for="Name" class="validation-message"></span>
+
+                    <div class="upload">
+                        <label asp-for="CardImg"><i class="fas fa-upload"></i> Качи снимка за картата</label>
+                        <input asp-for="CardImg" />
+                    </div>
+                    <span asp-validation-for="CardImg" class="validation-message"></span>
+
+                    <div class="upload">
+                        <label asp-for="MainImg"><i class="fas fa-upload"></i> Качи основна снимка</label>
+                        <input asp-for="MainImg" />
+                    </div>
+                    <span asp-validation-for="MainImg" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="DeliveryFee"></label>
+                        <input asp-for="DeliveryFee" />
+                    </div>
+                    <span asp-validation-for="DeliveryFee" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="OpeningTime"></label>
+                        <input asp-for="OpeningTime" />
+                    </div>
+                    <span asp-validation-for="OpeningTime" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="ClosingTime"></label>
+                        <input asp-for="ClosingTime" />
+                    </div>
+                    <span asp-validation-for="ClosingTime" class="validation-message"></span>
+
+                    <div>
+                        <label asp-for="CityName"></label>
+                        <input asp-for="CityName" />
+                    </div>
+                    <span asp-validation-for="CityName" class="validation-message"></span>
+
+                    <button type="submit">Добави</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

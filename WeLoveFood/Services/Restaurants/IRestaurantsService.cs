@@ -20,11 +20,11 @@ namespace WeLoveFood.Services.Restaurants
         void UnArchive(int id);
 
         void Add(
-            string managerId,
+            string userId,
             string name,
             string cardImgUrl,
             string mainImgUrl,
-            decimal deliveryFee,
+            decimal? deliveryFee,
             string openingTime,
             string closingTime,
             int cityId);

@@ -23,13 +23,32 @@ namespace WeLoveFood.Infrastructure.Mapping
                     cfg =>
                         cfg.MapFrom(o => o.Date.ToString(DayFormat)))
                 .ForMember(
-                    co => co.Address,
-                    cfg =>
-                        cfg.MapFrom(o => o.Client.User.Address))
-                .ForMember(
                     co => co.DeliveryFee,
                     cfg =>
                         cfg.MapFrom(o => o.Restaurant.DeliveryFee.ToString()))
+                .ForMember(
+                    co => co.TotalPrice,
+                    cfg =>
+                        cfg.MapFrom(o => o.TotalPrice.ToString(PriceFormat)))
+                .ForMember(
+                    co => co.Portions,
+                    cfg =>
+                        cfg.MapFrom(o => o.Portions.Select(p => new PortionOrderServiceModel
+                        {
+                            MealName = p.Meal.Name,
+                            Quantity = p.Quantity,
+                            Price = p.Meal.Price
+                        })));
+
+            this.CreateMap<Order, RestaurantOrderServiceModel>()
+                .ForMember(
+                    co => co.Time,
+                    cfg =>
+                        cfg.MapFrom(o => o.Date.TimeOfDay.ToString(TimeFormat)))
+                .ForMember(
+                    co => co.Day,
+                    cfg =>
+                        cfg.MapFrom(o => o.Date.ToString(DayFormat)))
                 .ForMember(
                     co => co.TotalPrice,
                     cfg =>

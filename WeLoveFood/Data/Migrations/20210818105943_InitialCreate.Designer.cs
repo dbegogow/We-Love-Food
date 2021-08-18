@@ -10,7 +10,7 @@ using WeLoveFood.Data;
 namespace WeLoveFood.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
-    [Migration("20210817133742_InitialCreate")]
+    [Migration("20210818105943_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -189,7 +189,7 @@ namespace WeLoveFood.Data.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.CityName", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -318,12 +318,18 @@ namespace WeLoveFood.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ClientId")
                         .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("RestaurantId")
                         .HasColumnType("int");
@@ -399,7 +405,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("MainImg")
+                    b.Property<string>("MainImgUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -676,7 +682,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
                 {
-                    b.HasOne("WeLoveFood.Data.Models.CityName", "CityName")
+                    b.HasOne("WeLoveFood.Data.Models.City", "City")
                         .WithMany("Restaurants")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -688,18 +694,18 @@ namespace WeLoveFood.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("CityName");
+                    b.Navigation("City");
 
                     b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.User", b =>
                 {
-                    b.HasOne("WeLoveFood.Data.Models.CityName", "CityName")
+                    b.HasOne("WeLoveFood.Data.Models.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId");
 
-                    b.Navigation("CityName");
+                    b.Navigation("City");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
@@ -707,7 +713,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Navigation("Portions");
                 });
 
-            modelBuilder.Entity("WeLoveFood.Data.Models.CityName", b =>
+            modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
                 {
                     b.Navigation("Restaurants");
                 });

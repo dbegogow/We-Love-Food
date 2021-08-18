@@ -11,6 +11,10 @@ namespace WeLoveFood.Data.Models
 
         public DateTime Date { get; set; }
 
+        public bool IsAccepted { get; set; }
+
+        public string Address { get; init; }
+
         [Required]
         public string ClientId { get; set; }
 

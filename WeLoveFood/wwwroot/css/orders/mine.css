@@ -93,3 +93,21 @@
     font-weight: 600;
     color: #404040;
 }
+
+.user-profile-page-container .section-container .orders .order-container .status span {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.user-profile-page-container .section-container .orders .order-container .status .not-accepted {
+    text-transform: uppercase;
+    color: #D89A16;
+}
+
+.user-profile-page-container .section-container .orders .order-container .status .accepted {
+    color: #26de2d;
+}
+
+.user-profile-page-container .section-container .orders .order-container p .not-accepted {
+    color: #D89A16;
+}

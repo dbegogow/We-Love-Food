@@ -110,7 +110,7 @@ namespace WeLoveFood.Services.Orders
                 .Any(c => c.ClientId == clientId && c.Portions.Any(p => p.Meal.Id == mealId));
         }
 
-        public void MakeOrder(string clientId, decimal totalPrice)
+        public void MakeOrder(string clientId, string address, decimal totalPrice)
         {
             var cart = this._carts
                 .Cart(clientId);
@@ -134,6 +134,7 @@ namespace WeLoveFood.Services.Orders
             {
                 Restaurant = restaurant,
                 Portions = portions,
+                Address = address,
                 Client = client,
                 TotalPrice = totalPrice,
                 Date = DateTime.Now
@@ -147,6 +148,14 @@ namespace WeLoveFood.Services.Orders
 
             this._data.SaveChanges();
         }
+
+        public IEnumerable<RestaurantOrderServiceModel> RestaurantOrders(int restaurantId)
+            => this._data
+                .Orders
+                .Where(o => o.Restaurant.Id == restaurantId)
+                .OrderByDescending(o => o.Id)
+                .ProjectTo<RestaurantOrderServiceModel>(this._mapper)
+                .ToList();
 
         public IEnumerable<ClientOrderServiceModel> ClientOrders(string userId)
         {

@@ -106,7 +106,7 @@ namespace WeLoveFood.Controllers
             }
 
             this._orders
-                .MakeOrder(clientId, cartAllPortions.TotalPrice);
+                .MakeOrder(clientId, user.Address, cartAllPortions.TotalPrice);
 
             return RedirectToAction("MadeSuccessfulOrder");
         }

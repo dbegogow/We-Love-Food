@@ -12,7 +12,9 @@ namespace WeLoveFood.Services.Orders
 
         bool IsMealAddedInCart(int mealId, string userId);
 
-        void MakeOrder(string clientId, decimal totalPrice);
+        void MakeOrder(string clientId, string address,decimal totalPrice);
+
+        IEnumerable<RestaurantOrderServiceModel> RestaurantOrders(int restaurantId);
 
         IEnumerable<ClientOrderServiceModel> ClientOrders(string userId);
     }

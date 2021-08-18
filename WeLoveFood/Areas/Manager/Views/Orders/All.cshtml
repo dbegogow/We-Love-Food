@@ -1,7 +1,7 @@
-﻿@model IEnumerable<ClientOrderServiceModel>
+﻿@model IEnumerable<RestaurantOrderServiceModel>
 
 @{
-    ViewBag.Title = "Моите поръчки -";
+    ViewBag.Title = "Поръчки -";
 }
 
 @section OrdersStyles {
@@ -11,9 +11,9 @@
 }
 
 <div class="user-profile-page-container">
-    <partial name="~/Views/Users/_OptionsPartial.cshtml" />
+    <partial name="~/Areas/Manager/Views/Shared/_SettingsOptionsPartial.cshtml" />
     <div class="main-container">
-        <h2>Моите поръчки</h2>
+        <h2>Поръчки</h2>
 
         <div class="section-container">
             @if (Model.Any())
@@ -23,8 +23,6 @@
                     <div class="orders">
                         <div class="order-container">
                             <p>Дата: <span class="time">@order.Time</span> <span class="day">@order.Day</span></p>
-
-                            <p>Ресторант: <span>@order.RestaurantName (@order.RestaurantCityName)</span></p>
 
                             <p>Адрес: <span>@order.Address</span></p>
 
@@ -43,18 +41,31 @@
 
                             <span class="border"></span>
 
-                            <p>Цена за доставка: <span>@order.DeliveryFee лв</span></p>
-
                             <span class="border"></span>
 
                             <p>Обща сума: <span class="total-price">@order.TotalPrice лв</span></p>
+                            
+                            <span class="border"></span>
+                            
+                            <p class="status">
+                                Статус:
+
+                                @if (order.IsAccepted)
+                                {
+                                    <span class="accepted">приета</span>
+                                }
+                                else
+                                {
+                                    <span class="not-accepted">неприета</span>
+                                }
+                            </p>
                         </div>
                     </div>
                 }
             }
             else
             {
-                <p class="no-made-orders-message">Все още нямате направени поръчки.</p>
+                <p class="no-made-orders-message">Все още няма направени поръчки.</p>
             }
         </div>
     </div>

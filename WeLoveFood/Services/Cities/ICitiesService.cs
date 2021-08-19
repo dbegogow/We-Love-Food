@@ -9,7 +9,7 @@ namespace WeLoveFood.Services.Cities
 
         string Name(int id);
 
-        int Id(string cityName);
+        int GetId(string cityName);
 
         string NameByRestaurantId(int restaurantId);
 

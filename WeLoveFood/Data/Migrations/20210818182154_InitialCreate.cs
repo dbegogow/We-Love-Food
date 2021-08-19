@@ -52,7 +52,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -88,7 +88,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_AspNetUsers_Cities_CityId",
                         column: x => x.CityId,
                         principalTable: "Cities",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -109,7 +109,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -129,7 +129,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -147,13 +147,13 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -173,7 +173,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -192,7 +192,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_Clients_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -210,7 +210,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_Managers_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -228,7 +228,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_Carts_Clients_ClientId",
                         column: x => x.ClientId,
                         principalTable: "Clients",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -257,13 +257,13 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_Restaurants_Cities_CityId",
                         column: x => x.CityId,
                         principalTable: "Cities",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Restaurants_Managers_ManagerId",
                         column: x => x.ManagerId,
                         principalTable: "Managers",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -281,13 +281,13 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_ClientRestaurant_Clients_ClientsId",
                         column: x => x.ClientsId,
                         principalTable: "Clients",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ClientRestaurant_Restaurants_RestaurantsId",
                         column: x => x.RestaurantsId,
                         principalTable: "Restaurants",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -308,7 +308,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_MealsCategories_Restaurants_RestaurantId",
                         column: x => x.RestaurantId,
                         principalTable: "Restaurants",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -332,13 +332,13 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_Orders_Clients_ClientId",
                         column: x => x.ClientId,
                         principalTable: "Clients",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Orders_Restaurants_RestaurantId",
                         column: x => x.RestaurantId,
                         principalTable: "Restaurants",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -358,19 +358,19 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_Waiters_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Waiters_Managers_ManagerId",
                         column: x => x.ManagerId,
                         principalTable: "Managers",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Waiters_Restaurants_RestaurantId",
                         column: x => x.RestaurantId,
                         principalTable: "Restaurants",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -395,7 +395,7 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_Meals_MealsCategories_MealsCategoryId",
                         column: x => x.MealsCategoryId,
                         principalTable: "MealsCategories",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -417,19 +417,19 @@ namespace WeLoveFood.Data.Migrations
                         name: "FK_Portions_Carts_CartId",
                         column: x => x.CartId,
                         principalTable: "Carts",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Portions_Meals_MealId",
                         column: x => x.MealId,
                         principalTable: "Meals",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Portions_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
-                        principalColumn: "Id",
+                        principalColumn: "GetId",
                         onDelete: ReferentialAction.Restrict);
                 });
 

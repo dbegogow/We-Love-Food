@@ -52,7 +52,7 @@ namespace WeLoveFood.Controllers
         public IActionResult PersonalData(PersonalDataFormModel user)
         {
             var cityId = this._cities
-                .Id(user.City);
+                .GetId(user.City);
 
             if (cityId == 0)
             {

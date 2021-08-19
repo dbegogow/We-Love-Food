@@ -65,7 +65,7 @@ namespace WeLoveFood.Controllers
         public IActionResult Cart(CartUserPersonalDataFormModel user)
         {
             var clientId = this._clients
-                .Id(User.Id());
+                .GetId(User.Id());
 
             var portionsCount = this._portions
                 .PortionsCount(clientId);
@@ -106,7 +106,7 @@ namespace WeLoveFood.Controllers
             }
 
             this._orders
-                .Make(clientId, user.Address, cartAllPortions.TotalPrice);
+                .MakeOrder(clientId, user.Address, cartAllPortions.TotalPrice);
 
             return RedirectToAction("MadeSuccessfulOrder");
         }

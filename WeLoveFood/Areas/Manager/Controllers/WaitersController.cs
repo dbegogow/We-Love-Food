@@ -73,7 +73,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
             }
 
             var cityId = this._cities
-                .Id(waiter.City);
+                .GetId(waiter.City);
 
             if (cityId == NoCity)
             {

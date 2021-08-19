@@ -56,7 +56,7 @@ namespace WeLoveFood.Services.Orders
                 return false;
             }
 
-            var clientId = this._clients.Id(userId);
+            var clientId = this._clients.GetId(userId);
 
             if (clientId == null)
             {
@@ -98,7 +98,7 @@ namespace WeLoveFood.Services.Orders
         public bool IsMealAddedInCart(int mealId, string userId)
         {
             var clientId = this._clients
-                .Id(userId);
+                .GetId(userId);
 
             if (clientId == null)
             {
@@ -110,7 +110,7 @@ namespace WeLoveFood.Services.Orders
                 .Any(c => c.ClientId == clientId && c.Portions.Any(p => p.Meal.Id == mealId));
         }
 
-        public void Make(string clientId, string address, decimal totalPrice)
+        public void MakeOrder(string clientId, string address, decimal totalPrice)
         {
             var cart = this._carts
                 .Cart(clientId);
@@ -171,7 +171,7 @@ namespace WeLoveFood.Services.Orders
         public IEnumerable<ClientOrderServiceModel> ClientOrders(string userId)
         {
             var clientId = this._clients
-                .Id(userId);
+                .GetId(userId);
 
             return this._data
                 .Orders

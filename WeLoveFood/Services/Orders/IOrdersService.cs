@@ -12,7 +12,7 @@ namespace WeLoveFood.Services.Orders
 
         bool IsMealAddedInCart(int mealId, string userId);
 
-        void Make(string clientId, string address,decimal totalPrice);
+        void MakeOrder(string clientId, string address,decimal totalPrice);
 
         void Accept(int orderId);
 

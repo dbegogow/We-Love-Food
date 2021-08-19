@@ -53,7 +53,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
         public IActionResult Add(AddRestaurantFormModel restaurant)
         {
             var cityId = this._cities
-                .Id(restaurant.CityName);
+                .GetId(restaurant.CityName);
 
             if (cityId == NoCity)
             {
@@ -117,7 +117,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
             }
 
             var cityId = this._cities
-                .Id(restaurant.CityName);
+                .GetId(restaurant.CityName);
 
             if (cityId == NoCity)
             {

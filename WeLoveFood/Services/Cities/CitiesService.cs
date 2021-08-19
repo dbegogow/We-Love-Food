@@ -43,7 +43,7 @@ namespace WeLoveFood.Services.Cities
                 .Select(c => c.Name)
                 .FirstOrDefault();
 
-        public int Id(string cityName)
+        public int GetId(string cityName)
             => this._data
                 .Cities
                 .Where(c => c.Name == cityName)

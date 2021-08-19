@@ -38,7 +38,7 @@ namespace WeLoveFood.Services.Managers
                 .Managers
                 .Any(m => m.UserId == userId && m.Restaurants.Any(r => r.Id == restaurantId && !r.IsDeleted));
 
-        public string Id(string userId)
+        public string GetId(string userId)
             => this._data
                 .Managers
                 .Where(m => m.UserId == userId)

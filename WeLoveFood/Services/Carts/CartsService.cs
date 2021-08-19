@@ -46,7 +46,7 @@ namespace WeLoveFood.Services.Carts
         public CartAllPortionsServiceModel AllPortions(string userId)
         {
             var clientId = this._clients
-                .Id(userId);
+                .GetId(userId);
 
             var cartRestaurantId = this.CartRestaurantId(clientId);
             var deliveryFee = this._restaurants

@@ -29,7 +29,7 @@ namespace WeLoveFood.Services.clients
             this._data.SaveChanges();
         }
 
-        public string Id(string userId)
+        public string GetId(string userId)
             => this._data
                 .Clients
                 .Where(c => c.UserId == userId)

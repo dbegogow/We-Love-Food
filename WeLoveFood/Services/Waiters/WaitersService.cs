@@ -31,7 +31,7 @@ namespace WeLoveFood.Services.Waiters
             string profileImgUrl)
         {
             var managerId = this._managers
-                .Id(userId);
+                .GetId(userId);
 
             var waiterUser = this._data
                 .Users

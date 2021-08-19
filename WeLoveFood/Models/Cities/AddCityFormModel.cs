@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Models.Constants.Common.Validations;
+using static WeLoveFood.Models.Constants.Cities.DisplayNames;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 
 namespace WeLoveFood.Models.Cities

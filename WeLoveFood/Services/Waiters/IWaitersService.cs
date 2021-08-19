@@ -1,17 +1,22 @@
-﻿namespace WeLoveFood.Services.Waiters
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
+namespace WeLoveFood.Services.Waiters
 {
     public interface IWaitersService
     {
-        void CreateWaiter(
-            string userId,
-            string waiterUserId,
-            int restaurantId,
-            string firstName,
-            string lastName,
-            string phoneNumber,
-            int cityId,
-            string address,
-            string profileImgUrl);
+        Task<string> CreateWaiter(
+           string managerUserId,
+           int restaurantId,
+           string email,
+           string password,
+           string confirmPassword,
+           string firstName,
+           string lastName,
+           string phoneNumber,
+           int cityId,
+           string address,
+           IFormFile profileImg);
 
         int RestaurantId(string userId);
     }

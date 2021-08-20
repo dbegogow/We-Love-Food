@@ -4,7 +4,7 @@ using WeLoveFood.Services.Cities;
 using System.Collections.Generic;
 using WeLoveFood.Services.Models.Cities;
 using Microsoft.Extensions.Caching.Memory;
-
+using WeLoveFood.Infrastructure.Extensions;
 using static WeLoveFood.CacheConstants;
 
 namespace WeLoveFood.Controllers
@@ -25,17 +25,27 @@ namespace WeLoveFood.Controllers
 
         public IActionResult All()
         {
-            var citiesCards = this._cache.Get<IEnumerable<CityCardServiceModel>>(AllCitiesCardsCacheKey);
+            IEnumerable<CityCardServiceModel> citiesCards = null;
 
-            if (citiesCards == null)
+            if (User.IsAdmin())
             {
                 citiesCards = this._cities
-                   .CardsOrderByRestaurantsCount();
+                    .CardsOrderByRestaurantsCount();
+            }
+            else
+            {
+                citiesCards = this._cache.Get<IEnumerable<CityCardServiceModel>>(AllCitiesCardsCacheKey);
 
-                var cacheOptions = new MemoryCacheEntryOptions()
-                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(AbsoluteExpirationMinutes));
+                if (citiesCards == null)
+                {
+                    citiesCards = this._cities
+                        .CardsOrderByRestaurantsCount();
 
-                this._cache.Set(AllCitiesCardsCacheKey, citiesCards, cacheOptions);
+                    var cacheOptions = new MemoryCacheEntryOptions()
+                        .SetAbsoluteExpiration(TimeSpan.FromMinutes(AbsoluteExpirationMinutes));
+
+                    this._cache.Set(AllCitiesCardsCacheKey, citiesCards, cacheOptions);
+                }
             }
 
             return View(citiesCards);

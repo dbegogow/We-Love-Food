@@ -3,6 +3,8 @@ using WeLoveFood.Services.Orders;
 using WeLoveFood.Services.Waiters;
 using WeLoveFood.Infrastructure.Extensions;
 
+using static WeLoveFood.TempDataConstants;
+
 namespace WeLoveFood.Areas.Waiter.Controllers
 {
     public class OrdersController : WaiterController
@@ -43,6 +45,8 @@ namespace WeLoveFood.Areas.Waiter.Controllers
 
             this._orders
                 .Accept(id);
+
+            TempData[SuccessMessageKey] = SuccessfulAcceptedOrderMessage;
 
             return RedirectToAction("All", "Orders", new { area = "Waiter" });
         }

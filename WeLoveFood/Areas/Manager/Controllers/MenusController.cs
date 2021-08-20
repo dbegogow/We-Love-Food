@@ -7,6 +7,7 @@ using WeLoveFood.Services.Images;
 using WeLoveFood.Services.Managers;
 using WeLoveFood.Infrastructure.Extensions;
 
+using static WeLoveFood.TempDataConstants;
 using static WeLoveFood.Models.Constants.Menus.ExceptionMessages;
 
 namespace WeLoveFood.Areas.Manager.Controllers
@@ -101,6 +102,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
                     meal.Price,
                     mealsCategoryId);
 
+            TempData[SuccessMessageKey] = SuccessfulAddedMealMessage;
+
             return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }
 
@@ -133,6 +136,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
 
             this._menus
                 .AddMealsCategory(id, mealsCategory.Name);
+
+            TempData[SuccessMessageKey] = SuccessfulAddedMealsCategoryMessage;
 
             return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }
@@ -180,6 +185,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
             this._menus
                 .EditMealsCategory(id, mealsCategoryId, mealsCategory.Name);
 
+            TempData[SuccessMessageKey] = SuccessfulEditedMealsCategoryMessage;
+
             return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }
 
@@ -207,6 +214,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
             this._menus
                 .DeleteMealsCategory(mealsCategoryId);
 
+            TempData[SuccessMessageKey] = SuccessfulDeletedMealsCategoryMessage;
+
             return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }
 
@@ -233,6 +242,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
 
             this._menus
                 .DeleteMeal(mealId);
+
+            TempData[SuccessMessageKey] = SuccessfulDeletedMealMessage;
 
             return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }

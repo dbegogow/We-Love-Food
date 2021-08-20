@@ -2,7 +2,7 @@
     const successMessageEl = document.querySelector('.success-message');
 
     if (successMessageEl) {
-        const expirationTime = 2000;
+        const expirationTime = 3000;
 
         setTimeout(() => {
             successMessageEl.classList.add('hidden');

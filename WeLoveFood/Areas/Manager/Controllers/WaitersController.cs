@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Models.Waiters;
 using WeLoveFood.Services.Cities;
-using WeLoveFood.Services.Images;
 using WeLoveFood.Services.Waiters;
 using WeLoveFood.Services.Managers;
 using WeLoveFood.Infrastructure.Extensions;
 
+using static WeLoveFood.TempDataConstants;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
@@ -19,18 +19,15 @@ namespace WeLoveFood.Areas.Manager.Controllers
         private const string DuplicateUserNameErrorCode = "DuplicateUserName";
 
         private readonly ICitiesService _cities;
-        private readonly IImagesService _images;
         private readonly IWaitersService _waiters;
         private readonly IManagersService _managers;
 
         public WaitersController(
             ICitiesService cities,
-            IImagesService images,
             IWaitersService waiters,
             IManagersService managers)
         {
             this._cities = cities;
-            this._images = images;
             this._waiters = waiters;
             this._managers = managers;
         }
@@ -89,6 +86,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
 
             if (resultError == null)
             {
+                TempData[SuccessMessageKey] = SuccessfulAddedWaiterMessage;
+
                 return RedirectToAction("All", "Waiters", new { area = "Manager", id });
             }
 

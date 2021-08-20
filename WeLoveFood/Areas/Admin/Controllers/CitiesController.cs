@@ -10,7 +10,6 @@ namespace WeLoveFood.Areas.Admin.Controllers
     public class CitiesController : AdminController
     {
         private const string CitiesImagesPath = "img/cities";
-        private const string SuccessAddedCarMessage = "Успешно добавихте новия град!";
 
         private readonly ICitiesService _cities;
         private readonly IImagesService _images;
@@ -39,7 +38,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
             this._cities
                 .Add(city.Name, uniqueFileName);
 
-            TempData[SuccessMessageKey] = SuccessAddedCarMessage;
+            TempData[SuccessMessageKey] = SuccessfulAddedCityMessage;
 
             return RedirectToAction("All", "Cities", new { area = "" });
         }

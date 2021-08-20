@@ -7,6 +7,7 @@ using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
 using WeLoveFood.Infrastructure.Extensions;
 
+using static WeLoveFood.TempDataConstants;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 
 namespace WeLoveFood.Areas.Manager.Controllers
@@ -78,6 +79,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
                     restaurant.OpeningTime,
                     restaurant.ClosingTime,
                     cityId);
+
+            TempData[SuccessMessageKey] = SuccessfulAddedRestaurantMessage;
 
             return RedirectToAction("Mine", "Restaurants", new { area = "Manager" });
         }
@@ -155,6 +158,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
                     .EditMainImg(id, uniqueFileNameMainImg);
             }
 
+            TempData[SuccessMessageKey] = SuccessfulEditedRestaurantMessage;
+
             return RedirectToAction("Meals", "Menus", new { area = "Manager", id });
         }
 
@@ -170,6 +175,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
 
             this._restaurants
                 .Archive(id);
+
+            TempData[SuccessMessageKey] = SuccessfulArchivedRestaurantMessage;
 
             return RedirectToAction("Mine");
         }
@@ -187,6 +194,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
             this._restaurants
                 .UnArchive(id);
 
+            TempData[SuccessMessageKey] = SuccessfulUnArchivedRestaurantMessage;
+
             return RedirectToAction("Mine");
         }
 
@@ -202,6 +211,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
 
             this._restaurants
                 .Delete(id);
+
+            TempData[SuccessMessageKey] = SuccessfulDeleteRestaurantMessage;
 
             return RedirectToAction("Mine");
         }

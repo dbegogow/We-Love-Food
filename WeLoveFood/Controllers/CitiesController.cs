@@ -33,7 +33,7 @@ namespace WeLoveFood.Controllers
                    .CardsOrderByRestaurantsCount();
 
                 var cacheOptions = new MemoryCacheEntryOptions()
-                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(15));
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(AbsoluteExpirationMinutes));
 
                 this._cache.Set(AllCitiesCardsCacheKey, citiesCards, cacheOptions);
             }

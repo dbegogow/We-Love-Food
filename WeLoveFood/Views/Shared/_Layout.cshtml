@@ -27,17 +27,21 @@
 <body>
     <partial name="_HeaderPartial" />
 
-    <div>
-        <main>
-            @RenderBody()
-        </main>
+<div>
+    <div class="success-message">
+        <p>Успешно добавихте града</p>
     </div>
+    <main>
+        @RenderBody()
+    </main>
+</div>
 
     <footer class="footer-container">
         <span>We Love Food</span>
     </footer>
 
     <script type="text/javascript" src="~/js/shared/navMenu.js"></script>
+    <script type="text/javascript" src="~/js/shared/successMessage.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
     @await RenderSectionAsync("CartScript", required: false)

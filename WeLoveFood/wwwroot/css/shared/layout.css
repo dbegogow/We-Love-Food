@@ -144,6 +144,33 @@ button.header-link-btn {
     margin: 0 5px;
 }
 
+.success-message {
+    margin: 0;
+    position: relative;
+    top: 60px;
+    z-index: 3;
+    width: 40vw;
+    margin: 0 auto;
+    height: 50px;
+    border: 3px solid #66F718;
+    border-radius: 7px;
+}
+
+.success-message p {
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #3E8D13;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.success-message.hidden {
+    display: none;
+}
+
 .footer-container {
     position: absolute;
     bottom: 0;
@@ -221,6 +248,14 @@ button.header-link-btn {
     }
 
     .header-link-btn {
+        font-size: 1rem;
+    }
+
+    .success-message {
+        width: 100%;
+    }
+
+    .success-message p {
         font-size: 1rem;
     }
 }

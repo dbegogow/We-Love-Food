@@ -247,7 +247,7 @@ namespace WeLoveFood.Services.Restaurants
         public RestaurantServiceModel Information(int id)
             => this._data
                 .Restaurants
-                .Where(r => r.Id == id && !r.IsDeleted && r.IsApproved)
+                .Where(r => r.Id == id && !r.IsDeleted)
                 .Select(r => new RestaurantServiceModel
                 {
                     Id = r.Id,

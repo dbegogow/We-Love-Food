@@ -36,14 +36,14 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
-                    b.Property<string>("GetId")
+                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NameDisplay")
+                    b.Property<string>("Name")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -51,7 +51,7 @@ namespace WeLoveFood.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
@@ -63,7 +63,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.Property<int>("GetId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -78,7 +78,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("RoleId");
 
@@ -87,7 +87,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.Property<int>("GetId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -102,7 +102,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -157,21 +157,21 @@ namespace WeLoveFood.Data.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("NameDisplay")
+                    b.Property<string>("Name")
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId", "LoginProvider", "NameDisplay");
+                    b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Cart", b =>
                 {
-                    b.Property<string>("GetId")
+                    b.Property<string>("Id")
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
@@ -179,7 +179,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ClientId")
                         .IsUnique();
@@ -189,7 +189,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.City", b =>
                 {
-                    b.Property<int>("GetId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -198,19 +198,19 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NameDisplay")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Client", b =>
                 {
-                    b.Property<string>("GetId")
+                    b.Property<string>("Id")
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
@@ -222,7 +222,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -231,7 +231,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Manager", b =>
                 {
-                    b.Property<string>("GetId")
+                    b.Property<string>("Id")
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
@@ -239,7 +239,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -248,7 +248,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Meal", b =>
                 {
-                    b.Property<int>("GetId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -266,7 +266,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<int>("MealsCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NameDisplay")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
@@ -277,7 +277,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<int>("Weight")
                         .HasColumnType("int");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("MealsCategoryId");
 
@@ -286,7 +286,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.MealsCategory", b =>
                 {
-                    b.Property<int>("GetId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -294,7 +294,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("NameDisplay")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
@@ -302,7 +302,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<int>("RestaurantId")
                         .HasColumnType("int");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("RestaurantId");
 
@@ -311,7 +311,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Order", b =>
                 {
-                    b.Property<int>("GetId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -335,7 +335,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(10,2)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ClientId");
 
@@ -346,7 +346,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Portion", b =>
                 {
-                    b.Property<int>("GetId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -363,7 +363,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CartId");
 
@@ -376,7 +376,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Restaurant", b =>
                 {
-                    b.Property<int>("GetId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -411,7 +411,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<string>("NameDisplay")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
@@ -419,7 +419,7 @@ namespace WeLoveFood.Data.Migrations
                     b.Property<TimeSpan>("OpeningTime")
                         .HasColumnType("time");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CityId");
 
@@ -430,7 +430,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.User", b =>
                 {
-                    b.Property<string>("GetId")
+                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
@@ -498,7 +498,7 @@ namespace WeLoveFood.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CityId");
 
@@ -515,7 +515,7 @@ namespace WeLoveFood.Data.Migrations
 
             modelBuilder.Entity("WeLoveFood.Data.Models.Waiter", b =>
                 {
-                    b.Property<string>("GetId")
+                    b.Property<string>("Id")
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
@@ -530,7 +530,7 @@ namespace WeLoveFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("GetId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ManagerId");
 

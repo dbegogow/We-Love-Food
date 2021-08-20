@@ -27,14 +27,17 @@
 <body>
     <partial name="_HeaderPartial" />
 
-<div>
-    <div class="success-message">
-        <p>Успешно добавихте града</p>
+    <div>
+        @if (TempData.ContainsKey(TempDataConstants.SuccessMessageKey))
+        {
+            <div class="success-message">
+                <p>@TempData[TempDataConstants.SuccessMessageKey]</p>
+            </div>
+        }
+        <main>
+            @RenderBody()
+        </main>
     </div>
-    <main>
-        @RenderBody()
-    </main>
-</div>
 
     <footer class="footer-container">
         <span>We Love Food</span>

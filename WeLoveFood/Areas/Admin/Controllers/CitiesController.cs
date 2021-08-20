@@ -3,11 +3,14 @@ using WeLoveFood.Models.Cities;
 using WeLoveFood.Services.Images;
 using WeLoveFood.Services.Cities;
 
+using static WeLoveFood.TempDataConstants;
+
 namespace WeLoveFood.Areas.Admin.Controllers
 {
     public class CitiesController : AdminController
     {
         private const string CitiesImagesPath = "img/cities";
+        private const string SuccessAddedCarMessage = "Успешно добавихте новия град!";
 
         private readonly ICitiesService _cities;
         private readonly IImagesService _images;
@@ -35,6 +38,8 @@ namespace WeLoveFood.Areas.Admin.Controllers
 
             this._cities
                 .Add(city.Name, uniqueFileName);
+
+            TempData[SuccessMessageKey] = SuccessAddedCarMessage;
 
             return RedirectToAction("All", "Cities", new { area = "" });
         }

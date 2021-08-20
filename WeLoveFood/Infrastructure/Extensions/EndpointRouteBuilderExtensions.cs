@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace WeLoveFood.Infrastructure.Extensions
 {
@@ -45,9 +43,29 @@ namespace WeLoveFood.Infrastructure.Extensions
                 defaults: new { area = "Manager", controller = "Orders", action = "All" });
 
             endpoints.MapControllerRoute(
-                name: "Manager Meals",
-                pattern: "/Manager/Meals/{id}",
+                name: "Manager Menu",
+                pattern: "/Manager/Menu/{id}",
                 defaults: new { area = "Manager", controller = "Menus", action = "Meals" });
+
+            endpoints.MapControllerRoute(
+                name: "Manager Add Meal",
+                pattern: "/Manager/Meal/Add/{id}",
+                defaults: new { area = "Manager", controller = "Menus", action = "AddMeal" });
+
+            endpoints.MapControllerRoute(
+                name: "Manager Add Meals Category",
+                pattern: "/Manager/Category/Add/{id}",
+                defaults: new { area = "Manager", controller = "Menus", action = "AddMealsCategory" });
+
+            endpoints.MapControllerRoute(
+                name: "Manager Edit Meals Category",
+                pattern: "/Manager/Category/Edit/{id}",
+                defaults: new { area = "Manager", controller = "Menus", action = "EditMealsCategory" });
+
+            endpoints.MapControllerRoute(
+                name: "Manager Restaurants",
+                pattern: "/Manager/Restaurants",
+                defaults: new { area = "Manager", controller = "Restaurants", action = "Mine" });
 
             endpoints.MapControllerRoute(
                 name: "Manager Waiters",

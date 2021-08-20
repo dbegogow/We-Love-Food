@@ -46,6 +46,8 @@ namespace WeLoveFood
 
             services.AddAutoMapper(typeof(Startup));
 
+            services.AddMemoryCache();
+
             services
                 .AddControllersWithViews(options =>
                     {

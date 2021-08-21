@@ -7,7 +7,7 @@ namespace WeLoveFood.Test.Routing
     public class CitiesControllerTest
     {
         [Fact]
-        public void GetBecomeShouldBeMapped()
+        public void CitiesRouteShouldBeMapped()
             => MyRouting
                 .Configuration()
                 .ShouldMap("/Cities")

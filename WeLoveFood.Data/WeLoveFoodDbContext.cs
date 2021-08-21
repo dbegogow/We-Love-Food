@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
+using static WeLoveFood.Data.DbConfiguration;
+
 namespace WeLoveFood.Data
 {
     public class WeLoveFoodDbContext : IdentityDbContext<User>
@@ -30,6 +32,12 @@ namespace WeLoveFood.Data
         public DbSet<Manager> Managers { get; init; }
 
         public DbSet<Waiter> Waiters { get; init; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder
+                .UseSqlServer(ConnectionString);
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -33,8 +33,7 @@ namespace WeLoveFood
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<WeLoveFoodDbContext>(options => options
-                    .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                .AddDbContext<WeLoveFoodDbContext>();
 
             services.
                 AddDefaultIdentity<User>(options =>

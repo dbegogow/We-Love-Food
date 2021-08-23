@@ -1,0 +1,108 @@
+﻿@model MenuViewModel
+
+@inject IOrdersService _orders;
+@inject IClientsService _clients;
+
+@{
+    ViewBag.Title = $"{Model.Restaurant.Name} -";
+}
+
+@section MealsStyles {
+    <link href="~/css/menus/meals.css" rel="stylesheet" />
+}
+
+<div class="restaurant-image-container">
+    <img src="@Model.Restaurant.MainImgUrl" alt="Restaurant Image" />
+</div>
+
+<div class="restaurant-container">
+    <div class="heading">
+        <h1>@Model.Restaurant.Name</h1>
+
+        @if (User.IsClient())
+        {
+            var hasRestaurantInFavorite = _clients
+                .HasRestaurantInFavorite(User.Id(), Model.Restaurant.Id);
+
+            <form method="post">
+                <button id="add-to-favorite" type="submit" restaurant-id="@Model.Restaurant.Id" class="@(hasRestaurantInFavorite ? "added" : string.Empty)"><i class="fas fa-heart"></i></button>
+            </form>
+
+            <p class="add-to-favorite-success-message">Добавено в любими</p>
+        }
+    </div>
+
+    <p class="opening-time">Работно време <span class="time">@Model.Restaurant.OpeningTime ч. - @Model.Restaurant.ClosingTime ч.</span></p>
+
+    <p class="delivery-fee">
+        Цена за доставка:
+
+        @if (Model.Restaurant.DeliveryFee != null)
+        {
+            <span><span class="fee">@Model.Restaurant.DeliveryFee</span> лв</span>
+        }
+        else
+        {
+            <span>Безплатна доставка</span>
+        }
+    </p>
+
+    @if (!Model.Restaurant.IsOpen)
+    {
+        <span class="closing-message">Затворено в момента</span>
+    }
+
+    @if (User.IsAdmin())
+    {
+        <div class="all-restaurants-btn-container">
+            <a asp-area="Admin" asp-controller="Restaurants" asp-action="New" asp-route-id="@Model.Restaurant.Id">Всички нови ресторанти</a>
+        </div>
+    }
+    else
+    {
+        <div class="all-restaurants-btn-container">
+            <a asp-area="" asp-controller="Restaurants" asp-action="All" asp-route-id="@Model.Restaurant.Id">Всички ресторанти</a>
+        </div>
+    }
+
+    <div class="menu">
+        <ul>
+            @foreach (var category in Model.AllCategories)
+            {
+                <li><a asp-area="" asp-controller="Menus" asp-action="Meals" asp-route-categoryId="@category.Id">@category.Name</a></li>
+            }
+        </ul>
+    </div>
+
+    <div class="menu-section @(Model.Restaurant.IsOpen ? string.Empty : "closed")">
+        <h2>@Model.CategoryName</h2>
+
+        <div class="meals-container">
+            @foreach (var meal in Model.Meals)
+            {
+                var isMealAdded = this._orders
+                    .IsMealAddedInCart(meal.Id, this.User.Id());
+
+                <form method="post">
+                    <div class="meal @(isMealAdded ? "added" : string.Empty)" is-user-authenticated=@(User.Identity.IsAuthenticated ? "true" : "false") meal-id="@meal.Id" restaurant-id="@Model.Restaurant.Id">
+                        <div class="meal-info">
+                            <h3>@meal.Name (@meal.Weight гр)</h3>
+                            <p class="description">
+                                @meal.Description
+                            </p>
+                            <p class="price">@meal.Price лв</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="@meal.ImgUrl" />
+                        </div>
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+</div>
+
+@section MealsScript {
+    <script type="text/javascript" src="~/js/orders/addMealToCart.js"></script>
+    <script type="text/javascript" src="~/js/restaurants/addToFavorite.js"></script>
+}

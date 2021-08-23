@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ManagerWaiterServiceModel>
+
+@{
+    ViewBag.Title = "Сервитьори -";
+}
+
+@section ManagerAllWaitersStyles {
+    <link href="~/css/users/pageContainer.css" rel="stylesheet" />
+    <link href="~/css/users/options.css" rel="stylesheet" />
+    <link href="~/css/waiters/managerAll.css" rel="stylesheet" />
+}
+
+<div class="user-profile-page-container">
+    <partial name="~/Areas/Manager/Views/Shared/_SettingsOptionsPartial.cshtml" />
+    <div class="main-container">
+        <h2>Сервитьори</h2>
+
+        <div class="section-container">
+            <div class="all-waiters-container">
+                <div class="add-waiter">
+                    <a asp-area="Manager" asp-controller="Waiters" asp-action="Create" asp-route-id="@ViewBag.RestaurantId"><i class="fas fa-plus"></i> Създай сервитьор</a>
+                </div>
+
+                @foreach (var waiter in Model)
+                {
+                    <div class="waiter">
+                        <div class="profile-image-container">
+                            <img src="@waiter.UserProfileImgUrl" alt="Profile Picture"/>
+                        </div>
+
+                        <div class="personal-data">
+                            <p><span>Име:</span> @waiter.UserFirstName</p>
+                            <p><span>Фамилия:</span> @waiter.UserLastName</p>
+                            <p><span>Телефонен номер:</span> @waiter.UserPhoneNumber</p>
+                            <p><span>Град:</span> @waiter.UserCityName</p>
+                            <p><span>Адрес:</span> @waiter.UserAddress</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

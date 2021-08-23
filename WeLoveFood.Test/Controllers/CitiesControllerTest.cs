@@ -4,7 +4,7 @@ using MyTested.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using WeLoveFood.Web.Services.Models.Cities;
-using WeLoveFood.Web.Web.Controllers;
+using WeLoveFood.Web.Controllers;
 using static WeLoveFood.Web.CacheConstants;
 using static WeLoveFood.Web.Test.Data.Cities;
 

@@ -1,5 +1,5 @@
 ﻿using MyTested.AspNetCore.Mvc;
-using WeLoveFood.Web.Web.Controllers;
+using WeLoveFood.Web.Controllers;
 using Xunit;
 
 namespace WeLoveFood.Web.Test.Routing

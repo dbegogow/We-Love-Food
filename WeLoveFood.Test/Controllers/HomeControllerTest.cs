@@ -1,6 +1,6 @@
 ﻿using Xunit;
 using MyTested.AspNetCore.Mvc;
-using WeLoveFood.Web.Web.Controllers;
+using WeLoveFood.Web.Controllers;
 using RestaurantsController = WeLoveFood.Web.Areas.Manager.Controllers.RestaurantsController;
 using OrdersController = WeLoveFood.Web.Areas.Waiter.Controllers.OrdersController;
 

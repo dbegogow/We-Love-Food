@@ -1,0 +1,6 @@
+﻿@model CityCardServiceModel
+
+<a asp-area="" asp-controller="Restaurants" asp-action="All" asp-route-id="@Model.Id" class="city-card">
+    <img src="@Model.ImgUrl" alt="NameDisplayNameDisplay Image" />
+    <h4 class="city-card-title">@Model.Name</h4>
+</a>

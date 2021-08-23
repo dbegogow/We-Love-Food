@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ManagerMenuViewModel>
+
+@{
+    ViewBag.Title = "Меню -";
+}
+
+@section ManagerMenuStyles {
+    <link href="~/css/users/pageContainer.css" rel="stylesheet" />
+    <link href="~/css/users/options.css" rel="stylesheet" />
+    <link href="~/css/menus/manager.css" rel="stylesheet" />
+}
+
+<div class="user-profile-page-container">
+    <partial name="~/Areas/Manager/Views/Shared/_SettingsOptionsPartial.cshtml" />
+    <div class="main-container">
+        <h2>Меню</h2>
+
+        <div class="section-container">
+            <div class="manager-meals-container">
+                <div class="add-btns">
+                    <a asp-area="Manager" asp-controller="Menus" asp-action="AddMeal" asp-route-id="@ViewBag.RestaurantId"><i class="fas fa-plus"></i> Добави ястие</a>
+                    <a asp-area="Manager" asp-controller="Menus" asp-action="AddMealsCategory" asp-route-id="@ViewBag.RestaurantId"><i class="fas fa-plus"></i> Добави категория</a>
+                </div>
+
+                <div class="categories">
+                    @foreach (var mealsCategory in Model)
+                    {
+                        <div class="category">
+                            <h3>@mealsCategory.MealsCategory.Name</h3>
+
+                            <div class="btns">
+                                <a asp-area="Manager" asp-controller="Menus" asp-action="EditMealsCategory" asp-route-id="@ViewBag.RestaurantId" asp-route-mealsCategoryId="@mealsCategory.MealsCategory.Id" class="edit">Промени</a>
+                                <a asp-area="Manager" asp-controller="Menus" asp-action="DeleteMealsCategory" asp-route-id="@ViewBag.RestaurantId" asp-route-mealsCategoryId="@mealsCategory.MealsCategory.Id" class="delete">Изтрий</a>
+                            </div>
+
+                            <div class="meals">
+                                @foreach (var meal in mealsCategory.Meals)
+                                {
+                                    <div class="meal">
+                                        <div class="card">
+                                            <img src="@meal.ImgUrl" alt="Meal image" />
+                                        </div>
+
+                                        <div class="info">
+                                            <h4>@meal.Name <span>(@meal.Weight гр.)</span></h4>
+
+                                            <p>
+                                                @meal.Description
+                                            </p>
+
+                                            <p class="price">
+                                                Цена: <span>@meal.Price лв.</span>
+                                            </p>
+
+                                            <div class="btns">
+                                                <a asp-area="Manager" asp-controller="Menus" asp-action="DeleteMeal" asp-route-id="@ViewBag.RestaurantId" asp-route-mealId="@meal.Id" asp-route-mealsCategoryId="@mealsCategory.MealsCategory.Id" class="delete">Изтрий</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

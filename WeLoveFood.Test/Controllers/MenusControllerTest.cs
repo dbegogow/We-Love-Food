@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using MyTested.AspNetCore.Mvc;
-using WeLoveFood.Web.Web.Controllers;
-using WeLoveFood.Web.Web.Models.Menus;
+using WeLoveFood.Web.Controllers;
+using WeLoveFood.Web.Models.Menus;
 using Xunit;
 
 using static WeLoveFood.Web.Test.Data.Menus;

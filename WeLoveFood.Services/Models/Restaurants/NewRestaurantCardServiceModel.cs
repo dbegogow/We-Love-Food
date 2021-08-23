@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WeLoveFood.Services.Models.Restaurants
+namespace WeLoveFood.Web.Services.Models.Restaurants
 {
     public class NewRestaurantCardServiceModel
     {

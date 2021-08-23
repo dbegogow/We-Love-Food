@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Models.Carts
+﻿namespace WeLoveFood.Web.Web.Models.Carts
 {
     public class AddMealToCartApiModel
     {

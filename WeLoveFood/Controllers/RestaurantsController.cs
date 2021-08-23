@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Cities;
-using WeLoveFood.Models.Restaurants;
-using WeLoveFood.Services.Restaurants;
 using Microsoft.AspNetCore.Authorization;
-using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Cities;
+using WeLoveFood.Web.Services.Restaurants;
+using WeLoveFood.Web.Web.Models.Restaurants;
+using static WeLoveFood.Web.WebConstants;
 
-using static WeLoveFood.WebConstants;
-
-namespace WeLoveFood.Controllers
+namespace WeLoveFood.Web.Web.Controllers
 {
     public class RestaurantsController : Controller
     {

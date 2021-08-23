@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using WeLoveFood.Data;
-using WeLoveFood.Data.Models;
-using WeLoveFood.Services.clients;
-using WeLoveFood.Services.Portions;
-using WeLoveFood.Services.Restaurants;
-using WeLoveFood.Services.Models.Orders;
+using WeLoveFood.Web.Data;
+using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Web.Services.clients;
+using WeLoveFood.Web.Services.Models.Orders;
+using WeLoveFood.Web.Services.Portions;
+using WeLoveFood.Web.Services.Restaurants;
 
-namespace WeLoveFood.Services.Carts
+namespace WeLoveFood.Web.Services.Carts
 {
     public class CartsService : ICartsService
     {

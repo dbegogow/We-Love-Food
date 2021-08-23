@@ -1,13 +1,12 @@
-﻿using WeLoveFood.Data;
-using Microsoft.AspNetCore.Http;
-using WeLoveFood.Models.Constants.Cities;
+﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
+using WeLoveFood.Web.Data;
+using WeLoveFood.Web.Web.Models.Constants.Cities;
+using static WeLoveFood.Web.Data.DataConstants.Restaurant;
+using static WeLoveFood.Web.Web.Models.Constants.Restaurants.DisplayNames;
+using static WeLoveFood.Web.Web.Models.Constants.Restaurants.ExceptionMessages;
 
-using static WeLoveFood.Data.DataConstants.Restaurant;
-using static WeLoveFood.Models.Constants.Restaurants.DisplayNames;
-using static WeLoveFood.Models.Constants.Restaurants.ExceptionMessages;
-
-namespace WeLoveFood.Models.Restaurants
+namespace WeLoveFood.Web.Web.Models.Restaurants
 {
     public class EditRestaurantFormModel
     {

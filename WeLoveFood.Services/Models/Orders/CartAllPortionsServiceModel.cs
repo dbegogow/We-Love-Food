@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WeLoveFood.Services.Models.Orders
+namespace WeLoveFood.Web.Services.Models.Orders
 {
     public class CartAllPortionsServiceModel
     {

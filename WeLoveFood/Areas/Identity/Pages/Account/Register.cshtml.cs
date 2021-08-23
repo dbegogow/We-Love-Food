@@ -1,19 +1,18 @@
 ﻿using System.Linq;
-using WeLoveFood.Data.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.clients;
-using WeLoveFood.Services.Managers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Web.Services.clients;
+using WeLoveFood.Web.Services.Managers;
+using static WeLoveFood.Web.WebConstants;
+using static WeLoveFood.Web.Data.DataConstants.User;
+using static WeLoveFood.Web.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
-using static WeLoveFood.WebConstants;
-using static WeLoveFood.Data.DataConstants.User;
-using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
-
-namespace WeLoveFood.Areas.Identity.Pages.Account
+namespace WeLoveFood.Web.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel

@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using static WeLoveFood.Data.DataConstants.Meal;
+using static WeLoveFood.Web.Data.DataConstants.Meal;
 
-namespace WeLoveFood.Data.Models
+namespace WeLoveFood.Web.Data.Models
 {
     public class Meal
     {

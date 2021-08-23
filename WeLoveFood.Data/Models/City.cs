@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.City;
+using static WeLoveFood.Web.Data.DataConstants.City;
 
-namespace WeLoveFood.Data.Models
+namespace WeLoveFood.Web.Data.Models
 {
     public class City
     {

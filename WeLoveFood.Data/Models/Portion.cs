@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Data.Models
+﻿namespace WeLoveFood.Web.Data.Models
 {
     public class Portion
     {

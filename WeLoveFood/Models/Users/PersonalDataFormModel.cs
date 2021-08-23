@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.User;
-using static WeLoveFood.Models.Constants.Users.ExceptionMessages;
+using static WeLoveFood.Web.Data.DataConstants.User;
+using static WeLoveFood.Web.Web.Models.Constants.Users.ExceptionMessages;
 
-namespace WeLoveFood.Models.Users
+namespace WeLoveFood.Web.Web.Models.Users
 {
     public class PersonalDataFormModel
     {

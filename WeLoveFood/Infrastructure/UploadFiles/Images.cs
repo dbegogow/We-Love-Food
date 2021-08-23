@@ -3,7 +3,7 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 
-namespace WeLoveFood.Infrastructure.UploadFiles
+namespace WeLoveFood.Web.Web.Infrastructure.UploadFiles
 {
     public class Images : IImages
     {

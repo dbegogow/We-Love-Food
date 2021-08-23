@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using WeLoveFood.Models.Menus;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Menus;
-using WeLoveFood.Services.Restaurants;
+using WeLoveFood.Web.Services.Menus;
+using WeLoveFood.Web.Services.Restaurants;
+using WeLoveFood.Web.Web.Models.Menus;
 
-namespace WeLoveFood.Controllers
+namespace WeLoveFood.Web.Web.Controllers
 {
     public class MenusController : Controller
     {

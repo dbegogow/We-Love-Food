@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace WeLoveFood
+namespace WeLoveFood.Web
 {
     public class Program
     {

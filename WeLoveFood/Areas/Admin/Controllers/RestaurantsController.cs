@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Restaurants;
+using WeLoveFood.Web.Services.Restaurants;
 
-namespace WeLoveFood.Areas.Admin.Controllers
+namespace WeLoveFood.Web.Areas.Admin.Controllers
 {
     public class RestaurantsController : AdminController
     {

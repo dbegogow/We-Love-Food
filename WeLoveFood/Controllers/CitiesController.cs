@@ -1,14 +1,13 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Cities;
 using System.Collections.Generic;
-using WeLoveFood.Services.Models.Cities;
 using Microsoft.Extensions.Caching.Memory;
-using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Cities;
+using WeLoveFood.Web.Services.Models.Cities;
+using static WeLoveFood.Web.CacheConstants;
 
-using static WeLoveFood.CacheConstants;
-
-namespace WeLoveFood.Controllers
+namespace WeLoveFood.Web.Web.Controllers
 {
     public class CitiesController : Controller
     {

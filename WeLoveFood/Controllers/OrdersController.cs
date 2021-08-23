@@ -1,21 +1,20 @@
 ﻿using System.Linq;
-using WeLoveFood.Models.Carts;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Carts;
-using WeLoveFood.Services.Users;
-using WeLoveFood.Services.Cities;
-using WeLoveFood.Services.Orders;
-using WeLoveFood.Services.clients;
-using WeLoveFood.Services.Portions;
-using WeLoveFood.Services.Models.Users;
 using Microsoft.AspNetCore.Authorization;
-using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Carts;
+using WeLoveFood.Web.Services.Cities;
+using WeLoveFood.Web.Services.clients;
+using WeLoveFood.Web.Services.Models.Users;
+using WeLoveFood.Web.Services.Orders;
+using WeLoveFood.Web.Services.Portions;
+using WeLoveFood.Web.Services.Users;
+using WeLoveFood.Web.Web.Models.Carts;
+using static WeLoveFood.Web.WebConstants;
+using static WeLoveFood.Web.Web.Models.Constants.Cities.ExceptionMessages;
+using static WeLoveFood.Web.Web.Models.Constants.Portions.ExceptionMessages;
 
-using static WeLoveFood.WebConstants;
-using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
-using static WeLoveFood.Models.Constants.Portions.ExceptionMessages;
-
-namespace WeLoveFood.Controllers
+namespace WeLoveFood.Web.Web.Controllers
 {
     public class OrdersController : Controller
     {

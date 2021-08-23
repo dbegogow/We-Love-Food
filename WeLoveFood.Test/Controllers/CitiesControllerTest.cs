@@ -1,14 +1,14 @@
 ﻿using Xunit;
 using System;
-using WeLoveFood.Controllers;
 using MyTested.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using WeLoveFood.Services.Models.Cities;
-using static WeLoveFood.CacheConstants;
-using static WeLoveFood.Test.Data.Cities;
+using WeLoveFood.Web.Services.Models.Cities;
+using WeLoveFood.Web.Web.Controllers;
+using static WeLoveFood.Web.CacheConstants;
+using static WeLoveFood.Web.Test.Data.Cities;
 
-namespace WeLoveFood.Test.Controllers
+namespace WeLoveFood.Web.Test.Controllers
 {
     public class CitiesControllerTest
     {

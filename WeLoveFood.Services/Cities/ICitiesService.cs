@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using WeLoveFood.Services.Models.Cities;
+using WeLoveFood.Web.Services.Models.Cities;
 
-namespace WeLoveFood.Services.Cities
+namespace WeLoveFood.Web.Services.Cities
 {
     public interface ICitiesService
     {

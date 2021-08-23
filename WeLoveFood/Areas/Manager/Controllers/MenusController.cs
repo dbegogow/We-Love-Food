@@ -1,16 +1,15 @@
 ﻿using System.Linq;
-using WeLoveFood.Models.Menus;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Menus;
 using System.Collections.Generic;
-using WeLoveFood.Services.Managers;
-using WeLoveFood.Infrastructure.Extensions;
-using WeLoveFood.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Managers;
+using WeLoveFood.Web.Services.Menus;
+using WeLoveFood.Web.Web.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Web.Models.Menus;
+using static WeLoveFood.Web.TempDataConstants;
+using static WeLoveFood.Web.Web.Models.Constants.Menus.ExceptionMessages;
 
-using static WeLoveFood.TempDataConstants;
-using static WeLoveFood.Models.Constants.Menus.ExceptionMessages;
-
-namespace WeLoveFood.Areas.Manager.Controllers
+namespace WeLoveFood.Web.Areas.Manager.Controllers
 {
     public class MenusController : ManagerController
     {

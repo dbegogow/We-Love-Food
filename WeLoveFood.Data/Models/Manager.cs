@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.Common;
+using static WeLoveFood.Web.Data.DataConstants.Common;
 
-namespace WeLoveFood.Data.Models
+namespace WeLoveFood.Web.Data.Models
 {
     public class Manager
     {
-        [KeyAttribute]
+        [Key]
         [Required]
         [MaxLength(IdMaxLength)]
         public string Id { get; init; } = Guid.NewGuid().ToString();

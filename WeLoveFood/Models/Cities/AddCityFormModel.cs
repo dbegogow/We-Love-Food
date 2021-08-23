@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Models.Constants.Cities.DisplayNames;
-using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
+using static WeLoveFood.Web.Web.Models.Constants.Cities.DisplayNames;
+using static WeLoveFood.Web.Web.Models.Constants.Cities.ExceptionMessages;
 
-namespace WeLoveFood.Models.Cities
+namespace WeLoveFood.Web.Web.Models.Cities
 {
     public class AddCityFormModel
     {

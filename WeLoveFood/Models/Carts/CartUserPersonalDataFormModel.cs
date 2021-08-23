@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.User;
-using static WeLoveFood.Models.Constants.Users.ExceptionMessages;
+using static WeLoveFood.Web.Data.DataConstants.User;
+using static WeLoveFood.Web.Web.Models.Constants.Users.ExceptionMessages;
 
-namespace WeLoveFood.Models.Carts
+namespace WeLoveFood.Web.Web.Models.Carts
 {
     public class CartUserPersonalDataFormModel
     {

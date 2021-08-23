@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Orders;
-using WeLoveFood.Services.Managers;
-using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Managers;
+using WeLoveFood.Web.Services.Orders;
 
-namespace WeLoveFood.Areas.Manager.Controllers
+namespace WeLoveFood.Web.Areas.Manager.Controllers
 {
     public class OrdersController : ManagerController
     {

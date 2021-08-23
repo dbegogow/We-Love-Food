@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.User;
-using static WeLoveFood.Models.Constants.Users.DisplayNames;
-using static WeLoveFood.Models.Constants.Users.ExceptionMessages;
-using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
+using static WeLoveFood.Web.Data.DataConstants.User;
+using static WeLoveFood.Web.Web.Models.Constants.Users.DisplayNames;
+using static WeLoveFood.Web.Web.Models.Constants.Users.ExceptionMessages;
+using static WeLoveFood.Web.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
-namespace WeLoveFood.Models.Waiters
+namespace WeLoveFood.Web.Web.Models.Waiters
 {
     public class AddWaiterFormModel
     {

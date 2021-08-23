@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 
-namespace WeLoveFood.Infrastructure.Extensions
+namespace WeLoveFood.Web.Web.Infrastructure.Extensions
 {
     public static class EndpointRouteBuilderExtensions
     {

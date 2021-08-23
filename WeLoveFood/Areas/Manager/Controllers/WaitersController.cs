@@ -1,20 +1,19 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Models.Waiters;
-using WeLoveFood.Services.Cities;
-using WeLoveFood.Services.Waiters;
-using WeLoveFood.Services.Managers;
 using Microsoft.AspNetCore.Identity;
-using WeLoveFood.Infrastructure.Extensions;
-using WeLoveFood.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Cities;
+using WeLoveFood.Web.Services.Managers;
+using WeLoveFood.Web.Services.Waiters;
+using WeLoveFood.Web.Web.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Web.Models.Waiters;
+using static WeLoveFood.Web.WebConstants;
+using static WeLoveFood.Web.Web.Models.Constants.Cities.ExceptionMessages;
+using static WeLoveFood.Web.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
-using static WeLoveFood.WebConstants;
-using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
-using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
-
-namespace WeLoveFood.Areas.Manager.Controllers
+namespace WeLoveFood.Web.Areas.Manager.Controllers
 {
     public class WaitersController : ManagerController
     {

@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Services.Waiters
+﻿namespace WeLoveFood.Web.Services.Waiters
 {
     public interface IWaitersService
     {

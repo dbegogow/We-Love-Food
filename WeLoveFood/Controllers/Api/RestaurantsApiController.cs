@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Models.Restaurants;
-using WeLoveFood.Services.Restaurants;
-using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Restaurants;
+using WeLoveFood.Web.Web.Models.Restaurants;
 
-namespace WeLoveFood.Controllers.Api
+namespace WeLoveFood.Web.Web.Controllers.Api
 {
     [Route("api/restaurants")]
     [ApiController]

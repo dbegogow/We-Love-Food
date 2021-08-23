@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace WeLoveFood.Infrastructure.UploadFiles
+namespace WeLoveFood.Web.Web.Infrastructure.UploadFiles
 {
     public interface IImages
     {

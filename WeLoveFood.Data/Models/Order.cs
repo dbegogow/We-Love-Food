@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WeLoveFood.Data.Models
+namespace WeLoveFood.Web.Data.Models
 {
     public class Order
     {

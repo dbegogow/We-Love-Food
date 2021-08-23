@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Models.Cities;
-using WeLoveFood.Services.Cities;
-using WeLoveFood.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Services.Cities;
+using WeLoveFood.Web.Web.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Web.Models.Cities;
+using static WeLoveFood.Web.TempDataConstants;
 
-using static WeLoveFood.TempDataConstants;
-
-namespace WeLoveFood.Areas.Admin.Controllers
+namespace WeLoveFood.Web.Areas.Admin.Controllers
 {
     public class CitiesController : AdminController
     {

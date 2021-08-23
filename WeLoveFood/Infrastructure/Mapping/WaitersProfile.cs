@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using WeLoveFood.Data.Models;
-using WeLoveFood.Services.Models.Waiters;
+using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Web.Services.Models.Waiters;
 
-namespace WeLoveFood.Infrastructure.Mapping
+namespace WeLoveFood.Web.Web.Infrastructure.Mapping
 {
     public class WaitersProfile : Profile
     {

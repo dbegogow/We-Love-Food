@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WeLoveFood.Data.Migrations
+namespace WeLoveFood.Web.Data.Migrations
 {
     public partial class InitialCreate : Migration
     {

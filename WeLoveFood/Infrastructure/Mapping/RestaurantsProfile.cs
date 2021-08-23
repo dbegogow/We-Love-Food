@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using System.Linq;
-using WeLoveFood.Data.Models;
-using WeLoveFood.Models.Restaurants;
-using WeLoveFood.Services.Models.Restaurants;
+using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Web.Services.Models.Restaurants;
+using WeLoveFood.Web.Web.Models.Restaurants;
 
-namespace WeLoveFood.Infrastructure.Mapping
+namespace WeLoveFood.Web.Web.Infrastructure.Mapping
 {
     public class RestaurantsProfile : Profile
     {

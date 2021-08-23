@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using System.Linq;
-using WeLoveFood.Data;
-using WeLoveFood.Data.Models;
 using System.Collections.Generic;
 using AutoMapper.QueryableExtensions;
-using WeLoveFood.Services.Models.Menus;
+using WeLoveFood.Web.Data;
+using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Web.Services.Models.Menus;
 
-namespace WeLoveFood.Services.Menus
+namespace WeLoveFood.Web.Services.Menus
 {
     public class MenusService : IMenusService
     {

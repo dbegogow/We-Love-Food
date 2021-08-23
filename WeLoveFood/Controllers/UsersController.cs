@@ -1,16 +1,15 @@
 ﻿using AutoMapper;
-using WeLoveFood.Models.Users;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Users;
-using WeLoveFood.Services.Cities;
 using Microsoft.AspNetCore.Authorization;
-using WeLoveFood.Infrastructure.Extensions;
-using WeLoveFood.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Cities;
+using WeLoveFood.Web.Services.Users;
+using WeLoveFood.Web.Web.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Web.Models.Users;
+using static WeLoveFood.Web.WebConstants;
+using static WeLoveFood.Web.Web.Models.Constants.Cities.ExceptionMessages;
 
-using static WeLoveFood.WebConstants;
-using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
-
-namespace WeLoveFood.Controllers
+namespace WeLoveFood.Web.Web.Controllers
 {
     public class UsersController : Controller
     {

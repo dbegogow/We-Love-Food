@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood
+﻿namespace WeLoveFood.Web
 {
     public class TempDataConstants
     {

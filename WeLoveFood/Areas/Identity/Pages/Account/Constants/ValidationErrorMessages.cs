@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Areas.Identity.Pages.Account.Constants
+﻿namespace WeLoveFood.Web.Areas.Identity.Pages.Account.Constants
 {
     public class ValidationErrorMessages
     {

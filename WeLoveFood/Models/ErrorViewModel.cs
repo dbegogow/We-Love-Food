@@ -1,4 +1,4 @@
-namespace WeLoveFood.Models
+namespace WeLoveFood.Web.Web.Models
 {
     public class ErrorViewModel
     {

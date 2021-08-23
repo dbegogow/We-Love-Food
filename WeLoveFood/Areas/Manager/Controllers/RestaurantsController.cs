@@ -1,16 +1,15 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Cities;
-using WeLoveFood.Services.Managers;
-using WeLoveFood.Models.Restaurants;
-using WeLoveFood.Services.Restaurants;
-using WeLoveFood.Infrastructure.Extensions;
-using WeLoveFood.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Cities;
+using WeLoveFood.Web.Services.Managers;
+using WeLoveFood.Web.Services.Restaurants;
+using WeLoveFood.Web.Web.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Web.Models.Restaurants;
+using static WeLoveFood.Web.TempDataConstants;
+using static WeLoveFood.Web.Web.Models.Constants.Cities.ExceptionMessages;
 
-using static WeLoveFood.TempDataConstants;
-using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
-
-namespace WeLoveFood.Areas.Manager.Controllers
+namespace WeLoveFood.Web.Areas.Manager.Controllers
 {
     public class RestaurantsController : ManagerController
     {

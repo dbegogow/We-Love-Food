@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Services.Models.Waiters
+﻿namespace WeLoveFood.Web.Services.Models.Waiters
 {
     public class ManagerWaiterServiceModel
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using WeLoveFood.Services.Models.Menus;
+using WeLoveFood.Web.Services.Models.Menus;
 
-namespace WeLoveFood.Models.Menus
+namespace WeLoveFood.Web.Web.Models.Menus
 {
     public class ManagerMenuViewModel
     {

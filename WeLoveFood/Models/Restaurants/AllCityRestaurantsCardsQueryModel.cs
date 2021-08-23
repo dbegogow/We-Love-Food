@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using WeLoveFood.Services.Models.Restaurants;
+using WeLoveFood.Web.Services.Models.Restaurants;
 
-namespace WeLoveFood.Models.Restaurants
+namespace WeLoveFood.Web.Web.Models.Restaurants
 {
     public class AllCityRestaurantsCardsQueryModel
     {

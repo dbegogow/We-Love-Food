@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WeLoveFood.Areas.Identity.Pages.Account
+namespace WeLoveFood.Web.Areas.Identity.Pages.Account
 {
     public class AccessDeniedModel : PageModel
     {

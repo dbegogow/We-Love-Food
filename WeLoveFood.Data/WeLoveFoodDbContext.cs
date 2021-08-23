@@ -1,10 +1,9 @@
-﻿using WeLoveFood.Data.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using WeLoveFood.Web.Data.Models;
+using static WeLoveFood.Web.Data.DbConfiguration;
 
-using static WeLoveFood.Data.DbConfiguration;
-
-namespace WeLoveFood.Data
+namespace WeLoveFood.Web.Data
 {
     public class WeLoveFoodDbContext : IdentityDbContext<User>
     {

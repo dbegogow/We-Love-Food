@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.User;
+using static WeLoveFood.Web.Data.DataConstants.User;
 
-namespace WeLoveFood.Data.Models
+namespace WeLoveFood.Web.Data.Models
 {
     public class User : IdentityUser
     {

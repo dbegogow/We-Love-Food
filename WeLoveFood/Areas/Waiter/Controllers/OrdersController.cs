@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Orders;
-using WeLoveFood.Services.Waiters;
-using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Orders;
+using WeLoveFood.Web.Services.Waiters;
+using static WeLoveFood.Web.TempDataConstants;
 
-using static WeLoveFood.TempDataConstants;
-
-namespace WeLoveFood.Areas.Waiter.Controllers
+namespace WeLoveFood.Web.Areas.Waiter.Controllers
 {
     public class OrdersController : WaiterController
     {

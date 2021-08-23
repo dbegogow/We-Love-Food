@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using static WeLoveFood.Data.DataConstants.Restaurant;
+using static WeLoveFood.Web.Data.DataConstants.Restaurant;
 
-namespace WeLoveFood.Data.Models
+namespace WeLoveFood.Web.Data.Models
 {
     public class Restaurant
     {

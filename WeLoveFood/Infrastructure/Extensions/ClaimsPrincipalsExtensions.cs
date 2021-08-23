@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 
-using static WeLoveFood.WebConstants;
+using static WeLoveFood.Web.WebConstants;
 
-namespace WeLoveFood.Infrastructure.Extensions
+namespace WeLoveFood.Web.Web.Infrastructure.Extensions
 {
     public static class ClaimsPrincipalsExtensions
     {

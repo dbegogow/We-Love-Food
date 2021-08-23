@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.Meal;
-using static WeLoveFood.Models.Constants.Menus.DisplayNames;
-using static WeLoveFood.Models.Constants.Menus.ExceptionMessages;
+using static WeLoveFood.Web.Data.DataConstants.Meal;
+using static WeLoveFood.Web.Web.Models.Constants.Menus.DisplayNames;
+using static WeLoveFood.Web.Web.Models.Constants.Menus.ExceptionMessages;
 
-namespace WeLoveFood.Models.Menus
+namespace WeLoveFood.Web.Web.Models.Menus
 {
     public class AddMealFormModel
     {

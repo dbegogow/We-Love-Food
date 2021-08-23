@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WeLoveFood.Data;
+using WeLoveFood.Web.Data;
 
-namespace WeLoveFood.Data.Migrations
+namespace WeLoveFood.Web.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
     [Migration("20210820215614_InitialCreate")]

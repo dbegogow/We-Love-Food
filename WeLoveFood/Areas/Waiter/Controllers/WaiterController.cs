@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
-using static WeLoveFood.WebConstants;
+using static WeLoveFood.Web.WebConstants;
 
-namespace WeLoveFood.Areas.Waiter.Controllers
+namespace WeLoveFood.Web.Areas.Waiter.Controllers
 {
     [Area(WaiterAreaName)]
     [Authorize(Roles = WaiterRoleName)]

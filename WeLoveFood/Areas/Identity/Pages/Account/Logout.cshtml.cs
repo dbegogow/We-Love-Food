@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using WeLoveFood.Data.Models;
+using WeLoveFood.Web.Data.Models;
 
-namespace WeLoveFood.Areas.Identity.Pages.Account
+namespace WeLoveFood.Web.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LogoutModel : PageModel

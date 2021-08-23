@@ -1,15 +1,14 @@
 ﻿using System.Threading.Tasks;
-using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using WeLoveFood.Web.Data.Models;
+using static WeLoveFood.Web.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
-using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
-
-namespace WeLoveFood.Areas.Identity.Pages.Account
+namespace WeLoveFood.Web.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel

@@ -1,8 +1,8 @@
-﻿using WeLoveFood.Data.Models;
-using System.Collections.Generic;
-using WeLoveFood.Services.Models.Restaurants;
+﻿using System.Collections.Generic;
+using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Web.Services.Models.Restaurants;
 
-namespace WeLoveFood.Services.Restaurants
+namespace WeLoveFood.Web.Services.Restaurants
 {
     public interface IRestaurantsService
     {

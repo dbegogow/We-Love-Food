@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Data.DataConstants.MealsCategory;
+using static WeLoveFood.Web.Data.DataConstants.MealsCategory;
 
-namespace WeLoveFood.Data.Models
+namespace WeLoveFood.Web.Data.Models
 {
     public class MealsCategory
     {

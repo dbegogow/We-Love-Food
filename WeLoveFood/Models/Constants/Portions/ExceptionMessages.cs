@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Models.Constants.Portions
+﻿namespace WeLoveFood.Web.Web.Models.Constants.Portions
 {
     public class ExceptionMessages
     {

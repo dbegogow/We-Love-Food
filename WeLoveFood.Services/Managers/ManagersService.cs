@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using System.Linq;
-using WeLoveFood.Data;
-using WeLoveFood.Data.Models;
 using System.Collections.Generic;
 using AutoMapper.QueryableExtensions;
-using WeLoveFood.Services.Models.Restaurants;
-using WeLoveFood.Services.Models.Waiters;
+using WeLoveFood.Web.Data;
+using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Web.Services.Models.Restaurants;
+using WeLoveFood.Web.Services.Models.Waiters;
 
-namespace WeLoveFood.Services.Managers
+namespace WeLoveFood.Web.Services.Managers
 {
     public class ManagersService : IManagersService
     {

@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using MyTested.AspNetCore.Mvc;
-using WeLoveFood.Controllers;
-using WeLoveFood.Models.Menus;
+using WeLoveFood.Web.Web.Controllers;
+using WeLoveFood.Web.Web.Models.Menus;
 using Xunit;
 
-using static WeLoveFood.Test.Data.Menus;
-using static WeLoveFood.Test.Data.Restaurants;
+using static WeLoveFood.Web.Test.Data.Menus;
+using static WeLoveFood.Web.Test.Data.Restaurants;
 
-namespace WeLoveFood.Test.Controllers
+namespace WeLoveFood.Web.Test.Controllers
 {
     public class MenusControllerTest
     {

@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using WeLoveFood.Data.Models;
 using System.Collections.Generic;
+using WeLoveFood.Web.Data.Models;
 
-namespace WeLoveFood.Test.Data
+namespace WeLoveFood.Web.Test.Data
 {
     public static class Restaurants
     {

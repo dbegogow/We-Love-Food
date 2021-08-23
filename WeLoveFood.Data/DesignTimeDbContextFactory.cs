@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-using static WeLoveFood.Data.DbConfiguration;
+using static WeLoveFood.Web.Data.DbConfiguration;
 
-namespace WeLoveFood.Data
+namespace WeLoveFood.Web.Data
 {
     class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<WeLoveFoodDbContext>
     {

@@ -1,26 +1,26 @@
-﻿using WeLoveFood.Data;
-using WeLoveFood.Data.Models;
+﻿using WeLoveFood.Web.Data;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Menus;
-using WeLoveFood.Services.Carts;
-using WeLoveFood.Services.Users;
-using WeLoveFood.Services.Cities;
-using WeLoveFood.Services.Orders;
-using WeLoveFood.Services.clients;
-using WeLoveFood.Services.Waiters;
+using WeLoveFood.Web.Data.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
-using WeLoveFood.Services.Portions;
-using WeLoveFood.Services.Managers;
 using Microsoft.AspNetCore.Identity;
-using WeLoveFood.Services.Restaurants;
+using WeLoveFood.Web.Services.Carts;
+using WeLoveFood.Web.Services.Menus;
+using WeLoveFood.Web.Services.Users;
+using WeLoveFood.Web.Services.Cities;
+using WeLoveFood.Web.Services.Orders;
+using WeLoveFood.Web.Services.Waiters;
+using WeLoveFood.Web.Services.clients;
+using WeLoveFood.Web.Services.Managers;
+using WeLoveFood.Web.Services.Portions;
 using Microsoft.Extensions.Configuration;
-using WeLoveFood.Infrastructure.Extensions;
-using WeLoveFood.Infrastructure.UploadFiles;
+using WeLoveFood.Web.Services.Restaurants;
 using Microsoft.Extensions.DependencyInjection;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Web.Infrastructure.UploadFiles;
 
-namespace WeLoveFood
+namespace WeLoveFood.Web
 {
     public class Startup
     {

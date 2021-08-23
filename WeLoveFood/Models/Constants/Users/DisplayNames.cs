@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Models.Constants.Users
+﻿namespace WeLoveFood.Web.Web.Models.Constants.Users
 {
     public class DisplayNames
     {

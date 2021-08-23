@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using System.Linq;
-using WeLoveFood.Data.Models;
-using WeLoveFood.Services.Models.Orders;
+using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Web.Services.Models.Orders;
 
-namespace WeLoveFood.Infrastructure.Mapping
+namespace WeLoveFood.Web.Web.Infrastructure.Mapping
 {
     public class OrdersProfile : Profile
     {

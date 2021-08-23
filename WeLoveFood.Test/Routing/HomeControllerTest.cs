@@ -1,8 +1,8 @@
 ﻿using Xunit;
-using WeLoveFood.Controllers;
 using MyTested.AspNetCore.Mvc;
+using WeLoveFood.Web.Web.Controllers;
 
-namespace WeLoveFood.Test.Routing
+namespace WeLoveFood.Web.Test.Routing
 {
     public class HomeControllerTest
     {

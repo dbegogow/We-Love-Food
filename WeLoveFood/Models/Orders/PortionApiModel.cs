@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Models.Orders
+﻿namespace WeLoveFood.Web.Web.Models.Orders
 {
     public class PortionApiModel
     {

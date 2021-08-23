@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Models.Orders;
-using WeLoveFood.Services.Portions;
-using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Portions;
+using WeLoveFood.Web.Web.Models.Orders;
 
-namespace WeLoveFood.Controllers.Api
+namespace WeLoveFood.Web.Web.Controllers.Api
 {
     [Route("api/addPortion")]
     [ApiController]

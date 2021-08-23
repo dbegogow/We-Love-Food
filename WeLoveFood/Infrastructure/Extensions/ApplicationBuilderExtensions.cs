@@ -1,15 +1,14 @@
 ﻿using System;
-using WeLoveFood.Data;
-using WeLoveFood.Data.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using WeLoveFood.Web.Data;
+using WeLoveFood.Web.Data.Models;
+using static WeLoveFood.Web.WebConstants;
 
-using static WeLoveFood.WebConstants;
-
-namespace WeLoveFood.Infrastructure.Extensions
+namespace WeLoveFood.Web.Web.Infrastructure.Extensions
 {
     public static class ApplicationBuilderExtensions
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WeLoveFood.Infrastructure.Extensions
+namespace WeLoveFood.Web.Web.Infrastructure.Extensions
 {
     public static class ControllerExtensions
     {

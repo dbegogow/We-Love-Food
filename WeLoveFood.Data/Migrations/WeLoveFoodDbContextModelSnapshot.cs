@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WeLoveFood.Data;
+using WeLoveFood.Web.Data;
 
-namespace WeLoveFood.Data.Migrations
+namespace WeLoveFood.Web.Data.Migrations
 {
     [DbContext(typeof(WeLoveFoodDbContext))]
     partial class WeLoveFoodDbContextModelSnapshot : ModelSnapshot

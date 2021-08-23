@@ -1,9 +1,9 @@
-﻿using WeLoveFood.Models.Carts;
-using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Orders;
-using WeLoveFood.Infrastructure.Extensions;
+﻿using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Web.Web.Infrastructure.Extensions;
+using WeLoveFood.Web.Services.Orders;
+using WeLoveFood.Web.Web.Models.Carts;
 
-namespace WeLoveFood.Controllers.Api
+namespace WeLoveFood.Web.Web.Controllers.Api
 {
     [Route("api/addMealToCart")]
     [ApiController]

@@ -1,16 +1,15 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using WeLoveFood.Web.Data.Models;
+using static WeLoveFood.Web.Data.DataConstants.User;
+using static WeLoveFood.Web.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
-using static WeLoveFood.Data.DataConstants.User;
-using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
-
-namespace WeLoveFood.Areas.Identity.Pages.Account.Manage
+namespace WeLoveFood.Web.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {

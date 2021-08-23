@@ -1,6 +1,5 @@
 ﻿using WeLoveFood.Data.Models;
 using System.Collections.Generic;
-using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Services.Restaurants
@@ -59,6 +58,6 @@ namespace WeLoveFood.Services.Restaurants
 
         IEnumerable<RestaurantCardServiceModel> Favorite(string userId);
 
-        IEnumerable<NewRestaurantCardViewModel> NewOnes();
+        IEnumerable<NewRestaurantCardServiceModel> NewOnes();
     }
 }

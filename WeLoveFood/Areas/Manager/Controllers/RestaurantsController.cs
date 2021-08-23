@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Services.Images;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Managers;
 using WeLoveFood.Models.Restaurants;
 using WeLoveFood.Services.Restaurants;
 using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Infrastructure.UploadFiles;
 
 using static WeLoveFood.TempDataConstants;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
@@ -19,14 +19,14 @@ namespace WeLoveFood.Areas.Manager.Controllers
 
         private readonly IMapper _mapper;
 
-        private readonly IImagesService _images;
+        private readonly IImages _images;
         private readonly ICitiesService _cities;
         private readonly IManagersService _managers;
         private readonly IRestaurantsService _restaurants;
 
         public RestaurantsController(
             IMapper mapper,
-            IImagesService images,
+            IImages images,
             ICitiesService cities,
             IManagersService managers,
             IRestaurantsService restaurants)
@@ -66,8 +66,8 @@ namespace WeLoveFood.Areas.Manager.Controllers
                 return View(restaurant);
             }
 
-            string uniqueFileNameCardImg = this._images.UploadImage(restaurant.CardImg, RestaurantsImagesPath);
-            string uniqueFileNameMainImg = this._images.UploadImage(restaurant.MainImg, RestaurantsImagesPath);
+            string uniqueFileNameCardImg = this._images.Upload(restaurant.CardImg, RestaurantsImagesPath);
+            string uniqueFileNameMainImg = this._images.Upload(restaurant.MainImg, RestaurantsImagesPath);
 
             this._restaurants
                 .Add(
@@ -142,7 +142,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
                     cityId);
 
 
-            string uniqueFileNameCardImg = this._images.UploadImage(restaurant.CardImg, RestaurantsImagesPath);
+            string uniqueFileNameCardImg = this._images.Upload(restaurant.CardImg, RestaurantsImagesPath);
 
             if (uniqueFileNameCardImg != null)
             {
@@ -150,7 +150,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
                     .EditCardImg(id, uniqueFileNameCardImg);
             }
 
-            string uniqueFileNameMainImg = this._images.UploadImage(restaurant.MainImg, RestaurantsImagesPath);
+            string uniqueFileNameMainImg = this._images.Upload(restaurant.MainImg, RestaurantsImagesPath);
 
             if (uniqueFileNameMainImg != null)
             {

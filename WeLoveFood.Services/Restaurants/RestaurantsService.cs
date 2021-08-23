@@ -7,7 +7,6 @@ using WeLoveFood.Services.Menus;
 using System.Collections.Generic;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Managers;
-using WeLoveFood.Models.Restaurants;
 using AutoMapper.QueryableExtensions;
 using WeLoveFood.Services.Models.Restaurants;
 
@@ -282,11 +281,11 @@ namespace WeLoveFood.Services.Restaurants
                 })
                 .ToList();
 
-        public IEnumerable<NewRestaurantCardViewModel> NewOnes()
+        public IEnumerable<NewRestaurantCardServiceModel> NewOnes()
             => this._data
                 .Restaurants
                 .Where(r => !r.IsApproved && !r.IsDeleted && !r.IsArchived)
-                .ProjectTo<NewRestaurantCardViewModel>(this._mapper)
+                .ProjectTo<NewRestaurantCardServiceModel>(this._mapper)
                 .ToList();
 
         public static bool IsOpen(TimeSpan openingTime, TimeSpan closingTime)

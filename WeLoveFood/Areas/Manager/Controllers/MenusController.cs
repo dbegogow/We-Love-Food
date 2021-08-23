@@ -3,9 +3,9 @@ using WeLoveFood.Models.Menus;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.Menus;
 using System.Collections.Generic;
-using WeLoveFood.Services.Images;
 using WeLoveFood.Services.Managers;
 using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Infrastructure.UploadFiles;
 
 using static WeLoveFood.TempDataConstants;
 using static WeLoveFood.Models.Constants.Menus.ExceptionMessages;
@@ -17,17 +17,17 @@ namespace WeLoveFood.Areas.Manager.Controllers
         private const int InvalidMealsCategory = 0;
         private const string MealsImagesPath = "img/meals";
 
+        private readonly IImages _images;
         private readonly IMenusService _menus;
-        private readonly IImagesService _images;
         private readonly IManagersService _managers;
 
         public MenusController(
+            IImages images,
             IMenusService menus,
-            IImagesService images,
             IManagersService managers)
         {
-            this._menus = menus;
             this._images = images;
+            this._menus = menus;
             this._managers = managers;
         }
 
@@ -91,7 +91,7 @@ namespace WeLoveFood.Areas.Manager.Controllers
                 return View(meal);
             }
 
-            string uniqueFileName = this._images.UploadImage(meal.Img, MealsImagesPath);
+            string uniqueFileName = this._images.Upload(meal.Img, MealsImagesPath);
 
             this._menus
                 .AddMeal(

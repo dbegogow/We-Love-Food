@@ -3,15 +3,15 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 
-namespace WeLoveFood.Services.Images
+namespace WeLoveFood.Infrastructure.UploadFiles
 {
-    public class ImagesService : IImagesService
+    public class Images : IImages
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public ImagesService(IWebHostEnvironment hostEnvironment)
+        public Images(IWebHostEnvironment hostEnvironment)
             => this._webHostEnvironment = hostEnvironment;
 
-        public string UploadImage(IFormFile image, string path)
+        public string Upload(IFormFile image, string path)
         {
             string uniqueFileName = null;
 

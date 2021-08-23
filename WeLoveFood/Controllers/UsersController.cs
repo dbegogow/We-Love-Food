@@ -3,9 +3,9 @@ using WeLoveFood.Models.Users;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
-using WeLoveFood.Services.Images;
 using Microsoft.AspNetCore.Authorization;
 using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Infrastructure.UploadFiles;
 
 using static WeLoveFood.WebConstants;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
@@ -19,21 +19,21 @@ namespace WeLoveFood.Controllers
 
         private readonly IMapper _mapper;
 
+        private readonly IImages _images;
         private readonly IUsersService _users;
         private readonly ICitiesService _cities;
-        private readonly IImagesService _images;
 
         public UsersController(
             IMapper mapper,
+            IImages images,
             IUsersService users,
-            ICitiesService cities,
-            IImagesService images)
+            ICitiesService cities)
         {
             this._mapper = mapper;
 
+            this._images = images;
             this._users = users;
             this._cities = cities;
-            this._images = images;
         }
 
         [Authorize(Roles = AuthorizeRoles)]
@@ -80,7 +80,7 @@ namespace WeLoveFood.Controllers
         public IActionResult UploadProfilePicture(PersonalDataFormModel user)
         {
 
-            string uniqueFileName = this._images.UploadImage(user.ProfileImg, UsersImagesPath);
+            string uniqueFileName = this._images.Upload(user.ProfileImg, UsersImagesPath);
 
             this._users.UpdateProfileImage(User.Id(), uniqueFileName);
 

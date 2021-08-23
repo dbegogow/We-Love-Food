@@ -6,7 +6,6 @@ using WeLoveFood.Services.Carts;
 using WeLoveFood.Services.Users;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Orders;
-using WeLoveFood.Services.Images;
 using WeLoveFood.Services.clients;
 using WeLoveFood.Services.Waiters;
 using Microsoft.AspNetCore.Builder;
@@ -15,10 +14,10 @@ using Microsoft.AspNetCore.Hosting;
 using WeLoveFood.Services.Portions;
 using WeLoveFood.Services.Managers;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using WeLoveFood.Services.Restaurants;
 using Microsoft.Extensions.Configuration;
 using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Infrastructure.UploadFiles;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace WeLoveFood
@@ -42,7 +41,7 @@ namespace WeLoveFood
                 })
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<WeLoveFoodDbContext>();
-
+            
             services.AddAutoMapper(typeof(Startup));
 
             services.AddMemoryCache();
@@ -54,12 +53,12 @@ namespace WeLoveFood
                 });
 
             services
+                .AddTransient<IImages, Images>()
                 .AddTransient<IUsersService, UsersService>()
                 .AddTransient<IMenusService, MenusService>()
                 .AddTransient<ICartsService, CartsService>()
                 .AddTransient<ICitiesService, CitiesService>()
                 .AddTransient<IOrdersService, OrdersService>()
-                .AddTransient<IImagesService, ImagesService>()
                 .AddTransient<IClientsService, ClientsService>()
                 .AddTransient<IWaitersService, WaitersService>()
                 .AddTransient<IPortionsService, PortionsService>()

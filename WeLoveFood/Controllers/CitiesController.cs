@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using WeLoveFood.Services.Models.Cities;
 using Microsoft.Extensions.Caching.Memory;
 using WeLoveFood.Infrastructure.Extensions;
+
 using static WeLoveFood.CacheConstants;
 
 namespace WeLoveFood.Controllers

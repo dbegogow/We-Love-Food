@@ -22,7 +22,7 @@ namespace WeLoveFood.Infrastructure.Mapping
 
             this.CreateMap<Restaurant, ManagersRestaurantServiceModel>();
 
-            this.CreateMap<Restaurant, NewRestaurantCardViewModel>()
+            this.CreateMap<Restaurant, NewRestaurantCardServiceModel>()
                 .ForMember(nrc => nrc.MealsCategories,
                     cfg =>
                         cfg.MapFrom(r => r.MealsCategories.Select(mc => mc.Name)));

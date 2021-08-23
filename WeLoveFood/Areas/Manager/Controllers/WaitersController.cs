@@ -1,13 +1,16 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Models.Waiters;
 using WeLoveFood.Services.Cities;
 using WeLoveFood.Services.Waiters;
 using WeLoveFood.Services.Managers;
+using Microsoft.AspNetCore.Identity;
 using WeLoveFood.Infrastructure.Extensions;
+using WeLoveFood.Infrastructure.UploadFiles;
 
-using static WeLoveFood.TempDataConstants;
+using static WeLoveFood.WebConstants;
 using static WeLoveFood.Models.Constants.Cities.ExceptionMessages;
 using static WeLoveFood.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
@@ -16,17 +19,26 @@ namespace WeLoveFood.Areas.Manager.Controllers
     public class WaitersController : ManagerController
     {
         private const int NoCity = 0;
+        private const string UsersImagesPath = "img/users";
         private const string DuplicateUserNameErrorCode = "DuplicateUserName";
 
+        private readonly UserManager<User> _userManager;
+
+        private readonly IImages _images;
         private readonly ICitiesService _cities;
         private readonly IWaitersService _waiters;
         private readonly IManagersService _managers;
 
         public WaitersController(
+            UserManager<User> userManager,
+            IImages images,
             ICitiesService cities,
             IWaitersService waiters,
             IManagersService managers)
         {
+            this._userManager = userManager;
+
+            this._images = images;
             this._cities = cities;
             this._waiters = waiters;
             this._managers = managers;
@@ -70,31 +82,40 @@ namespace WeLoveFood.Areas.Manager.Controllers
                 return View(waiter);
             }
 
-            var resultError = await this._waiters
-                .CreateWaiter(
+            var user = new User
+            {
+                UserName = waiter.Email,
+                Email = waiter.Email,
+            };
+
+            var result = await this._userManager.CreateAsync(user, waiter.Password);
+
+            if (result.Succeeded)
+            {
+                string uniqueFileName = this._images.Upload(waiter.ProfileImg, UsersImagesPath);
+
+                this._waiters.CreateWaiter(
                     User.Id(),
+                    user.Id,
                     id,
-                    waiter.Email,
-                    waiter.Password,
-                    waiter.ConfirmPassword,
                     waiter.FirstName,
                     waiter.LastName,
                     waiter.PhoneNumber,
                     cityId,
                     waiter.Address,
-                    waiter.ProfileImg);
+                    uniqueFileName);
 
-            if (resultError == null)
-            {
-                TempData[SuccessMessageKey] = SuccessfulAddedWaiterMessage;
+                await _userManager.AddToRoleAsync(user, WaiterRoleName);
 
                 return RedirectToAction("All", "Waiters", new { area = "Manager", id });
             }
 
+            var hasDuplicateUserNameInvalid = result
+                    .Errors
+                    .Any(e => e.Code == DuplicateUserNameErrorCode);
+
             ModelState.AddModelError("#",
-                resultError == DuplicateUserNameErrorCode
-                    ? AlreadyExistUserWithEmail
-                    : InvalidPasswordContent);
+                hasDuplicateUserNameInvalid ? AlreadyExistUserWithEmail : InvalidPasswordContent);
 
             return View(waiter);
         }

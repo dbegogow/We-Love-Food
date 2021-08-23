@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace WeLoveFood.Models.Restaurants
+namespace WeLoveFood.Services.Models.Restaurants
 {
-    public class NewRestaurantCardViewModel
+    public class NewRestaurantCardServiceModel
     {
         public int Id { get; init; }
 

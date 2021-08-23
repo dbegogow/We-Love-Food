@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WeLoveFood.Models.Cities;
-using WeLoveFood.Services.Images;
 using WeLoveFood.Services.Cities;
+using WeLoveFood.Infrastructure.UploadFiles;
 
 using static WeLoveFood.TempDataConstants;
 
@@ -11,15 +11,15 @@ namespace WeLoveFood.Areas.Admin.Controllers
     {
         private const string CitiesImagesPath = "img/cities";
 
+        private readonly IImages _images;
         private readonly ICitiesService _cities;
-        private readonly IImagesService _images;
 
         public CitiesController(
-            ICitiesService cities,
-            IImagesService images)
+            IImages images,
+            ICitiesService cities)
         {
-            this._cities = cities;
             this._images = images;
+            this._cities = cities;
         }
 
         public IActionResult Add()
@@ -33,7 +33,7 @@ namespace WeLoveFood.Areas.Admin.Controllers
                 return View(city);
             }
 
-            string uniqueFileName = this._images.UploadImage(city.Img, CitiesImagesPath);
+            string uniqueFileName = this._images.Upload(city.Img, CitiesImagesPath);
 
             this._cities
                 .Add(city.Name, uniqueFileName);

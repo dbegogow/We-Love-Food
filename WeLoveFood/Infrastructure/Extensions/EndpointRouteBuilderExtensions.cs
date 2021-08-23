@@ -38,6 +38,11 @@ namespace WeLoveFood.Infrastructure.Extensions
                 defaults: new { area = "", controller = "Orders", action = "Mine" });
 
             endpoints.MapControllerRoute(
+                name: "Client Favorite Restaurants",
+                pattern: "/Favorite",
+                defaults: new { area = "", controller = "Restaurants", action = "Favorite" });
+
+            endpoints.MapControllerRoute(
                 name: "Manager Orders",
                 pattern: "/Manager/Orders/{id}",
                 defaults: new { area = "Manager", controller = "Orders", action = "All" });

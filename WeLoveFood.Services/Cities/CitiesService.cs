@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using System.Linq;
 using WeLoveFood.Data;
+using WeLoveFood.Data.Models;
 using System.Collections.Generic;
 using AutoMapper.QueryableExtensions;
-using WeLoveFood.Data.Models;
 using WeLoveFood.Services.Models.Cities;
 
 namespace WeLoveFood.Services.Cities

@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Services.Menus;
 using WeLoveFood.Web.Models.Menus;
-using WeLoveFood.Web.Services.Menus;
-using WeLoveFood.Web.Services.Restaurants;
+using WeLoveFood.Services.Restaurants;
 
 namespace WeLoveFood.Web.Controllers
 {

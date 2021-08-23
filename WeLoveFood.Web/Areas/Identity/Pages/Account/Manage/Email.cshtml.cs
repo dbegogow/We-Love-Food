@@ -1,12 +1,13 @@
 ﻿using System.Linq;
+using WeLoveFood.Data;
 using System.Threading.Tasks;
+using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
-using WeLoveFood.Web.Data;
-using WeLoveFood.Web.Data.Models;
-using static WeLoveFood.Web.Data.DataConstants.User;
+
+using static WeLoveFood.Data.DataConstants.User;
 using static WeLoveFood.Web.Areas.Identity.Pages.Account.Constants.ValidationErrorMessages;
 
 namespace WeLoveFood.Web.Areas.Identity.Pages.Account.Manage

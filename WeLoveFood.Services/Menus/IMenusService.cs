@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using WeLoveFood.Web.Services.Models.Menus;
+using WeLoveFood.Services.Models.Menus;
 
-namespace WeLoveFood.Web.Services.Menus
+namespace WeLoveFood.Services.Menus
 {
     public interface IMenusService
     {

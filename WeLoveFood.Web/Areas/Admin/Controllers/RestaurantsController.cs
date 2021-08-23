@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Web.Services.Restaurants;
+using WeLoveFood.Services.Restaurants;
 
 using static WeLoveFood.Web.TempDataConstants;
 

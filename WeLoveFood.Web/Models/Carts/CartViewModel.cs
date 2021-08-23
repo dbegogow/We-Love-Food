@@ -1,5 +1,5 @@
-﻿using WeLoveFood.Web.Services.Models.Orders;
-using WeLoveFood.Web.Services.Models.Users;
+﻿using WeLoveFood.Services.Models.Users;
+using WeLoveFood.Services.Models.Orders;
 
 namespace WeLoveFood.Web.Models.Carts
 {

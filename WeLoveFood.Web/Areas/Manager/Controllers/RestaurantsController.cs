@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Web.Services.Cities;
-using WeLoveFood.Web.Services.Managers;
+using WeLoveFood.Services.Cities;
+using WeLoveFood.Services.Managers;
+using WeLoveFood.Services.Restaurants;
 using WeLoveFood.Web.Models.Restaurants;
-using WeLoveFood.Web.Services.Restaurants;
 using WeLoveFood.Web.Infrastructure.Extensions;
 using WeLoveFood.Web.Infrastructure.UploadFiles;
 

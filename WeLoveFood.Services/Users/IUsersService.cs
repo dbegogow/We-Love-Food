@@ -1,6 +1,6 @@
-﻿using WeLoveFood.Web.Services.Models.Users;
+﻿using WeLoveFood.Services.Models.Users;
 
-namespace WeLoveFood.Web.Services.Users
+namespace WeLoveFood.Services.Users
 {
     public interface IUsersService
     {

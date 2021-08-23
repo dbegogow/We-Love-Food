@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Services.Menus;
 using System.Collections.Generic;
 using WeLoveFood.Web.Models.Menus;
-using WeLoveFood.Web.Services.Menus;
-using WeLoveFood.Web.Services.Managers;
+using WeLoveFood.Services.Managers;
 using WeLoveFood.Web.Infrastructure.UploadFiles;
 using WeLoveFood.Web.Infrastructure.Extensions;
 

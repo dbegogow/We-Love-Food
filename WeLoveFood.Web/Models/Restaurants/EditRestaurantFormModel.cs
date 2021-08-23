@@ -1,9 +1,9 @@
-﻿using WeLoveFood.Web.Data;
+﻿using WeLoveFood.Data;
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using WeLoveFood.Web.Models.Constants.Cities;
 
-using static WeLoveFood.Web.Data.DataConstants.Restaurant;
+using static WeLoveFood.Data.DataConstants.Restaurant;
 using static WeLoveFood.Web.Models.Constants.Restaurants.DisplayNames;
 using static WeLoveFood.Web.Models.Constants.Restaurants.ExceptionMessages;
 

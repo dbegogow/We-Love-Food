@@ -1,6 +1,6 @@
-﻿using WeLoveFood.Web.Data.Models;
+﻿using WeLoveFood.Data.Models;
 
-namespace WeLoveFood.Web.Services.clients
+namespace WeLoveFood.Services.clients
 {
     public interface IClientsService
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using System.Linq;
-using WeLoveFood.Web.Data.Models;
-using WeLoveFood.Web.Services.Models.Orders;
+using WeLoveFood.Data.Models;
+using WeLoveFood.Services.Models.Orders;
 
 namespace WeLoveFood.Web.Infrastructure.Mapping
 {

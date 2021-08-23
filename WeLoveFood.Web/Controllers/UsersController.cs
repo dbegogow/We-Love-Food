@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Services.Users;
+using WeLoveFood.Services.Cities;
 using WeLoveFood.Web.Models.Users;
-using WeLoveFood.Web.Services.Users;
-using WeLoveFood.Web.Services.Cities;
 using Microsoft.AspNetCore.Authorization;
 using WeLoveFood.Web.Infrastructure.Extensions;
 using WeLoveFood.Web.Infrastructure.UploadFiles;

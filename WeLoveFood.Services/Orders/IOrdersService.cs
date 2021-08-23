@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using WeLoveFood.Web.Services.Models.Orders;
+using WeLoveFood.Services.Models.Orders;
 
-namespace WeLoveFood.Web.Services.Orders
+namespace WeLoveFood.Services.Orders
 {
     public interface IOrdersService
     {

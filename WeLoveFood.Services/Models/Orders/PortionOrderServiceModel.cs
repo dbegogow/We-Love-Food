@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Web.Services.Models.Orders
+﻿namespace WeLoveFood.Services.Models.Orders
 {
     public class PortionOrderServiceModel
     {

@@ -1,12 +1,13 @@
 ﻿using Xunit;
 using MyTested.AspNetCore.Mvc;
 using WeLoveFood.Web.Controllers;
+
 using RestaurantsController = WeLoveFood.Web.Areas.Manager.Controllers.RestaurantsController;
 using OrdersController = WeLoveFood.Web.Areas.Waiter.Controllers.OrdersController;
 
 using static WeLoveFood.Web.WebConstants;
 
-namespace WeLoveFood.Web.Test.Controllers
+namespace WeLoveFood.Test.Controllers
 {
     public class HomeControllerTest
     {
@@ -35,7 +36,7 @@ namespace WeLoveFood.Web.Test.Controllers
                 .Calling(c => c.Index())
                 .ShouldReturn()
                 .Redirect(redirect => redirect
-                    .To<Areas.Manager.Controllers.RestaurantsController>(c => c.Mine()));
+                    .To<RestaurantsController>(c => c.Mine()));
 
         [Fact]
         public void IndexShouldRedirectToWaiterOrdersControllerWhenUserIsWaiter()
@@ -45,7 +46,7 @@ namespace WeLoveFood.Web.Test.Controllers
                 .Calling(c => c.Index())
                 .ShouldReturn()
                 .Redirect(redirect => redirect
-                    .To<Areas.Waiter.Controllers.OrdersController>(c => c.All()));
+                    .To<OrdersController>(c => c.All()));
 
         [Fact]
         public void ErrorShouldReturnView()

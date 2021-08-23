@@ -1,14 +1,14 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Services.Carts;
+using WeLoveFood.Services.Users;
+using WeLoveFood.Services.Cities;
+using WeLoveFood.Services.Orders;
+using WeLoveFood.Services.clients;
 using WeLoveFood.Web.Models.Carts;
-using WeLoveFood.Web.Services.Carts;
-using WeLoveFood.Web.Services.Users;
-using WeLoveFood.Web.Services.Cities;
-using WeLoveFood.Web.Services.Orders;
-using WeLoveFood.Web.Services.clients;
-using WeLoveFood.Web.Services.Portions;
+using WeLoveFood.Services.Portions;
+using WeLoveFood.Services.Models.Users;
 using Microsoft.AspNetCore.Authorization;
-using WeLoveFood.Web.Services.Models.Users;
 using WeLoveFood.Web.Infrastructure.Extensions;
 
 using static WeLoveFood.Web.WebConstants;

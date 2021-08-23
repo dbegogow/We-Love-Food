@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using WeLoveFood.Web.Data;
-using WeLoveFood.Web.Data.Models;
-using WeLoveFood.Web.Services.Managers;
+using WeLoveFood.Data;
+using WeLoveFood.Data.Models;
+using WeLoveFood.Services.Managers;
 
-namespace WeLoveFood.Web.Services.Waiters
+namespace WeLoveFood.Services.Waiters
 {
     public class WaitersService : IWaitersService
     {

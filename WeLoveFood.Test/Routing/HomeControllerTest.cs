@@ -2,7 +2,7 @@
 using MyTested.AspNetCore.Mvc;
 using WeLoveFood.Web.Controllers;
 
-namespace WeLoveFood.Web.Test.Routing
+namespace WeLoveFood.Test.Routing
 {
     public class HomeControllerTest
     {

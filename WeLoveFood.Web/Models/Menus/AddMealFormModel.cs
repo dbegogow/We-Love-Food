@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Web.Data.DataConstants.Meal;
+using static WeLoveFood.Data.DataConstants.Meal;
 using static WeLoveFood.Web.Models.Constants.Menus.DisplayNames;
 using static WeLoveFood.Web.Models.Constants.Menus.ExceptionMessages;
 

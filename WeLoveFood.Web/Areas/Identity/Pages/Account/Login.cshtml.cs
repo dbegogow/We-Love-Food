@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
+using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Web.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;

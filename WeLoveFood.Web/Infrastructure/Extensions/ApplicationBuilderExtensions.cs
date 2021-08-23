@@ -1,7 +1,7 @@
 ﻿using System;
-using WeLoveFood.Web.Data;
+using WeLoveFood.Data;
 using System.Threading.Tasks;
-using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;

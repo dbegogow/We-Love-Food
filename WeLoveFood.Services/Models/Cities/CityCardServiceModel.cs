@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Web.Services.Models.Cities
+﻿namespace WeLoveFood.Services.Models.Cities
 {
     public class CityCardServiceModel
     {

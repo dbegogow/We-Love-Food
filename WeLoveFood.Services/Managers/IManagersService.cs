@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using WeLoveFood.Web.Services.Models.Restaurants;
-using WeLoveFood.Web.Services.Models.Waiters;
+using WeLoveFood.Services.Models.Waiters;
+using WeLoveFood.Services.Models.Restaurants;
 
-namespace WeLoveFood.Web.Services.Managers
+namespace WeLoveFood.Services.Managers
 {
     public interface IManagersService
     {

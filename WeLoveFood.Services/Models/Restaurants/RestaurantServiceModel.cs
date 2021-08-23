@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WeLoveFood.Web.Services.Models.Restaurants
+﻿namespace WeLoveFood.Services.Models.Restaurants
 {
     public class RestaurantServiceModel
     {

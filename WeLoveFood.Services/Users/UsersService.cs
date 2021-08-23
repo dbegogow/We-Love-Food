@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using System.Linq;
+using WeLoveFood.Data;
 using AutoMapper.QueryableExtensions;
-using WeLoveFood.Web.Data;
-using WeLoveFood.Web.Services.Models.Users;
+using WeLoveFood.Services.Models.Users;
 
-namespace WeLoveFood.Web.Services.Users
+namespace WeLoveFood.Services.Users
 {
     public class UsersService : IUsersService
     {

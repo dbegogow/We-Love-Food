@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Data.Models;
 using WeLoveFood.Web.Models.Users;
-using WeLoveFood.Web.Services.Models.Users;
+using WeLoveFood.Services.Models.Users;
 
 namespace WeLoveFood.Web.Infrastructure.Mapping
 {

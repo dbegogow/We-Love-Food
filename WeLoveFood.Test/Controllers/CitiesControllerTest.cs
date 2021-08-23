@@ -2,16 +2,19 @@
 using System;
 using MyTested.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using WeLoveFood.Web.Services.Models.Cities;
 using WeLoveFood.Web.Controllers;
-using static WeLoveFood.Web.CacheConstants;
-using static WeLoveFood.Web.Test.Data.Cities;
+using WeLoveFood.Services.Models.Cities;
 
-namespace WeLoveFood.Web.Test.Controllers
+using static WeLoveFood.Test.Data.Cities;
+using static WeLoveFood.Web.CacheConstants;
+
+namespace WeLoveFood.Test.Controllers
 {
     public class CitiesControllerTest
     {
+        private const int AbsoluteExpirationTime = 30;
+        private const int ValidCitiesCount = 5;
+
         [Fact]
         public void AllShouldReturnCorrectViewWithCities()
             => MyController<CitiesController>
@@ -22,12 +25,12 @@ namespace WeLoveFood.Web.Test.Controllers
                 .MemoryCache(cache => cache
                     .ContainingEntry(entry => entry
                         .WithKey(AllCitiesCardsCacheKey)
-                        .WithAbsoluteExpirationRelativeToNow(TimeSpan.FromMinutes(30))
+                        .WithAbsoluteExpirationRelativeToNow(TimeSpan.FromMinutes(AbsoluteExpirationTime))
                         .WithValueOfType<List<CityCardServiceModel>>()))
                 .AndAlso()
                 .ShouldReturn()
                 .View(view => view
                     .WithModelOfType<List<CityCardServiceModel>>()
-                    .Passing(model => model.Count == 5));
+                    .Passing(model => model.Count == ValidCitiesCount));
     }
 }

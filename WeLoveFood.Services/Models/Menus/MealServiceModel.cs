@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Web.Services.Models.Menus
+﻿namespace WeLoveFood.Services.Models.Menus
 {
     public class MealServiceModel
     {

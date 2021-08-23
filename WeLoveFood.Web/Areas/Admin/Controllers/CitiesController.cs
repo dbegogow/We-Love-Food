@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WeLoveFood.Services.Cities;
 using WeLoveFood.Web.Models.Cities;
-using WeLoveFood.Web.Services.Cities;
 using WeLoveFood.Web.Infrastructure.UploadFiles;
 
 using static WeLoveFood.Web.TempDataConstants;

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Web.Data.DataConstants.MealsCategory;
+using static WeLoveFood.Data.DataConstants.MealsCategory;
 using static WeLoveFood.Web.Models.Constants.Menus.DisplayNames;
 using static WeLoveFood.Web.Models.Constants.Menus.ExceptionMessages;
 

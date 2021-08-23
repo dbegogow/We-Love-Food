@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using System.Linq;
-using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Data.Models;
 using WeLoveFood.Web.Models.Restaurants;
-using WeLoveFood.Web.Services.Models.Restaurants;
+using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Web.Infrastructure.Mapping
 {

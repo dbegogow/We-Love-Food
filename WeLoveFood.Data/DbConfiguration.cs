@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Web.Data
+﻿namespace WeLoveFood.Data
 {
     public class DbConfiguration
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Web.Data.DataConstants.User;
+using static WeLoveFood.Data.DataConstants.User;
 using static WeLoveFood.Web.Models.Constants.Users.ExceptionMessages;
 
 namespace WeLoveFood.Web.Models.Users

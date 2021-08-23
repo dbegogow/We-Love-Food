@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using WeLoveFood.Web.Services.Models.Restaurants;
+using WeLoveFood.Services.Models.Restaurants;
 
 using static WeLoveFood.Web.Models.Constants.Restaurants.DisplayNames;
 

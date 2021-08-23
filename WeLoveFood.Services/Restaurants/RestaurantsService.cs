@@ -1,16 +1,16 @@
 ﻿using System;
 using AutoMapper;
 using System.Linq;
+using WeLoveFood.Data;
+using WeLoveFood.Data.Models;
+using WeLoveFood.Services.Menus;
 using System.Collections.Generic;
+using WeLoveFood.Services.clients;
+using WeLoveFood.Services.Managers;
 using AutoMapper.QueryableExtensions;
-using WeLoveFood.Web.Data;
-using WeLoveFood.Web.Data.Models;
-using WeLoveFood.Web.Services.clients;
-using WeLoveFood.Web.Services.Managers;
-using WeLoveFood.Web.Services.Menus;
-using WeLoveFood.Web.Services.Models.Restaurants;
+using WeLoveFood.Services.Models.Restaurants;
 
-namespace WeLoveFood.Web.Services.Restaurants
+namespace WeLoveFood.Services.Restaurants
 {
     public class RestaurantsService : IRestaurantsService
     {

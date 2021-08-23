@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using WeLoveFood.Web.Services.Cities;
+using WeLoveFood.Services.Cities;
+using WeLoveFood.Services.Models.Cities;
 using Microsoft.Extensions.Caching.Memory;
-using WeLoveFood.Web.Services.Models.Cities;
 using WeLoveFood.Web.Infrastructure.Extensions;
 
 using static WeLoveFood.Web.CacheConstants;

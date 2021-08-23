@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-using static WeLoveFood.Web.Data.DataConstants.Common;
+using static WeLoveFood.Data.DataConstants.Common;
 
-namespace WeLoveFood.Web.Data.Models
+namespace WeLoveFood.Data.Models
 {
     public class Manager
     {

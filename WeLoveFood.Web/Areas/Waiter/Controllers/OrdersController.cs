@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Web.Services.Orders;
-using WeLoveFood.Web.Services.Waiters;
+using WeLoveFood.Services.Orders;
+using WeLoveFood.Services.Waiters;
 using WeLoveFood.Web.Infrastructure.Extensions;
 
 using static WeLoveFood.Web.TempDataConstants;

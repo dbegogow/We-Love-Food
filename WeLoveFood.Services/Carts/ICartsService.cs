@@ -1,7 +1,7 @@
-﻿using WeLoveFood.Web.Data.Models;
-using WeLoveFood.Web.Services.Models.Orders;
+﻿using WeLoveFood.Data.Models;
+using WeLoveFood.Services.Models.Orders;
 
-namespace WeLoveFood.Web.Services.Carts
+namespace WeLoveFood.Services.Carts
 {
     public interface ICartsService
     {

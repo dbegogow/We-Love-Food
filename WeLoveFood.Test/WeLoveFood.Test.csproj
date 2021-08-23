@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeLoveFood\WeLoveFood.Web.csproj" />
+    <ProjectReference Include="..\WeLoveFood.Web\WeLoveFood.Web.csproj" />
   </ItemGroup>
 
 </Project>

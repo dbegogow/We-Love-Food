@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using WeLoveFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
-using WeLoveFood.Web.Data.Models;
-using Microsoft.AspNetCore.Identity;
+using WeLoveFood.Services.Cities;
+using WeLoveFood.Services.Waiters;
+using WeLoveFood.Services.Managers;
 using WeLoveFood.Web.Models.Waiters;
-using WeLoveFood.Web.Services.Cities;
-using WeLoveFood.Web.Services.Waiters;
-using WeLoveFood.Web.Services.Managers;
+using Microsoft.AspNetCore.Identity;
 using WeLoveFood.Web.Infrastructure.Extensions;
 using WeLoveFood.Web.Infrastructure.UploadFiles;
 

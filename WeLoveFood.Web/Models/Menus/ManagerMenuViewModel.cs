@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using WeLoveFood.Web.Services.Models.Menus;
+using WeLoveFood.Services.Models.Menus;
 
 namespace WeLoveFood.Web.Models.Menus
 {

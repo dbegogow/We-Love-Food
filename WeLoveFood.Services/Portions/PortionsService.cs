@@ -1,13 +1,13 @@
-﻿using System.Linq;
+﻿using AutoMapper;
+using System.Linq;
+using WeLoveFood.Data;
+using WeLoveFood.Data.Models;
 using System.Collections.Generic;
-using AutoMapper;
+using WeLoveFood.Services.clients;
 using AutoMapper.QueryableExtensions;
-using WeLoveFood.Web.Data;
-using WeLoveFood.Web.Data.Models;
-using WeLoveFood.Web.Services.clients;
-using WeLoveFood.Web.Services.Models.Orders;
+using WeLoveFood.Services.Models.Orders;
 
-namespace WeLoveFood.Web.Services.Portions
+namespace WeLoveFood.Services.Portions
 {
     public class PortionsService : IPortionsService
     {

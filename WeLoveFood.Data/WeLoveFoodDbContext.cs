@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using WeLoveFood.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using WeLoveFood.Web.Data.Models;
-using static WeLoveFood.Web.Data.DbConfiguration;
 
-namespace WeLoveFood.Web.Data
+using static WeLoveFood.Data.DbConfiguration;
+
+namespace WeLoveFood.Data
 {
     public class WeLoveFoodDbContext : IdentityDbContext<User>
     {
@@ -34,8 +35,11 @@ namespace WeLoveFood.Web.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder
-                .UseSqlServer(ConnectionString);
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder
+                    .UseSqlServer(ConnectionString);
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

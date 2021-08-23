@@ -1,4 +1,4 @@
-﻿namespace WeLoveFood.Web.Services.Models.Users
+﻿namespace WeLoveFood.Services.Models.Users
 {
     public class PersonalDataServiceModel
     {

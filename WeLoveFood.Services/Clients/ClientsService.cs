@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using WeLoveFood.Web.Data;
-using WeLoveFood.Web.Data.Models;
+using WeLoveFood.Data;
+using WeLoveFood.Data.Models;
 
-namespace WeLoveFood.Web.Services.clients
+namespace WeLoveFood.Services.clients
 {
     public class ClientsService : IClientsService
     {

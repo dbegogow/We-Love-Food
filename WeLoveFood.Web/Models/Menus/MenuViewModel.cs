@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using WeLoveFood.Web.Services.Models.Menus;
-using WeLoveFood.Web.Services.Models.Restaurants;
+using WeLoveFood.Services.Models.Menus;
+using WeLoveFood.Services.Models.Restaurants;
 
 namespace WeLoveFood.Web.Models.Menus
 {

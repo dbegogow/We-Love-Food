@@ -6,6 +6,7 @@ using WeLoveFood.Web.Controllers;
 using WeLoveFood.Web.Models.Restaurants;
 using WeLoveFood.Services.Models.Restaurants;
 
+using static WeLoveFood.Web.WebConstants;
 using static WeLoveFood.Test.Data.RestaurantsTestData;
 
 namespace WeLoveFood.Test.Controllers
@@ -38,6 +39,16 @@ namespace WeLoveFood.Test.Controllers
                                       model.SearchTerm == searchTerm &&
                                       model.CurrentPage == page &&
                                       model.CityName == "City 1"));
+
+        [Fact]
+        public void FavoriteShouldBeForAuthorizedClientsUsers()
+            => MyController<RestaurantsController>
+                .Instance()
+                .Calling(c => c.Favorite())
+                .ShouldHave()
+                .ActionAttributes(attributes => attributes
+                    .RestrictingForAuthorizedRequests(ClientRoleName));
+
 
         [Fact]
         public void FavoriteShouldReturnCorrectViewWithClientFavoriteRestaurantsModel()

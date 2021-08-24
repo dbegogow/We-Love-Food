@@ -12,7 +12,7 @@ namespace WeLoveFood.Web.Areas.Admin.Controllers
         public RestaurantsController(IRestaurantsService restaurants)
             => this._restaurants = restaurants;
 
-        public IActionResult New()
+        public IActionResult Newest()
         {
             var newRestaurantsCards = this._restaurants
                 .NewOnes();

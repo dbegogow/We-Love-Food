@@ -2,8 +2,8 @@
 using MyTested.AspNetCore.Mvc;
 using WeLoveFood.Web.Controllers;
 
-using RestaurantsController = WeLoveFood.Web.Areas.Manager.Controllers.RestaurantsController;
 using OrdersController = WeLoveFood.Web.Areas.Waiter.Controllers.OrdersController;
+using RestaurantsController = WeLoveFood.Web.Areas.Manager.Controllers.RestaurantsController;
 
 using static WeLoveFood.Web.WebConstants;
 

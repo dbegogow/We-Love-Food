@@ -129,11 +129,11 @@ namespace WeLoveFood.Services.Menus
                 .Select(mc => mc.Id)
                 .ToList();
 
-        public IEnumerable<CategoryServiceModel> RestaurantMealsCategories(int restaurantId)
+        public IEnumerable<MealsCategoryServiceModel> RestaurantMealsCategories(int restaurantId)
             => this._data
                 .MealsCategories
                 .Where(mc => mc.RestaurantId == restaurantId && !mc.IsDeleted)
-                .ProjectTo<CategoryServiceModel>(this._mapper)
+                .ProjectTo<MealsCategoryServiceModel>(this._mapper)
                 .ToList();
 
         public IEnumerable<MealServiceModel> MealsCategory(int mealsCategoryId)

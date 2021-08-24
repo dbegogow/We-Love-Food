@@ -5,7 +5,7 @@ namespace WeLoveFood.Web.Models.Menus
 {
     public class ManagerMenuViewModel
     {
-        public CategoryServiceModel MealsCategory { get; init; }
+        public MealsCategoryServiceModel MealsCategory { get; init; }
 
         public IEnumerable<MealServiceModel> Meals { get; init; }
     }

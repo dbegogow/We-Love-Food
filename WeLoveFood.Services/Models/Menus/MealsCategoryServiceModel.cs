@@ -1,6 +1,6 @@
 ﻿namespace WeLoveFood.Services.Models.Menus
 {
-    public class CategoryServiceModel
+    public class MealsCategoryServiceModel
     {
         public int Id { get; init; }
 

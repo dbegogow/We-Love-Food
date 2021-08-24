@@ -8,7 +8,7 @@ namespace WeLoveFood.Web.Infrastructure.Mapping
     {
         public MealsProfile()
         {
-            this.CreateMap<MealsCategory, CategoryServiceModel>();
+            this.CreateMap<MealsCategory, MealsCategoryServiceModel>();
 
             this.CreateMap<Meal, MealServiceModel>();
         }

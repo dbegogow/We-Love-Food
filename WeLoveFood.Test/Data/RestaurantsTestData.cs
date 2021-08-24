@@ -3,6 +3,7 @@ using WeLoveFood.Data.Models;
 using System.Collections.Generic;
 
 using static WeLoveFood.Test.Data.CitiesTestData;
+using static WeLoveFood.Test.Data.MealsCategoriesTestData;
 
 namespace WeLoveFood.Test.Data
 {
@@ -35,5 +36,14 @@ namespace WeLoveFood.Test.Data
 
             return restaurants;
         }
+
+        public static IEnumerable<Restaurant> GetRestaurantsWithMealsCategoriesAndMeals()
+            => Enumerable
+                .Range(1, 2)
+                .Select(i => new Restaurant
+                {
+                    Id = i,
+                    MealsCategories = GetMealsCategories(i * 10, i + 2).ToList()
+                });
     }
 }

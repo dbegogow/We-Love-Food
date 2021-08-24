@@ -34,7 +34,7 @@ namespace WeLoveFood.Services.Menus
 
         IEnumerable<int> RestaurantMealsCategoriesIds(int restaurantId);
 
-        IEnumerable<CategoryServiceModel> RestaurantMealsCategories(int restaurantId);
+        IEnumerable<MealsCategoryServiceModel> RestaurantMealsCategories(int restaurantId);
 
         IEnumerable<MealServiceModel> MealsCategory(int mealsCategoryId);
     }

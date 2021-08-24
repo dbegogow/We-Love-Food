@@ -30,9 +30,6 @@ namespace WeLoveFood.Test.Controllers
                     SearchTerm = searchTerm,
                     CurrentPage = page
                 }))
-                .ShouldHave()
-                .ValidModelState()
-                .AndAlso()
                 .ShouldReturn()
                 .View(view => view
                     .WithModelOfType<AllCityRestaurantsCardsQueryModel>()

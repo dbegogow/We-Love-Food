@@ -6,9 +6,9 @@ namespace WeLoveFood.Test.Data
 {
     public static class MealsTestData
     {
-        public static IEnumerable<Meal> GetMeals()
+        public static IEnumerable<Meal> GetMeals(int start, int count)
             => Enumerable
-                .Range(1, 3)
+                .Range(start, count)
                 .Select(i => new Meal
                 {
                     Id = i,

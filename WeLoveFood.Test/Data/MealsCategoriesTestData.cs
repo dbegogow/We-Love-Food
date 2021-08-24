@@ -8,14 +8,14 @@ namespace WeLoveFood.Test.Data
 {
     public static class MealsCategoriesTestData
     {
-        public static IEnumerable<MealsCategory> GetMealsCategories()
+        public static IEnumerable<MealsCategory> GetMealsCategories(int start, int count)
             => Enumerable
-                .Range(1, 3)
+                .Range(start, count)
                 .Select(i => new MealsCategory
                 {
                     Id = i,
                     Name = $"Meals category {i}",
-                    Meals = GetMeals().ToList()
+                    Meals = GetMeals(i * 10, count + 2).ToList()
                 });
     }
 }

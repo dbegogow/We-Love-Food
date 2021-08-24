@@ -8,9 +8,9 @@ namespace WeLoveFood.Web.Models.Menus
     {
         public RestaurantServiceModel Restaurant { get; init; }
 
-        public IEnumerable<CategoryServiceModel> AllCategories { get; init; }
+        public IEnumerable<MealsCategoryServiceModel> AllMealsCategories { get; init; }
 
-        public string CategoryName { get; init; }
+        public string MealsCategoryName { get; init; }
 
         public IEnumerable<MealServiceModel> Meals { get; init; }
     }

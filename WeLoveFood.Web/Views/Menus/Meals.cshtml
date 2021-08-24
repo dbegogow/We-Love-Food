@@ -67,15 +67,15 @@
 
     <div class="menu">
         <ul>
-            @foreach (var category in Model.AllCategories)
+            @foreach (var category in Model.AllMealsCategories)
             {
-                <li><a asp-area="" asp-controller="Menus" asp-action="Meals" asp-route-categoryId="@category.Id">@category.Name</a></li>
+                <li><a asp-area="" asp-controller="Menus" asp-action="Meals" asp-route-mealsCategoryId="@category.Id">@category.Name</a></li>
             }
         </ul>
     </div>
 
     <div class="menu-section @(Model.Restaurant.IsOpen ? string.Empty : "closed")">
-        <h2>@Model.CategoryName</h2>
+        <h2>@Model.MealsCategoryName</h2>
 
         <div class="meals-container">
             @foreach (var meal in Model.Meals)

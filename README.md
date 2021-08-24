@@ -26,5 +26,5 @@ The administrator can track the status of the restaurant in real time and add ne
 * Cloudinary
 * MyTested.AspNetCore.Mvc
 
-## Interface
+## 📷 Interface
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/WeLoveFood.Web/wwwroot/img/home/slider/slider-meal-1.jpg)

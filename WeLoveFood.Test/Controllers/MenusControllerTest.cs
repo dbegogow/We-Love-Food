@@ -11,12 +11,12 @@ namespace WeLoveFood.Test.Controllers
     public class MenusControllerTest
     {
         [Theory]
-        [InlineData(1, 0, 3, "Meals category 10", 5, 1)]
+        [InlineData(1, null, 3, "Meals category 10", 5, 1)]
         [InlineData(1, 20, 3, "Meals category 20", 6, 1)]
-        [InlineData(2, 0, 4, "Meals category 20", 6, 2)]
+        [InlineData(2, null, 4, "Meals category 20", 6, 2)]
         public void MealsShouldReturnCorrectViewWithValidData(
             int id,
-            int mealsCategoryId,
+            int? mealsCategoryId,
             int expectedAllMealsCategoriesCount,
             string expectedMealsCategoryName,
             int expectedMealsCount,

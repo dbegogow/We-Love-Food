@@ -21,20 +21,25 @@ namespace WeLoveFood.Web.Controllers
             this._restaurants = restaurants;
         }
 
-        public IActionResult Meals(int id, int mealsCategoryId = NoMealsCategoryId)
+        public IActionResult Meals(int id, int? mealsCategoryId)
         {
             var allCategories = this._menus
                 .RestaurantMealsCategories(id)
                 .ToList();
 
-            mealsCategoryId = mealsCategoryId == NoMealsCategoryId ? allCategories[0].Id : mealsCategoryId;
+            var firstMealsCategoryId = allCategories
+                .Any()
+                ? allCategories[0].Id
+                : NoMealsCategoryId;
+
+            mealsCategoryId ??= firstMealsCategoryId;
 
             var meals = this._menus
-                .MealsCategory(mealsCategoryId)
+                .MealsCategory((int)mealsCategoryId)
                 .ToList();
 
             var categoryName = this._menus
-                .CategoryName(mealsCategoryId);
+                .CategoryName((int)mealsCategoryId);
 
             var restaurant = this._restaurants
                 .Information(id);

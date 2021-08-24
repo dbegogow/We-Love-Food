@@ -31,7 +31,7 @@ namespace WeLoveFood.Test.Controllers
         [InlineData(4, 52)]
         [InlineData(6, 107)]
 
-        public void GetCartShouldReturnCorrectViewWithValidModelWithPortionsAndUserData(
+        public void GetCartShouldReturnCorrectViewWithValidModelWithPortions(
             int portionsCount,
             int expectedTotalPrice)
             => MyController<OrdersController>
@@ -71,7 +71,7 @@ namespace WeLoveFood.Test.Controllers
 
         [Theory]
         [InlineData("Test first name", "Test last name", "0884184241", "Test City", "Test address")]
-        public void PostCartShouldSaveOrderSetTempDataMessageAndRedirectWhenValidModel(
+        public void PostCartShouldRedirectWhenValidModel(
             string firstName,
             string lastName,
             string phoneNumber,

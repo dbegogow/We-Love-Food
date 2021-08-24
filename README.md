@@ -27,22 +27,33 @@ The administrator can track the status of the restaurant in real time and add ne
 * MyTested.AspNetCore.Mvc
 
 ## 📷 Interface
+
+#### Home Page
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/home.png)
 
+
+#### Cities Page
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/cities.png)
 
+#### Menu Page
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/menu.png)
 
+#### Client Cart Page
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/cart.png)
 
+#### Client Orders Page
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/orders.png)
 
+#### Register Page
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/register.png)
 
+#### Manager Restaurants Page
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/manager-restaurants.png)
 
+#### Manager Restaurant Meals Page
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/meals.png)
 
+#### Restaurant Waiters Page
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/waiters.png)
 
 ## 💾 Database

@@ -23,19 +23,24 @@ namespace WeLoveFood.Web.Infrastructure.Extensions
                 defaults: new { area = "", controller = "Menus", action = "Meals" });
 
             endpoints.MapControllerRoute(
-                name: "Cart",
+                name: "Client Cart",
                 pattern: "/Cart",
                 defaults: new { area = "", controller = "Orders", action = "Cart" });
 
             endpoints.MapControllerRoute(
-                name: "Client Personal Data",
-                pattern: "/PersonalData",
-                defaults: new { area = "", controller = "Users", action = "PersonalData" });
+                name: "Client Made Successful Order",
+                pattern: "/MadeSuccessfulOrder",
+                defaults: new { area = "", controller = "Orders", action = "MadeSuccessfulOrder" });
 
             endpoints.MapControllerRoute(
                 name: "Client Orders",
                 pattern: "/Orders",
                 defaults: new { area = "", controller = "Orders", action = "Mine" });
+
+            endpoints.MapControllerRoute(
+                name: "Client Personal Data",
+                pattern: "/PersonalData",
+                defaults: new { area = "", controller = "Users", action = "PersonalData" });
 
             endpoints.MapControllerRoute(
                 name: "Client Favorite Restaurants",

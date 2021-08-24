@@ -14,7 +14,7 @@ namespace WeLoveFood.Test.Controllers
         [InlineData(1, null, 3, "Meals category 10", 5, 1)]
         [InlineData(1, 20, 3, "Meals category 20", 6, 1)]
         [InlineData(2, null, 4, "Meals category 20", 6, 2)]
-        public void MealsShouldReturnCorrectViewWithValidData(
+        public void MealsShouldReturnCorrectViewWithValidModelWithMenu(
             int id,
             int? mealsCategoryId,
             int expectedAllMealsCategoriesCount,

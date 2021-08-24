@@ -179,7 +179,7 @@ namespace WeLoveFood.Services.Orders
                 .OrderByDescending(o => o.Id)
                 .ProjectTo<ClientOrderServiceModel>(this._mapper)
                 .ToList();
-        }
+            }
 
         private bool IsMealFromTheSameRestaurant(
             int mealId,

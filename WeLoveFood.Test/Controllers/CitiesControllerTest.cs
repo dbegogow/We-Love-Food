@@ -6,7 +6,6 @@ using WeLoveFood.Web.Controllers;
 using WeLoveFood.Services.Models.Cities;
 
 using static WeLoveFood.Web.CacheConstants;
-using static WeLoveFood.Test.Data.RestaurantsTestData;
 using static WeLoveFood.Test.Data.CitiesTestData;
 
 namespace WeLoveFood.Test.Controllers
@@ -14,7 +13,7 @@ namespace WeLoveFood.Test.Controllers
     public class CitiesControllerTest
     {
         [Fact]
-        public void AllShouldReturnCorrectViewWithValidModel()
+        public void AllShouldReturnCorrectViewWithValidModelWithCities()
             => MyController<CitiesController>
                 .Instance(controller => controller
                     .WithData(GetCities()))

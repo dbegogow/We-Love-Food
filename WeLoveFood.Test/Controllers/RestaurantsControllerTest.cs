@@ -17,7 +17,7 @@ namespace WeLoveFood.Test.Controllers
         [InlineData(1, null, 1, 16, 22)]
         [InlineData(1, null, 2, 6, 22)]
         [InlineData(1, "Restaurant 11", 1, 1, 1)]
-        public void AllShouldReturnCorrectViewWithValidModel(
+        public void AllShouldReturnCorrectViewWithValidModelWithAllCityRestaurants(
             int cityId,
             string searchTerm,
             int page,
@@ -51,7 +51,7 @@ namespace WeLoveFood.Test.Controllers
 
 
         [Fact]
-        public void FavoriteShouldReturnCorrectViewWithClientFavoriteRestaurantsModel()
+        public void FavoriteShouldReturnCorrectViewWithValidModelWithClientFavoriteRestaurants()
             => MyController<RestaurantsController>
                 .Instance(controller => controller
                     .WithUser("ClientId", "Client")

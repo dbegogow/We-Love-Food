@@ -2,6 +2,7 @@
 using WeLoveFood.Data.Models;
 using System.Collections.Generic;
 
+using static WeLoveFood.Test.Data.UsersTestData;
 using static WeLoveFood.Test.Data.CitiesTestData;
 using static WeLoveFood.Test.Data.MealsCategoriesTestData;
 
@@ -11,11 +12,8 @@ namespace WeLoveFood.Test.Data
     {
         public static IEnumerable<Restaurant> GetRestaurants()
         {
-            var managerUser = new User { UserName = "Manager" };
-            var manager = new Manager { User = managerUser };
-
-            var clientUser = new User { Id = "ClientId", UserName = "Client" };
-            var client = new Client { User = clientUser };
+            var manager = GetManager();
+            var client = GetClient();
 
             var cities = GetCities().ToList();
 

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using Xunit;
+﻿using Xunit;
 using System.Linq;
 using WeLoveFood.Data.Models;
 using MyTested.AspNetCore.Mvc;
-using WeLoveFood.Services.Models.Orders;
 using WeLoveFood.Web.Controllers;
+using System.Collections.Generic;
 using WeLoveFood.Web.Models.Carts;
+using WeLoveFood.Services.Models.Orders;
 
 using HttpMethod = System.Net.Http.HttpMethod;
 

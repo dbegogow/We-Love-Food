@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using WeLoveFood.Web.Controllers;
 using WeLoveFood.Services.Models.Cities;
 
-using static WeLoveFood.Test.Data.TestData;
 using static WeLoveFood.Web.CacheConstants;
+using static WeLoveFood.Test.Data.RestaurantsTestData;
+using static WeLoveFood.Test.Data.CitiesTestData;
 
 namespace WeLoveFood.Test.Controllers
 {
@@ -16,7 +17,7 @@ namespace WeLoveFood.Test.Controllers
         public void AllShouldReturnCorrectViewWithValidModel()
             => MyController<CitiesController>
                 .Instance(controller => controller
-                    .WithData(GetData()))
+                    .WithData(GetCities()))
                 .Calling(c => c.All())
                 .ShouldHave()
                 .MemoryCache(cache => cache

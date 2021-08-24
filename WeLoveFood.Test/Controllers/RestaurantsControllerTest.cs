@@ -6,7 +6,7 @@ using WeLoveFood.Web.Controllers;
 using WeLoveFood.Web.Models.Restaurants;
 using WeLoveFood.Services.Models.Restaurants;
 
-using static WeLoveFood.Test.Data.TestData;
+using static WeLoveFood.Test.Data.RestaurantsTestData;
 
 namespace WeLoveFood.Test.Controllers
 {
@@ -24,7 +24,7 @@ namespace WeLoveFood.Test.Controllers
             int totalRestaurantsExpectedCount)
             => MyController<RestaurantsController>
                 .Instance(controller => controller
-                    .WithData(GetData()))
+                    .WithData(GetRestaurants()))
                 .Calling(c => c.All(cityId, new AllCityRestaurantsCardsQueryModel
                 {
                     SearchTerm = searchTerm,
@@ -40,14 +40,14 @@ namespace WeLoveFood.Test.Controllers
                                       model.RestaurantsCards.Count() == pageRestaurantsExpectedCount &&
                                       model.SearchTerm == searchTerm &&
                                       model.CurrentPage == page &&
-                                      model.CityName == "First city"));
+                                      model.CityName == "City 1"));
 
         [Fact]
         public void FavoriteShouldReturnCorrectViewWithClientFavoriteRestaurantsModel()
             => MyController<RestaurantsController>
                 .Instance(controller => controller
                     .WithUser("ClientId", "Client")
-                    .WithData(GetData()))
+                    .WithData(GetRestaurants()))
                 .Calling(c => c.Favorite())
                 .ShouldReturn()
                 .View(view => view

@@ -28,13 +28,21 @@ The administrator can track the status of the restaurant in real time and add ne
 
 ## 📷 Interface
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/home.png)
+
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/cities.png)
+
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/menu.png)
+
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/cart.png)
+
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/orders.png)
+
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/register.png)
+
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/manager-restaurants.png)
+
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/meals.png)
+
 ![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/Images/waiters.png)
 
 ## 💾 Database

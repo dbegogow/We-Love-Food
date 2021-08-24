@@ -13,18 +13,18 @@ The manager can add his own restaurants as he has full control over the creation
 The administrator can track the status of the restaurant in real time and add new cities.
 
 ## 🛠️ Built With
-⋅⋅* ASP.NET Core 5.0
-⋅⋅* Entity Framework 5.0
-⋅⋅* MS SQL Server
-⋅⋅* Automapper
-⋅⋅* Data Layer
-⋅⋅* Service Layer
-⋅⋅* HTML & CSS
-⋅⋅* JavaScript
-⋅⋅* AJAX
-⋅⋅* jQuery
-⋅⋅* Cloudinary
-⋅⋅* MyTested.AspNetCore.Mvc
+* ASP.NET Core 5.0
+* Entity Framework 5.0
+* MS SQL Server
+* Automapper
+* Data Layer
+* Service Layer
+* HTML & CSS
+* JavaScript
+* AJAX
+* jQuery
+* Cloudinary
+* MyTested.AspNetCore.Mvc
 
 ## Interface
-![Screenshot](screenshot.png)
+![Screenshot](register-form.png)

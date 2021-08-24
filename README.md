@@ -3,4 +3,5 @@ We Love Food is an application through which people from different cities in the
 
 ## Description
 
-##### For the Clients
+#### For the Clients
+Customers can order from restaurants in different cities, save their personal data and their favorite restaurants, as well as have access to the history of orders already placed.

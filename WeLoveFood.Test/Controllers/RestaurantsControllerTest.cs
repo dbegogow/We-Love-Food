@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Xunit;
+﻿using Xunit;
 using System.Linq;
 using MyTested.AspNetCore.Mvc;
-using WeLoveFood.Services.Models.Restaurants;
+using System.Collections.Generic;
 using WeLoveFood.Web.Controllers;
 using WeLoveFood.Web.Models.Restaurants;
+using WeLoveFood.Services.Models.Restaurants;
 
 using static WeLoveFood.Test.Data.TestData;
 

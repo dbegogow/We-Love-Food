@@ -7,14 +7,14 @@ namespace WeLoveFood.Test.Routing
     public class HomeControllerTest
     {
         [Fact]
-        public void IndexRouteShouldBeMapped()
+        public void IndexShouldBeRoutedCorrectly()
             => MyRouting
                 .Configuration()
                 .ShouldMap("/")
                 .To<HomeController>(c => c.Index());
 
         [Fact]
-        public void ErrorRouteShouldBeMapped()
+        public void ErrorShouldBeRoutedCorrectly()
             => MyRouting
                 .Configuration()
                 .ShouldMap("/Home/Error")

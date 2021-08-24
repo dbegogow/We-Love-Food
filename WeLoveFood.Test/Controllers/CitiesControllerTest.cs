@@ -13,7 +13,7 @@ namespace WeLoveFood.Test.Controllers
     public class CitiesControllerTest
     {
         [Fact]
-        public void AllShouldReturnCorrectViewWithAllCities()
+        public void AllShouldReturnCorrectViewWithValidModel()
             => MyController<CitiesController>
                 .Instance(controller => controller
                     .WithData(GetData()))

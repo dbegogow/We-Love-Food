@@ -27,4 +27,4 @@ The administrator can track the status of the restaurant in real time and add ne
 * MyTested.AspNetCore.Mvc
 
 ## Interface
-![Screenshot](register-form.png)
+![Image of Yaktocat](https://github.com/dbegogow/We-Love-Food/blob/main/WeLoveFood.Web/wwwroot/img/home/slider/slider-meal-1.jpg)

@@ -35,7 +35,7 @@ namespace WeLoveFood.Web.Areas.Admin.Controllers
 
             TempData[SuccessMessageKey] = SuccessfulApprovedRestaurantMessage;
 
-            return RedirectToAction("New", "Restaurants", new { area = "Admin" });
+            return RedirectToAction("Newest", "Restaurants", new { area = "Admin" });
         }
     }
 }

@@ -292,7 +292,10 @@ namespace WeLoveFood.Services.Restaurants
         {
             var now = DateTime.Now.TimeOfDay;
 
-            return now > openingTime && now < closingTime;
+            if (openingTime <= closingTime)
+                return now >= openingTime && now <= closingTime;
+
+            return now >= openingTime || now <= closingTime;
         }
 
         private Restaurant FindRestaurant(int id)
